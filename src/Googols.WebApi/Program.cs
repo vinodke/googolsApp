@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Googols.Application;
@@ -66,6 +67,8 @@ builder.Services.AddScoped<IRealtimeNotifier, SignalRNotifier>();
 // ---- API plumbing
 builder.Services.AddOpenApi();
 builder.Services.AddProblemDetails();
+// Enums travel as names ("PersonalTeacher", "ApprovedMaterial"), matching the React client's types.
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddHealthChecks().AddDbContextCheck<GoogolsDbContext>("sql");
 
