@@ -28,7 +28,7 @@ builder.Services
         o.Lockout.MaxFailedAccessAttempts = 5;
         o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
         o.User.RequireUniqueEmail = true;
-        o.SignIn.RequireConfirmedEmail = builder.Environment.IsProduction();
+        o.SignIn.RequireConfirmedEmail = builder.Configuration.GetValue("Auth:RequireConfirmedEmail", false); // turn on once an email sender is configured (Phase 4)
     })
     .AddRoles<IdentityRole<Guid>>()
     .AddEntityFrameworkStores<GoogolsDbContext>();

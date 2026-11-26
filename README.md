@@ -60,4 +60,10 @@ cd frontend/googols-web; npm install; npm run dev
 Without Azure keys the app still runs: the AI teacher returns *"not available right now"* (HTTP 503) instead of failing.
 Without Redis, an in-memory cache is used. Blob storage defaults to Azurite (`UseDevelopmentStorage=true`).
 
+## Live deployment
+https://googols-app.azurewebsites.net (Azure App Service Linux B1 + Azure SQL Basic, resource group `googols-rg`). Redeploy from Azure Cloud Shell:
+```bash
+APP=googols-app RG=googols-rg ST=googolsst10298 bash infrastructure/azure/deploy.sh
+```
+
 Start with [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md) to see what's built and verified.
