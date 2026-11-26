@@ -32,6 +32,23 @@ Live checks passed: anonymous calls to every protected API return 401; bad sign-
 
 Redeploy: `bash infrastructure/azure/deploy.sh` from Cloud Shell (README). The Worker is not deployed yet (no background jobs exist until Phase 5).
 
+## Live end-to-end test (26 Nov 2026, against googols-app)
+Sample syllabus published: **KL-SCERT → Kerala State Syllabus 2026-27 → Class 8 → Biology (Malayalam medium) → Photosynthesis**.
+
+| # | Step | Result |
+|---|---|---|
+| 1–2 | Register + sign in (cookie) | 200 / 200 |
+| 3 | `/students/me` before onboarding | 404 (correct) |
+| 4 | Student calling admin catalog API | 403 (correct) |
+| 5–6 | Pick board → year → Class 8, onboard in Malayalam | 201 |
+| 8 | Profile | KL-SCERT · Class 8 · 2026-27, level 1, consent not required (adult test account) |
+| 9 | Chapters | ["Photosynthesis"] |
+| 10 | AI Teacher, Malayalam question about photosynthesis | **200**, 1,208-char answer, 915 Malayalam letters, everyday examples; `grounded=false` (no textbook content indexed yet); 39 questions left today |
+| 11 | Question containing a phone number | 422 blocked (correct) |
+| 12 | XP | 0 (no lesson/quiz events exist yet) |
+
+**Bug found and fixed by this test:** the API rejected `"mode":"PersonalTeacher"` with 400 because .NET reads enums as numbers by default; the React AI Teacher screen would have failed for every student. Fixed with `JsonStringEnumConverter` and redeployed. Test accounts were deleted afterwards; only `admin@gmail.com` remains.
+
 ## By module
 | Module | Status | Built | Next |
 |---|---|---|---|
