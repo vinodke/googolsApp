@@ -16,7 +16,9 @@ export function AiTeacherPage() {
   const [chosenSubject, setSubjectId] = useState(params.get('subject') ?? '')
   const subjectId = chosenSubject || subjects.data?.[0]?.id || ''
   const chapterId = params.get('chapter')
-  const [lang, setLang] = useState<Lang>(me.data?.preferredLanguage ?? 'en')
+  // Follow the student's preferred language until they pick one here (the profile may still be loading on first render).
+  const [chosenLang, setLang] = useState<Lang | null>(null)
+  const lang: Lang = chosenLang ?? me.data?.preferredLanguage ?? 'en'
   const [mode, setMode] = useState<TeacherMode>('PersonalTeacher')
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Message[]>([])
