@@ -49,6 +49,24 @@ Sample syllabus published: **KL-SCERT → Kerala State Syllabus 2026-27 → Clas
 
 **Bug found and fixed by this test:** the API rejected `"mode":"PersonalTeacher"` with 400 because .NET reads enums as numbers by default; the React AI Teacher screen would have failed for every student. Fixed with `JsonStringEnumConverter` and redeployed. Test accounts were deleted afterwards; only `admin@gmail.com` remains.
 
+## Admin screen + UI tests (26 Nov 2026)
+Admin curriculum screen tested in the browser on the live site as `admin@gmail.com`, using a throwaway "QA-TEST" board (deleted from the database afterwards):
+
+| Check | Result |
+|---|---|
+| Add board with lowercase code | Saved, code uppercased |
+| Academic year "2026" | Rejected: "Use the form 2026-27." |
+| Publish a year with no classes | Button disabled, "Add a class first" |
+| Add Class 8, subject code "QA 8" | Rejected (spaces not allowed) |
+| Subject code "qa-8" | Saved as "QA-8 · English medium" |
+| Add chapter; publish / unpublish year and chapter | Works, status badge updates |
+
+Automated React UI tests (vitest, mocked API): **10/10 pass** — admin screen, onboarding (correct request body, server validation error shown), AI Teacher (mode sent as text, Malayalam reply, "questions left today", 422 blocked message, locked when parental consent is missing).
+
+**Bugs found and fixed (deployed as `app-202611261551.zip`):**
+- AI Teacher picked English before the student profile had loaded, so Malayalam-medium students got English answers unless they changed it by hand. The language now follows the profile until the student chooses one.
+- Published/Draft/Archived badges on the admin screen all showed the same colour (overridden by the global badge style). Fixed; verified green "Published" on the live site.
+
 ## By module
 | Module | Status | Built | Next |
 |---|---|---|---|
