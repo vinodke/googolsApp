@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query'
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { api } from '../api/client'
 
@@ -17,6 +18,7 @@ const AuthContext = createContext<AuthState | null>(null)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<Me | null>(null)
   const [loading, setLoading] = useState(true)
+  const queryClient = useQueryClient()
 
   const refresh = useCallback(async () => {
     try {
@@ -35,6 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loading,
     login: async (email, password) => {
       await api.post('/auth/login?useCookies=true', { email, password })
+      queryClient.clear() // never show a previous user's cached profile or roles
       await refresh()
     },
     register: async (email, password) => {
@@ -42,9 +45,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     },
     logout: async () => {
       await api.post('/auth/logout').catch(() => undefined) // server clears the HttpOnly cookie
+      queryClient.clear()
       setUser(null)
     },
-  }), [user, loading, refresh])
+  }), [user, loading, refresh, queryClient])
 
   return <AuthContext value={value}>{children}</AuthContext>
 }

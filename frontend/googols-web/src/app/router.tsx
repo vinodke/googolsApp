@@ -5,6 +5,8 @@ import { LoginPage, RegisterPage } from '../features/auth/AuthPages'
 import { OnboardingPage } from '../features/onboarding/OnboardingPage'
 import { DashboardPage } from '../features/student/DashboardPage'
 import { SubjectChaptersPage, SubjectsPage } from '../features/subjects/SubjectsPages'
+import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
+import { AdminLayout } from './AdminLayout'
 import { StudentLayout } from './StudentLayout'
 
 function RequireAuth() {
@@ -20,6 +22,11 @@ export const router = createBrowserRouter([
     element: <RequireAuth />,
     children: [
       { path: '/onboarding', element: <OnboardingPage /> },
+      {
+        path: '/admin',
+        element: <AdminLayout />,
+        children: [{ index: true, element: <AdminCurriculumPage /> }],
+      },
       {
         element: <StudentLayout />,
         children: [

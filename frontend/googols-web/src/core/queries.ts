@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { ApiError, api } from './api/client'
-import type { StudentMe, Subject, XpSummary } from './api/types'
+import type { Account, StudentMe, Subject, XpSummary } from './api/types'
 
 export function useStudentMe() {
   return useQuery({
@@ -26,4 +26,14 @@ export function useSubjects(classId: string | undefined) {
 
 export function useXp() {
   return useQuery({ queryKey: ['xp'], queryFn: () => api.get<XpSummary>('/gamification/xp') })
+}
+
+export const ADMIN_ROLES = ['SuperAdmin', 'Admin', 'ContentManager']
+
+export function useAccount() {
+  return useQuery({ queryKey: ['account'], queryFn: () => api.get<Account>('/account/me') })
+}
+
+export function isAdmin(account: Account | undefined) {
+  return !!account?.roles.some(r => ADMIN_ROLES.includes(r))
 }

@@ -1,23 +1,27 @@
 import { NavLink, Navigate, Outlet } from 'react-router'
 import { useAuth } from '../core/auth/auth'
 import { strings } from '../core/i18n/strings'
-import { useStudentMe } from '../core/queries'
+import { isAdmin, useAccount, useStudentMe } from '../core/queries'
 import { useLearningHub } from '../core/realtime/useLearningHub'
 import './layout.css'
 
 export function StudentLayout() {
   const { user, logout } = useAuth()
   const me = useStudentMe()
+  const account = useAccount()
+  const admin = isAdmin(account.data)
   useLearningHub(!!me.data)
 
-  if (me.isLoading) return <div className="page-loading" aria-busy="true"><div className="skeleton" style={{ width: 240, height: 24 }} /></div>
-  if (me.data === null) return <Navigate to="/onboarding" replace />
+  if (me.isLoading || account.isLoading) return <div className="page-loading" aria-busy="true"><div className="skeleton" style={{ width: 240, height: 24 }} /></div>
+  // Admins without a student profile manage the catalog; everyone else completes student setup.
+  if (me.data === null) return <Navigate to={admin ? '/admin' : '/onboarding'} replace />
 
   const t = strings[me.data?.preferredLanguage ?? 'en']
   const links = [
     { to: '/', label: t.navHome, icon: '🏠', end: true },
     { to: '/subjects', label: t.navSubjects, icon: '📚' },
     { to: '/ai-teacher', label: t.navAiTeacher, icon: '✨' },
+    ...(admin ? [{ to: '/admin', label: 'Admin', icon: '🛠️' }] : []),
   ]
 
   return (

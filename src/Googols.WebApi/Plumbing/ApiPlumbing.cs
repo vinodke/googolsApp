@@ -118,6 +118,20 @@ public static class StartupTasks
                     await roles.CreateAsync(new IdentityRole<Guid>(role));
                 }
             }
+            // Optional: make one known account a SuperAdmin (app setting Admin__BootstrapEmail). Runs on every start,
+            // so registering that email and restarting the app is enough. Never removes roles.
+            var bootstrapEmail = scope.ServiceProvider.GetRequiredService<IConfiguration>()["Admin:BootstrapEmail"];
+            if (!string.IsNullOrWhiteSpace(bootstrapEmail))
+            {
+                var users = scope.ServiceProvider.GetRequiredService<UserManager<global::Googols.Infrastructure.Identity.AppUser>>();
+                var admin = await users.FindByEmailAsync(bootstrapEmail);
+                if (admin is not null && !await users.IsInRoleAsync(admin, Roles.SuperAdmin))
+                {
+                    await users.AddToRoleAsync(admin, Roles.SuperAdmin);
+                    log.LogWarning("Granted SuperAdmin to the bootstrap admin account.");
+                }
+            }
+
             var existing = await db.XpRules.Select(r => r.ActivityCode).ToListAsync();
             foreach (var (code, points) in XpRule.Defaults.Where(d => !existing.Contains(d.Key)))
             {

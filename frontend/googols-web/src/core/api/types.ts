@@ -27,3 +27,11 @@ export type TeacherMode = 'PersonalTeacher' | 'DoubtSolver' | 'ExamCoach' | 'Rev
 export interface ChatTurn { role: 'user' | 'assistant'; text: string }
 export interface SourceRef { contentId: string; title: string; kind: 'OfficialSyllabus' | 'ApprovedMaterial' | 'AiGenerated' }
 export interface AskTeacherResponse { reply: string; sources: SourceRef[]; groundedInApprovedContent: boolean; remainingToday: number }
+
+export type PubStatus = 'Draft' | 'InReview' | 'Approved' | 'Published' | 'Archived'
+export interface Account { email: string; roles: string[] }
+export interface AdminChapter { id: string; title: string; sequence: number; status: PubStatus }
+export interface AdminSubject { id: string; name: string; code: string; mediumLanguage: string; sequence: number; chapters: AdminChapter[] }
+export interface AdminClass { id: string; gradeNumber: number; gradeName: string; subjects: AdminSubject[] }
+export interface AdminCurriculum { id: string; name: string; academicYear: string; version: number; status: PubStatus; classes: AdminClass[] }
+export interface AdminBoard { id: string; name: string; code: string; countryCode: string; isEntranceExam: boolean; curricula: AdminCurriculum[] }

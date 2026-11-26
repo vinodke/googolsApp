@@ -125,3 +125,33 @@ public class SafetyAndValidationTests
         Assert.True(v.Validate(new StudentOnboardingRequest("Anu", null, "ml", Guid.NewGuid(), Guid.NewGuid())).IsValid);
     }
 }
+
+public class AdminCurriculumTests
+{
+    [Theory]
+    [InlineData("Published", true)]
+    [InlineData("draft", true)]
+    [InlineData("Archived", true)]
+    [InlineData("InReview", false)]
+    [InlineData("Approved", false)]
+    [InlineData("nonsense", false)]
+    [InlineData(null, false)]
+    public void Admin_screen_only_moves_between_draft_published_archived(string? value, bool ok) =>
+        Assert.Equal(ok, PublicationStatusParser.TryParseAdminStatus(value, out _));
+
+    [Theory]
+    [InlineData("2026-27", true)]
+    [InlineData("2026", false)]
+    [InlineData("26-27", false)]
+    public void Academic_year_format(string year, bool ok) =>
+        Assert.Equal(ok, new CreateCurriculumValidator().Validate(new CreateCurriculumRequest(Guid.NewGuid(), "Kerala State Syllabus", year)).IsValid);
+
+    [Fact]
+    public void Class_and_subject_rules()
+    {
+        Assert.False(new CreateClassValidator().Validate(new CreateClassRequest(Guid.NewGuid(), 13, "Class 13")).IsValid);
+        Assert.True(new CreateClassValidator().Validate(new CreateClassRequest(Guid.NewGuid(), 8, "Class 8")).IsValid);
+        Assert.False(new CreateSubjectValidator().Validate(new CreateSubjectRequest(Guid.NewGuid(), "Biology", "BIO 8", "ml", 1)).IsValid);
+        Assert.True(new CreateSubjectValidator().Validate(new CreateSubjectRequest(Guid.NewGuid(), "Biology", "BIO-8", "ml", 1)).IsValid);
+    }
+}
