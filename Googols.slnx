@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Googols.Domain/Googols.Domain.csproj" />
+    <Project Path="src/Googols.Application/Googols.Application.csproj" />
+    <Project Path="src/Googols.Infrastructure/Googols.Infrastructure.csproj" />
+    <Project Path="src/Googols.WebApi/Googols.WebApi.csproj" />
+    <Project Path="src/Googols.Worker/Googols.Worker.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Googols.UnitTests/Googols.UnitTests.csproj" />
+    <Project Path="tests/Googols.ArchitectureTests/Googols.ArchitectureTests.csproj" />
+  </Folder>
+  <Folder Name="/solution items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>

@@ -1,0 +1,139 @@
+using System.Threading.RateLimiting;
+using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Googols.Application;
+using Googols.Application.Abstractions;
+using Googols.Domain.Common;
+using Googols.Infrastructure;
+using Googols.Infrastructure.Identity;
+using Googols.Infrastructure.Persistence;
+using Googols.WebApi.Features;
+using Googols.WebApi.Plumbing;
+using Microsoft.AspNetCore.Authentication.BearerToken;
+using Microsoft.AspNetCore.Identity;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+
+var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
+
+// ---- Layers
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(config);
+
+// ---- Identity: bearer tokens + refresh tokens for the React SPA (no API keys in the browser).
+builder.Services
+    .AddIdentityApiEndpoints<AppUser>(o =>
+    {
+        o.Password.RequiredLength = 8;
+        o.Lockout.MaxFailedAccessAttempts = 5;
+        o.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+        o.User.RequireUniqueEmail = true;
+        o.SignIn.RequireConfirmedEmail = builder.Environment.IsProduction();
+    })
+    .AddRoles<IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<GoogolsDbContext>();
+
+// SignalR over WebSockets can't send an Authorization header; accept the bearer token from the query string on /hubs only.
+builder.Services.Configure<BearerTokenOptions>(IdentityConstants.BearerScheme, o => o.Events = new BearerTokenEvents
+{
+    OnMessageReceived = ctx =>
+    {
+        var token = ctx.Request.Query["access_token"];
+        if (!string.IsNullOrEmpty(token) && ctx.HttpContext.Request.Path.StartsWithSegments("/hubs"))
+        {
+            ctx.Token = token;
+        }
+        return Task.CompletedTask;
+    },
+});
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy(Policies.Student, p => p.RequireRole(Roles.Student))
+    .AddPolicy(Policies.Parent, p => p.RequireRole(Roles.Parent))
+    .AddPolicy(Policies.Teacher, p => p.RequireRole(Roles.Teacher, Roles.SchoolAdmin))
+    .AddPolicy(Policies.ContentManager, p => p.RequireRole(Roles.ContentManager, Roles.Admin, Roles.SuperAdmin))
+    .AddPolicy(Policies.Admin, p => p.RequireRole(Roles.Admin, Roles.SuperAdmin));
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUser, HttpCurrentUser>();
+builder.Services.AddScoped<AiTeacherService>();
+builder.Services.AddScoped<XpLedgerService>();
+
+// ---- Realtime
+builder.Services.AddSignalR();
+builder.Services.AddScoped<IRealtimeNotifier, SignalRNotifier>();
+
+// ---- API plumbing
+builder.Services.AddOpenApi();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddHealthChecks().AddDbContextCheck<GoogolsDbContext>("sql");
+
+builder.Services.AddRateLimiter(o =>
+{
+    o.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    o.AddPolicy("auth", ctx => RateLimitPartition.GetFixedWindowLimiter(
+        ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+        _ => new FixedWindowRateLimiterOptions { PermitLimit = 10, Window = TimeSpan.FromMinutes(1) }));
+    o.AddPolicy("ai", ctx => RateLimitPartition.GetTokenBucketLimiter(
+        ctx.User.Identity?.Name ?? ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+        _ => new TokenBucketRateLimiterOptions { TokenLimit = 6, TokensPerPeriod = 6, ReplenishmentPeriod = TimeSpan.FromMinutes(1) }));
+});
+
+var spaOrigins = config.GetSection("Cors:Origins").Get<string[]>() ?? ["http://localhost:5173"];
+builder.Services.AddCors(o => o.AddDefaultPolicy(p => p.WithOrigins(spaOrigins).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
+
+// ---- Observability: OpenTelemetry, exported to Azure Monitor when a connection string is present, else OTLP.
+var otel = builder.Services.AddOpenTelemetry()
+    .WithTracing(t => t.AddAspNetCoreInstrumentation().AddHttpClientInstrumentation())
+    .WithMetrics(m => m.AddAspNetCoreInstrumentation().AddHttpClientInstrumentation());
+if (!string.IsNullOrWhiteSpace(config["APPLICATIONINSIGHTS_CONNECTION_STRING"]))
+{
+    otel.UseAzureMonitor();
+}
+else if (!string.IsNullOrWhiteSpace(config["OTEL_EXPORTER_OTLP_ENDPOINT"]))
+{
+    otel.WithTracing(t => t.AddOtlpExporter()).WithMetrics(m => m.AddOtlpExporter());
+}
+
+var app = builder.Build();
+
+app.UseExceptionHandler();
+app.UseStatusCodePages();
+app.UseSecurityHeaders();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHsts();
+}
+app.UseHttpsRedirection();
+app.UseCors();
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseRateLimiter();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi(); // /openapi/v1.json
+}
+
+var v1 = app.MapGroup("/api/v1");
+var auth = v1.MapGroup("/auth").WithTags("Auth");
+auth.MapIdentityApi<AppUser>().RequireRateLimiting("auth");
+auth.MapPost("/logout", async (SignInManager<AppUser> signIn) =>
+{
+    await signIn.SignOutAsync(); // clears the Identity cookie used by the React app
+    return Results.NoContent();
+}).RequireAuthorization();
+v1.MapCurriculumEndpoints();
+v1.MapStudentEndpoints();
+v1.MapAiTeacherEndpoints();
+v1.MapGamificationEndpoints();
+
+app.MapHub<LearningHub>("/hubs/learning");
+app.MapHealthChecks("/health");
+
+await StartupTasks.SeedRolesAndRulesAsync(app.Services);
+
+app.Run();
+
+public partial class Program;

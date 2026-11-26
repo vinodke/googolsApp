@@ -1,0 +1,3 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Pure domain: no package or project references. Enforced by Googols.ArchitectureTests. -->
+</Project>

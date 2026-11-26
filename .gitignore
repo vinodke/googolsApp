@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+*.suo
+TestResults/
+
+# Secrets: never commit. Use `dotnet user-secrets` locally and Key Vault / App Service settings in Azure.
+appsettings.*.local.json
+appsettings.Secrets.json
+*.pfx
+.env
+.env.*
+
+# Node / React
+node_modules/
+dist/
+coverage/
+*.log
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
