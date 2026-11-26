@@ -7,10 +7,10 @@
 ## Build and test
 | Part | Status | Evidence |
 |---|---|---|
-| React app (`frontend/googols-web`) | **Verified** | `npm run build` passes (TypeScript strict); `npm test` 3/3 pass; lint 0 errors, 3 warnings (fast-refresh hints) |
+| React app (`frontend/googols-web`) | **Verified** | `npm run build` passes (TypeScript strict); `npm test` 5/5 pass (API client + admin catalog screen); lint 0 errors |
 | .NET solution (`Googols.slnx`) | **Verified** | Built with .NET SDK 10.0.404 in Azure Cloud Shell: 0 errors, 0 package-vulnerability warnings (packages updated to 10.0.15 / latest stable, transitive pins for Pkcs, Newtonsoft.Json, Microsoft.OpenApi) |
 | EF Core migration | **Verified** | `InitialFoundation` generated and applied to Azure SQL. The migration files were generated in Cloud Shell and are in `googols-source-20261126.tgz` in the storage container (see Deployment) — copy `src/Googols.Infrastructure/Persistence/Migrations/` from it into your repo; don't regenerate, or EF will try to create the tables twice |
-| Unit tests (.NET) | **Verified** | 21/21 pass: XP policy, levels, consent age, prompt escaping, PII screen, validators |
+| Unit tests (.NET) | **Verified** | 32/32 pass: XP policy, levels, consent age, prompt escaping, PII screen, validators, admin catalog rules |
 | Architecture tests | **Verified** | 2/2 pass: Domain/Application dependency rule |
 
 ## Deployment (Azure, verified 26 Nov 2026)
@@ -28,13 +28,15 @@ App settings hold secrets (SQL connection string, Blob connection string, AI key
 
 Live checks passed: anonymous calls to every protected API return 401; bad sign-in returns 401 problem details; SPA deep links return 200; HTTP→HTTPS 301; HSTS, CSP, nosniff, frame-deny headers present.
 
+**Admin access:** app setting `Admin__BootstrapEmail=admin@gmail.com` makes that account SuperAdmin on every app start (it was also granted directly in the database on 26 Nov). Admins without a student profile land on `/admin`; admins with one see an Admin link in the student menu.
+
 Redeploy: `bash infrastructure/azure/deploy.sh` from Cloud Shell (README). The Worker is not deployed yet (no background jobs exist until Phase 5).
 
 ## By module
 | Module | Status | Built | Next |
 |---|---|---|---|
-| Identity | Written | Register, login (cookie/bearer), refresh, logout, manage endpoints, lockout, 7 roles seeded, policies | Parent accounts, email sender, consent OTP (Phase 4) |
-| Curriculum | Written | Board → Curriculum(year, version, status) → Class → Subject → Chapter → Topic → Objective; read APIs filtered to Published; create board/chapter for content managers | Edit/publish/archive/import + admin UI (Phase 5) |
+| Identity | Deployed | Register, login (cookie/bearer), refresh, logout, manage endpoints, lockout, 7 roles seeded, policies | Parent accounts, email sender, consent OTP (Phase 4) |
+| Curriculum | **Deployed** | Board → Academic year (version, status) → Class → Subject → Chapter; student reads filtered to Published. **Admin screen at `/admin`**: add board, academic year, class, subject (medium), chapter; publish/unpublish years and chapters (a year can't be published without a class) | Edit/rename, topics, CSV import, content upload (Phase 5) |
 | Student portal | Written (API) / Verified (UI build) | Onboarding (board → year → class → language), dashboard with real data and empty states, subjects, chapters, language switch | Lessons, progress (Phase 6) |
 | AI Teacher | Written (API) / Verified (UI build) | Full orchestration pipeline, Azure OpenAI + AI Search adapters, 5 modes, ml/en, sources + grounded label, daily cap, consent gate, PII screen | Saved chats, streaming, voice, images, Content Safety (Phase 7) |
 | Gamification | Written | XP ledger with idempotency, configurable rules seeded from blueprint, levels, SignalR `xpAwarded` push, XP summary API + UI | Badges, streak updates, leaderboards (Phase 9) |
@@ -44,8 +46,9 @@ Redeploy: `bash infrastructure/azure/deploy.sh` from Cloud Shell (README). The W
 
 ## Known limitations
 - `Auth:RequireConfirmedEmail` is `false` because no email sender exists yet; switch it on in app settings in Phase 4.
-- No content is seeded: onboarding shows "No syllabus has been published yet" until a content manager creates and publishes a board, curriculum and class. Phase 5 adds the admin UI and import; until then use the POST endpoints plus SQL to set `Status = 3` (Published).
-- Curriculum write APIs exist only for boards and chapters.
+- No content is seeded yet: onboarding shows "No syllabus has been published yet" until an admin adds and publishes a board, academic year and class at `/admin`.
+- The admin screen can add and publish but not rename or delete yet.
+- AI Teacher answers are not grounded in textbook content until content is uploaded and indexed into Azure AI Search (Phase 5); until then every answer is labelled "General explanation".
 - XP is awarded by `XpLedgerService`, but no learning flow calls it yet; lesson completion arrives in Phase 6.
 - Streak days are stored but not yet updated.
 - `BasicContentSafety` only screens contact details and length. Azure AI Content Safety is required before launch.
