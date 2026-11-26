@@ -64,7 +64,10 @@ public static class SecurityHeadersExtensions
         h["X-Frame-Options"] = "DENY";
         h["Referrer-Policy"] = "strict-origin-when-cross-origin";
         h["Permissions-Policy"] = "camera=(), geolocation=(), microphone=(self)";
-        h["Content-Security-Policy"] = "default-src 'none'; frame-ancestors 'none'";
+        // API responses need nothing; the React app needs its own scripts, styles, images and the SignalR socket.
+        h["Content-Security-Policy"] = ctx.Request.Path.StartsWithSegments("/api")
+            ? "default-src 'none'; frame-ancestors 'none'"
+            : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' wss:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
         await next();
     });
 }

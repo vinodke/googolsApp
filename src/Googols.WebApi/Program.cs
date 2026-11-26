@@ -132,6 +132,11 @@ v1.MapGamificationEndpoints();
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");
 
+// The React build is copied into wwwroot at publish time, so the SPA and API share one origin.
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
+
 await StartupTasks.SeedRolesAndRulesAsync(app.Services);
 
 app.Run();
