@@ -18,10 +18,10 @@ for f in gen_images.py boot_job.py; do
 done
 URL=$(sas jobs/gen_images.py); BOOT=$(sas jobs/boot_job.py)
 read -r -d '' CMD <<'X' || true
-python -u -c "exec(__import__('urllib.request').request.urlopen(__import__('os').environ['BOOT_URL']).read())"
+python3 -u -c "exec(__import__('urllib.request').request.urlopen(__import__('os').environ['BOOT_URL']).read())"
 X
 az container delete -g "$RG" -n "$NAME" --yes -o none 2>/dev/null || true
-az container create -g "$RG" -n "$NAME" -l "$LOC" --image python:3.12-slim --os-type Linux --cpu 1 --memory 1.5 --restart-policy Never \
+az container create -g "$RG" -n "$NAME" -l "$LOC" --image mcr.microsoft.com/azurelinux/base/python:3.12 --os-type Linux --cpu 1 --memory 1.5 --restart-policy Never \
   --command-line "$CMD" --environment-variables "GRADE=$GRADE" "WORKERS=$WORKERS" \
   --secure-environment-variables "CS=$(pick Googols)" "BLOB_CS=$(pick Blob)" "SCRIPT_URL=$URL" "BOOT_URL=$BOOT" \
     "AOAI_ENDPOINT=$(jq -r '.[]|select(.name=="AzureOpenAI__Endpoint").value' <<<"$S")" \
