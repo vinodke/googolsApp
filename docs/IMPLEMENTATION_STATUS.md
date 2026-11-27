@@ -114,6 +114,17 @@ Page-by-page UI check `tests/live/run_ui.sh` (headless Chromium in Cloud Shell, 
 | Heat map | Teacher classroom and school division: students × chapters coloured by mastery, with class averages. |
 | Schools | Admin → Schools (create, assign school admins). School admin (/school): staff (existing accounts), divisions with join codes, subject teachers (each becomes a linked classroom with the division's students), timetable editor (Mon–Sat, up to 10 periods). Students join with the division code and see the timetable; teachers see theirs. All /school routes are scoped to the admin's own school. |
 
+## Kerala SCERT syllabus, classes 1–10 (27 Nov 2026) — published live
+Source: the official SCERT textbooks on Samagra (`samagra.kite.kerala.gov.in`), 245 core textbooks. Tools in `tools/syllabus/` (run from Cloud Shell):
+`extract_samagra.py` reads each book's contents page (AI vision) and its text · `topics_samagra.py` finds where each chapter starts and its 4–8 main topics (book text for English books; page images for Malayalam books, because the PDFs' Malayalam text layer is scrambled) · `build_syllabus.py --apply [--replace-topics]` writes it in one transaction (re-runnable, matches by grade / subject code / title) · `draft_content.py` AI-drafts one lesson + 10 questions per chapter as **Draft** · `run_db.sh` opens and always removes the temporary SQL firewall rule.
+
+- Board **Kerala State (SCERT)** with two published 2026-27 curricula: **Malayalam medium** (the original curriculum, renamed; version 1) and **English medium** (version 2). Onboarding now asks for "Medium and year" and sets the teaching language from the medium.
+- Classes 1–10 in each medium: 142 subjects, 1,194 chapters (published), ~6,500 topics. Subjects: Malayalam, Malayalam (Basic Text), English, Hindi, Mathematics, Environmental Science (3–4), Basic Science (5–8), Physics / Chemistry / Biology (9–10), Social Science (5–8) / I and II (9–10), ICT. Malayalam-medium subject names show both languages ("Biology · ജീവശാസ്ത്രം"). Chapter titles are copied as printed; multi-volume books continue the numbering.
+- Not included on purpose: optional languages (Arabic, Sanskrit, Urdu, Tamil, Kannada), Art, Physical Education, Work Education.
+- AI drafts: one lesson (500–1,100 words, sections per topic, quick recap) and 10 MCQs (4 easy, 4 medium, 2 hard) per chapter, all **Draft** — review and publish them in Admin → Content. Malayalam chapters are drafted from the title and topics (not the scrambled PDF text).
+- The earlier sample subject "Biology" (class 8, Malayalam medium, chapter "Photosynthesis" with its drafts) was left as it was; the official class 8 science is "Basic Science".
+- gpt-4.1-mini deployment on `icoon-ai` raised from 100K to 500K tokens/minute (same per-token price) for the drafting run.
+
 ## Google sign-in (27 Nov 2026)
 "Continue with Google" on sign-in and sign-up. Google Cloud project **googols**, OAuth client "Googols web" (Web application), redirect URI `https://googols-app.azurewebsites.net/signin-google`, consent screen **In production** (scopes: openid, email, profile; no Google review needed). Keys live only in app settings `Authentication__Google__ClientId` / `__ClientSecret`.
 A Google account links to an existing Googols account only when Google reports the email as verified; otherwise a new account is created. Locked accounts can't sign in through Google. Public privacy page at `/privacy` (plain-language draft; have it reviewed). When googols.in goes live, add `https://googols.in/signin-google` to the OAuth client's redirect URIs.
@@ -133,7 +144,7 @@ Also: role changes and locks now reach existing sessions within 1 minute (securi
 
 ## Known limitations
 - `Auth:RequireConfirmedEmail` is `false` because no email sender exists yet; switch it on in app settings in Phase 4.
-- No content is seeded yet: onboarding shows "No syllabus has been published yet" until an admin adds and publishes a board, academic year and class at `/admin`.
+- **googols.in is not connected to the app yet**: its DNS points to another host (it serves an old Parallels Panel certificate, so browsers show a privacy error). Use https://googols-app.azurewebsites.net until the domain is added to the web app with a managed certificate.
 - The admin screen can add and publish but not rename or delete yet.
 - AI Teacher answers are not grounded in textbook content until content is uploaded and indexed into Azure AI Search (Phase 5); until then every answer is labelled "General explanation".
 - XP is awarded by `XpLedgerService`, but no learning flow calls it yet; lesson completion arrives in Phase 6.
