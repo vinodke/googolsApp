@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query'
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { api } from '../api/client'
+import { ApiError, api } from '../api/client'
 
 // ASP.NET Core Identity endpoints mapped at /api/v1/auth (MapIdentityApi).
 interface Me { email: string; isEmailConfirmed: boolean }
@@ -21,13 +21,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const queryClient = useQueryClient()
 
   const refresh = useCallback(async () => {
-    try {
-      setUser(await api.get<Me>('/auth/manage/info'))
-    } catch {
-      setUser(null)
-    } finally {
-      setLoading(false)
+    // Only a 401 means "signed out". A busy server (429/5xx) or a dropped connection is retried,
+    // so a hiccup doesn't throw the user back to the login page.
+    for (let attempt = 0; ; attempt++) {
+      try {
+        setUser(await api.get<Me>('/auth/manage/info'))
+        break
+      } catch (e) {
+        const signedOut = e instanceof ApiError && (e.status === 401 || e.status === 403 || e.status === 404)
+        if (signedOut || attempt >= 3) {
+          setUser(null)
+          break
+        }
+        await new Promise(r => setTimeout(r, 1500 * (attempt + 1)))
+      }
     }
+    setLoading(false)
   }, [])
 
   useEffect(() => { void refresh() }, [refresh])

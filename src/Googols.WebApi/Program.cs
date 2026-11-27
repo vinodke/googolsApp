@@ -116,9 +116,13 @@ builder.Services.AddHealthChecks().AddDbContextCheck<GoogolsDbContext>("sql");
 builder.Services.AddRateLimiter(o =>
 {
     o.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
-    o.AddPolicy("auth", ctx => RateLimitPartition.GetFixedWindowLimiter(
-        ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
-        _ => new FixedWindowRateLimiterOptions { PermitLimit = 10, Window = TimeSpan.FromMinutes(1) }));
+    // Sign-in, sign-up, password and code-entry endpoints: 60 a minute per IP (a whole school can share one IP;
+    // each account also locks after 5 wrong passwords). Reading "who am I" on every page load is not limited.
+    o.AddPolicy("auth", ctx => HttpMethods.IsGet(ctx.Request.Method) && ctx.Request.Path.StartsWithSegments("/api/v1/auth/manage/info")
+        ? RateLimitPartition.GetNoLimiter("whoami")
+        : RateLimitPartition.GetFixedWindowLimiter(
+            ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            _ => new FixedWindowRateLimiterOptions { PermitLimit = 60, Window = TimeSpan.FromMinutes(1) }));
     o.AddPolicy("ai", ctx => RateLimitPartition.GetTokenBucketLimiter(
         ctx.User.Identity?.Name ?? ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
         _ => new TokenBucketRateLimiterOptions { TokenLimit = 6, TokensPerPeriod = 6, ReplenishmentPeriod = TimeSpan.FromMinutes(1) }));

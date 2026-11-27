@@ -97,7 +97,8 @@ def cookies(client):
 def visit(ctx, role, path, expect=None, clicks=()):
     page = ctx.new_page()
     errors = []
-    page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
+    # A 404 from /students/me is expected for accounts without a student profile (admin, teacher, parent).
+    page.on("console", lambda m: errors.append(f"{m.text} @ {m.location.get('url', '')}") if m.type == "error" and "/students/me" not in m.location.get("url", "") else None)
     page.on("pageerror", lambda e: errors.append(str(e)))
     try:
         page.goto(E.BASE + path, wait_until="networkidle", timeout=45000)
