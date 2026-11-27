@@ -1,6 +1,9 @@
 # Bootstrap for the container job: installs CA certificates and packages, downloads gen_images.py and runs it for $GRADE.
 import os, subprocess, sys, urllib.request
-subprocess.call(["tdnf", "install", "-y", "-q", "ca-certificates"])  # the slim Azure Linux image ships without a CA bundle
+try:
+    subprocess.call(["tdnf", "install", "-y", "-q", "ca-certificates"])  # Azure Linux images may ship without a CA bundle
+except OSError:
+    pass  # not an Azure Linux image
 subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "--root-user-action=ignore", "certifi", "pymssql", "azure-storage-blob", "pillow"])
 import certifi
 os.environ.setdefault("SSL_CERT_FILE", certifi.where())
