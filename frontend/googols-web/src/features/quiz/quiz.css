@@ -1,0 +1,13 @@
+.quiz { max-width: 760px; }
+.quiz-intro { max-width: 560px; text-align: center; display: grid; gap: var(--space-3); padding: var(--space-6); }
+.quiz-prompt { font-size: var(--text-xl); margin-bottom: var(--space-4); }
+.options { display: grid; gap: var(--space-3); }
+.option { display: flex; align-items: center; gap: var(--space-3); width: 100%; text-align: left; min-height: 56px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); border: 2px solid var(--color-border); background: var(--color-surface); color: inherit; font: inherit; cursor: pointer; transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease); }
+.option:hover { border-color: var(--color-primary); }
+.option.chosen { border-color: var(--color-primary); background: var(--color-highlight); }
+.option-letter { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-surface-2); font-weight: 800; flex: none; }
+.option.chosen .option-letter { background: var(--color-primary); color: var(--color-on-primary); }
+.review-options { list-style: none; padding: 0; margin: var(--space-3) 0; display: grid; gap: var(--space-1); }
+.review-options li { display: flex; align-items: center; gap: var(--space-2); padding: 6px var(--space-3); border-radius: var(--radius-sm); }
+.review-options li.right { background: var(--color-success-bg); color: var(--color-success); font-weight: 650; }
+.review-options li.wrong { background: var(--color-danger-bg); color: var(--color-danger); }

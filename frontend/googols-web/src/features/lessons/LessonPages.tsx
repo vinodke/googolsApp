@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router'
 import { Icon, tintFor } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
-import type { ChapterProgress, CompleteLessonResult, StudentChapter, StudentLesson } from '../../core/api/types'
+import type { ChapterProgress, CompleteLessonResult, QuizHistory, StudentChapter, StudentLesson } from '../../core/api/types'
 import { strings } from '../../core/i18n/strings'
 import { useStudentMe, useSubjects } from '../../core/queries'
 import { Empty } from '../student/DashboardPage'
@@ -70,8 +70,14 @@ export function ChapterPage() {
     queryFn: () => api.get<StudentChapter>(`/learning/chapters/${chapterId}`),
     enabled: !!chapterId,
   })
+  const quiz = useQuery({
+    queryKey: ['learning', 'quiz-history', chapterId],
+    queryFn: () => api.get<QuizHistory>(`/learning/chapters/${chapterId}/quiz-history`),
+    enabled: !!chapterId,
+  })
   const c = chapter.data
   const done = c?.lessons.filter(l => l.completed).length ?? 0
+  const best = quiz.data?.attempts.reduce((m, a) => Math.max(m, a.percent), 0)
   return (
     <div>
       <header className="page-head">
@@ -89,6 +95,16 @@ export function ChapterPage() {
       {chapter.isLoading && <div className="skeleton" style={{ height: 160 }} />}
       {chapter.isError && <div className="alert" role="alert">{errorMessage(chapter.error)}</div>}
       {c && c.lessons.length === 0 && <div className="card"><Empty icon="book" text="Lessons for this chapter are being prepared. You can already ask the AI teacher about it." /></div>}
+      {quiz.data?.available && (
+        <Link to={`/chapters/${chapterId}/quiz`} className="card card-link chapter-row" style={{ marginBottom: 'var(--space-4)' }}>
+          <span className="icon-tile lg tint-amber"><Icon name="bolt" /></span>
+          <div className="grow">
+            <strong>Chapter quiz</strong>
+            <div className="small muted">{quiz.data.questionCount} questions{quiz.data.attempts.length > 0 ? ` · best score ${Math.round(best ?? 0)}%` : ' · not tried yet'}</div>
+          </div>
+          <span className="btn btn-primary btn-sm">{quiz.data.attempts.length > 0 ? 'Try again' : 'Start'}</span>
+        </Link>
+      )}
       <ol className="list" style={{ gap: 'var(--space-3)' }}>
         {c?.lessons.map(l => (
           <li key={l.id}>

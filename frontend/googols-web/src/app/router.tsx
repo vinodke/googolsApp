@@ -8,6 +8,8 @@ import { SubjectsPage } from '../features/subjects/SubjectsPages'
 import { ChapterPage, LessonPage, SubjectChaptersPage } from '../features/lessons/LessonPages'
 import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
 import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
+import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
+import { QuizPage } from '../features/quiz/QuizPage'
 import { FamilyPage } from '../features/family/FamilyPage'
 import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
 import { AdminLayout } from './AdminLayout'
@@ -32,6 +34,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <AdminCurriculumPage /> },
           { path: 'chapters/:chapterId/lessons', element: <AdminLessonsPage /> },
+          { path: 'chapters/:chapterId/questions', element: <AdminQuestionsPage /> },
         ],
       },
       {
@@ -51,6 +54,7 @@ export const router = createBrowserRouter([
           { path: 'ai-teacher', element: <AiTeacherPage /> },
           { path: 'family', element: <FamilyPage /> },
           { path: 'chapters/:chapterId', element: <ChapterPage /> },
+          { path: 'chapters/:chapterId/quiz', element: <QuizPage /> },
           { path: 'lessons/:lessonId', element: <LessonPage /> },
         ],
       },

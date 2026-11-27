@@ -72,3 +72,11 @@ export interface AdminLessonDetail {
   id: string; chapterId: string; title: string; sequence: number; body: string; language: string; kind: string
   estimatedMinutes: number; status: PubStatus; attachmentFileName: string | null; attachmentBytes: number | null
 }
+
+// ---- Quizzes (Phase 8)
+export interface QuizQuestion { id: string; prompt: string; options: string[] }
+export interface QuizStart { attemptId: string; chapterId: string; chapterTitle: string; questions: QuizQuestion[] }
+export interface QuizReviewItem { questionId: string; prompt: string; options: string[]; chosen: number | null; correct: number; isCorrect: boolean; explanation: string | null }
+export interface QuizResult { attemptId: string; score: number; total: number; percent: number; xpAwarded: number; streakDays: number; review: QuizReviewItem[] }
+export interface QuizHistory { available: boolean; questionCount: number; attempts: { attemptId: string; submittedAtUtc: string; score: number; total: number; percent: number }[] }
+export interface AdminQuestion { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string | null; difficulty: number; language: string; source: string; status: PubStatus }

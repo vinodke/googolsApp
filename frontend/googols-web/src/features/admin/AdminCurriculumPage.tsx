@@ -143,6 +143,7 @@ function SubjectPanel({ subject }: { subject: AdminSubject }) {
             <span><span className="muted">{ch.sequence}.</span> {ch.title} <StatusBadge status={ch.status} /></span>
             <span className="row" style={{ gap: 'var(--space-2)' }}>
               <Link className="btn btn-ghost btn-sm" to={`/admin/chapters/${ch.id}/lessons`}>Lessons</Link>
+              <Link className="btn btn-ghost btn-sm" to={`/admin/chapters/${ch.id}/questions`}>Questions</Link>
               <StatusToggle path={`/curriculum/admin/chapters/${ch.id}/status`} published={ch.status === 'Published'} small />
             </span>
           </li>

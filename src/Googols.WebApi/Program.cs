@@ -138,6 +138,7 @@ v1.MapAdminCurriculumEndpoints();
 v1.MapAccountEndpoints();
 v1.MapParentEndpoints();
 v1.MapLearningEndpoints();
+v1.MapQuizEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

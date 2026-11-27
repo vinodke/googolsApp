@@ -1,4 +1,5 @@
 using Googols.Domain.Ai;
+using Googols.Domain.Assessment;
 using Googols.Domain.Common;
 using Googols.Domain.Content;
 using Googols.Domain.Curricula;
@@ -33,6 +34,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<AiConversation> AiConversations => Set<AiConversation>();
     public DbSet<AiMessage> AiMessages => Set<AiMessage>();
+
+    public DbSet<Question> Questions => Set<Question>();
+    public DbSet<QuizAttempt> QuizAttempts => Set<QuizAttempt>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -199,6 +203,28 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.Property(x => x.Model).HasMaxLength(60);
             e.HasIndex(x => new { x.ConversationId, x.CreatedAtUtc });
             e.HasOne(x => x.Conversation).WithMany(x => x.Messages).HasForeignKey(x => x.ConversationId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Question bank and quizzes (Phase 8)
+        b.Entity<Question>(e =>
+        {
+            e.ToTable("Questions", "assessment", t => t.HasCheckConstraint("CK_Questions_Difficulty", "[Difficulty] BETWEEN 1 AND 3"));
+            e.Property(x => x.Prompt).HasMaxLength(1000);
+            e.Property(x => x.OptionsJson).HasMaxLength(2500);
+            e.Property(x => x.Explanation).HasMaxLength(1000);
+            e.Property(x => x.Language).HasMaxLength(8);
+            e.HasIndex(x => new { x.ChapterId, x.Status });
+            e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<QuizAttempt>(e =>
+        {
+            e.ToTable("QuizAttempts", "assessment");
+            e.Property(x => x.QuestionIdsJson).HasMaxLength(1000);
+            e.Property(x => x.AnswersJson).HasMaxLength(200);
+            e.HasIndex(x => new { x.StudentId, x.ChapterId, x.SubmittedAtUtc });
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
         });
 
         // Gamification
