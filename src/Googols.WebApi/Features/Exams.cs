@@ -243,6 +243,7 @@ public sealed class ExamService(
                 return problem;
             }
             await ApplyAsync(a, req, ct); // answers sent after time is up are ignored; the last autosave counts
+            await db.SaveChangesAsync(ct); // written answers must be in the database before they're loaded for marking below
         }
 
         var exam = await db.Exams.IgnoreQueryFilters().AsNoTracking().FirstAsync(e => e.Id == a.ExamId, ct);
