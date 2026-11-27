@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from 'react-router'
 import { api, errorMessage, fieldErrors } from '../../core/api/client'
 import type { AcademicClass, Board, CurriculumSummary, Lang } from '../../core/api/types'
 import { useStudentMe } from '../../core/queries'
-import '../../app/layout.css'
+import { AuthShell } from '../../app/AuthShell'
 
 /** Board -> curriculum (academic year) -> class -> language. All options come from the published catalog. */
 export function OnboardingPage() {
@@ -49,7 +49,7 @@ export function OnboardingPage() {
   }
 
   return (
-    <div className="auth-page">
+    <AuthShell>
       <form className="card auth-card" onSubmit={submit}>
         <h1>Let's set up your learning</h1>
         <p className="muted">Pick your syllabus and class. You can change language any time.</p>
@@ -63,7 +63,7 @@ export function OnboardingPage() {
         <div className="field">
           <label htmlFor="dob">Date of birth</label>
           <input id="dob" className="input" type="date" value={dob} onChange={e => setDob(e.target.value)} />
-          <span className="muted" style={{ fontSize: 'var(--text-sm)' }}>Under 18? A parent will be asked to give permission for AI features.</span>
+          <span className="hint">Under 18? A parent will be asked to give permission for AI features.</span>
         </div>
         <div className="field">
           <label htmlFor="board">Syllabus</label>
@@ -95,19 +95,19 @@ export function OnboardingPage() {
           </div>
         )}
         <fieldset className="field" style={{ border: 0, padding: 0 }}>
-          <legend style={{ fontWeight: 600, fontSize: 'var(--text-sm)' }}>Teaching language</legend>
-          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+          <legend>Teaching language</legend>
+          <div className="segmented" style={{ marginTop: 'var(--space-1)' }}>
             {(['ml', 'en'] as const).map(l => (
-              <button type="button" key={l} className={`btn ${language === l ? 'btn-primary' : 'btn-ghost'}`} aria-pressed={language === l} onClick={() => setLanguage(l)}>
+              <button type="button" key={l} aria-pressed={language === l} onClick={() => setLanguage(l)}>
                 {l === 'ml' ? 'മലയാളം' : 'English'}
               </button>
             ))}
           </div>
         </fieldset>
-        <button className="btn btn-primary" style={{ width: '100%' }} disabled={save.isPending || !displayName || !classId}>
+        <button className="btn btn-primary" style={{ width: '100%', marginTop: 'var(--space-2)' }} disabled={save.isPending || !displayName || !classId}>
           {save.isPending ? 'Saving…' : 'Start learning'}
         </button>
       </form>
-    </div>
+    </AuthShell>
   )
 }

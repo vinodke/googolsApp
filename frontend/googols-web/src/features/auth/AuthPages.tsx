@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router'
 import { errorMessage } from '../../core/api/client'
 import { useAuth } from '../../core/auth/auth'
 import { strings } from '../../core/i18n/strings'
-import '../../app/layout.css'
+import { AuthShell } from '../../app/AuthShell'
 
 const t = strings.en
 
@@ -33,7 +33,7 @@ function AuthForm({ mode }: { mode: 'login' | 'register' }) {
   }
 
   return (
-    <div className="auth-page">
+    <AuthShell>
       <form className="card auth-card" onSubmit={submit} noValidate>
         <h1>{mode === 'login' ? t.signIn : t.createAccount}</h1>
         <p className="muted">{t.appTagline}</p>
@@ -46,16 +46,16 @@ function AuthForm({ mode }: { mode: 'login' | 'register' }) {
           <label htmlFor="password">{t.password}</label>
           <input id="password" className="input" type="password" minLength={8} required
             autoComplete={mode === 'login' ? 'current-password' : 'new-password'} value={password} onChange={e => setPassword(e.target.value)} />
-          {mode === 'register' && <span className="muted" style={{ fontSize: 'var(--text-sm)' }}>At least 8 characters, with a capital letter, a number and a symbol.</span>}
+          {mode === 'register' && <span className="hint">At least 8 characters, with a capital letter, a number and a symbol.</span>}
         </div>
         <button className="btn btn-primary" style={{ width: '100%' }} disabled={busy || !email || !password}>
           {busy ? '…' : mode === 'login' ? t.signIn : t.createAccount}
         </button>
-        <p className="muted" style={{ textAlign: 'center' }}>
+        <p className="muted small" style={{ textAlign: 'center', marginTop: 'var(--space-4)' }}>
           {mode === 'login' ? <Link to="/register">{t.createAccount}</Link> : <Link to="/login">{t.signIn}</Link>}
         </p>
       </form>
-    </div>
+    </AuthShell>
   )
 }
 

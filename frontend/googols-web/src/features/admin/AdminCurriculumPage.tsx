@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState, type FormEvent, type ReactNode } from 'react'
+import { Icon, tintFor } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
 import type { AdminBoard, AdminClass, AdminCurriculum, AdminSubject, PubStatus } from '../../core/api/types'
 import './admin.css'
@@ -18,10 +19,15 @@ export function AdminCurriculumPage() {
 
   return (
     <div className="admin">
-      <header className="admin-head">
-        <h1>Curriculum</h1>
-        <p className="muted">Add the syllabus level by level, then publish. Students only see published academic years and chapters.</p>
+      <header className="page-head">
+        <div>
+          <div className="crumbs"><span>Admin</span><Icon name="chevron" size={14} /><span>Curriculum</span></div>
+          <h1>Curriculum</h1>
+          <p className="muted">Add the syllabus level by level, then publish. Students only see published academic years and chapters.</p>
+        </div>
       </header>
+
+      {tree.data && <TreeStats boards={tree.data} />}
 
       {tree.isLoading && <div className="skeleton" style={{ height: 200 }} />}
       {tree.isError && <div className="alert" role="alert">{errorMessage(tree.error)}</div>}
@@ -35,8 +41,8 @@ export function AdminCurriculumPage() {
               {tree.data.map(b => (
                 <li key={b.id}>
                   <button className={`board-btn${board?.id === b.id ? ' active' : ''}`} onClick={() => setBoardId(b.id)}>
-                    <strong>{b.name}</strong>
-                    <span className="muted">{b.code}{b.isEntranceExam ? ' · entrance' : ''}</span>
+                    <span className={`icon-tile ${tintFor(b.code)}`}><Icon name="grad" /></span>
+                    <span><strong>{b.name}</strong><span className="muted small" style={{ display: 'block' }}>{b.code}{b.isEntranceExam ? ' · entrance' : ''}</span></span>
                   </button>
                 </li>
               ))}
@@ -53,12 +59,37 @@ export function AdminCurriculumPage() {
   )
 }
 
+function TreeStats({ boards }: { boards: AdminBoard[] }) {
+  const years = boards.flatMap(b => b.curricula)
+  const classes = years.flatMap(c => c.classes)
+  const subjects = classes.flatMap(k => k.subjects)
+  const chapters = subjects.flatMap(s => s.chapters)
+  const items = [
+    { label: 'Boards', value: boards.length, icon: 'grad', tint: 'tint-indigo' },
+    { label: 'Published years', value: `${years.filter(y => y.status === 'Published').length} / ${years.length}`, icon: 'layers', tint: 'tint-teal' },
+    { label: 'Subjects', value: subjects.length, icon: 'book', tint: 'tint-amber' },
+    { label: 'Published chapters', value: `${chapters.filter(c => c.status === 'Published').length} / ${chapters.length}`, icon: 'check', tint: 'tint-rose' },
+  ] as const
+  return (
+    <section className="grid-stats" style={{ marginBottom: 'var(--space-5)' }} aria-label="Catalog summary">
+      {items.map(i => (
+        <div key={i.label} className="card stat">
+          <span className={`icon-tile lg ${i.tint}`}><Icon name={i.icon} /></span>
+          <div><div className="stat-value">{i.value}</div><div className="stat-label">{i.label}</div></div>
+        </div>
+      ))}
+    </section>
+  )
+}
+
 function BoardPanel({ board }: { board: AdminBoard }) {
   return (
     <div className="stack">
       <div className="card">
-        <h2>{board.name}</h2>
-        <p className="muted">{board.code} · {board.countryCode}</p>
+        <div className="row">
+          <span className={`icon-tile lg ${tintFor(board.code)}`}><Icon name="grad" /></span>
+          <div><h2 style={{ margin: 0 }}>{board.name}</h2><p className="muted small" style={{ margin: 0 }}>{board.code} · {board.countryCode}</p></div>
+        </div>
         <AddCurriculumForm boardId={board.id} />
       </div>
       {board.curricula.length === 0 && <div className="card empty">No academic years yet for this board.</div>}

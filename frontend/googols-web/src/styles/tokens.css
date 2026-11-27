@@ -1,20 +1,32 @@
 /* Googols design tokens. Components use these variables only — never raw hex values. */
 :root {
+  color-scheme: light;
+
   /* Brand */
   --g-indigo-900: #1e1b4b;
   --g-indigo-700: #3730a3;
-  --g-indigo-600: #4338ca; /* primary: deep indigo */
-  --g-purple-500: #8b5cf6; /* secondary: electric purple */
+  --g-indigo-600: #4f46e5; /* primary */
+  --g-purple-500: #8b5cf6; /* secondary */
   --g-cyan-500: #06b6d4;   /* accent */
-  --g-violet-100: #ede9fe; /* highlight: soft violet */
+  --g-violet-100: #ede9fe; /* highlight */
+
+  /* Tints used for subject cards, stat tiles and charts (bg / fg pairs). */
+  --tint-indigo-bg: #e8e9ff;  --tint-indigo-fg: #4338ca;
+  --tint-teal-bg: #d9f7f0;    --tint-teal-fg: #0f766e;
+  --tint-amber-bg: #fff1d6;   --tint-amber-fg: #b45309;
+  --tint-rose-bg: #ffe4ea;    --tint-rose-fg: #be123c;
+  --tint-sky-bg: #dff1ff;     --tint-sky-fg: #0369a1;
+  --tint-lime-bg: #eaf8d6;    --tint-lime-fg: #4d7c0f;
 
   /* Semantic (light) */
-  --color-bg: #f8f9fc;
+  --color-bg: #f3f4fb;
   --color-surface: #ffffff;
-  --color-surface-2: #f1f2f8;
-  --color-border: #e3e5ef;
-  --color-text: #171a2b;
-  --color-text-muted: #5b6078;
+  --color-surface-2: #f1f2f9;
+  --color-glass: rgb(255 255 255 / 0.72);
+  --color-glass-border: rgb(255 255 255 / 0.85);
+  --color-border: #e4e6f2;
+  --color-text: #161a2e;
+  --color-text-muted: #5f6580;
   --color-primary: var(--g-indigo-600);
   --color-primary-hover: var(--g-indigo-700);
   --color-on-primary: #ffffff;
@@ -22,18 +34,25 @@
   --color-accent: var(--g-cyan-500);
   --color-highlight: var(--g-violet-100);
   --color-success: #16a34a;
-  --color-warning: #d97706;
+  --color-success-bg: #dcfce7;
+  --color-warning: #b45309;
+  --color-warning-bg: #fef3c7;
   --color-danger: #dc2626;
-  --gradient-brand: linear-gradient(135deg, var(--g-indigo-600) 0%, var(--g-purple-500) 100%);
+  --color-danger-bg: #fef2f2;
+  --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #06b6d4 130%);
+  --blob-1: rgb(129 140 248 / 0.35);
+  --blob-2: rgb(45 212 191 / 0.25);
+  --blob-3: rgb(244 114 182 / 0.18);
 
-  /* Typography: Noto Sans Malayalam renders Malayalam well; system UI for Latin. */
-  --font-sans: "Inter", "Noto Sans Malayalam", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans Variable", "Noto Sans Malayalam Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
-  --text-md: 1rem;
+  --text-md: 0.95rem;
   --text-lg: 1.125rem;
   --text-xl: 1.375rem;
   --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
   --leading: 1.6; /* Malayalam script needs extra line height */
 
   /* Spacing (4px scale) */
@@ -46,32 +65,57 @@
   --space-8: 48px;
 
   /* Shape and depth */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
   --radius-pill: 999px;
-  --shadow-card: 0 1px 2px rgb(23 26 43 / 0.06), 0 4px 16px rgb(23 26 43 / 0.06);
-  --glow-primary: 0 0 0 4px rgb(139 92 246 / 0.18);
+  --shadow-card: 0 1px 2px rgb(22 26 46 / 0.04), 0 8px 24px rgb(22 26 46 / 0.06);
+  --shadow-float: 0 12px 40px rgb(22 26 46 / 0.12);
+  --glow-primary: 0 0 0 4px rgb(99 102 241 / 0.22);
+  --blur: saturate(160%) blur(18px);
 
   /* Motion */
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --dur-fast: 120ms;
-  --dur: 200ms;
+  --dur: 220ms;
 
   --tap-min: 44px; /* minimum touch target */
+  --sidebar-w: 260px;
 }
 
 [data-theme="dark"] {
-  --color-bg: #0b1026; /* deep navy */
-  --color-surface: #121a3a;
-  --color-surface-2: #18214a;
-  --color-border: #26305e;
+  color-scheme: dark;
+  --tint-indigo-bg: #262a5e;  --tint-indigo-fg: #a5b4fc;
+  --tint-teal-bg: #123c3a;    --tint-teal-fg: #5eead4;
+  --tint-amber-bg: #43300f;   --tint-amber-fg: #fcd34d;
+  --tint-rose-bg: #4a1a2a;    --tint-rose-fg: #fda4af;
+  --tint-sky-bg: #10324a;     --tint-sky-fg: #7dd3fc;
+  --tint-lime-bg: #283a12;    --tint-lime-fg: #bef264;
+
+  --color-bg: #0b0f24;
+  --color-surface: #141a36;
+  --color-surface-2: #1b2246;
+  --color-glass: rgb(20 26 54 / 0.7);
+  --color-glass-border: rgb(255 255 255 / 0.08);
+  --color-border: #262e5a;
   --color-text: #eef0ff;
-  --color-text-muted: #a6acd0;
-  --color-primary: #7c83ff;
-  --color-primary-hover: #969cff;
-  --color-highlight: #231d52;
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4);
+  --color-text-muted: #a3a9cf;
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-on-primary: #0b0f24;
+  --color-highlight: #252a5c;
+  --color-success-bg: #12381f;
+  --color-success: #4ade80;
+  --color-warning-bg: #3d2c0b;
+  --color-warning: #fcd34d;
+  --color-danger-bg: #3a1218;
+  --color-danger: #f87171;
+  --blob-1: rgb(99 102 241 / 0.28);
+  --blob-2: rgb(20 184 166 / 0.16);
+  --blob-3: rgb(236 72 153 / 0.12);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
+  --shadow-float: 0 12px 40px rgb(0 0 0 / 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
