@@ -140,7 +140,7 @@ export function AiTeacherPage() {
           </div>
         ))}
         {ask.isPending && <div className="bubble assistant"><div className="typing" aria-label="Teacher is typing"><span /><span /><span /></div></div>}
-        {ask.isError && <div className="alert" role="alert">{errorMessage(ask.error)}</div>}
+        {ask.isError && <div className="alert" role="alert">{errorMessage(ask.error)}{/Premium/.test(errorMessage(ask.error)) && <> <Link to="/plans">See plans</Link></>}</div>}
         <div ref={endRef} />
       </div>
 

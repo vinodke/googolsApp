@@ -67,7 +67,9 @@ public static class SecurityHeadersExtensions
         // API responses need nothing; the React app needs its own scripts, styles, images and the SignalR socket.
         h["Content-Security-Policy"] = ctx.Request.Path.StartsWithSegments("/api")
             ? "default-src 'none'; frame-ancestors 'none'"
-            : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' wss:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
+            // Razorpay Checkout runs its script and an iframe from its own domains; card/UPI details never reach Googols.
+            : "default-src 'self'; script-src 'self' https://checkout.razorpay.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.razorpay.com; font-src 'self'; " +
+              "connect-src 'self' wss: https://*.razorpay.com; frame-src https://api.razorpay.com https://checkout.razorpay.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
         await next();
     });
 }

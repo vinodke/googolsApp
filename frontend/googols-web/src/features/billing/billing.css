@@ -1,0 +1,8 @@
+.plans { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; }
+.plan { position: relative; display: flex; flex-direction: column; gap: var(--space-3); }
+.plan.current { border: 2px solid var(--color-primary); }
+.plan.best { box-shadow: var(--shadow-float); }
+.plan-flag { position: absolute; top: var(--space-4); right: var(--space-4); }
+.price { font-size: var(--text-3xl); font-weight: 800; line-height: 1; }
+.plan-points { list-style: none; padding: 0; margin: 0 0 auto; display: grid; gap: var(--space-2); font-size: var(--text-sm); }
+.plan-points li { display: flex; gap: var(--space-2); align-items: center; }

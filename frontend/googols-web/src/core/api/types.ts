@@ -92,3 +92,8 @@ export interface ClassroomStudent { studentId: string; name: string; totalXp: nu
 export interface ChapterInsight { chapterId: string; title: string; subject: string; sequence: number; lessonCount: number; completionRate: number; quizAttempts: number; quizAverage: number | null }
 export interface ClassroomDetail { classroom: Classroom; totalLessons: number; students: ClassroomStudent[]; chapters: ChapterInsight[] }
 export interface MyClassroom { id: string; name: string; schoolName: string | null; teacher: string }
+
+// ---- Billing (Phase 11)
+export interface PlanInfo { code: string; name: string; amountPaise: number; durationDays: number; aiQuestionsPerDay: number; isFree: boolean }
+export interface SubscriptionInfo { planCode: string; planName: string; aiQuestionsPerDay: number; endsAtUtc: string | null; paymentsEnabled: boolean }
+export interface CheckoutInfo { orderId: string; keyId: string; amountPaise: number; currency: string; planName: string; studentName: string; email: string | null }

@@ -63,6 +63,7 @@ builder.Services.AddScoped<StudentAccess>();
 builder.Services.AddScoped<LessonIndexer>();
 builder.Services.AddScoped<LearningActivityService>();
 builder.Services.AddScoped<BadgeService>();
+builder.Services.AddScoped<EntitlementService>();
 
 // ---- Realtime
 builder.Services.AddSignalR();
@@ -142,6 +143,7 @@ v1.MapLearningEndpoints();
 v1.MapQuizEndpoints();
 v1.MapLeaderboardEndpoints();
 v1.MapTeacherEndpoints();
+v1.MapBillingEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

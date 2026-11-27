@@ -2,6 +2,8 @@ using Azure.Storage.Blobs;
 using Googols.Application.Abstractions;
 using Googols.Application.Ai;
 using Googols.Infrastructure.Ai;
+using Googols.Infrastructure.Billing;
+using Googols.Application.Billing;
 using Googols.Infrastructure.Persistence;
 using Googols.Infrastructure.Services;
 using Hangfire;
@@ -77,6 +79,12 @@ public static class DependencyInjection
         services.Configure<EmailOptions>(config.GetSection(EmailOptions.Section));
         services.AddSingleton<Application.Abstractions.IEmailSender, SmtpEmailSender>();
         services.AddSingleton<Microsoft.AspNetCore.Identity.IEmailSender<Identity.AppUser>, IdentityEmailSender>();
+
+        // Billing (Razorpay)
+        services.Configure<BillingOptions>(config.GetSection(BillingOptions.Section));
+        services.Configure<RazorpayOptions>(config.GetSection(RazorpayOptions.Section));
+        services.AddHttpClient(nameof(RazorpayGateway), c => c.Timeout = TimeSpan.FromSeconds(15));
+        services.AddSingleton<IPaymentGateway, RazorpayGateway>();
 
         services.AddSingleton<IClock, SystemClock>();
         return services;

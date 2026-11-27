@@ -1,5 +1,6 @@
 using Googols.Domain.Ai;
 using Googols.Domain.Assessment;
+using Googols.Domain.Billing;
 using Googols.Domain.Common;
 using Googols.Domain.Content;
 using Googols.Domain.Curricula;
@@ -41,6 +42,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<Classroom> Classrooms => Set<Classroom>();
     public DbSet<ClassroomMember> ClassroomMembers => Set<ClassroomMember>();
+
+    public DbSet<Payment> Payments => Set<Payment>();
+    public DbSet<Subscription> Subscriptions => Set<Subscription>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -252,6 +256,27 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => new { x.ClassroomId, x.StudentId }).IsUnique();
             e.HasIndex(x => x.StudentId);
             e.HasOne<Classroom>().WithMany().HasForeignKey(x => x.ClassroomId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Billing (Phase 11)
+        b.Entity<Payment>(e =>
+        {
+            e.ToTable("Payments", "billing");
+            e.Property(x => x.PlanCode).HasMaxLength(40);
+            e.Property(x => x.Currency).HasMaxLength(3).IsFixedLength();
+            e.Property(x => x.Provider).HasMaxLength(20);
+            e.Property(x => x.ProviderOrderId).HasMaxLength(60);
+            e.Property(x => x.ProviderPaymentId).HasMaxLength(60);
+            e.HasIndex(x => x.ProviderOrderId).IsUnique();
+            e.HasIndex(x => x.StudentId);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Restrict);
+        });
+        b.Entity<Subscription>(e =>
+        {
+            e.ToTable("Subscriptions", "billing");
+            e.Property(x => x.PlanCode).HasMaxLength(40);
+            e.HasIndex(x => x.StudentId).IsUnique();
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
         });
 

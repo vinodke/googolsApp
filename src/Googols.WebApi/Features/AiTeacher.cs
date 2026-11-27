@@ -33,9 +33,8 @@ public sealed record ConversationDto(Guid Id, string Title, Guid SubjectId, Guid
 /// </summary>
 public sealed class AiTeacherService(
     GoogolsDbContext db, ICurrentUser me, IClock clock, ICache cache,
-    ICurriculumRetriever retriever, IAiModelProvider model, IContentSafety safety, ILogger<AiTeacherService> log)
+    ICurriculumRetriever retriever, IAiModelProvider model, IContentSafety safety, EntitlementService entitlements, ILogger<AiTeacherService> log)
 {
-    public const int DailyMessageLimit = 40; // fair-use cap; per-plan entitlements come with subscriptions
     private const int HistoryTurns = 10;
 
     /// <summary>Tele-MANAS is India's free 24×7 mental-health helpline (14416).</summary>
@@ -86,9 +85,12 @@ public sealed class AiTeacherService(
 
         var usageKey = $"ai-usage:{student.Id}:{today:yyyyMMdd}";
         var used = await cache.GetAsync<int>(usageKey, ct);
-        if (used >= DailyMessageLimit)
+        var plan = await entitlements.CurrentPlanAsync(student.Id, ct);
+        var dailyLimit = plan.AiQuestionsPerDay;
+        if (used >= dailyLimit)
         {
-            return Results.Problem(statusCode: StatusCodes.Status429TooManyRequests, title: "You've reached today's AI teacher limit. It resets tomorrow.");
+            return Results.Problem(statusCode: StatusCodes.Status429TooManyRequests,
+                title: plan.IsFree ? "You've used today's free AI teacher questions. They reset tomorrow, or a parent can upgrade to Premium." : "You've reached today's AI teacher limit. It resets tomorrow.");
         }
 
         var language = LanguageCodes.IsSupported(req.Language) ? req.Language!.ToLowerInvariant() : student.PreferredLanguage;
@@ -101,7 +103,7 @@ public sealed class AiTeacherService(
                 // Never a refusal: the child gets a caring reply with a helpline. Not sent to the model.
                 conversation = await SaveTurnAsync(conversation, student.Id, req, language, SelfHarmReply, [], false, input.Category, null, ct);
                 log.LogWarning("AI teacher self-harm screen triggered for student {Student}", student.Id);
-                return Results.Ok(new AskTeacherResponse(SelfHarmReply, [], false, DailyMessageLimit - used, conversation.Id, "wellbeing"));
+                return Results.Ok(new AskTeacherResponse(SelfHarmReply, [], false, dailyLimit - used, conversation.Id, "wellbeing"));
             }
             var msg = input.Category switch
             {
@@ -147,7 +149,7 @@ public sealed class AiTeacherService(
         log.LogInformation("AI teacher call {Model} in={In} out={Out} student={Student} passages={Count} prompt={PromptVersion} blocked={Blocked}",
             completion?.Model, completion?.InputTokens, completion?.OutputTokens, student.Id, passages.Count, TeacherPromptBuilder.Version, blocked);
 
-        return Results.Ok(new AskTeacherResponse(reply, grounded ? sources : [], grounded, DailyMessageLimit - used - 1, conversation.Id));
+        return Results.Ok(new AskTeacherResponse(reply, grounded ? sources : [], grounded, dailyLimit - used - 1, conversation.Id));
     }
 
     private async Task<AiConversation> SaveTurnAsync(AiConversation? conversation, Guid studentId, AskTeacherRequest req, string language,

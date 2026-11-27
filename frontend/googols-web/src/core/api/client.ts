@@ -60,5 +60,7 @@ export function errorMessage(err: unknown): string {
     if (err.problem.errors) return Object.values(err.problem.errors).flat()[0] ?? err.message
     return err.message
   }
+  // fetch() network failures are TypeErrors; other Errors carry a message written for the user (e.g. "Payment was cancelled.").
+  if (err instanceof Error && !(err instanceof TypeError)) return err.message
   return 'Could not reach Googols. Check your connection and try again.'
 }
