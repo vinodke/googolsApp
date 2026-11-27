@@ -26,7 +26,7 @@ public sealed record SubjectProgressDto(Guid SubjectId, string Name, string Code
 
 public sealed record LearningSummaryDto(int TotalLessons, int CompletedLessons, int StreakDays, IReadOnlyList<SubjectProgressDto> Subjects);
 
-public sealed record CompleteLessonResult(int XpAwarded, bool ChapterCompleted, int StreakDays, int TotalXp);
+public sealed record CompleteLessonResult(int XpAwarded, bool ChapterCompleted, int StreakDays, int TotalXp, IReadOnlyList<string> NewBadges);
 
 public sealed class LessonUpsertValidator : AbstractValidator<LessonUpsertRequest>
 {

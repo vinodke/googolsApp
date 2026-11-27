@@ -182,7 +182,7 @@ public static class QuizEndpoints
         });
 
         g.MapPost("/quiz-attempts/{attemptId:guid}/submit", async (Guid attemptId, SubmitQuizRequest req, StudentAccess access, GoogolsDbContext db,
-            IClock clock, XpLedgerService xp, LearningActivityService activity, CancellationToken ct) =>
+            IClock clock, XpLedgerService xp, LearningActivityService activity, BadgeService badges, CancellationToken ct) =>
         {
             if (await access.GetAsync(ct) is not { } ctx)
             {
@@ -223,7 +223,8 @@ public static class QuizEndpoints
             var streak = await activity.RecordAsync(ctx.Student, ct);
 
             var review = ordered.Select((q, i) => new QuizReviewItem(q.Id, q.Prompt, Options(q.OptionsJson), req.Answers[i], q.CorrectIndex, graded.PerQuestion[i], q.Explanation)).ToList();
-            return Results.Ok(new QuizResultDto(attempt.Id, graded.Score, graded.Total, graded.Percent, awarded, streak, review));
+            var newBadges = await badges.EvaluateAsync(ctx.Student.Id, ct);
+            return Results.Ok(new QuizResultDto(attempt.Id, graded.Score, graded.Total, graded.Percent, awarded, streak, review, newBadges));
         });
 
         g.MapGet("/chapters/{chapterId:guid}/quiz-history", async (Guid chapterId, StudentAccess access, GoogolsDbContext db, CancellationToken ct) =>

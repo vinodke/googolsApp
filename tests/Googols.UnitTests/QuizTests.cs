@@ -55,3 +55,24 @@ public class QuizTests
         Assert.True(v.Validate(new QuestionUpsertRequest("Q?", ["a", "b"], 1, null, 2, "ml")).IsValid);
     }
 }
+
+public class BadgeTests
+{
+    [Fact]
+    public void Badges_follow_progress()
+    {
+        var none = Googols.Domain.Gamification.BadgeCatalog.Earned(new(0, 0, 0, false, 0, 1));
+        Assert.Empty(none);
+        var some = Googols.Domain.Gamification.BadgeCatalog.Earned(new(12, 1, 2, true, 7, 5)).ToList();
+        Assert.Equal(["first-lesson", "lessons-10", "first-chapter", "first-quiz", "perfect-quiz", "streak-3", "streak-7", "level-5"], some);
+        Assert.All(some, c => Assert.Contains(Googols.Domain.Gamification.BadgeCatalog.All, b => b.Code == c));
+    }
+
+    [Theory]
+    [InlineData("Anitha Krishnan", "Anitha K.")]
+    [InlineData("anu", "anu")]
+    [InlineData("  ", "Student")]
+    [InlineData("Mohammed Rafi P", "Mohammed P.")]
+    public void Classmates_see_first_name_and_initial(string full, string shown) =>
+        Assert.Equal(shown, Googols.Application.Common.Privacy.PublicName(full));
+}

@@ -40,6 +40,7 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
+    public DbSet<StudentBadge> StudentBadges => Set<StudentBadge>();
 
     protected override void OnModelCreating(ModelBuilder b)
     {
@@ -120,6 +121,7 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.Property(x => x.DisplayName).HasMaxLength(100);
             e.Property(x => x.PreferredLanguage).HasMaxLength(8);
             e.Property(x => x.RowVersion).IsRowVersion();
+            e.Property(x => x.ShowOnLeaderboard).HasDefaultValue(true).HasSentinel(true); // existing rows get true; an explicit false is still written
             e.HasIndex(x => x.UserId).IsUnique();
             e.HasIndex(x => x.SchoolId);
             e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Restrict);
@@ -235,6 +237,13 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.Property(x => x.IdempotencyKey).HasMaxLength(200);
             e.Property(x => x.RuleVersion).HasMaxLength(20);
             e.HasIndex(x => new { x.StudentId, x.IdempotencyKey }).IsUnique();
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<StudentBadge>(e =>
+        {
+            e.ToTable("StudentBadges", "gamification");
+            e.Property(x => x.BadgeCode).HasMaxLength(40);
+            e.HasIndex(x => new { x.StudentId, x.BadgeCode }).IsUnique();
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
         });
         b.Entity<XpRule>(e =>

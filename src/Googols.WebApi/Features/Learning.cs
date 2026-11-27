@@ -189,7 +189,7 @@ public static class LearningEndpoints
         });
 
         g.MapPost("/lessons/{lessonId:guid}/complete", async (Guid lessonId, StudentAccess access, GoogolsDbContext db, IClock clock,
-            XpLedgerService xp, LearningActivityService activity, CancellationToken ct) =>
+            XpLedgerService xp, LearningActivityService activity, BadgeService badges, CancellationToken ct) =>
         {
             if (await access.GetAsync(ct) is not { } ctx)
             {
@@ -225,7 +225,8 @@ public static class LearningEndpoints
             var before = ctx.Student.TotalXp;
             var streak = await activity.RecordAsync(ctx.Student, ct);
             var total = await db.StudentProfiles.Where(s => s.Id == ctx.Student.Id).Select(s => s.TotalXp).FirstAsync(ct);
-            return Results.Ok(new CompleteLessonResult(Math.Max(awarded, total - before), chapterDone, streak, total));
+            var newBadges = await badges.EvaluateAsync(ctx.Student.Id, ct);
+            return Results.Ok(new CompleteLessonResult(Math.Max(awarded, total - before), chapterDone, streak, total, newBadges));
         });
     }
 

@@ -17,7 +17,8 @@ public sealed record SubmitQuizRequest(IReadOnlyList<int?> Answers);
 
 public sealed record QuizReviewItem(Guid QuestionId, string Prompt, IReadOnlyList<string> Options, int? Chosen, int Correct, bool IsCorrect, string? Explanation);
 
-public sealed record QuizResultDto(Guid AttemptId, int Score, int Total, double Percent, int XpAwarded, int StreakDays, IReadOnlyList<QuizReviewItem> Review);
+public sealed record QuizResultDto(Guid AttemptId, int Score, int Total, double Percent, int XpAwarded, int StreakDays, IReadOnlyList<QuizReviewItem> Review,
+    IReadOnlyList<string> NewBadges);
 
 public sealed record QuizHistoryDto(Guid AttemptId, DateTime SubmittedAtUtc, int Score, int Total, double Percent);
 

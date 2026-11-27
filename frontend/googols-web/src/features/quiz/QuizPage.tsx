@@ -86,6 +86,7 @@ function Results({ result, chapterId, onRetry }: { result: QuizResult; chapterId
         <div className="row" style={{ justifyContent: 'center' }}>
           {result.xpAwarded > 0 && <span className="badge badge-warning"><Icon name="star" size={14} /> +{result.xpAwarded} XP</span>}
           {result.streakDays > 0 && <span className="badge badge-success"><Icon name="flame" size={14} /> {result.streakDays}-day streak</span>}
+          {result.newBadges?.length ? <Link to="/achievements" className="badge"><Icon name="trophy" size={14} /> New badge!</Link> : null}
         </div>
         <div className="row" style={{ justifyContent: 'center', marginTop: 'var(--space-4)' }}>
           <Link className="btn btn-ghost" to={`/chapters/${chapterId}`}>Back to chapter</Link>

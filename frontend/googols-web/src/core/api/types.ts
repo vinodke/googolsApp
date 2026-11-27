@@ -63,7 +63,7 @@ export interface StudentLesson {
 }
 export interface SubjectProgress { subjectId: string; name: string; code: string; totalLessons: number; completedLessons: number }
 export interface LearningSummary { totalLessons: number; completedLessons: number; streakDays: number; subjects: SubjectProgress[] }
-export interface CompleteLessonResult { xpAwarded: number; chapterCompleted: boolean; streakDays: number; totalXp: number }
+export interface CompleteLessonResult { xpAwarded: number; chapterCompleted: boolean; streakDays: number; totalXp: number; newBadges?: string[] }
 export interface AdminLesson {
   id: string; title: string; sequence: number; language: string; kind: string; estimatedMinutes: number; status: PubStatus
   bodyLength: number; attachmentFileName: string | null; attachmentBytes: number | null; updatedAtUtc: string | null
@@ -77,6 +77,11 @@ export interface AdminLessonDetail {
 export interface QuizQuestion { id: string; prompt: string; options: string[] }
 export interface QuizStart { attemptId: string; chapterId: string; chapterTitle: string; questions: QuizQuestion[] }
 export interface QuizReviewItem { questionId: string; prompt: string; options: string[]; chosen: number | null; correct: number; isCorrect: boolean; explanation: string | null }
-export interface QuizResult { attemptId: string; score: number; total: number; percent: number; xpAwarded: number; streakDays: number; review: QuizReviewItem[] }
+export interface QuizResult { attemptId: string; score: number; total: number; percent: number; xpAwarded: number; streakDays: number; review: QuizReviewItem[]; newBadges?: string[] }
 export interface QuizHistory { available: boolean; questionCount: number; attempts: { attemptId: string; submittedAtUtc: string; score: number; total: number; percent: number }[] }
 export interface AdminQuestion { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string | null; difficulty: number; language: string; source: string; status: PubStatus }
+
+// ---- Badges and leaderboard (Phase 9)
+export interface Badge { code: string; name: string; description: string; icon: string; earned: boolean; awardedAtUtc: string | null }
+export interface LeaderboardRow { rank: number; name: string; xp: number; level: number; isMe: boolean }
+export interface Leaderboard { period: 'week' | 'all'; className: string; rows: LeaderboardRow[]; me: LeaderboardRow | null; showingMe: boolean }

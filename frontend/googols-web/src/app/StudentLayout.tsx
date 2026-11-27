@@ -20,6 +20,7 @@ export function StudentLayout() {
     { to: '/', label: t.navHome, icon: 'home', end: true },
     { to: '/subjects', label: t.navSubjects, icon: 'book' },
     { to: '/ai-teacher', label: t.navAiTeacher, icon: 'sparkles' },
+    { to: '/achievements', label: t.navRewards, icon: 'trophy' },
     { to: '/family', label: t.navFamily, icon: 'shield' },
     ...(isParent(account.data) ? [{ to: '/parent', label: 'Parent', icon: 'home' } as NavItem] : []),
     ...(admin ? [{ to: '/admin', label: 'Admin', icon: 'layers' } as NavItem] : []),

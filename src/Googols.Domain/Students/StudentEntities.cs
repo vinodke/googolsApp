@@ -12,6 +12,7 @@ public class StudentProfile : Entity, IConcurrencyTracked, ISchoolScoped
     public int TotalXp { get; set; }                   // cache of the XP ledger sum; only the server writes it
     public int CurrentStreakDays { get; set; }
     public DateOnly? LastActiveLocalDate { get; set; }
+    public bool ShowOnLeaderboard { get; set; } = true;   // students can hide themselves from the class leaderboard
     public byte[] RowVersion { get; set; } = [];
 
     /// <summary>Under-18 accounts need verified parental consent before AI features or data sharing are enabled.</summary>

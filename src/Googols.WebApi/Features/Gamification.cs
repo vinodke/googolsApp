@@ -75,3 +75,102 @@ public static class GamificationEndpoints
         });
     }
 }
+
+/// <summary>Checks progress after verified learning events and stores any newly earned badges.</summary>
+public sealed class BadgeService(GoogolsDbContext db, IClock clock, IRealtimeNotifier realtime)
+{
+    public async Task<IReadOnlyList<string>> EvaluateAsync(Guid studentId, CancellationToken ct)
+    {
+        var student = await db.StudentProfiles.AsNoTracking().Where(s => s.Id == studentId)
+            .Select(s => new { s.TotalXp, s.CurrentStreakDays }).FirstAsync(ct);
+        var lessons = await db.LessonProgress.CountAsync(p => p.StudentId == studentId, ct);
+        var chapters = await db.XpTransactions.CountAsync(x => x.StudentId == studentId && x.Reason == XpRule.Codes.ChapterCompleted, ct);
+        var quizzes = await db.QuizAttempts.Where(a => a.StudentId == studentId && a.SubmittedAtUtc != null)
+            .GroupBy(_ => 1).Select(g => new { Count = g.Count(), Perfect = g.Any(a => a.Percent >= 100) }).FirstOrDefaultAsync(ct);
+
+        var stats = new BadgeCatalog.Stats(lessons, chapters, quizzes?.Count ?? 0, quizzes?.Perfect ?? false,
+            student.CurrentStreakDays, XpAwardPolicy.LevelFor(student.TotalXp));
+        var have = await db.StudentBadges.Where(b => b.StudentId == studentId).Select(b => b.BadgeCode).ToListAsync(ct);
+        var fresh = BadgeCatalog.Earned(stats).Except(have).ToList();
+        if (fresh.Count == 0)
+        {
+            return [];
+        }
+        foreach (var code in fresh)
+        {
+            db.StudentBadges.Add(new StudentBadge { StudentId = studentId, BadgeCode = code, AwardedAtUtc = clock.UtcNow });
+        }
+        try
+        {
+            await db.SaveChangesAsync(ct);
+        }
+        catch (DbUpdateException)
+        {
+            db.ChangeTracker.Clear(); // a parallel request stored the same badge
+            return [];
+        }
+        await realtime.NotifyStudentAsync(studentId, "badgesAwarded", new { badges = fresh }, ct);
+        return fresh;
+    }
+}
+
+public static class LeaderboardEndpoints
+{
+    public sealed record BadgeDto(string Code, string Name, string Description, string Icon, bool Earned, DateTime? AwardedAtUtc);
+    public sealed record LeaderboardRow(int Rank, string Name, int Xp, int Level, bool IsMe);
+    public sealed record LeaderboardDto(string Period, string ClassName, IReadOnlyList<LeaderboardRow> Rows, LeaderboardRow? Me, bool ShowingMe);
+    public sealed record VisibilityRequest(bool Visible);
+
+    public static void MapLeaderboardEndpoints(this RouteGroupBuilder v1)
+    {
+        var g = v1.MapGroup("/gamification").WithTags("Gamification").RequireAuthorization(Plumbing.Policies.Student);
+
+        g.MapGet("/badges", async (StudentAccess access, GoogolsDbContext db, CancellationToken ct) =>
+        {
+            if (await access.GetAsync(ct) is not { } ctx)
+            {
+                return Results.NotFound();
+            }
+            var earned = await db.StudentBadges.AsNoTracking().Where(b => b.StudentId == ctx.Student.Id)
+                .ToDictionaryAsync(b => b.BadgeCode, b => b.AwardedAtUtc, ct);
+            return Results.Ok(BadgeCatalog.All.Select(b => new BadgeDto(b.Code, b.Name, b.Description, b.Icon,
+                earned.ContainsKey(b.Code), earned.TryGetValue(b.Code, out var at) ? at : null)));
+        });
+
+        g.MapGet("/leaderboard", async (string? period, StudentAccess access, IClock clock, GoogolsDbContext db, CancellationToken ct) =>
+        {
+            if (await access.GetAsync(ct) is not { } ctx)
+            {
+                return Results.NotFound();
+            }
+            var weekly = period != "all";
+            var since = clock.UtcNow.AddDays(-7);
+            var className = await db.AcademicClasses.Where(k => k.Id == ctx.ClassId).Select(k => k.GradeName).FirstAsync(ct);
+            var classmates = db.Enrollments.Where(e => e.ClassId == ctx.ClassId && e.IsActive).Select(e => e.StudentId);
+            var rows = await db.StudentProfiles.AsNoTracking()
+                .Where(s => classmates.Contains(s.Id) && (s.ShowOnLeaderboard || s.Id == ctx.Student.Id))
+                .Select(s => new
+                {
+                    s.Id,
+                    s.DisplayName,
+                    s.TotalXp,
+                    s.ShowOnLeaderboard,
+                    Xp = weekly ? db.XpTransactions.Where(x => x.StudentId == s.Id && x.CreatedAtUtc >= since).Sum(x => (int?)x.Points) ?? 0 : s.TotalXp,
+                })
+                .OrderByDescending(x => x.Xp).ThenBy(x => x.DisplayName).Take(200).ToListAsync(ct);
+
+            var ranked = rows.Select((r, i) => new LeaderboardRow(i + 1, Application.Common.Privacy.PublicName(r.DisplayName), r.Xp, XpAwardPolicy.LevelFor(r.TotalXp), r.Id == ctx.Student.Id)).ToList();
+            var me = ranked.FirstOrDefault(r => r.IsMe);
+            // Students who hid themselves still see their own rank, but are left out of the list others see.
+            var visible = ranked.Where(r => !r.IsMe || ctx.Student.ShowOnLeaderboard).Take(20).ToList();
+            return Results.Ok(new LeaderboardDto(weekly ? "week" : "all", className, visible, me, ctx.Student.ShowOnLeaderboard));
+        });
+
+        g.MapPut("/leaderboard/visibility", async (VisibilityRequest req, ICurrentUser me, GoogolsDbContext db, CancellationToken ct) =>
+        {
+            var n = await db.StudentProfiles.Where(s => s.UserId == me.UserId)
+                .ExecuteUpdateAsync(u => u.SetProperty(s => s.ShowOnLeaderboard, req.Visible), ct);
+            return n == 0 ? Results.NotFound() : Results.NoContent();
+        });
+    }
+}

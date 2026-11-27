@@ -175,6 +175,7 @@ export function LessonPage() {
               <strong>Lesson complete</strong>
               {complete.data && complete.data.xpAwarded > 0 && <span className="badge badge-warning" style={{ justifySelf: 'center' }}><Icon name="star" size={14} /> +{complete.data.xpAwarded} XP</span>}
               {complete.data?.chapterCompleted && <span className="badge badge-success" style={{ justifySelf: 'center' }}><Icon name="trophy" size={14} /> Chapter finished!</span>}
+              {complete.data?.newBadges?.length ? <Link to="/achievements" className="badge" style={{ justifySelf: 'center' }}><Icon name="trophy" size={14} /> New badge! See your rewards</Link> : null}
               {complete.data && complete.data.streakDays > 0 && <span className="small muted">{t.streak(complete.data.streakDays)}</span>}
             </div>
           ) : (
