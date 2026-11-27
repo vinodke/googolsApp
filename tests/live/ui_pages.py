@@ -160,7 +160,7 @@ def main():
         pa = ctx_for(w["parent"])
         visit(pa, "parent", "/parent", "Anu QA")
         visit(pa, "parent", f"/parent/children/{w['student']}/report", "Anu QA's week")
-        visit(pa, "parent", "/parent/link", "code")
+        visit(pa, "parent", "/parent/link", "Link your child")
         pa.close()
 
         ad = ctx_for(w["admin"])
