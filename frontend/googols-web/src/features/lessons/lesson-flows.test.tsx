@@ -45,4 +45,15 @@ describe('Lesson page', () => {
     await waitFor(() => expect(calls.some(c => c.key === 'POST /learning/lessons/l1/complete')).toBe(true))
     expect(screen.getByRole('link', { name: /Next lesson/ })).toHaveAttribute('href', '/lessons/l2')
   })
+
+  it('shows a picture attachment inside the lesson instead of as a download', async () => {
+    mockApi({
+      'GET /students/me': () => ({ status: 200, json: me }),
+      'GET /learning/lessons/l1': () => ({ status: 200, json: { ...lesson, attachmentFileName: 'infographic.jpg' } }),
+    })
+    wrap(<Routes><Route path="/lessons/:lessonId" element={<LessonPage />} /></Routes>, '/lessons/l1')
+    const img = await screen.findByRole('img', { name: /Picture summary/ })
+    expect(img).toHaveAttribute('src', '/api/v1/learning/lessons/l1/attachment')
+    expect(screen.queryByText(/download/)).toBeNull()
+  })
 })

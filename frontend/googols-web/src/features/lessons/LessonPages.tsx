@@ -163,8 +163,15 @@ export function LessonPage() {
             <Icon name="bookmark" size={16} /> {bookmark.saved ? 'Saved' : 'Save lesson'}
           </button>
         </div>
+        {isImage(l.attachmentFileName) && (
+          <figure className="lesson-figure">
+            <a href={`/api/v1/learning/lessons/${l.id}/attachment`} target="_blank" rel="noopener">
+              <img src={`/api/v1/learning/lessons/${l.id}/attachment`} alt={`Picture summary: ${l.title}`} loading="lazy" />
+            </a>
+          </figure>
+        )}
         <LessonBody text={l.body} />
-        {l.attachmentFileName && (
+        {l.attachmentFileName && !isImage(l.attachmentFileName) && (
           <a className="attachment" href={`/api/v1/learning/lessons/${l.id}/attachment`}>
             <span className="icon-tile tint-rose"><Icon name="book" /></span>
             <span className="grow"><strong>{l.attachmentFileName}</strong><span className="small muted" style={{ display: 'block' }}>{formatBytes(l.attachmentBytes)} · download</span></span>
@@ -209,4 +216,9 @@ export function LessonPage() {
 function formatBytes(n: number | null) {
   if (!n) return ''
   return n > 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1)} MB` : `${Math.ceil(n / 1024)} KB`
+}
+
+/** Picture attachments (lesson infographics) are shown in the lesson; other files stay as a download. */
+function isImage(name?: string | null) {
+  return !!name && /\.(png|jpe?g)$/i.test(name)
 }

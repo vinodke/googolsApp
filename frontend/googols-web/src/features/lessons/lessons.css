@@ -12,3 +12,5 @@
 .attachment .grow { flex: 1; }
 .teacher-avatar { display: grid; place-items: center; border-radius: 14px; background: var(--gradient-brand); color: #fff; flex: none; }
 @media (max-width: 1000px) { .lesson-layout { grid-template-columns: 1fr; } .lesson-side { position: static; } .lesson-card { padding: var(--space-4); } }
+.lesson-figure { margin: 0 0 var(--space-5); }
+.lesson-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg, 14px); border: 1px solid var(--border, #e5e7eb); }
