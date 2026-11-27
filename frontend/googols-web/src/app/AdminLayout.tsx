@@ -14,6 +14,7 @@ export function AdminLayout() {
     ...(account.data?.roles.some(r => r === 'Admin' || r === 'SuperAdmin') ? [
       { to: '/admin/dashboard', label: 'Dashboard', icon: 'sparkles' } as NavItem,
       { to: '/admin/users', label: 'Users', icon: 'shield' } as NavItem,
+      { to: '/admin/messages', label: 'Inbox', icon: 'send' } as NavItem,
     ] : []),
     { to: '/admin', label: 'Curriculum', icon: 'layers', end: true },
     { to: '/teacher', label: 'Teacher view', icon: 'grad' },

@@ -119,3 +119,39 @@ export function AdminUsersPage() {
     </div>
   )
 }
+
+interface ContactMessage { id: string; name: string; email: string; phone: string | null; topic: string; message: string; handled: boolean; createdAtUtc: string }
+
+/** Messages sent from the public Contact page. */
+export function AdminMessagesPage() {
+  const qc = useQueryClient()
+  const [show, setShow] = useState<'open' | 'all'>('open')
+  const msgs = useQuery({ queryKey: ['admin', 'messages', show], queryFn: () => api.get<ContactMessage[]>(`/admin/messages${show === 'open' ? '?handled=false' : ''}`) })
+  const mark = useMutation({ mutationFn: (v: { id: string; handled: boolean }) => api.put(`/admin/messages/${v.id}`, { handled: v.handled }), onSuccess: () => qc.invalidateQueries({ queryKey: ['admin', 'messages'] }) })
+  return (
+    <div className="stack-lg">
+      <header className="page-head">
+        <div><h1>Inbox</h1><p className="muted">Messages from the Contact page on the website.</p></div>
+        <div className="segmented" role="group" aria-label="Show">
+          <button type="button" aria-pressed={show === 'open'} onClick={() => setShow('open')}>To answer</button>
+          <button type="button" aria-pressed={show === 'all'} onClick={() => setShow('all')}>All</button>
+        </div>
+      </header>
+      {msgs.isError && <div className="alert" role="alert">{errorMessage(msgs.error)}</div>}
+      {msgs.data?.length === 0 && <div className="card empty">No messages {show === 'open' ? 'waiting for a reply' : 'yet'}.</div>}
+      {msgs.data?.map(m => (
+        <section key={m.id} className="card">
+          <div className="row-between">
+            <div><strong>{m.name}</strong> <span className="muted small">· <a href={`mailto:${m.email}`}>{m.email}</a>{m.phone ? ` · ${m.phone}` : ''}</span></div>
+            <div className="row"><span className="badge">{m.topic}</span><span className="muted small">{new Date(m.createdAtUtc).toLocaleString()}</span></div>
+          </div>
+          <p style={{ whiteSpace: 'pre-wrap', margin: 'var(--space-3) 0' }}>{m.message}</p>
+          <div className="row">
+            <a className="btn btn-primary btn-sm" href={`mailto:${m.email}?subject=${encodeURIComponent('Re: your message to Googols')}`}><Icon name="send" size={16} /> Reply by email</a>
+            <button className="btn btn-ghost btn-sm" onClick={() => mark.mutate({ id: m.id, handled: !m.handled })}>{m.handled ? 'Mark as open' : 'Mark as answered'}</button>
+          </div>
+        </section>
+      ))}
+    </div>
+  )
+}

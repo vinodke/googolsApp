@@ -70,7 +70,7 @@
   .shell { grid-template-columns: 1fr; }
   .sidebar { position: fixed; inset: auto 0 0 0; height: auto; z-index: 10; padding: var(--space-2); }
   .sidebar-inner { flex-direction: row; padding: var(--space-1); border-radius: var(--radius-lg); gap: 0; }
-  .brand, .nav-section, .sidebar-foot { display: none; }
+  .sidebar .brand, .nav-section, .sidebar-foot { display: none; }
   .sidebar nav { flex: 1; grid-auto-flow: column; grid-auto-columns: 1fr; }
   .nav-link { flex-direction: column; justify-content: center; gap: 0; font-size: var(--text-xs); min-height: 52px; padding: 0 var(--space-1); }
   .topbar { margin: var(--space-2) var(--space-2) 0; padding-left: var(--space-4); }

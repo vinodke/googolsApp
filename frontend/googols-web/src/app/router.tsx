@@ -1,8 +1,10 @@
-import { Navigate, Outlet, createBrowserRouter } from 'react-router'
+import { Navigate, Outlet, createBrowserRouter, useLocation } from 'react-router'
 import { useAuth } from '../core/auth/auth'
 import { AiTeacherPage } from '../features/ai-teacher/AiTeacherPage'
 import { LoginPage, RegisterPage } from '../features/auth/AuthPages'
 import { PrivacyPage } from '../features/auth/PrivacyPage'
+import { SiteLayout } from '../features/site/SiteLayout'
+import { AboutPage, ContactPage, FeaturesPage, HomePage, HowItWorksPage } from '../features/site/SitePages'
 import { OnboardingPage } from '../features/onboarding/OnboardingPage'
 import { DashboardPage } from '../features/student/DashboardPage'
 import { SubjectsPage } from '../features/subjects/SubjectsPages'
@@ -10,7 +12,7 @@ import { ChapterPage, LessonPage, SubjectChaptersPage } from '../features/lesson
 import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
 import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
-import { AdminDashboardPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
+import { AdminDashboardPage, AdminMessagesPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
 import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
@@ -22,14 +24,27 @@ import { StudentLayout } from './StudentLayout'
 
 function RequireAuth() {
   const { user, loading } = useAuth()
+  const location = useLocation()
   if (loading) return <div className="page-loading" aria-busy="true" />
-  return user ? <Outlet /> : <Navigate to="/login" replace />
+  if (user) return <Outlet />
+  // Signed-out visitors see the public website at "/"; any other app page asks them to log in.
+  return location.pathname === '/' ? <SiteLayout><HomePage /></SiteLayout> : <Navigate to="/login" replace />
 }
 
 export const router = createBrowserRouter([
   { path: '/login', element: <LoginPage /> },
   { path: '/register', element: <RegisterPage /> },
   { path: '/privacy', element: <PrivacyPage /> },
+  {
+    element: <SiteLayout />,
+    children: [
+      { path: '/home', element: <HomePage /> },
+      { path: '/features', element: <FeaturesPage /> },
+      { path: '/how-it-works', element: <HowItWorksPage /> },
+      { path: '/about', element: <AboutPage /> },
+      { path: '/contact', element: <ContactPage /> },
+    ],
+  },
   {
     element: <RequireAuth />,
     children: [
@@ -43,6 +58,7 @@ export const router = createBrowserRouter([
           { path: 'chapters/:chapterId/questions', element: <AdminQuestionsPage /> },
           { path: 'dashboard', element: <AdminDashboardPage /> },
           { path: 'users', element: <AdminUsersPage /> },
+          { path: 'messages', element: <AdminMessagesPage /> },
         ],
       },
       {

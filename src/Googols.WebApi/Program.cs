@@ -176,6 +176,7 @@ v1.MapTeacherEndpoints();
 v1.MapBillingEndpoints();
 v1.MapAdminPlatformEndpoints();
 v1.MapExternalLoginEndpoints(googleEnabled);
+v1.MapContactEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

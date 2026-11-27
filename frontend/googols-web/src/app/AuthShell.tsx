@@ -8,8 +8,8 @@ export function AuthShell({ children }: { children: ReactNode }) {
   useTheme()
   return (
     <div className="auth-page">
-      <aside className="auth-art" aria-hidden="true">
-        <div className="brand"><span className="brand-mark">G</span><span className="brand-name">Googols</span></div>
+      <aside className="auth-art">
+        <a href="/" className="brand" style={{ textDecoration: 'none', position: 'relative', zIndex: 1 }}><span className="brand-mark">G</span><span className="brand-name">Googols</span></a>
         <div>
           <h2>Learn Smarter. Grow Further.</h2>
           <ul className="auth-points">

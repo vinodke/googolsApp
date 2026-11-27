@@ -6,6 +6,7 @@ using Googols.Domain.Content;
 using Googols.Domain.Curricula;
 using Googols.Domain.Gamification;
 using Googols.Domain.Schools;
+using Googols.Domain.Site;
 using Googols.Domain.Students;
 using Googols.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -45,6 +46,8 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<Payment> Payments => Set<Payment>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
+
+    public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -278,6 +281,18 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.Property(x => x.PlanCode).HasMaxLength(40);
             e.HasIndex(x => x.StudentId).IsUnique();
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Public website (contact form)
+        b.Entity<ContactMessage>(e =>
+        {
+            e.ToTable("ContactMessages", "site");
+            e.Property(x => x.Name).HasMaxLength(100);
+            e.Property(x => x.Email).HasMaxLength(256);
+            e.Property(x => x.Phone).HasMaxLength(20);
+            e.Property(x => x.Topic).HasMaxLength(20);
+            e.Property(x => x.Message).HasMaxLength(2000);
+            e.HasIndex(x => new { x.Handled, x.CreatedAtUtc });
         });
 
         // Gamification
