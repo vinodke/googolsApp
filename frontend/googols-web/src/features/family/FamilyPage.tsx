@@ -89,7 +89,7 @@ function Classrooms() {
     <section className="card">
       <div className="row" style={{ marginBottom: 'var(--space-3)' }}>
         <span className="icon-tile lg tint-teal"><Icon name="grad" /></span>
-        <div><h2 style={{ margin: 0 }}>Classrooms</h2><p className="muted small" style={{ margin: 0 }}>Join your teacher's classroom with the code they give you. Your teacher will see your lessons and quiz scores.</p></div>
+        <div><h2 style={{ margin: 0 }}>Classrooms</h2><p className="muted small" style={{ margin: 0 }}>Join your teacher's classroom, or your school division, with the code you're given. Your teachers will see your lessons, quiz and test scores.</p></div>
       </div>
       <ul className="list" style={{ marginBottom: 'var(--space-3)' }}>
         {rooms.data?.map(r => (

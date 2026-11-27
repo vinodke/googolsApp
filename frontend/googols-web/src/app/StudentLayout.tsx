@@ -1,6 +1,6 @@
 import { Link, Navigate, Outlet } from 'react-router'
 import { strings } from '../core/i18n/strings'
-import { isAdmin, isParent, isTeacher, useAccount, useStudentMe } from '../core/queries'
+import { isAdmin, isParent, isSchoolAdmin, isTeacher, useAccount, useStudentMe } from '../core/queries'
 import { useLearningHub } from '../core/realtime/useLearningHub'
 import { AppShell, PageLoading, type NavItem } from './AppShell'
 import { Icon } from './Icons'
@@ -13,13 +13,14 @@ export function StudentLayout() {
 
   if (me.isLoading || account.isLoading) return <PageLoading />
   // Accounts without a student profile: admins manage the catalog, parents see their children, others finish setup.
-  if (me.data === null) return <Navigate to={admin ? '/admin' : isTeacher(account.data) ? '/teacher' : isParent(account.data) ? '/parent' : '/onboarding'} replace />
+  if (me.data === null) return <Navigate to={admin ? '/admin' : isSchoolAdmin(account.data) ? '/school' : isTeacher(account.data) ? '/teacher' : isParent(account.data) ? '/parent' : '/onboarding'} replace />
 
   const t = strings[me.data?.preferredLanguage ?? 'en']
   const links: NavItem[] = [
     { to: '/', label: t.navHome, icon: 'home', end: true },
     { to: '/subjects', label: t.navSubjects, icon: 'book' },
     { to: '/ai-teacher', label: t.navAiTeacher, icon: 'sparkles' },
+    { to: '/homework', label: t.navHomework, icon: 'pen' },
     { to: '/tests', label: t.navTests, icon: 'clipboard' },
     { to: '/progress', label: t.navProgress, icon: 'chart' },
     { to: '/saved', label: t.navSaved, icon: 'bookmark' },

@@ -5,9 +5,11 @@ import { AppShell, PageLoading, type NavItem } from '../../app/AppShell'
 import { Icon } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
 import type { AcademicClass, Board, Classroom, ClassroomDetail, CurriculumSummary } from '../../core/api/types'
-import { isAdmin, isTeacher, useAccount } from '../../core/queries'
+import { isAdmin, isSchoolAdmin, isTeacher, useAccount } from '../../core/queries'
 import { Empty } from '../student/DashboardPage'
 import { ClassTests, Marking } from './TeacherAssessment'
+import { ClassHeatmap, ClassHomework, TeacherTimetable } from './TeacherStageC'
+import '../tests/tests.css'
 
 export function TeacherLayout() {
   const account = useAccount()
@@ -15,6 +17,7 @@ export function TeacherLayout() {
   if (!isTeacher(account.data) && !isAdmin(account.data)) return <Navigate to="/" replace />
   const links: NavItem[] = [
     { to: '/teacher', label: 'My classrooms', icon: 'home', end: true },
+    ...(isSchoolAdmin(account.data) ? [{ to: '/school', label: 'My school', icon: 'school' } as NavItem] : []),
     ...(isAdmin(account.data) ? [{ to: '/admin', label: 'Admin', icon: 'layers' } as NavItem] : []),
   ]
   return <AppShell subtitle="Teacher" sectionLabel="Teaching" links={links} signOutLabel="Sign out"><Outlet /></AppShell>
@@ -31,6 +34,7 @@ export function TeacherHomePage() {
         <button className="btn btn-primary" onClick={() => setCreating(true)}><Icon name="plus" size={18} /> New classroom</button>
       </header>
       {creating && <CreateClassroom onDone={() => { setCreating(false); void qc.invalidateQueries({ queryKey: ['teacher'] }) }} />}
+      <TeacherTimetable />
       {rooms.isError && <div className="alert" role="alert">{errorMessage(rooms.error)}</div>}
       {rooms.data?.length === 0 && !creating && <div className="card"><Empty icon="layers" text="No classrooms yet. Create one for each class you teach." /></div>}
       <div className="grid">
@@ -121,6 +125,8 @@ export function ClassroomPage() {
 
       {tab === 'tests' && <ClassTests classroomId={r.id} chapters={chapters} />}
       {tab === 'marking' && <Marking classroomId={r.id} />}
+      {tab === 'heatmap' && <ClassHeatmap classroomId={r.id} />}
+      {tab === 'homework' && <ClassHomework classroomId={r.id} chapters={chapters} />}
 
       {tab === 'overview' && <>
       {weakest.length > 0 && (
@@ -182,5 +188,5 @@ export function ClassroomPage() {
   )
 }
 
-type ClassroomTab = 'overview' | 'tests' | 'marking'
-const CLASSROOM_TABS: [ClassroomTab, string][] = [['overview', 'Overview'], ['tests', 'Tests'], ['marking', 'Marking']]
+type ClassroomTab = 'overview' | 'heatmap' | 'homework' | 'tests' | 'marking'
+const CLASSROOM_TABS: [ClassroomTab, string][] = [['overview', 'Overview'], ['heatmap', 'Heat map'], ['homework', 'Homework'], ['tests', 'Tests'], ['marking', 'Marking']]

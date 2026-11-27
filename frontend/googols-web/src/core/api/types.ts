@@ -171,3 +171,35 @@ export interface Mission { code: string; title: string; progress: number; target
 export interface Challenge extends Mission { description: string; claimed: boolean }
 export interface Missions { date: string; missions: Mission[]; allDone: boolean; claimed: boolean; bonusXp: number; weekStart: string; challenges: Challenge[]; challengeXp: number }
 export interface Bookmark { id: string; kind: 'lesson' | 'answer'; refId: string; title: string; snippet: string | null; note: string | null; createdAtUtc: string; conversationId: string | null; subjectId: string | null }
+
+// ---- Homework, heat map, parent reports, schools (Stage C)
+export type AssignmentKind = 'Lesson' | 'Quiz' | 'Test' | 'Task'
+export interface TeacherAssignment {
+  id: string; title: string; instructions: string | null; kind: AssignmentKind; lessonId: string | null; chapterId: string | null; examId: string | null
+  target: string | null; dueAtUtc: string | null; createdAtUtc: string; done: number; total: number
+  students: { studentId: string; name: string; done: boolean; doneAtUtc: string | null; text: string | null }[]
+}
+export interface Homework {
+  id: string; title: string; instructions: string | null; kind: AssignmentKind; classroom: string; lessonId: string | null; chapterId: string | null; examId: string | null
+  target: string | null; dueAtUtc: string | null; done: boolean; doneAtUtc: string | null; overdue: boolean; myText: string | null
+}
+export interface Heatmap { chapters: { chapterId: string; title: string; subject: string; average: number | null }[]; students: { studentId: string; name: string; cells: (number | null)[] }[] }
+export interface WeeklyReport {
+  studentId: string; name: string; weekStart: string; weekEnd: string; lessonsCompleted: number; lessons: string[]; quizzes: number; tests: number
+  averageScore: number | null; bestScore: number | null; xpGained: number; activeDays: number; streakDays: number; aiQuestions: number
+  practised: { title: string; subject: string; mastery: number }[]; weakAreas: { title: string; subject: string; mastery: number }[]
+  homeworkSet: number; homeworkDone: number; homeworkOverdue: number; lessonsLastWeek: number; xpLastWeek: number; emailEnabled: boolean; emailConfigured: boolean
+}
+export interface Person { userId: string; email: string; name: string | null; role: 'SchoolAdmin' | 'Teacher' }
+export interface AdminSchool { id: string; name: string; code: string; city: string | null; divisions: number; students: number; admins: Person[] }
+export interface SchoolOverview { id: string; name: string; code: string; city: string | null; divisions: number; students: number; teachers: number; classes: { id: string; label: string }[] }
+export interface Division { id: string; name: string; classId: string; classLabel: string; joinCode: string; joiningOpen: boolean; students: number; allocations: number }
+export interface DivisionDetail {
+  division: Division
+  students: { studentId: string; name: string; totalXp: number; level: number; streakDays: number; lastActiveDate: string | null; lessonsCompleted: number }[]
+  allocations: { id: string; subjectId: string; subject: string; teacherUserId: string; teacher: string; classroomId: string }[]
+  subjects: { id: string; name: string }[]
+  teachers: Person[]
+}
+export interface Slot { dayOfWeek: number; period: number; subjectId: string | null; teacherUserId: string | null; startTime: string | null; endTime: string | null; label: string | null; subject?: string | null; teacher?: string | null; division?: string | null }
+export interface MyTimetable { divisionId: string; division: string; school: string; slots: Slot[] }

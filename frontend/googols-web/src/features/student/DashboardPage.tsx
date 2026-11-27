@@ -5,6 +5,7 @@ import { strings } from '../../core/i18n/strings'
 import { useLearningSummary, useStudentMe, useSubjects, useXp } from '../../core/queries'
 import { SubjectBar } from '../subjects/SubjectsPages'
 import { MissionsCard, StudyPlanCard } from '../progress/ProgressPages'
+import { TimetableCard } from '../homework/HomeworkPage'
 
 // Every number here comes from the API. Sections without data show an honest empty state.
 export function DashboardPage() {
@@ -58,6 +59,7 @@ export function DashboardPage() {
           <MissionsCard compact />
         </div>
       )}
+      <TimetableCard />
 
       <div className="grid-2">
         <section className="card">

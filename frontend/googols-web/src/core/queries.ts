@@ -56,3 +56,7 @@ export function useLearningSummary(enabled = true) {
 export function isTeacher(account: Account | undefined) {
   return !!account?.roles.some(r => r === 'Teacher' || r === 'SchoolAdmin')
 }
+
+export function isSchoolAdmin(account: Account | undefined) {
+  return !!account?.roles.includes('SchoolAdmin')
+}

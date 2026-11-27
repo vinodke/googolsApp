@@ -114,6 +114,7 @@ function ChildCard({ child }: { child: Child }) {
       </div>
 
       <div style={{ marginTop: 'var(--space-3)', textAlign: 'right' }}>
+        <Link className="btn btn-primary btn-sm" to={`/parent/children/${child.studentId}/report`}><Icon name="chart" size={16} /> Weekly report</Link>{' '}
         <Link className="btn btn-ghost btn-sm" to={`/parent/plans?studentId=${child.studentId}`}><Icon name="star" size={16} /> Plans</Link>{' '}
         <button className="btn btn-ghost btn-sm" onClick={() => unlink.mutate()} disabled={unlink.isPending}>Unlink this child</button>
       </div>

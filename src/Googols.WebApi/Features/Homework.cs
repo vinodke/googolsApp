@@ -123,6 +123,22 @@ public static class HomeworkEndpoints
             return Results.Ok(await Heatmap.BuildAsync(db, room.ClassId, members, room.SubjectId, ct));
         });
 
+        // Published lessons of the classroom's class, for picking "read this lesson" homework.
+        t.MapGet("/lessons", async (Guid id, ICurrentUser me, GoogolsDbContext db, CancellationToken ct) =>
+        {
+            var room = await db.Classrooms.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id && c.TeacherUserId == me.UserId, ct);
+            if (room is null)
+            {
+                return Results.NotFound();
+            }
+            var lessons = await db.Lessons.AsNoTracking()
+                .Where(l => l.Status == PublicationStatus.Published && l.Chapter!.Status == PublicationStatus.Published && l.Chapter.Subject!.ClassId == room.ClassId
+                    && (room.SubjectId == null || l.Chapter.SubjectId == room.SubjectId))
+                .OrderBy(l => l.Chapter!.Subject!.Sequence).ThenBy(l => l.Chapter!.Sequence).ThenBy(l => l.Sequence)
+                .Select(l => new { l.Id, l.Title, l.ChapterId, Chapter = l.Chapter!.Title, Subject = l.Chapter.Subject!.Name }).ToListAsync(ct);
+            return Results.Ok(lessons);
+        });
+
         t.MapGet("/assignments", async (Guid id, ICurrentUser me, GoogolsDbContext db, CancellationToken ct) =>
         {
             if (!await db.Classrooms.AnyAsync(c => c.Id == id && c.TeacherUserId == me.UserId, ct))

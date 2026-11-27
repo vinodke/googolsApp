@@ -15,14 +15,18 @@ import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
 import { AdminDashboardPage, AdminMessagesPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
 import { AdminAiPage } from '../features/admin/AdminAiPage'
 import { AdminExamsPage } from '../features/admin/AdminExamsPage'
+import { AdminSchoolsPage } from '../features/admin/AdminSchoolsPage'
+import { DivisionPage, SchoolHomePage, SchoolLayout, SchoolStaffPage } from '../features/school/SchoolPages'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
 import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
 import { PlansPage } from '../features/billing/PlansPage'
 import { FamilyPage } from '../features/family/FamilyPage'
 import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
+import { WeeklyReportPage } from '../features/parent/WeeklyReportPage'
 import { ExamAttemptPage, TestsPage } from '../features/tests/TestsPages'
 import { BookmarksPage, ProgressPage } from '../features/progress/ProgressPages'
+import { HomeworkPage } from '../features/homework/HomeworkPage'
 import { AdminLayout } from './AdminLayout'
 import { StudentLayout } from './StudentLayout'
 
@@ -65,6 +69,16 @@ export const router = createBrowserRouter([
           { path: 'messages', element: <AdminMessagesPage /> },
           { path: 'ai', element: <AdminAiPage /> },
           { path: 'exams', element: <AdminExamsPage /> },
+          { path: 'schools', element: <AdminSchoolsPage /> },
+        ],
+      },
+      {
+        path: '/school',
+        element: <SchoolLayout />,
+        children: [
+          { index: true, element: <SchoolHomePage /> },
+          { path: 'staff', element: <SchoolStaffPage /> },
+          { path: 'divisions/:id', element: <DivisionPage /> },
         ],
       },
       {
@@ -82,6 +96,7 @@ export const router = createBrowserRouter([
           { index: true, element: <ParentHomePage /> },
           { path: 'link', element: <LinkChildPage /> },
           { path: 'plans', element: <PlansPage /> },
+          { path: 'children/:studentId/report', element: <WeeklyReportPage /> },
         ],
       },
       {
@@ -101,6 +116,7 @@ export const router = createBrowserRouter([
           { path: 'tests/attempts/:attemptId', element: <ExamAttemptPage /> },
           { path: 'progress', element: <ProgressPage /> },
           { path: 'saved', element: <BookmarksPage /> },
+          { path: 'homework', element: <HomeworkPage /> },
         ],
       },
     ],
