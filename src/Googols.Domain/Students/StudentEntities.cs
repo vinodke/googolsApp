@@ -48,4 +48,14 @@ public class ParentStudentLink : Entity
     public DateTime? VerifiedAtUtc { get; set; }
     public DateTime? ConsentGrantedAtUtc { get; set; }
     public string? ConsentVersion { get; set; }
+    public bool WeeklyReportEmail { get; set; } = true;
+}
+
+/// <summary>One weekly report email sent to a parent about a child. Unique per week, so it's never sent twice.</summary>
+public class ParentReportLog : Entity
+{
+    public Guid ParentUserId { get; set; }
+    public Guid StudentId { get; set; }
+    public DateOnly WeekStart { get; set; }
+    public DateTime SentAtUtc { get; set; }
 }

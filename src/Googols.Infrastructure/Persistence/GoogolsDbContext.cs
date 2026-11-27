@@ -52,6 +52,15 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<Classroom> Classrooms => Set<Classroom>();
     public DbSet<ClassroomMember> ClassroomMembers => Set<ClassroomMember>();
+    public DbSet<School> Schools => Set<School>();
+    public DbSet<SchoolMember> SchoolMembers => Set<SchoolMember>();
+    public DbSet<Division> Divisions => Set<Division>();
+    public DbSet<DivisionMember> DivisionMembers => Set<DivisionMember>();
+    public DbSet<TeacherAllocation> TeacherAllocations => Set<TeacherAllocation>();
+    public DbSet<TimetableSlot> TimetableSlots => Set<TimetableSlot>();
+    public DbSet<Assignment> Assignments => Set<Assignment>();
+    public DbSet<AssignmentSubmission> AssignmentSubmissions => Set<AssignmentSubmission>();
+    public DbSet<ParentReportLog> ParentReportLogs => Set<ParentReportLog>();
 
     public DbSet<Payment> Payments => Set<Payment>();
     public DbSet<Subscription> Subscriptions => Set<Subscription>();
@@ -161,6 +170,7 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.ToTable("ParentStudentLinks", "learning");
             e.Property(x => x.Relationship).HasMaxLength(40);
             e.Property(x => x.ConsentVersion).HasMaxLength(20);
+            e.Property(x => x.WeeklyReportEmail).HasDefaultValue(true).HasSentinel(true);
             e.HasIndex(x => new { x.ParentUserId, x.StudentId }).IsUnique();
             e.HasOne(x => x.Student).WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.ParentUserId).OnDelete(DeleteBehavior.Restrict);
@@ -356,6 +366,7 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => x.TeacherUserId);
             e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.TeacherUserId).OnDelete(DeleteBehavior.Restrict);
             e.HasOne<AcademicClass>().WithMany().HasForeignKey(x => x.ClassId).OnDelete(DeleteBehavior.Restrict);
+            e.HasIndex(x => x.DivisionId);
             e.HasQueryFilter(x => x.ArchivedAtUtc == null);
         });
         b.Entity<ClassroomMember>(e =>
@@ -365,6 +376,84 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => x.StudentId);
             e.HasOne<Classroom>().WithMany().HasForeignKey(x => x.ClassroomId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Schools, divisions, timetables, homework, parent reports
+        b.Entity<School>(e =>
+        {
+            e.ToTable("Schools", "school");
+            e.Property(x => x.Name).HasMaxLength(200);
+            e.Property(x => x.Code).HasMaxLength(30);
+            e.Property(x => x.City).HasMaxLength(100);
+            e.HasIndex(x => x.Code).IsUnique();
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<SchoolMember>(e =>
+        {
+            e.ToTable("SchoolMembers", "school");
+            e.Property(x => x.Role).HasMaxLength(20);
+            e.HasIndex(x => new { x.SchoolId, x.UserId }).IsUnique();
+            e.HasIndex(x => x.UserId);
+            e.HasOne<School>().WithMany().HasForeignKey(x => x.SchoolId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<Division>(e =>
+        {
+            e.ToTable("Divisions", "school");
+            e.Property(x => x.Name).HasMaxLength(50);
+            e.Property(x => x.JoinCode).HasMaxLength(8);
+            e.HasIndex(x => x.JoinCode).IsUnique();
+            e.HasIndex(x => x.SchoolId);
+            e.HasOne<School>().WithMany().HasForeignKey(x => x.SchoolId).OnDelete(DeleteBehavior.Restrict);
+            e.HasOne<AcademicClass>().WithMany().HasForeignKey(x => x.ClassId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<DivisionMember>(e =>
+        {
+            e.ToTable("DivisionMembers", "school");
+            e.HasIndex(x => new { x.DivisionId, x.StudentId }).IsUnique();
+            e.HasIndex(x => x.StudentId);
+            e.HasOne<Division>().WithMany().HasForeignKey(x => x.DivisionId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<TeacherAllocation>(e =>
+        {
+            e.ToTable("TeacherAllocations", "school");
+            e.HasIndex(x => new { x.DivisionId, x.SubjectId }).IsUnique();
+            e.HasIndex(x => x.TeacherUserId);
+            e.HasOne<Division>().WithMany().HasForeignKey(x => x.DivisionId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<Subject>().WithMany().HasForeignKey(x => x.SubjectId).OnDelete(DeleteBehavior.Restrict);
+        });
+        b.Entity<TimetableSlot>(e =>
+        {
+            e.ToTable("TimetableSlots", "school", t => t.HasCheckConstraint("CK_TimetableSlots_Day", "[DayOfWeek] BETWEEN 1 AND 6 AND [Period] BETWEEN 1 AND 10"));
+            e.Property(x => x.Label).HasMaxLength(40);
+            e.HasIndex(x => new { x.DivisionId, x.DayOfWeek, x.Period }).IsUnique();
+            e.HasIndex(x => x.TeacherUserId);
+            e.HasOne<Division>().WithMany().HasForeignKey(x => x.DivisionId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<Assignment>(e =>
+        {
+            e.ToTable("Assignments", "school");
+            e.Property(x => x.Title).HasMaxLength(200);
+            e.Property(x => x.Instructions).HasMaxLength(2000);
+            e.HasIndex(x => new { x.ClassroomId, x.DueAtUtc });
+            e.HasOne<Classroom>().WithMany().HasForeignKey(x => x.ClassroomId).OnDelete(DeleteBehavior.Cascade);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<AssignmentSubmission>(e =>
+        {
+            e.ToTable("AssignmentSubmissions", "school");
+            e.Property(x => x.Text).HasMaxLength(2000);
+            e.HasIndex(x => new { x.AssignmentId, x.StudentId }).IsUnique();
+            e.HasIndex(x => x.StudentId);
+            e.HasOne<Assignment>().WithMany().HasForeignKey(x => x.AssignmentId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<ParentReportLog>(e =>
+        {
+            e.ToTable("ParentReportLogs", "learning");
+            e.HasIndex(x => new { x.ParentUserId, x.StudentId, x.WeekStart }).IsUnique();
         });
 
         // Billing (Phase 11)

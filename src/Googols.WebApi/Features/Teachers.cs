@@ -50,7 +50,7 @@ public static class TeacherEndpoints
                 ClassId = req.ClassId,
                 Name = name,
                 SchoolName = string.IsNullOrWhiteSpace(req.SchoolName) ? null : req.SchoolName.Trim(),
-                JoinCode = await UniqueCodeAsync(db, ct),
+                JoinCode = await DivisionMembership.UniqueCodeAsync(db, ct),
             };
             db.Classrooms.Add(room);
             await db.SaveChangesAsync(ct);
@@ -64,14 +64,14 @@ public static class TeacherEndpoints
             {
                 return Results.NotFound();
             }
-            room.JoinCode = await UniqueCodeAsync(db, ct);
+            room.JoinCode = await DivisionMembership.UniqueCodeAsync(db, ct);
             await db.SaveChangesAsync(ct);
             return Results.Ok(new { room.JoinCode });
         });
 
         t.MapPut("/classrooms/{id:guid}/joining", async (Guid id, JoiningRequest req, ICurrentUser me, GoogolsDbContext db, CancellationToken ct) =>
         {
-            var n = await db.Classrooms.Where(c => c.Id == id && c.TeacherUserId == me.UserId)
+            var n = await db.Classrooms.Where(c => c.Id == id && c.TeacherUserId == me.UserId && c.DivisionId == null) // school classes follow their division
                 .ExecuteUpdateAsync(u => u.SetProperty(c => c.JoiningOpen, req.Open), ct);
             return n == 0 ? Results.NotFound() : Results.NoContent();
         });
@@ -168,6 +168,17 @@ public static class TeacherEndpoints
             }
             var code = Codes.Normalize(req.Code ?? "");
             var room = await db.Classrooms.FirstOrDefaultAsync(c => c.JoinCode == code && c.JoiningOpen, ct);
+            if (room is null && await db.Divisions.FirstOrDefaultAsync(d => d.JoinCode == code && d.JoiningOpen, ct) is { } division)
+            {
+                // A school division code: join the division and every subject classroom its teachers run.
+                if (division.ClassId != ctx.ClassId)
+                {
+                    return Results.ValidationProblem(new Dictionary<string, string[]> { ["code"] = ["This division is for a different class than yours."] });
+                }
+                await DivisionMembership.JoinAsync(db, clock, division, ctx.Student, ct);
+                var school = await db.Schools.Where(x => x.Id == division.SchoolId).Select(x => x.Name).FirstAsync(ct);
+                return Results.Ok(new { division.Id, Name = $"{division.Name} · {school}" });
+            }
             if (room is null)
             {
                 return Results.ValidationProblem(new Dictionary<string, string[]> { ["code"] = ["That class code is wrong, or the class isn't taking new students. Check with your teacher."] });
@@ -190,6 +201,13 @@ public static class TeacherEndpoints
             {
                 return Results.NotFound();
             }
+            // Leaving a school class leaves the whole division (all its subject classrooms).
+            var divisionId = await db.Classrooms.Where(c => c.Id == id).Select(c => c.DivisionId).FirstOrDefaultAsync(ct);
+            if (divisionId is { } did)
+            {
+                await DivisionMembership.LeaveAsync(db, did, ctx.Student.Id, ct);
+                return Results.NoContent();
+            }
             await db.ClassroomMembers.Where(m => m.ClassroomId == id && m.StudentId == ctx.Student.Id).ExecuteDeleteAsync(ct);
             return Results.NoContent();
         });
@@ -205,16 +223,4 @@ public static class TeacherEndpoints
         c.JoinCode, c.JoiningOpen,
         db.ClassroomMembers.Count(m => m.ClassroomId == c.Id));
 
-    private static async Task<string> UniqueCodeAsync(GoogolsDbContext db, CancellationToken ct)
-    {
-        for (var i = 0; i < 10; i++)
-        {
-            var code = Codes.New(JoinCodeLength);
-            if (!await db.Classrooms.IgnoreQueryFilters().AnyAsync(c => c.JoinCode == code, ct))
-            {
-                return code;
-            }
-        }
-        throw new InvalidOperationException("Could not generate a unique classroom code.");
-    }
 }

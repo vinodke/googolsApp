@@ -82,7 +82,8 @@ builder.Services.AddAuthorizationBuilder()
     .AddPolicy(Policies.Parent, p => p.RequireRole(Roles.Parent))
     .AddPolicy(Policies.Teacher, p => p.RequireRole(Roles.Teacher, Roles.SchoolAdmin))
     .AddPolicy(Policies.ContentManager, p => p.RequireRole(Roles.ContentManager, Roles.Admin, Roles.SuperAdmin))
-    .AddPolicy(Policies.Admin, p => p.RequireRole(Roles.Admin, Roles.SuperAdmin));
+    .AddPolicy(Policies.Admin, p => p.RequireRole(Roles.Admin, Roles.SuperAdmin))
+    .AddPolicy(Policies.SchoolAdmin, p => p.RequireRole(Roles.SchoolAdmin));
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUser, HttpCurrentUser>();
@@ -90,6 +91,9 @@ builder.Services.AddScoped<AiTeacherService>();
 builder.Services.AddScoped<AiUsageRecorder>();
 builder.Services.AddScoped<MasteryService>();
 builder.Services.AddScoped<ExamService>();
+builder.Services.AddScoped<SchoolAccess>();
+builder.Services.AddScoped<WeeklyReportBuilder>();
+builder.Services.AddHostedService<WeeklyReportSender>();
 builder.Services.AddScoped<XpLedgerService>();
 builder.Services.AddScoped<StudentAccess>();
 builder.Services.AddScoped<LessonIndexer>();
@@ -187,6 +191,9 @@ v1.MapAiQualityEndpoints();
 v1.MapExamEndpoints();
 v1.MapProgressEndpoints();
 v1.MapAssessmentAdminEndpoints();
+v1.MapHomeworkEndpoints();
+v1.MapWeeklyReportEndpoints();
+v1.MapSchoolEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

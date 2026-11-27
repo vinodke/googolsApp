@@ -20,6 +20,7 @@ public static class Policies
     public const string Teacher = "teacher";
     public const string ContentManager = "content-manager";
     public const string Admin = "admin";
+    public const string SchoolAdmin = "school-admin";
 }
 
 public sealed class HttpCurrentUser(IHttpContextAccessor http) : ICurrentUser
