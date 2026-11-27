@@ -202,7 +202,7 @@ public static class TeacherEndpoints
                 return Results.NotFound();
             }
             // Leaving a school class leaves the whole division (all its subject classrooms).
-            var divisionId = await db.Classrooms.Where(c => c.Id == id).Select(c => c.DivisionId).FirstOrDefaultAsync(ct);
+            var divisionId = await db.Classrooms.IgnoreQueryFilters().Where(c => c.Id == id).Select(c => c.DivisionId).FirstOrDefaultAsync(ct);
             if (divisionId is { } did)
             {
                 await DivisionMembership.LeaveAsync(db, did, ctx.Student.Id, ct);
