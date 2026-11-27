@@ -102,3 +102,31 @@ describe('AI Teacher', () => {
     expect(screen.queryByRole('button', { name: 'അയക്കുക' })).not.toBeInTheDocument()
   })
 })
+
+describe('AI Teacher conversations', () => {
+  it('continues the saved chat with its id and shows a wellbeing reply without source labels', async () => {
+    let turn = 0
+    const calls = mockApi({
+      'GET /students/me': () => ({ status: 200, json: { ...me, preferredLanguage: 'en' } }),
+      'GET /curriculum/classes/k8/subjects': () => ({ status: 200, json: [{ id: 's1', name: 'Biology', code: 'BIO-8', mediumLanguage: 'ml' }] }),
+      'GET /ai/conversations?subjectId=s1': () => ({ status: 200, json: [] }),
+      'POST /ai/messages': () => (++turn === 1
+        ? { status: 200, json: { reply: 'Plants make food.', sources: [], groundedInApprovedContent: false, remainingToday: 39, conversationId: 'conv1' } }
+        : { status: 200, json: { reply: 'Please call Tele-MANAS on 14416.', sources: [], groundedInApprovedContent: false, remainingToday: 39, conversationId: 'conv1', safetyNotice: 'wellbeing' } }),
+    })
+    wrap(<AiTeacherPage />, '/ai-teacher')
+    await screen.findByRole('option', { name: 'Biology' })
+    const box = screen.getByLabelText('Type your question…')
+    fireEvent.change(box, { target: { value: 'What is photosynthesis?' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+    await screen.findByText('Plants make food.')
+    fireEvent.change(box, { target: { value: 'I feel very sad' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+    const care = await screen.findByText('Please call Tele-MANAS on 14416.')
+    expect(care.closest('.bubble')).toHaveClass('wellbeing')
+    const posts = calls.filter(c => c.key === 'POST /ai/messages').map(c => c.body as { conversationId: string | null; history: unknown[] })
+    expect(posts[0].conversationId).toBeNull()
+    expect(posts[1].conversationId).toBe('conv1')
+    expect(posts[1].history).toEqual([]) // server owns the history once a chat is saved
+  })
+})

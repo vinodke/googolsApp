@@ -68,7 +68,10 @@ public static class DependencyInjection
         {
             services.AddScoped<ICurriculumRetriever, SqlCurriculumRetriever>();
         }
-        services.AddSingleton<IContentSafety, BasicContentSafety>();
+        services.Configure<ContentSafetyOptions>(config.GetSection(ContentSafetyOptions.Section));
+        services.AddHttpClient(nameof(LayeredContentSafety), c => c.Timeout = TimeSpan.FromSeconds(8));
+        services.AddSingleton<BasicContentSafety>();
+        services.AddSingleton<IContentSafety, LayeredContentSafety>();
 
         // Email (SMTP when configured, otherwise a logging no-op) — also used by Identity for confirm/reset emails.
         services.Configure<EmailOptions>(config.GetSection(EmailOptions.Section));

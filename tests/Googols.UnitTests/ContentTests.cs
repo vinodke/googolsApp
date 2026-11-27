@@ -103,3 +103,30 @@ public class AttachmentRulesTests
     public void File_names_are_cleaned() =>
         Assert.Equal("Chapter 1 notesscript.pdf", AttachmentRules.SafeFileName("../../Chapter 1 notes<script>.exe", "application/pdf"));
 }
+
+public class SafetyAndConversationTests
+{
+    [Fact]
+    public async Task Self_harm_phrases_get_the_wellbeing_category_without_a_cloud_classifier()
+    {
+        var safety = new Googols.Infrastructure.Ai.LayeredContentSafety(new Googols.Infrastructure.Ai.BasicContentSafety(),
+            new NoHttp(), Microsoft.Extensions.Options.Options.Create(new Googols.Infrastructure.Ai.ContentSafetyOptions()),
+            Microsoft.Extensions.Logging.Abstractions.NullLogger<Googols.Infrastructure.Ai.LayeredContentSafety>.Instance);
+        Assert.Equal(SafetyCategories.SelfHarm, (await safety.CheckAsync("I want to die", default)).Category);
+        Assert.Equal(SafetyCategories.SelfHarm, (await safety.CheckAsync("എനിക്ക് ആത്മഹത്യ ചെയ്യണം", default)).Category);
+        Assert.Equal(SafetyCategories.PersonalInfo, (await safety.CheckAsync("call me on 9876543210", default)).Category);
+        Assert.True((await safety.CheckAsync("Why are leaves green?", default)).Allowed);
+    }
+
+    [Fact]
+    public void Conversation_titles_come_from_the_first_question()
+    {
+        Assert.Equal("What is photosynthesis?", Googols.Domain.Ai.AiConversation.TitleFrom("  What is\n photosynthesis?  "));
+        Assert.Equal(78, Googols.Domain.Ai.AiConversation.TitleFrom(new string('a', 200)).Length);
+    }
+
+    private sealed class NoHttp : IHttpClientFactory
+    {
+        public HttpClient CreateClient(string name) => throw new InvalidOperationException("not configured, must not be called");
+    }
+}

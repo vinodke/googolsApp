@@ -1,3 +1,4 @@
+using Googols.Domain.Ai;
 using Googols.Domain.Common;
 using Googols.Domain.Content;
 using Googols.Domain.Curricula;
@@ -29,6 +30,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
     public DbSet<Lesson> Lessons => Set<Lesson>();
     public DbSet<ContentChunk> ContentChunks => Set<ContentChunk>();
     public DbSet<LessonProgress> LessonProgress => Set<LessonProgress>();
+
+    public DbSet<AiConversation> AiConversations => Set<AiConversation>();
+    public DbSet<AiMessage> AiMessages => Set<AiMessage>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -176,6 +180,27 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasOne<Lesson>().WithMany().HasForeignKey(x => x.LessonId).OnDelete(DeleteBehavior.Restrict);
         });
 
+        // AI Teacher history (Phase 7)
+        b.Entity<AiConversation>(e =>
+        {
+            e.ToTable("AiConversations", "ai");
+            e.Property(x => x.Title).HasMaxLength(100);
+            e.Property(x => x.Language).HasMaxLength(8);
+            e.HasIndex(x => new { x.StudentId, x.LastMessageAtUtc });
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<AiMessage>(e =>
+        {
+            e.ToTable("AiMessages", "ai");
+            e.Property(x => x.Role).HasMaxLength(12);
+            e.Property(x => x.Mode).HasMaxLength(30);
+            e.Property(x => x.SafetyCategory).HasMaxLength(30);
+            e.Property(x => x.Model).HasMaxLength(60);
+            e.HasIndex(x => new { x.ConversationId, x.CreatedAtUtc });
+            e.HasOne(x => x.Conversation).WithMany(x => x.Messages).HasForeignKey(x => x.ConversationId).OnDelete(DeleteBehavior.Cascade);
+        });
+
         // Gamification
         b.Entity<XpTransaction>(e =>
         {
@@ -199,9 +224,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
         var now = DateTime.UtcNow;
         foreach (var entry in ChangeTracker.Entries<Entity>())
         {
-            if (entry.State == EntityState.Added)
+            if (entry.State == EntityState.Added && entry.Entity.CreatedAtUtc == default)
             {
-                entry.Entity.CreatedAtUtc = now;
+                entry.Entity.CreatedAtUtc = now; // callers may set it explicitly to fix ordering (e.g. chat turns)
             }
             else if (entry.State == EntityState.Modified)
             {

@@ -25,7 +25,7 @@ public sealed partial class BasicContentSafety : IContentSafety
         }
         if (Email().IsMatch(text) || Phone().IsMatch(text))
         {
-            return Task.FromResult(new SafetyVerdict(false, "personal-info"));
+            return Task.FromResult(new SafetyVerdict(false, SafetyCategories.PersonalInfo));
         }
         return Task.FromResult(new SafetyVerdict(true, null));
     }

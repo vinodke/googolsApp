@@ -37,8 +37,20 @@ public sealed class AzureOpenAiProvider(IOptions<AzureOpenAiOptions> options) : 
         }
         messages.Add(new UserChatMessage(request.UserMessage));
 
-        var result = await _chat.CompleteChatAsync(messages, new ChatCompletionOptions { MaxOutputTokenCount = request.MaxOutputTokens }, ct);
+        System.ClientModel.ClientResult<ChatCompletion> result;
+        try
+        {
+            result = await _chat.CompleteChatAsync(messages, new ChatCompletionOptions { MaxOutputTokenCount = request.MaxOutputTokens }, ct);
+        }
+        catch (System.ClientModel.ClientResultException ex) when (ex.Status == 400 && ex.Message.Contains("content_filter", StringComparison.OrdinalIgnoreCase))
+        {
+            throw new AiContentFilteredException(); // Azure OpenAI's own filter rejected the prompt
+        }
         var completion = result.Value;
+        if (completion.FinishReason == ChatFinishReason.ContentFilter)
+        {
+            throw new AiContentFilteredException(); // the answer was cut by the output filter
+        }
         var text = completion.Content.Count > 0 ? completion.Content[0].Text : "";
         return new AiCompletionResult(text, completion.Usage?.InputTokenCount ?? 0, completion.Usage?.OutputTokenCount ?? 0, completion.Model);
     }

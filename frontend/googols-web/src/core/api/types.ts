@@ -26,7 +26,13 @@ export interface XpSummary { total: number; level: number; recent: { points: num
 export type TeacherMode = 'PersonalTeacher' | 'DoubtSolver' | 'ExamCoach' | 'RevisionAssistant' | 'PracticeTeacher'
 export interface ChatTurn { role: 'user' | 'assistant'; text: string }
 export interface SourceRef { contentId: string; title: string; kind: 'OfficialSyllabus' | 'ApprovedMaterial' | 'AiGenerated' }
-export interface AskTeacherResponse { reply: string; sources: SourceRef[]; groundedInApprovedContent: boolean; remainingToday: number }
+export interface AskTeacherResponse {
+  reply: string; sources: SourceRef[]; groundedInApprovedContent: boolean; remainingToday: number
+  conversationId?: string | null; safetyNotice?: string | null
+}
+export interface ConversationSummary { id: string; title: string; subjectId: string; chapterId: string | null; language: string; lastMessageAtUtc: string; messageCount: number }
+export interface Conversation { id: string; title: string; subjectId: string; chapterId: string | null; language: string
+  messages: { role: 'user' | 'assistant'; text: string; sources: SourceRef[]; grounded: boolean; createdAtUtc: string }[] }
 
 export type PubStatus = 'Draft' | 'InReview' | 'Approved' | 'Published' | 'Archived'
 export interface Account { email: string; roles: string[] }

@@ -62,3 +62,14 @@ public interface IContentSafety
 }
 
 public sealed record SafetyVerdict(bool Allowed, string? Category);
+
+public static class SafetyCategories
+{
+    public const string PersonalInfo = "personal-info";
+    public const string SelfHarm = "self-harm";
+    public const string Harmful = "harmful";
+    public const string Unavailable = "unavailable";
+}
+
+/// <summary>The model provider's own safety filter refused the prompt or the answer.</summary>
+public sealed class AiContentFilteredException() : Exception("The AI provider's content filter blocked this exchange.");

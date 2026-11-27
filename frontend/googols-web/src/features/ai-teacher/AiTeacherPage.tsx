@@ -1,14 +1,14 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useSearchParams } from 'react-router'
 import { Icon } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
-import type { AskTeacherResponse, ChatTurn, Lang, SourceRef, TeacherMode } from '../../core/api/types'
+import type { AskTeacherResponse, ChatTurn, Conversation, ConversationSummary, Lang, SourceRef, TeacherMode } from '../../core/api/types'
 import { strings } from '../../core/i18n/strings'
 import { useStudentMe, useSubjects } from '../../core/queries'
 import './ai-teacher.css'
 
-interface Message extends ChatTurn { sources?: SourceRef[]; grounded?: boolean }
+interface Message extends ChatTurn { sources?: SourceRef[]; grounded?: boolean; wellbeing?: boolean }
 
 export function AiTeacherPage() {
   const me = useStudentMe()
@@ -24,19 +24,41 @@ export function AiTeacherPage() {
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Message[]>([])
   const [remaining, setRemaining] = useState<number | null>(null)
+  const [conversationId, setConversationId] = useState<string | null>(null)
+  const [showHistory, setShowHistory] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
+  const qc = useQueryClient()
   const t = strings[lang]
+  const history = useQuery({
+    queryKey: ['ai', 'conversations', subjectId],
+    queryFn: () => api.get<ConversationSummary[]>(`/ai/conversations?subjectId=${subjectId}`),
+    enabled: !!subjectId && !me.data?.consentRequired,
+  })
+
+  async function openConversation(id: string) {
+    const c = await api.get<Conversation>(`/ai/conversations/${id}`)
+    setConversationId(c.id)
+    setMessages(c.messages.map(m => ({ role: m.role, text: m.text, sources: m.sources, grounded: m.grounded })))
+    setShowHistory(false)
+  }
+  function newChat() {
+    setConversationId(null)
+    setMessages([])
+    setShowHistory(false)
+  }
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages])
 
   const ask = useMutation({
     mutationFn: (text: string) => api.post<AskTeacherResponse>('/ai/messages', {
-      subjectId, chapterId, topicId: null, message: text, mode, language: lang,
-      history: messages.slice(-10).map(({ role, text }) => ({ role, text })),
+      subjectId, chapterId, topicId: null, message: text, mode, language: lang, conversationId,
+      history: conversationId ? [] : messages.slice(-10).map(({ role, text }) => ({ role, text })),
     }),
     onSuccess: res => {
-      setMessages(m => [...m, { role: 'assistant', text: res.reply, sources: res.sources, grounded: res.groundedInApprovedContent }])
+      setMessages(m => [...m, { role: 'assistant', text: res.reply, sources: res.sources, grounded: res.groundedInApprovedContent, wellbeing: res.safetyNotice === 'wellbeing' }])
       setRemaining(res.remainingToday)
+      if (res.conversationId) setConversationId(res.conversationId)
+      void qc.invalidateQueries({ queryKey: ['ai', 'conversations'] })
     },
   })
 
@@ -72,7 +94,9 @@ export function AiTeacherPage() {
             <div className="muted small"><span className="online-dot" aria-hidden /> {remaining !== null ? t.remaining(remaining) : 'Online'}</div>
           </div>
         </div>
-        <select className="input" aria-label="Subject" value={subjectId} onChange={e => setSubjectId(e.target.value)}>
+        <button type="button" className="btn btn-ghost btn-sm" aria-expanded={showHistory} onClick={() => setShowHistory(v => !v)}>History</button>
+        <button type="button" className="btn btn-ghost btn-sm" onClick={newChat}><Icon name="plus" size={16} /> New chat</button>
+        <select className="input" aria-label="Subject" value={subjectId} onChange={e => { setSubjectId(e.target.value); newChat() }}>
           {subjects.data?.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
         </select>
         <div role="group" aria-label="Language" className="segmented">
@@ -84,6 +108,17 @@ export function AiTeacherPage() {
         </div>
       </div>
 
+      {showHistory && (
+        <div className="history" role="region" aria-label="Previous chats">
+          {history.data?.length === 0 && <p className="muted small" style={{ margin: 0 }}>No saved chats for this subject yet.</p>}
+          {history.data?.map(c => (
+            <button key={c.id} type="button" className={`history-item${c.id === conversationId ? ' active' : ''}`} onClick={() => void openConversation(c.id)}>
+              <strong>{c.title}</strong><span className="muted small">{new Date(c.lastMessageAtUtc).toLocaleDateString()} · {c.messageCount / 2} questions</span>
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="chat" aria-live="polite">
         {messages.length === 0 && (
           <div className="empty">
@@ -93,9 +128,9 @@ export function AiTeacherPage() {
           </div>
         )}
         {messages.map((m, i) => (
-          <div key={i} className={`bubble ${m.role}`}>
+          <div key={i} className={`bubble ${m.role}${m.wellbeing ? ' wellbeing' : ''}`}>
             <div className="bubble-text">{m.text}</div>
-            {m.role === 'assistant' && (
+            {m.role === 'assistant' && !m.wellbeing && (
               <div className="bubble-meta">
                 {m.grounded
                   ? <span className="badge badge-success"><Icon name="book" size={14} /> {t.sourcesUsed}: {m.sources?.map(s => s.title).join(', ')}</span>
