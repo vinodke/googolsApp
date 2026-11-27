@@ -39,6 +39,14 @@ public class LearningPolicyTests
     }
 
     [Fact]
+    public void Study_plan_includes_unread_lessons_of_a_chapter_already_quizzed()
+    {
+        var quizzedNotRead = new StudyPlanner.ChapterState(Guid.NewGuid(), "Cells", Guid.NewGuid(), "Biology", 1, 0, Guid.NewGuid(), true, 64, DateTime.UtcNow);
+        var plan = StudyPlanner.Build([quizzedNotRead], new DateOnly(2026, 11, 27), DateTime.UtcNow);
+        Assert.Equal("Start Cells", plan[0].Tasks.Single().Title);
+    }
+
+    [Fact]
     public void Missions_and_challenges_need_real_activity()
     {
         var none = MissionPolicy.Today(new MissionPolicy.Activity(0, 0, 0));

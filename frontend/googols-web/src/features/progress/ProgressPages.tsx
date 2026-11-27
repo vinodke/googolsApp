@@ -68,7 +68,7 @@ export function StudyPlanCard({ days = 7 }: { days?: number }) {
   return (
     <section className="card" aria-label="Study plan">
       <div className="card-title"><h2>{days === 1 ? "Today's plan" : 'My study plan'}</h2>{days === 1 && <Link to="/progress" className="small">Whole week</Link>}</div>
-      {empty ? <p className="muted">Nothing to plan yet. When lessons are published for your class, your plan appears here.</p> : (
+      {empty ? <p className="muted">You're all caught up. Take a timed test or a quiz to keep your skills sharp; new tasks appear here as lessons are added.</p> : (
         <div className="plan">
           {shown.map((d, i) => (
             <div key={d.date} className={`plan-day${i === 0 ? ' today' : ''}`}>

@@ -43,7 +43,7 @@ export function TeacherHomePage() {
             <div className="row-between"><span className="icon-tile lg tint-teal"><Icon name="grad" /></span><span className="badge">{r.studentCount} students</span></div>
             <h3 style={{ margin: 'var(--space-3) 0 2px', fontSize: 'var(--text-lg)' }}>{r.name}</h3>
             <span className="small muted">{r.boardCode} · {r.className} · {r.academicYear}{r.schoolName ? ` · ${r.schoolName}` : ''}</span>
-            <div className="code-pill">Code <strong>{r.joinCode}</strong></div>
+            {r.isSchoolClass ? <div className="code-pill">School class</div> : <div className="code-pill">Code <strong>{r.joinCode}</strong></div>}
           </Link>
         ))}
       </div>
@@ -110,11 +110,18 @@ export function ClassroomPage() {
           <h1>{r.name}</h1>
           <p className="muted">{r.boardCode} · {r.className} · {r.academicYear} · {students.length} students</p>
         </div>
+        {r.isSchoolClass ? (
+          <div className="card" style={{ padding: 'var(--space-3) var(--space-4)', maxWidth: 320 }}>
+            <span className="badge">School class</span>
+            <p className="small muted" style={{ margin: '6px 0 0' }}>Students join through their division's code from the school admin.</p>
+          </div>
+        ) : (
         <div className="card row" style={{ padding: 'var(--space-3) var(--space-4)' }}>
           <span className="small muted">Join code</span><strong className="join-code">{r.joinCode}</strong>
           <button className="btn btn-ghost btn-sm" onClick={() => rotate.mutate()} disabled={rotate.isPending}>New code</button>
           <label className="check" style={{ alignItems: 'center' }}><input type="checkbox" checked={r.joiningOpen} onChange={e => joining.mutate(e.target.checked)} /> Open</label>
         </div>
+        )}
       </header>
 
       <div role="tablist" aria-label="Classroom sections" className="segmented" style={{ alignSelf: 'flex-start', flexWrap: 'wrap' }}>

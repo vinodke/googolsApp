@@ -71,9 +71,11 @@ public static class StudyPlanner
         {
             tasks.Add(new PlanTask("quiz", $"Take the {c.Title} quiz", "You've finished the lessons. Check what you remember.", c.ChapterId, null, c.Subject));
         }
-        foreach (var c in chapters.Where(c => c.LessonsDone == 0 && c.Mastery is null && c.NextLessonId is not null))
+        // Lessons not started yet: new chapters, and chapters already quizzed whose lessons are still unread.
+        foreach (var c in chapters.Where(c => c.LessonsDone == 0 && c.LessonsTotal > 0 && c.Mastery is null or >= MasteryPolicy.WeakBelow && c.NextLessonId is not null))
         {
-            tasks.Add(new PlanTask("lesson", $"Start {c.Title}", "A new chapter for you.", c.ChapterId, c.NextLessonId, c.Subject));
+            tasks.Add(new PlanTask("lesson", $"Start {c.Title}", c.Mastery is null ? "A new chapter for you." : "You know some of it already. Read the lessons to fill the gaps.",
+                c.ChapterId, c.NextLessonId, c.Subject));
         }
         foreach (var c in chapters.Where(c => c.Mastery >= 70 && c.LastPracticedUtc is { } at && nowUtc - at > StaleAfter && c.HasQuiz))
         {

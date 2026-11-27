@@ -105,7 +105,7 @@ export interface LeaderboardRow { rank: number; name: string; xp: number; level:
 export interface Leaderboard { period: 'week' | 'all'; className: string; rows: LeaderboardRow[]; me: LeaderboardRow | null; showingMe: boolean }
 
 // ---- Teachers (Phase 10)
-export interface Classroom { id: string; name: string; schoolName: string | null; classId: string; className: string; boardCode: string; academicYear: string; joinCode: string; joiningOpen: boolean; studentCount: number }
+export interface Classroom { id: string; name: string; schoolName: string | null; classId: string; className: string; boardCode: string; academicYear: string; joinCode: string; joiningOpen: boolean; studentCount: number; isSchoolClass?: boolean }
 export interface ClassroomStudent { studentId: string; name: string; totalXp: number; level: number; streakDays: number; lastActiveDate: string | null; lessonsCompleted: number; quizzesTaken: number; quizAverage: number | null }
 export interface ChapterInsight { chapterId: string; title: string; subject: string; sequence: number; lessonCount: number; completionRate: number; quizAttempts: number; quizAverage: number | null }
 export interface ClassroomDetail { classroom: Classroom; totalLessons: number; students: ClassroomStudent[]; chapters: ChapterInsight[] }

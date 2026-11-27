@@ -16,7 +16,7 @@ public static class TeacherEndpoints
 
     public sealed record CreateClassroomRequest(string Name, Guid ClassId, string? SchoolName);
     public sealed record ClassroomDto(Guid Id, string Name, string? SchoolName, Guid ClassId, string ClassName, string BoardCode, string AcademicYear,
-        string JoinCode, bool JoiningOpen, int StudentCount);
+        string JoinCode, bool JoiningOpen, int StudentCount, bool IsSchoolClass = false);
     public sealed record StudentRowDto(Guid StudentId, string Name, int TotalXp, int Level, int StreakDays, DateOnly? LastActiveDate,
         int LessonsCompleted, int QuizzesTaken, double? QuizAverage);
     public sealed record ChapterInsightDto(Guid ChapterId, string Title, string Subject, int Sequence, int LessonCount, double CompletionRate,
@@ -221,6 +221,7 @@ public static class TeacherEndpoints
         db.AcademicClasses.Where(k => k.Id == c.ClassId).Select(k => k.Curriculum!.Board!.Code).First(),
         db.AcademicClasses.Where(k => k.Id == c.ClassId).Select(k => k.Curriculum!.AcademicYear).First(),
         c.JoinCode, c.JoiningOpen,
-        db.ClassroomMembers.Count(m => m.ClassroomId == c.Id));
+        db.ClassroomMembers.Count(m => m.ClassroomId == c.Id),
+        c.DivisionId != null);
 
 }
