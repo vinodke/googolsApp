@@ -1,6 +1,6 @@
 # Implementation Status
 
-**Updated:** 26 Nov 2026 — Phase 3 foundations built, tested and **deployed to Azure**.
+**Updated:** 27 Nov 2026 — AI teacher upgrades, tests & progress, and schools/homework/parent reports built, deployed and live-tested.
 
 **Status words:** *Verified* = built and run here. *Written* = code complete, not yet compiled. *Planned* = phase noted.
 
@@ -91,7 +91,27 @@ admin metrics/users, SuperAdmin grant refused for Admin, user lock, chapter with
 | 11 Plans | Free 15 AI/day; Premium ₹199/month or ₹1,499/year with 60 AI/day (**placeholder prices**, app settings `Billing__*`); Razorpay order + signature verify + webhook |
 | 12 Admin | Metrics dashboard (14-day charts), users (roles, lock), curriculum rename/delete, CSV chapter import |
 
-**To switch on:** `Razorpay__KeyId/KeySecret/WebhookSecret` (webhook URL `/api/v1/billing/webhooks/razorpay`), `Email__Smtp__Host/Port/User/Password` + `Email__From`, `ContentSafety__Endpoint/ApiKey`. Roles granted by an admin apply after the user signs in again.
+**To switch on:** `Speech__Region` + `Speech__ApiKey` (Malayalam read-aloud), `Razorpay__KeyId/KeySecret/WebhookSecret` (webhook URL `/api/v1/billing/webhooks/razorpay`), `Email__Smtp__Host/Port/User/Password` + `Email__From`, `ContentSafety__Endpoint/ApiKey`. Roles granted by an admin apply after the user signs in again.
+
+## AI teacher, tests & progress, schools (27 Nov 2026) — built, deployed, live-tested
+Three migrations, all additive: `AiTeacherUpgrades` (3 tables, 4 columns), `LearningAndExams` (6 tables), `SchoolsHomeworkReports` (9 tables, 4 columns).
+Tests: **83/83 unit, 2/2 architecture, 28/28 React UI**. Live end-to-end script `tests/live/run.sh`: **105/105 checks passed** on the live site (throwaway QA accounts and a separate QA syllabus; afterwards 0 QA users and 0 QA boards left, firewall rule removed).
+
+| Area | What's live |
+|---|---|
+| Streaming answers | `POST /ai/messages/stream` (server-sent events: start → delta… → done). The final reply is screened again and replaces the streamed text. |
+| Photo doubts | JPEG/PNG up to 4 MB (shrunk in the browser to 1600 px), checked by file signature, sent to gpt-4.1-mini vision, stored privately in Blob `ai-photos`; only the student can open it. |
+| Voice | Speak a question (browser speech recognition, ml-IN / en-IN). Read aloud: device voice, or Azure AI Speech (`ml-IN-SobhanaNeural`) when `Speech__Region` + `Speech__ApiKey` are set; until then Malayalam read-aloud needs a device Malayalam voice. |
+| Ratings, usage, evals | Thumbs up/down (+ comment) per answer; `ai.UsageLogs` row per AI call with cost from `AiPricing__*` (default gpt-4.1-mini list prices, ₹85/$); Admin → AI quality: usage & cost by feature/day, "not helpful" answers, golden-set test questions with a Run button (language, key points, banned phrases, grounding). |
+| Timed tests | Practice tests (student builds: chapters, 5–50 questions, 5–180 min, optional 2 written), mock exams (Admin → Mock exams, one attempt, open/close times), class tests (teacher). Server deadline + 60 s grace, autosave, auto-submit, late submissions use the last autosave. XP once per test / once a day for practice. |
+| Written answers | Rubric (marking points, 1–10 marks each). AI marks against it (provisional, clamped, half marks); teacher confirms or changes in Classroom → Marking; student sees "provisional" / "confirmed". |
+| Mastery & plan | Chapter mastery = moving average of quiz/test/written results (60% newest) blended with lessons done; weak areas (< 60%); 7-day plan (weak first, then unfinished, untested, stale). Page: My progress. |
+| Missions & challenges | 3 daily missions (lesson, quiz/test, 80%+) → +20 XP once a day; 2 weekly challenges rotating from 4 → +50 XP each. All verified on the server. |
+| Bookmarks | Save lessons and AI answers (Saved page). |
+| Parent weekly report | Parent area → Weekly report (any week): lessons, scores, days active, XP, AI question count (no chat text), weak chapters, homework. Monday 7 am email of last week (once per parent/child/week, opt-out) when SMTP is configured. |
+| Homework | Teacher sets lesson / quiz / timed test / other task with a due date; lesson, quiz and test homework ticks itself off; tasks are marked done by the student with a note. |
+| Heat map | Teacher classroom and school division: students × chapters coloured by mastery, with class averages. |
+| Schools | Admin → Schools (create, assign school admins). School admin (/school): staff (existing accounts), divisions with join codes, subject teachers (each becomes a linked classroom with the division's students), timetable editor (Mon–Sat, up to 10 periods). Students join with the division code and see the timetable; teachers see theirs. All /school routes are scoped to the admin's own school. |
 
 ## Google sign-in (27 Nov 2026)
 "Continue with Google" on sign-in and sign-up. Google Cloud project **googols**, OAuth client "Googols web" (Web application), redirect URI `https://googols-app.azurewebsites.net/signin-google`, consent screen **In production** (scopes: openid, email, profile; no Google review needed). Keys live only in app settings `Authentication__Google__ClientId` / `__ClientSecret`.
