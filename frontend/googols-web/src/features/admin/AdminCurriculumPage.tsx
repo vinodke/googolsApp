@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState, type FormEvent, type ReactNode } from 'react'
+import { Link } from 'react-router'
 import { Icon, tintFor } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
 import type { AdminBoard, AdminClass, AdminCurriculum, AdminSubject, PubStatus } from '../../core/api/types'
@@ -140,7 +141,10 @@ function SubjectPanel({ subject }: { subject: AdminSubject }) {
         {subject.chapters.map(ch => (
           <li key={ch.id} className="row-between">
             <span><span className="muted">{ch.sequence}.</span> {ch.title} <StatusBadge status={ch.status} /></span>
-            <StatusToggle path={`/curriculum/admin/chapters/${ch.id}/status`} published={ch.status === 'Published'} small />
+            <span className="row" style={{ gap: 'var(--space-2)' }}>
+              <Link className="btn btn-ghost btn-sm" to={`/admin/chapters/${ch.id}/lessons`}>Lessons</Link>
+              <StatusToggle path={`/curriculum/admin/chapters/${ch.id}/status`} published={ch.status === 'Published'} small />
+            </span>
           </li>
         ))}
       </ol>

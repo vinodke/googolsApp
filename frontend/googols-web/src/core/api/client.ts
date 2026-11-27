@@ -39,6 +39,14 @@ export const api = {
   post: <T>(path: string, body?: unknown) => request<T>('POST', path, body ?? {}),
   put: <T>(path: string, body?: unknown) => request<T>('PUT', path, body ?? {}),
   del: <T>(path: string) => request<T>('DELETE', path),
+  /** multipart upload (browser sets the boundary) */
+  upload: async <T>(path: string, form: FormData): Promise<T> => {
+    const res = await fetch(`/api/v1${path}`, { method: 'POST', credentials: 'include', body: form })
+    const text = await res.text()
+    const data = text ? JSON.parse(text) : undefined
+    if (!res.ok) throw new ApiError(res.status, (data ?? {}) as ProblemDetails)
+    return data as T
+  },
 }
 
 /** First validation message per field, for showing under inputs. */

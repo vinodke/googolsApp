@@ -11,7 +11,7 @@ public static class XpAwardPolicy
 {
     public const string Version = "xp-v1";
 
-    public sealed record LearningEvent(string Kind, Guid StudentId, Guid SubjectRefId, double? ScorePercent = null);
+    public sealed record LearningEvent(string Kind, Guid StudentId, Guid SubjectRefId, double? ScorePercent = null, DateOnly? Day = null);
 
     public sealed record Award(string ActivityCode, int Points, string IdempotencyKey);
 
@@ -32,6 +32,10 @@ public static class XpAwardPolicy
                 break;
             case "chapter-completed":
                 Add(XpRule.Codes.ChapterCompleted, $"chapter:{e.SubjectRefId}");
+                break;
+            case "daily-active" when e.Day is { } day:
+                // One streak bonus per local calendar day of real learning activity.
+                Add(XpRule.Codes.DailyStreak, $"streak:{day:yyyy-MM-dd}");
                 break;
             case "challenge-completed":
                 Add(XpRule.Codes.ChallengeCompleted, $"challenge:{e.SubjectRefId}");

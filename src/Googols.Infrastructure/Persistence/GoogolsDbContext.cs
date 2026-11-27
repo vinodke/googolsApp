@@ -1,4 +1,5 @@
 using Googols.Domain.Common;
+using Googols.Domain.Content;
 using Googols.Domain.Curricula;
 using Googols.Domain.Gamification;
 using Googols.Domain.Students;
@@ -24,6 +25,10 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
     public DbSet<Enrollment> Enrollments => Set<Enrollment>();
     public DbSet<ParentStudentLink> ParentStudentLinks => Set<ParentStudentLink>();
     public DbSet<ParentLinkCode> ParentLinkCodes => Set<ParentLinkCode>();
+
+    public DbSet<Lesson> Lessons => Set<Lesson>();
+    public DbSet<ContentChunk> ContentChunks => Set<ContentChunk>();
+    public DbSet<LessonProgress> LessonProgress => Set<LessonProgress>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -138,6 +143,37 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => x.CodeHash).IsUnique();
             e.HasIndex(x => x.StudentId);
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Content (Phase 5) and progress (Phase 6)
+        b.Entity<Lesson>(e =>
+        {
+            e.ToTable("Lessons", "content");
+            e.Property(x => x.Title).HasMaxLength(300);
+            e.Property(x => x.Language).HasMaxLength(8);
+            e.Property(x => x.AttachmentBlobName).HasMaxLength(200);
+            e.Property(x => x.AttachmentFileName).HasMaxLength(260);
+            e.Property(x => x.AttachmentContentType).HasMaxLength(100);
+            e.HasIndex(x => new { x.ChapterId, x.Sequence });
+            e.HasOne(x => x.Chapter).WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<ContentChunk>(e =>
+        {
+            e.ToTable("ContentChunks", "content");
+            e.Property(x => x.Title).HasMaxLength(300);
+            e.Property(x => x.Text).HasMaxLength(2000);
+            e.HasIndex(x => new { x.SubjectId, x.ChapterId, x.Sequence });
+            e.HasIndex(x => x.LessonId);
+            e.HasOne<Lesson>().WithMany().HasForeignKey(x => x.LessonId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<LessonProgress>(e =>
+        {
+            e.ToTable("LessonProgress", "learning");
+            e.HasIndex(x => new { x.StudentId, x.LessonId }).IsUnique();
+            e.HasIndex(x => new { x.StudentId, x.SubjectId });
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<Lesson>().WithMany().HasForeignKey(x => x.LessonId).OnDelete(DeleteBehavior.Restrict);
         });
 
         // Gamification

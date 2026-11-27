@@ -45,3 +45,24 @@ export interface Child {
   consentRequired: boolean; consentGranted: boolean; consentVersion: string | null; consentGrantedAtUtc: string | null
   recentXp: { points: number; reason: string; createdAtUtc: string }[]
 }
+
+// ---- Lessons and progress (Phases 5–6)
+export interface ChapterProgress { id: string; title: string; sequence: number; totalLessons: number; completedLessons: number }
+export interface LessonItem { id: string; title: string; sequence: number; estimatedMinutes: number; completed: boolean; hasAttachment: boolean }
+export interface StudentChapter { id: string; title: string; sequence: number; subjectId: string; subjectName: string; lessons: LessonItem[] }
+export interface StudentLesson {
+  id: string; title: string; body: string; language: string; kind: string; estimatedMinutes: number
+  chapterId: string; chapterTitle: string; subjectId: string; subjectName: string; completed: boolean
+  attachmentFileName: string | null; attachmentBytes: number | null; previousLessonId: string | null; nextLessonId: string | null
+}
+export interface SubjectProgress { subjectId: string; name: string; code: string; totalLessons: number; completedLessons: number }
+export interface LearningSummary { totalLessons: number; completedLessons: number; streakDays: number; subjects: SubjectProgress[] }
+export interface CompleteLessonResult { xpAwarded: number; chapterCompleted: boolean; streakDays: number; totalXp: number }
+export interface AdminLesson {
+  id: string; title: string; sequence: number; language: string; kind: string; estimatedMinutes: number; status: PubStatus
+  bodyLength: number; attachmentFileName: string | null; attachmentBytes: number | null; updatedAtUtc: string | null
+}
+export interface AdminLessonDetail {
+  id: string; chapterId: string; title: string; sequence: number; body: string; language: string; kind: string
+  estimatedMinutes: number; status: PubStatus; attachmentFileName: string | null; attachmentBytes: number | null
+}

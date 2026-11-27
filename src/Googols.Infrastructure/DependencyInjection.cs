@@ -59,7 +59,15 @@ public static class DependencyInjection
         services.Configure<AzureOpenAiOptions>(config.GetSection(AzureOpenAiOptions.Section));
         services.Configure<AzureSearchOptions>(config.GetSection(AzureSearchOptions.Section));
         services.AddSingleton<IAiModelProvider, AzureOpenAiProvider>();
-        services.AddSingleton<ICurriculumRetriever, AzureSearchRetriever>();
+        // Retrieval: Azure AI Search when configured, otherwise BM25 over lesson chunks stored in SQL (no extra cost).
+        if (config.GetSection(AzureSearchOptions.Section).Get<AzureSearchOptions>()?.IsConfigured == true)
+        {
+            services.AddSingleton<ICurriculumRetriever, AzureSearchRetriever>();
+        }
+        else
+        {
+            services.AddScoped<ICurriculumRetriever, SqlCurriculumRetriever>();
+        }
         services.AddSingleton<IContentSafety, BasicContentSafety>();
 
         // Email (SMTP when configured, otherwise a logging no-op) — also used by Identity for confirm/reset emails.

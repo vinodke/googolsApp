@@ -4,8 +4,10 @@ import { AiTeacherPage } from '../features/ai-teacher/AiTeacherPage'
 import { LoginPage, RegisterPage } from '../features/auth/AuthPages'
 import { OnboardingPage } from '../features/onboarding/OnboardingPage'
 import { DashboardPage } from '../features/student/DashboardPage'
-import { SubjectChaptersPage, SubjectsPage } from '../features/subjects/SubjectsPages'
+import { SubjectsPage } from '../features/subjects/SubjectsPages'
+import { ChapterPage, LessonPage, SubjectChaptersPage } from '../features/lessons/LessonPages'
 import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
+import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { FamilyPage } from '../features/family/FamilyPage'
 import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
 import { AdminLayout } from './AdminLayout'
@@ -27,7 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/admin',
         element: <AdminLayout />,
-        children: [{ index: true, element: <AdminCurriculumPage /> }],
+        children: [
+          { index: true, element: <AdminCurriculumPage /> },
+          { path: 'chapters/:chapterId/lessons', element: <AdminLessonsPage /> },
+        ],
       },
       {
         path: '/parent',
@@ -45,6 +50,8 @@ export const router = createBrowserRouter([
           { path: 'subjects/:subjectId', element: <SubjectChaptersPage /> },
           { path: 'ai-teacher', element: <AiTeacherPage /> },
           { path: 'family', element: <FamilyPage /> },
+          { path: 'chapters/:chapterId', element: <ChapterPage /> },
+          { path: 'lessons/:lessonId', element: <LessonPage /> },
         ],
       },
     ],

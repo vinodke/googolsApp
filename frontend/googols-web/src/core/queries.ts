@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { ApiError, api } from './api/client'
-import type { Account, Child, StudentMe, Subject, XpSummary } from './api/types'
+import type { Account, Child, LearningSummary, StudentMe, Subject, XpSummary } from './api/types'
 
 export function useStudentMe() {
   return useQuery({
@@ -48,3 +48,7 @@ export function useChildren(enabled = true) {
 
 /** Parental consent notice version; must match ParentalConsent.CurrentVersion on the server. */
 export const CONSENT_VERSION = '2026-11'
+
+export function useLearningSummary(enabled = true) {
+  return useQuery({ queryKey: ['learning', 'summary'], queryFn: () => api.get<LearningSummary>('/learning/summary'), enabled })
+}

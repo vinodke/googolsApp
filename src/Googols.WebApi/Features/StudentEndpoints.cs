@@ -44,7 +44,8 @@ public static class StudentEndpoints
                 && !await db.ParentStudentLinks.AnyAsync(l => l.StudentId == student.Id && l.Status == ParentLinkStatus.Verified && l.ConsentGrantedAtUtc != null && l.ConsentVersion == ParentalConsent.CurrentVersion, ct);
 
             return Results.Ok(new StudentMeDto(student.Id, student.DisplayName, student.PreferredLanguage, student.TotalXp,
-                XpAwardPolicy.LevelFor(student.TotalXp), student.CurrentStreakDays, enrollment, consentRequired));
+                XpAwardPolicy.LevelFor(student.TotalXp), StreakPolicy.Current(student.CurrentStreakDays, student.LastActiveLocalDate, clock.TodayIn("Asia/Kolkata")),
+                enrollment, consentRequired));
         });
 
         g.MapPost("/me/onboarding", async (StudentOnboardingRequest req, IValidator<StudentOnboardingRequest> v, ICurrentUser me,

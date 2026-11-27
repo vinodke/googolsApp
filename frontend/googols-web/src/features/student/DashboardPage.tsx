@@ -2,13 +2,15 @@ import { Link } from 'react-router'
 import { Icon, ProgressRing, tintFor } from '../../app/Icons'
 import { xpForLevel } from '../../app/theme'
 import { strings } from '../../core/i18n/strings'
-import { useStudentMe, useSubjects, useXp } from '../../core/queries'
+import { useLearningSummary, useStudentMe, useSubjects, useXp } from '../../core/queries'
+import { SubjectBar } from '../subjects/SubjectsPages'
 
 // Every number here comes from the API. Sections without data show an honest empty state.
 export function DashboardPage() {
   const me = useStudentMe()
   const subjects = useSubjects(me.data?.enrollment?.classId)
   const xp = useXp()
+  const summary = useLearningSummary(!!me.data)
   if (!me.data) return null
   const t = strings[me.data.preferredLanguage]
   const e = me.data.enrollment
@@ -45,7 +47,8 @@ export function DashboardPage() {
         <Stat icon="trophy" tint="tint-indigo" value={`${t.level} ${me.data.level}`} label={`${next - me.data.totalXp} ${t.xp} → ${t.level} ${me.data.level + 1}`} />
         <Stat icon="star" tint="tint-amber" value={`${me.data.totalXp}`} label={`${t.xp}`} />
         <Stat icon="flame" tint="tint-rose" value={`${me.data.streakDays}`} label={t.streak(me.data.streakDays)} />
-        <Stat icon="book" tint="tint-teal" value={`${subjects.data?.length ?? '–'}`} label={t.mySubjects} />
+        <Stat icon="book" tint="tint-teal" value={summary.data ? `${summary.data.completedLessons}/${summary.data.totalLessons}` : `${subjects.data?.length ?? '–'}`}
+          label={summary.data ? 'Lessons done' : t.mySubjects} />
       </section>
 
       <div className="grid-2">
@@ -63,6 +66,7 @@ export function DashboardPage() {
                 <span className={`icon-tile ${tintFor(s.code)}`}><Icon name="book" /></span>
                 <h3 style={{ margin: 'var(--space-3) 0 var(--space-1)' }}>{s.name}</h3>
                 <span className="muted small">{s.code} · {s.mediumLanguage === 'ml' ? 'മലയാളം' : 'English'} medium</span>
+                <SubjectBar p={summary.data?.subjects.find(x => x.subjectId === s.id)} />
               </Link>
             ))}
           </div>

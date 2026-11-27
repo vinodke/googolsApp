@@ -1,15 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
-import { Link, useParams } from 'react-router'
+import { Link } from 'react-router'
 import { Icon, tintFor } from '../../app/Icons'
-import { api } from '../../core/api/client'
-import type { Chapter } from '../../core/api/types'
 import { strings } from '../../core/i18n/strings'
-import { useStudentMe, useSubjects } from '../../core/queries'
+import { useLearningSummary, useStudentMe, useSubjects } from '../../core/queries'
 import { Empty } from '../student/DashboardPage'
 
 export function SubjectsPage() {
   const me = useStudentMe()
   const subjects = useSubjects(me.data?.enrollment?.classId)
+  const summary = useLearningSummary(!!me.data)
   const t = strings[me.data?.preferredLanguage ?? 'en']
   const e = me.data?.enrollment
   return (
@@ -31,6 +29,7 @@ export function SubjectsPage() {
               <span className="badge">{s.mediumLanguage === 'ml' ? 'മലയാളം' : 'English'}</span>
             </div>
             <h3 style={{ margin: 'var(--space-4) 0 var(--space-1)', fontSize: 'var(--text-lg)' }}>{s.name}</h3>
+            <SubjectBar p={summary.data?.subjects.find(x => x.subjectId === s.id)} />
             <div className="row-between">
               <span className="muted small">{s.code}</span>
               <Icon name="chevron" size={18} />
@@ -42,43 +41,13 @@ export function SubjectsPage() {
   )
 }
 
-export function SubjectChaptersPage() {
-  const { subjectId } = useParams()
-  const me = useStudentMe()
-  const subjects = useSubjects(me.data?.enrollment?.classId)
-  const subject = subjects.data?.find(s => s.id === subjectId)
-  const t = strings[me.data?.preferredLanguage ?? 'en']
-  const chapters = useQuery({
-    queryKey: ['chapters', subjectId],
-    queryFn: () => api.get<Chapter[]>(`/curriculum/subjects/${subjectId}/chapters`),
-    enabled: !!subjectId,
-  })
+export function SubjectBar({ p }: { p?: { totalLessons: number; completedLessons: number } }) {
+  if (!p || p.totalLessons === 0) return null
+  const v = Math.round((p.completedLessons / p.totalLessons) * 100)
   return (
-    <div>
-      <header className="page-head">
-        <div className="row" style={{ alignItems: 'center' }}>
-          <span className={`icon-tile lg ${tintFor(subject?.code ?? '')}`}><Icon name="book" /></span>
-          <div>
-            <div className="crumbs"><Link to="/subjects">{t.navSubjects}</Link><Icon name="chevron" size={14} /><span>{subject?.name ?? '…'}</span></div>
-            <h1>{subject?.name ?? 'Chapters'}</h1>
-          </div>
-        </div>
-        <Link className="btn btn-primary" to={`/ai-teacher?subject=${subjectId}`}><Icon name="sparkles" size={18} /> {t.askTeacher}</Link>
-      </header>
-      {chapters.isLoading && <div className="skeleton" style={{ height: 160 }} />}
-      {chapters.isError && <div className="alert" role="alert">Could not load chapters.</div>}
-      {chapters.data?.length === 0 && <div className="card"><Empty icon="layers" text="Chapters for this subject haven't been published yet." /></div>}
-      <ol className="list" style={{ gap: 'var(--space-3)' }}>
-        {chapters.data?.map(c => (
-          <li key={c.id} className="card row-between">
-            <div className="row">
-              <span className="icon-tile tint-indigo" style={{ fontWeight: 800 }}>{c.sequence}</span>
-              <strong>{c.title}</strong>
-            </div>
-            <Link className="btn btn-chip" to={`/ai-teacher?subject=${subjectId}&chapter=${c.id}`}><Icon name="sparkles" size={16} /> Ask AI teacher</Link>
-          </li>
-        ))}
-      </ol>
+    <div style={{ margin: 'var(--space-2) 0' }}>
+      <div className="row-between small muted"><span>{p.completedLessons}/{p.totalLessons} lessons</span><span>{v}%</span></div>
+      <div className="bar"><span style={{ width: `${v}%` }} /></div>
     </div>
   )
 }

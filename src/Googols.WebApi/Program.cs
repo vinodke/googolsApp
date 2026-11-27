@@ -59,6 +59,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUser, HttpCurrentUser>();
 builder.Services.AddScoped<AiTeacherService>();
 builder.Services.AddScoped<XpLedgerService>();
+builder.Services.AddScoped<StudentAccess>();
+builder.Services.AddScoped<LessonIndexer>();
+builder.Services.AddScoped<LearningActivityService>();
 
 // ---- Realtime
 builder.Services.AddSignalR();
@@ -134,6 +137,7 @@ v1.MapGamificationEndpoints();
 v1.MapAdminCurriculumEndpoints();
 v1.MapAccountEndpoints();
 v1.MapParentEndpoints();
+v1.MapLearningEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

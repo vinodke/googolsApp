@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { AdminBoard } from '../../core/api/types'
 import { AdminCurriculumPage } from './AdminCurriculumPage'
@@ -22,7 +23,7 @@ const tree: AdminBoard[] = [{
 function renderPage() {
   vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify(tree), { status: 200 }))
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
-  return render(<QueryClientProvider client={qc}><AdminCurriculumPage /></QueryClientProvider>)
+  return render(<QueryClientProvider client={qc}><MemoryRouter><AdminCurriculumPage /></MemoryRouter></QueryClientProvider>)
 }
 
 afterEach(() => vi.restoreAllMocks())
