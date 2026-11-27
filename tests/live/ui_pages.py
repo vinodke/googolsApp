@@ -134,7 +134,7 @@ def main():
 
         anon = ctx_for()
         for path, expect in (("/", "AI teacher"), ("/home", "AI teacher"), ("/features", "Everything in Googols"), ("/how-it-works", "Learn in four steps"),
-                             ("/about", "What we are"), ("/contact", "Send a message"), ("/privacy", "Privacy"), ("/login", "Log in"), ("/register", "Create")):
+                             ("/about", "What we are"), ("/contact", "Send a message"), ("/privacy", "Privacy"), ("/login", "Sign in"), ("/register", "Create account")):
             visit(anon, "public", path, expect)
         anon.close()
 
