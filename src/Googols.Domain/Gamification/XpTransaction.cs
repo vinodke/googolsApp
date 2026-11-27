@@ -31,6 +31,8 @@ public class XpRule : Entity
         public const string DailyStreak = "daily-streak";
         public const string ChallengeCompleted = "challenge-completed";
         public const string ChapterCompleted = "chapter-completed";
+        public const string ExamCompleted = "exam-completed";
+        public const string DailyMissions = "daily-missions";
     }
 
     public static IReadOnlyDictionary<string, int> Defaults { get; } = new Dictionary<string, int>
@@ -41,5 +43,7 @@ public class XpRule : Entity
         [Codes.DailyStreak] = 10,
         [Codes.ChallengeCompleted] = 50,
         [Codes.ChapterCompleted] = 100,
+        [Codes.ExamCompleted] = 25,
+        [Codes.DailyMissions] = 20,
     };
 }

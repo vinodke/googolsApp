@@ -11,7 +11,7 @@ public static class XpAwardPolicy
 {
     public const string Version = "xp-v1";
 
-    public sealed record LearningEvent(string Kind, Guid StudentId, Guid SubjectRefId, double? ScorePercent = null, DateOnly? Day = null);
+    public sealed record LearningEvent(string Kind, Guid StudentId, Guid SubjectRefId, double? ScorePercent = null, DateOnly? Day = null, string? Key = null);
 
     public sealed record Award(string ActivityCode, int Points, string IdempotencyKey);
 
@@ -38,7 +38,20 @@ public static class XpAwardPolicy
                 Add(XpRule.Codes.DailyStreak, $"streak:{day:yyyy-MM-dd}");
                 break;
             case "challenge-completed":
-                Add(XpRule.Codes.ChallengeCompleted, $"challenge:{e.SubjectRefId}");
+                Add(XpRule.Codes.ChallengeCompleted, e.Key is { } ck ? $"challenge:{ck}" : $"challenge:{e.SubjectRefId}");
+                break;
+            case "exam-completed":
+                // Once per mock/class test, and once per day for self-made practice tests (Key = "practice:yyyy-MM-dd"),
+                // so retaking or creating many tests can't farm points.
+                var examKey = e.Key ?? e.SubjectRefId.ToString();
+                Add(XpRule.Codes.ExamCompleted, $"exam:{examKey}");
+                if (e.ScorePercent is >= 90)
+                {
+                    Add(XpRule.Codes.QuizScore90, $"exam90:{examKey}");
+                }
+                break;
+            case "missions-completed" when e.Day is { } missionDay:
+                Add(XpRule.Codes.DailyMissions, $"missions:{missionDay:yyyy-MM-dd}");
                 break;
             default:
                 // Unknown or unverified event kinds (including AI chat) earn nothing.

@@ -43,6 +43,12 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<Question> Questions => Set<Question>();
     public DbSet<QuizAttempt> QuizAttempts => Set<QuizAttempt>();
+    public DbSet<Exam> Exams => Set<Exam>();
+    public DbSet<ExamAttempt> ExamAttempts => Set<ExamAttempt>();
+    public DbSet<WrittenQuestion> WrittenQuestions => Set<WrittenQuestion>();
+    public DbSet<WrittenAnswer> WrittenAnswers => Set<WrittenAnswer>();
+    public DbSet<ChapterMastery> ChapterMastery => Set<ChapterMastery>();
+    public DbSet<Bookmark> Bookmarks => Set<Bookmark>();
 
     public DbSet<Classroom> Classrooms => Set<Classroom>();
     public DbSet<ClassroomMember> ClassroomMembers => Set<ClassroomMember>();
@@ -272,6 +278,71 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => new { x.StudentId, x.ChapterId, x.SubmittedAtUtc });
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // Timed tests, written answers, mastery and bookmarks
+        b.Entity<Exam>(e =>
+        {
+            e.ToTable("Exams", "assessment");
+            e.Property(x => x.Title).HasMaxLength(200);
+            e.Property(x => x.ChapterIdsJson).HasMaxLength(2000);
+            e.HasIndex(x => new { x.ClassId, x.Kind, x.Status });
+            e.HasIndex(x => x.ClassroomId);
+            e.HasIndex(x => x.CreatedForStudentId);
+            e.HasOne<AcademicClass>().WithMany().HasForeignKey(x => x.ClassId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<ExamAttempt>(e =>
+        {
+            e.ToTable("ExamAttempts", "assessment");
+            e.Property(x => x.QuestionIdsJson).HasMaxLength(2500);
+            e.Property(x => x.WrittenIdsJson).HasMaxLength(500);
+            e.Property(x => x.AnswersJson).HasMaxLength(600);
+            e.HasIndex(x => new { x.StudentId, x.ExamId });
+            e.HasIndex(x => new { x.ExamId, x.SubmittedAtUtc });
+            e.HasOne<Exam>().WithMany().HasForeignKey(x => x.ExamId).OnDelete(DeleteBehavior.Restrict);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+        });
+        b.Entity<WrittenQuestion>(e =>
+        {
+            e.ToTable("WrittenQuestions", "assessment");
+            e.Property(x => x.Prompt).HasMaxLength(1000);
+            e.Property(x => x.ModelAnswer).HasMaxLength(3000);
+            e.Property(x => x.RubricJson).HasMaxLength(4000);
+            e.Property(x => x.Language).HasMaxLength(8);
+            e.HasIndex(x => new { x.ChapterId, x.Status });
+            e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<WrittenAnswer>(e =>
+        {
+            e.ToTable("WrittenAnswers", "assessment");
+            e.Property(x => x.AnswerText).HasMaxLength(3000);
+            e.Property(x => x.AiFeedbackJson).HasMaxLength(4000);
+            e.Property(x => x.TeacherComment).HasMaxLength(1000);
+            e.Ignore(x => x.FinalScore);
+            e.HasIndex(x => new { x.AttemptId, x.QuestionId }).IsUnique();
+            e.HasIndex(x => new { x.StudentId, x.Status });
+            e.HasOne<ExamAttempt>().WithMany().HasForeignKey(x => x.AttemptId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<WrittenQuestion>().WithMany().HasForeignKey(x => x.QuestionId).OnDelete(DeleteBehavior.Restrict);
+        });
+        b.Entity<ChapterMastery>(e =>
+        {
+            e.ToTable("ChapterMastery", "learning");
+            e.HasIndex(x => new { x.StudentId, x.ChapterId }).IsUnique();
+            e.HasIndex(x => x.ChapterId);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+        });
+        b.Entity<Bookmark>(e =>
+        {
+            e.ToTable("Bookmarks", "learning");
+            e.Property(x => x.Kind).HasMaxLength(20);
+            e.Property(x => x.Title).HasMaxLength(300);
+            e.Property(x => x.Snippet).HasMaxLength(500);
+            e.Property(x => x.Note).HasMaxLength(500);
+            e.HasIndex(x => new { x.StudentId, x.Kind, x.RefId }).IsUnique();
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
         });
 
         // Teachers (Phase 10)

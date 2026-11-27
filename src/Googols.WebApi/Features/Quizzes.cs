@@ -183,7 +183,7 @@ public static class QuizEndpoints
         });
 
         g.MapPost("/quiz-attempts/{attemptId:guid}/submit", async (Guid attemptId, SubmitQuizRequest req, StudentAccess access, GoogolsDbContext db,
-            IClock clock, XpLedgerService xp, LearningActivityService activity, BadgeService badges, CancellationToken ct) =>
+            IClock clock, XpLedgerService xp, LearningActivityService activity, BadgeService badges, MasteryService mastery, CancellationToken ct) =>
         {
             if (await access.GetAsync(ct) is not { } ctx)
             {
@@ -222,6 +222,7 @@ public static class QuizEndpoints
             // XP once per chapter (not per attempt), so retaking a quiz can't farm points.
             var awarded = await xp.AwardAsync(new XpAwardPolicy.LearningEvent("quiz-completed", ctx.Student.Id, attempt.ChapterId, graded.Percent), ct);
             var streak = await activity.RecordAsync(ctx.Student, ct);
+            await mastery.RecordAsync(ctx.Student.Id, [new MasteryService.ChapterResult(attempt.ChapterId, graded.Score, graded.Total)], ct);
 
             var review = ordered.Select((q, i) => new QuizReviewItem(q.Id, q.Prompt, Options(q.OptionsJson), req.Answers[i], q.CorrectIndex, graded.PerQuestion[i], q.Explanation)).ToList();
             var newBadges = await badges.EvaluateAsync(ctx.Student.Id, ct);

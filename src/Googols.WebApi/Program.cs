@@ -88,6 +88,8 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUser, HttpCurrentUser>();
 builder.Services.AddScoped<AiTeacherService>();
 builder.Services.AddScoped<AiUsageRecorder>();
+builder.Services.AddScoped<MasteryService>();
+builder.Services.AddScoped<ExamService>();
 builder.Services.AddScoped<XpLedgerService>();
 builder.Services.AddScoped<StudentAccess>();
 builder.Services.AddScoped<LessonIndexer>();
@@ -182,6 +184,9 @@ v1.MapAdminPlatformEndpoints();
 v1.MapExternalLoginEndpoints(googleEnabled);
 v1.MapContactEndpoints();
 v1.MapAiQualityEndpoints();
+v1.MapExamEndpoints();
+v1.MapProgressEndpoints();
+v1.MapAssessmentAdminEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");
