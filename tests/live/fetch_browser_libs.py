@@ -10,7 +10,7 @@ DEST = os.path.expanduser("~/browser-libs")
 PKG = {"libnspr4": "nspr", "libplc4": "nspr", "libplds4": "nspr", "libnss3": "nss-libs", "libnssutil3": "nss-util", "libsmime3": "nss-libs",
        "libsoftokn3": "nss-softokn", "libfreebl": "nss-softokn-freebl", "libatk-1.0": "atk", "libatk-bridge-2.0": "at-spi2-atk", "libatspi": "at-spi2-core",
        "libXcomposite": "libXcomposite", "libXdamage": "libXdamage", "libXfixes": "libXfixes", "libXrandr": "libXrandr", "libgbm": "mesa-libgbm",
-       "libxkbcommon": "libxkbcommon", "libdrm": "libdrm", "libwayland-server": "wayland", "libasound": "alsa-lib", "libXext": "libXext",
+       "libxkbcommon": "libxkbcommon", "libdrm": "libdrm", "libwayland-server": "libwayland-server", "libwayland-client": "libwayland-client", "libasound": "alsa-lib", "libXext": "libXext",
        "libXi": "libXi", "libxshmfence": "libxshmfence", "libXrender": "libXrender", "libexpat": "expat", "libdbus-1": "dbus-libs",
        "libsqlite3": "sqlite-libs", "libXtst": "libXtst", "libcups": "cups-libs", "libpango": "pango", "libcairo": "cairo", "libX11": "libX11",
        "libxcb": "libxcb", "libXau": "libXau", "libglapi": "mesa-libglapi", "libffi": "libffi", "libgobject": "glib2", "libglib": "glib2", "libgio": "glib2"}
