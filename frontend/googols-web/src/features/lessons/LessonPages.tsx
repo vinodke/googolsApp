@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router'
 import { Icon, tintFor } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
+import { useBookmarkToggle } from '../../core/bookmarks'
 import type { ChapterProgress, CompleteLessonResult, QuizHistory, StudentChapter, StudentLesson } from '../../core/api/types'
 import { strings } from '../../core/i18n/strings'
 import { useStudentMe, useSubjects } from '../../core/queries'
@@ -125,6 +126,7 @@ export function ChapterPage() {
 
 export function LessonPage() {
   const { lessonId } = useParams()
+  const bookmark = useBookmarkToggle('lesson', lessonId)
   const qc = useQueryClient()
   const me = useStudentMe()
   const t = strings[me.data?.preferredLanguage ?? 'en']
@@ -157,6 +159,9 @@ export function LessonPage() {
         <div className="row small muted" style={{ marginBottom: 'var(--space-4)' }}>
           <span>{l.estimatedMinutes} min read</span>
           <span className={`badge ${l.kind === 'OfficialSyllabus' ? 'badge-success' : ''}`}>{l.kind === 'OfficialSyllabus' ? 'From the textbook' : 'Teacher notes'}</span>
+          <button type="button" className="btn btn-ghost btn-sm" aria-pressed={bookmark.saved} onClick={bookmark.toggle} disabled={bookmark.pending}>
+            <Icon name="bookmark" size={16} /> {bookmark.saved ? 'Saved' : 'Save lesson'}
+          </button>
         </div>
         <LessonBody text={l.body} />
         {l.attachmentFileName && (

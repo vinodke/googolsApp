@@ -1,0 +1,29 @@
+.exam-card { display: grid; gap: var(--space-2); align-content: start; }
+.exam { max-width: 820px; }
+.exam-bar { position: sticky; top: 76px; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+.timer { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-xl); font-weight: 800; font-variant-numeric: tabular-nums; padding: 6px 14px; border-radius: var(--radius-pill); background: var(--tint-indigo-bg); color: var(--tint-indigo-fg); }
+.timer.low { background: var(--color-danger-bg); color: var(--color-danger); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 6px rgb(220 38 38 / .15); } }
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); border: 0; padding: 0; margin: 0; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--radius-pill); border: 1px solid var(--color-border); background: var(--color-surface); cursor: pointer; font-size: var(--text-sm); }
+.chip.on { border-color: var(--color-primary); background: var(--color-highlight); }
+.chip input { accent-color: var(--color-primary); }
+.answer-box { background: var(--color-surface-2); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-3) 0; }
+.pre-wrap { white-space: pre-wrap; }
+.checks { list-style: none; padding: 0; margin: var(--space-2) 0; display: grid; gap: 4px; font-size: var(--text-sm); }
+.checks li.ok { color: var(--color-success); }
+.checks li.bad { color: var(--color-danger); }
+.text-warning { color: var(--color-warning); }
+.mastery-bar { height: 10px; border-radius: var(--radius-pill); background: var(--color-surface-2); overflow: hidden; }
+.mastery-bar > span { display: block; height: 100%; border-radius: inherit; background: var(--gradient-brand); }
+.mastery-bar.weak > span { background: var(--color-danger); }
+.mastery-bar.mid > span { background: var(--color-warning); }
+.plan { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.plan-day { display: grid; gap: var(--space-2); align-content: start; padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface); }
+.plan-day.today { border-color: var(--color-primary); box-shadow: var(--shadow-card); }
+.plan-task { display: grid; gap: 2px; padding: var(--space-2); border-radius: var(--radius-sm); background: var(--color-surface-2); text-decoration: none; color: inherit; }
+.mission { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; }
+.mission .tick { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--color-border); flex: none; }
+.mission.done .tick { background: var(--color-success); border-color: var(--color-success); color: #fff; }
+.mission .grow { flex: 1; min-width: 0; }
+.text-success { color: var(--color-success); }

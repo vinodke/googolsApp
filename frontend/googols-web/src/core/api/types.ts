@@ -126,3 +126,48 @@ export interface Metrics {
 export interface AdminUser { id: string; email: string | null; createdAtUtc: string; roles: string[]; locked: boolean; hasStudentProfile: boolean }
 export interface UsersPage { total: number; users: AdminUser[] }
 export interface CsvImportResult { applied: boolean; rows: number; classesCreated: number; subjectsCreated: number; chaptersCreated: number; chaptersUpdated: number; errors: string[] }
+
+// ---- Timed tests, written answers (Stage B)
+export type ExamKind = 'Practice' | 'Mock' | 'ClassTest'
+export interface ExamSummary {
+  id: string; title: string; kind: ExamKind; subject: string | null; mcqCount: number; writtenCount: number; durationMinutes: number
+  opensAtUtc: string | null; closesAtUtc: string | null; classroom: string | null; myAttemptId: string | null; submitted: boolean; percent: number | null; canStart: boolean
+}
+export interface ExamHistory { attemptId: string; examId: string; title: string; kind: ExamKind; startedAtUtc: string; submittedAtUtc: string | null; percent: number | null; provisional: boolean }
+export interface WrittenPrompt { id: string; prompt: string; maxMarks: number }
+export interface WrittenDraft { questionId: string; text: string }
+export interface CriterionMark { criterion: string; awarded: number; max: number; comment: string | null }
+export interface WrittenResult {
+  answerId: string; questionId: string; prompt: string; answer: string; score: number | null; max: number; status: 'Provisional' | 'Confirmed' | 'NotMarked'
+  criteria: CriterionMark[]; feedback: string | null; teacherComment: string | null; modelAnswer: string | null
+}
+export interface ExamResult {
+  mcqScore: number; mcqTotal: number; writtenScore: number | null; writtenMax: number; percent: number | null; provisional: boolean; xpAwarded: number
+  review: QuizReviewItem[]; written: WrittenResult[]; newBadges: string[]; late: boolean
+}
+export interface ExamAttempt {
+  attemptId: string; examId: string; title: string; kind: ExamKind; startedAtUtc: string; deadlineUtc: string; serverNowUtc: string; submitted: boolean
+  questions: QuizQuestion[]; written: WrittenPrompt[]; answers: (number | null)[]; writtenAnswers: WrittenDraft[]; result: ExamResult | null
+}
+export interface RubricCriterion { criterion: string; marks: number }
+export interface AdminWrittenQuestion { id: string; prompt: string; modelAnswer: string | null; rubric: RubricCriterion[]; maxMarks: number; language: string; status: PubStatus }
+export interface ExamAdmin {
+  id: string; title: string; kind: ExamKind; classId: string; subjectId: string | null; chapterIds: string[]; mcqCount: number; writtenCount: number
+  durationMinutes: number; opensAtUtc: string | null; closesAtUtc: string | null; status: PubStatus; attempts: number; submitted: number; average: number | null
+}
+export interface MarkingItem {
+  answerId: string; attemptId: string; student: string; examTitle: string; submittedAtUtc: string; question: string; modelAnswer: string | null
+  rubric: RubricCriterion[]; answer: string; maxMarks: number; aiScore: number | null; aiCriteria: CriterionMark[]; aiFeedback: string | null
+  teacherScore: number | null; teacherComment: string | null; status: 'Provisional' | 'Confirmed' | 'NotMarked'
+}
+
+// ---- Mastery, plan, missions, bookmarks (Stage B)
+export interface ChapterMastery { chapterId: string; title: string; lessonsTotal: number; lessonsDone: number; mastery: number | null; band: string; attempts: number; lastPracticedAtUtc: string | null; hasQuiz: boolean }
+export interface SubjectMastery { subjectId: string; name: string; average: number | null; chapters: ChapterMastery[] }
+export interface MasteryOverview { subjects: SubjectMastery[]; weakAreas: { chapterId: string; title: string; subject: string; mastery: number }[] }
+export interface PlanTask { kind: 'lesson' | 'quiz' | 'ask'; title: string; reason: string; chapterId: string; lessonId: string | null; subject: string }
+export interface PlanDay { date: string; tasks: PlanTask[] }
+export interface Mission { code: string; title: string; progress: number; target: number; done: boolean }
+export interface Challenge extends Mission { description: string; claimed: boolean }
+export interface Missions { date: string; missions: Mission[]; allDone: boolean; claimed: boolean; bonusXp: number; weekStart: string; challenges: Challenge[]; challengeXp: number }
+export interface Bookmark { id: string; kind: 'lesson' | 'answer'; refId: string; title: string; snippet: string | null; note: string | null; createdAtUtc: string; conversationId: string | null; subjectId: string | null }

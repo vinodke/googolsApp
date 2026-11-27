@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { Icon } from '../../app/Icons'
 import { api, errorMessage, streamEvents } from '../../core/api/client'
 import type { AskTeacherResponse, Conversation, ConversationSummary, Lang, SourceRef, TeacherMode } from '../../core/api/types'
+import { useBookmarkToggle } from '../../core/bookmarks'
 import { strings } from '../../core/i18n/strings'
 import { preparePhoto, type PreparedPhoto } from '../../core/media/image'
 import { useDictation, useReadAloud } from '../../core/media/speech'
@@ -286,6 +287,7 @@ function AnswerTools({ message, lang, reader, onRated }: {
   const [comment, setComment] = useState('')
   const [thanks, setThanks] = useState(false)
   const speaking = reader.speakingId === message.id
+  const bookmark = useBookmarkToggle('answer', message.id)
 
   async function rate(helpful: boolean, why?: string) {
     await api.post(`/ai/messages/${message.id}/feedback`, { helpful, comment: why ?? null })
@@ -308,6 +310,8 @@ function AnswerTools({ message, lang, reader, onRated }: {
           onClick={() => void rate(true)}><Icon name="thumbUp" size={16} /></button>
         <button type="button" className="icon-btn sm" aria-pressed={message.helpful === false} aria-label={t.notHelpful} title={t.notHelpful}
           onClick={() => { setAskWhy(true); setThanks(false) }}><Icon name="thumbDown" size={16} /></button>
+        <button type="button" className="icon-btn sm" aria-pressed={bookmark.saved} aria-label={bookmark.saved ? t.saved : t.saveAnswer}
+          title={bookmark.saved ? t.saved : t.saveAnswer} onClick={bookmark.toggle} disabled={bookmark.pending}><Icon name="bookmark" size={16} /></button>
         {thanks && <span className="small muted">{t.thanksFeedback}</span>}
       </div>}
       {askWhy && (

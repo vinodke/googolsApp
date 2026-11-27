@@ -1,9 +1,10 @@
 import { Link } from 'react-router'
-import { Icon, ProgressRing, tintFor } from '../../app/Icons'
+import { Icon, ProgressRing, tintFor, type IconName } from '../../app/Icons'
 import { xpForLevel } from '../../app/theme'
 import { strings } from '../../core/i18n/strings'
 import { useLearningSummary, useStudentMe, useSubjects, useXp } from '../../core/queries'
 import { SubjectBar } from '../subjects/SubjectsPages'
+import { MissionsCard, StudyPlanCard } from '../progress/ProgressPages'
 
 // Every number here comes from the API. Sections without data show an honest empty state.
 export function DashboardPage() {
@@ -50,6 +51,13 @@ export function DashboardPage() {
         <Stat icon="book" tint="tint-teal" value={summary.data ? `${summary.data.completedLessons}/${summary.data.totalLessons}` : `${subjects.data?.length ?? '–'}`}
           label={summary.data ? 'Lessons done' : t.mySubjects} />
       </section>
+
+      {e && (
+        <div className="grid-2-even">
+          <StudyPlanCard days={1} />
+          <MissionsCard compact />
+        </div>
+      )}
 
       <div className="grid-2">
         <section className="card">
@@ -113,7 +121,7 @@ function Stat({ icon, tint, value, label }: { icon: 'trophy' | 'star' | 'flame' 
   )
 }
 
-export function Empty({ icon, text }: { icon: 'book' | 'sparkles' | 'layers'; text: string }) {
+export function Empty({ icon, text }: { icon: IconName; text: string }) {
   return (
     <div className="empty">
       <span className="icon-tile lg tint-indigo"><Icon name={icon} /></span>

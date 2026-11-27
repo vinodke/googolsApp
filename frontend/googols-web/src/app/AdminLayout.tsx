@@ -18,6 +18,7 @@ export function AdminLayout() {
       { to: '/admin/ai', label: 'AI quality', icon: 'sparkles' } as NavItem,
     ] : []),
     { to: '/admin', label: 'Curriculum', icon: 'layers', end: true },
+    { to: '/admin/exams', label: 'Mock exams', icon: 'clipboard' },
     { to: '/teacher', label: 'Teacher view', icon: 'grad' },
     ...(me.data ? [{ to: '/', label: 'Student view', icon: 'home', end: true } as NavItem] : []),
   ]

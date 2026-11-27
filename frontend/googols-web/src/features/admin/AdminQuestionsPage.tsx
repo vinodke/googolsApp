@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { Icon } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
 import type { AdminQuestion } from '../../core/api/types'
+import { WrittenQuestions } from './AdminWrittenQuestions'
 import './admin.css'
 
 const DIFFICULTY = ['', 'Easy', 'Medium', 'Hard']
@@ -44,6 +45,7 @@ export function AdminQuestionsPage() {
       <ol className="list" style={{ gap: 'var(--space-3)' }}>
         {questions.data?.map((q, i) => <QuestionRow key={q.id} n={i + 1} q={q} onEdit={() => setEditing(q)} onChanged={refresh} />)}
       </ol>
+      <WrittenQuestions chapterId={chapterId} />
     </div>
   )
 }

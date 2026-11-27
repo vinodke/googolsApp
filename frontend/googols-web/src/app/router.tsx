@@ -14,12 +14,15 @@ import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
 import { AdminDashboardPage, AdminMessagesPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
 import { AdminAiPage } from '../features/admin/AdminAiPage'
+import { AdminExamsPage } from '../features/admin/AdminExamsPage'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
 import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
 import { PlansPage } from '../features/billing/PlansPage'
 import { FamilyPage } from '../features/family/FamilyPage'
 import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
+import { ExamAttemptPage, TestsPage } from '../features/tests/TestsPages'
+import { BookmarksPage, ProgressPage } from '../features/progress/ProgressPages'
 import { AdminLayout } from './AdminLayout'
 import { StudentLayout } from './StudentLayout'
 
@@ -61,6 +64,7 @@ export const router = createBrowserRouter([
           { path: 'users', element: <AdminUsersPage /> },
           { path: 'messages', element: <AdminMessagesPage /> },
           { path: 'ai', element: <AdminAiPage /> },
+          { path: 'exams', element: <AdminExamsPage /> },
         ],
       },
       {
@@ -93,6 +97,10 @@ export const router = createBrowserRouter([
           { path: 'chapters/:chapterId', element: <ChapterPage /> },
           { path: 'chapters/:chapterId/quiz', element: <QuizPage /> },
           { path: 'lessons/:lessonId', element: <LessonPage /> },
+          { path: 'tests', element: <TestsPage /> },
+          { path: 'tests/attempts/:attemptId', element: <ExamAttemptPage /> },
+          { path: 'progress', element: <ProgressPage /> },
+          { path: 'saved', element: <BookmarksPage /> },
         ],
       },
     ],

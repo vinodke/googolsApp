@@ -7,6 +7,7 @@ import { api, errorMessage } from '../../core/api/client'
 import type { AcademicClass, Board, Classroom, ClassroomDetail, CurriculumSummary } from '../../core/api/types'
 import { isAdmin, isTeacher, useAccount } from '../../core/queries'
 import { Empty } from '../student/DashboardPage'
+import { ClassTests, Marking } from './TeacherAssessment'
 
 export function TeacherLayout() {
   const account = useAccount()
@@ -90,6 +91,7 @@ export function ClassroomPage() {
   const rotate = useMutation({ mutationFn: () => api.post(`/teacher/classrooms/${id}/rotate-code`), onSuccess: refresh })
   const joining = useMutation({ mutationFn: (open: boolean) => api.put(`/teacher/classrooms/${id}/joining`, { open }), onSuccess: refresh })
   const remove = useMutation({ mutationFn: (studentId: string) => api.del(`/teacher/classrooms/${id}/students/${studentId}`), onSuccess: refresh })
+  const [tab, setTab] = useState<ClassroomTab>('overview')
 
   if (detail.isLoading) return <div className="skeleton" style={{ height: 240 }} />
   if (detail.isError || !detail.data) return <div className="alert" role="alert">{errorMessage(detail.error)}</div>
@@ -111,6 +113,16 @@ export function ClassroomPage() {
         </div>
       </header>
 
+      <div role="tablist" aria-label="Classroom sections" className="segmented" style={{ alignSelf: 'flex-start', flexWrap: 'wrap' }}>
+        {CLASSROOM_TABS.map(([k, label]) => (
+          <button key={k} role="tab" type="button" aria-selected={tab === k} aria-pressed={tab === k} onClick={() => setTab(k)}>{label}</button>
+        ))}
+      </div>
+
+      {tab === 'tests' && <ClassTests classroomId={r.id} chapters={chapters} />}
+      {tab === 'marking' && <Marking classroomId={r.id} />}
+
+      {tab === 'overview' && <>
       {weakest.length > 0 && (
         <section className="card">
           <h2>Needs attention</h2>
@@ -165,6 +177,10 @@ export function ClassroomPage() {
           </tbody>
         </table>
       </section>
+      </>}
     </div>
   )
 }
+
+type ClassroomTab = 'overview' | 'tests' | 'marking'
+const CLASSROOM_TABS: [ClassroomTab, string][] = [['overview', 'Overview'], ['tests', 'Tests'], ['marking', 'Marking']]
