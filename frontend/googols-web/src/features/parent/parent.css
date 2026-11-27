@@ -1,0 +1,11 @@
+.child-grid { display: grid; grid-template-columns: minmax(0, 1fr) 140px; gap: var(--space-4); align-items: center; }
+.child-grid .grid-stats { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.consent-box { margin-top: var(--space-5); padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface-2); border: 1px solid var(--color-border); display: grid; gap: var(--space-3); }
+.notice ul { padding-left: 1.2em; display: grid; gap: var(--space-2); }
+.check { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-sm); }
+.check input { margin-top: 4px; }
+.code-input { font-size: 1.4rem; letter-spacing: 0.2em; font-weight: 800; text-transform: uppercase; }
+.steps { padding-left: 1.2em; display: grid; gap: var(--space-2); margin: 0 0 var(--space-4); }
+.code-box { display: grid; gap: var(--space-1); place-items: center; padding: var(--space-5); margin-bottom: var(--space-4); border-radius: var(--radius-lg); background: var(--color-highlight); border: 2px dashed var(--color-primary); }
+.code-box .code { font-size: 2rem; letter-spacing: 0.18em; color: var(--color-primary); }
+@media (max-width: 760px) { .child-grid { grid-template-columns: 1fr; } }

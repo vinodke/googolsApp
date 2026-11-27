@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState, type FormEvent } from 'react'
-import { Navigate, useNavigate } from 'react-router'
+import { Link, Navigate, useNavigate } from 'react-router'
 import { api, errorMessage, fieldErrors } from '../../core/api/client'
 import type { AcademicClass, Board, CurriculumSummary, Lang } from '../../core/api/types'
 import { useStudentMe } from '../../core/queries'
@@ -53,6 +53,7 @@ export function OnboardingPage() {
       <form className="card auth-card" onSubmit={submit}>
         <h1>Let's set up your learning</h1>
         <p className="muted">Pick your syllabus and class. You can change language any time.</p>
+        <p className="small" style={{ marginTop: 'calc(-1 * var(--space-2))' }}>Are you a parent? <Link to="/parent/link">Link your child's account instead</Link>.</p>
         {save.isError && !Object.keys(errs).length && <div className="alert" role="alert">{errorMessage(save.error)}</div>}
 
         <div className="field">

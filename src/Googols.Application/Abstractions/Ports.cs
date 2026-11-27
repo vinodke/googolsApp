@@ -42,3 +42,11 @@ public interface ICache
     Task SetAsync<T>(string key, T value, TimeSpan ttl, CancellationToken ct);
     Task RemoveAsync(string key, CancellationToken ct);
 }
+
+/// <summary>Transactional email (consent receipts, account confirmation, password reset).</summary>
+public interface IEmailSender
+{
+    /// <summary>False when no email provider is configured; callers must not depend on delivery.</summary>
+    bool IsConfigured { get; }
+    Task SendAsync(string to, string subject, string htmlBody, CancellationToken ct);
+}

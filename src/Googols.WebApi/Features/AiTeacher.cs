@@ -35,7 +35,7 @@ public sealed class AiTeacherService(
 
         var today = clock.TodayIn("Asia/Kolkata");
         if (student.RequiresParentalConsent(today) &&
-            !await db.ParentStudentLinks.AnyAsync(l => l.StudentId == student.Id && l.Status == ParentLinkStatus.Verified && l.ConsentGrantedAtUtc != null, ct))
+            !await db.ParentStudentLinks.AnyAsync(l => l.StudentId == student.Id && l.Status == ParentLinkStatus.Verified && l.ConsentGrantedAtUtc != null && l.ConsentVersion == ParentalConsent.CurrentVersion, ct))
         {
             return Results.Problem(statusCode: StatusCodes.Status403Forbidden, title: "A parent needs to give permission before you can use the AI teacher.");
         }

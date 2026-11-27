@@ -1,6 +1,6 @@
 import { Link, Navigate, Outlet } from 'react-router'
 import { strings } from '../core/i18n/strings'
-import { isAdmin, useAccount, useStudentMe } from '../core/queries'
+import { isAdmin, isParent, useAccount, useStudentMe } from '../core/queries'
 import { useLearningHub } from '../core/realtime/useLearningHub'
 import { AppShell, PageLoading, type NavItem } from './AppShell'
 import { Icon } from './Icons'
@@ -12,14 +12,16 @@ export function StudentLayout() {
   useLearningHub(!!me.data)
 
   if (me.isLoading || account.isLoading) return <PageLoading />
-  // Admins without a student profile manage the catalog; everyone else completes student setup.
-  if (me.data === null) return <Navigate to={admin ? '/admin' : '/onboarding'} replace />
+  // Accounts without a student profile: admins manage the catalog, parents see their children, others finish setup.
+  if (me.data === null) return <Navigate to={admin ? '/admin' : isParent(account.data) ? '/parent' : '/onboarding'} replace />
 
   const t = strings[me.data?.preferredLanguage ?? 'en']
   const links: NavItem[] = [
     { to: '/', label: t.navHome, icon: 'home', end: true },
     { to: '/subjects', label: t.navSubjects, icon: 'book' },
     { to: '/ai-teacher', label: t.navAiTeacher, icon: 'sparkles' },
+    { to: '/family', label: t.navFamily, icon: 'shield' },
+    ...(isParent(account.data) ? [{ to: '/parent', label: 'Parent', icon: 'home' } as NavItem] : []),
     ...(admin ? [{ to: '/admin', label: 'Admin', icon: 'layers' } as NavItem] : []),
   ]
 

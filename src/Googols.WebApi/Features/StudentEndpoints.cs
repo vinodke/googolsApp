@@ -41,7 +41,7 @@ public static class StudentEndpoints
                 select new EnrollmentDto(c.Id, c.Name, c.AcademicYear, k.Id, k.GradeName, b.Code)).FirstOrDefaultAsync(ct);
 
             var consentRequired = student.RequiresParentalConsent(clock.TodayIn("Asia/Kolkata"))
-                && !await db.ParentStudentLinks.AnyAsync(l => l.StudentId == student.Id && l.Status == ParentLinkStatus.Verified && l.ConsentGrantedAtUtc != null, ct);
+                && !await db.ParentStudentLinks.AnyAsync(l => l.StudentId == student.Id && l.Status == ParentLinkStatus.Verified && l.ConsentGrantedAtUtc != null && l.ConsentVersion == ParentalConsent.CurrentVersion, ct);
 
             return Results.Ok(new StudentMeDto(student.Id, student.DisplayName, student.PreferredLanguage, student.TotalXp,
                 XpAwardPolicy.LevelFor(student.TotalXp), student.CurrentStreakDays, enrollment, consentRequired));

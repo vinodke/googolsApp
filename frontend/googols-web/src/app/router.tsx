@@ -6,6 +6,8 @@ import { OnboardingPage } from '../features/onboarding/OnboardingPage'
 import { DashboardPage } from '../features/student/DashboardPage'
 import { SubjectChaptersPage, SubjectsPage } from '../features/subjects/SubjectsPages'
 import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
+import { FamilyPage } from '../features/family/FamilyPage'
+import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
 import { AdminLayout } from './AdminLayout'
 import { StudentLayout } from './StudentLayout'
 
@@ -28,12 +30,21 @@ export const router = createBrowserRouter([
         children: [{ index: true, element: <AdminCurriculumPage /> }],
       },
       {
+        path: '/parent',
+        element: <ParentLayout />,
+        children: [
+          { index: true, element: <ParentHomePage /> },
+          { path: 'link', element: <LinkChildPage /> },
+        ],
+      },
+      {
         element: <StudentLayout />,
         children: [
           { index: true, element: <DashboardPage /> },
           { path: 'subjects', element: <SubjectsPage /> },
           { path: 'subjects/:subjectId', element: <SubjectChaptersPage /> },
           { path: 'ai-teacher', element: <AiTeacherPage /> },
+          { path: 'family', element: <FamilyPage /> },
         ],
       },
     ],

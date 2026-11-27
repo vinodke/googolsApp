@@ -133,6 +133,7 @@ v1.MapAiTeacherEndpoints();
 v1.MapGamificationEndpoints();
 v1.MapAdminCurriculumEndpoints();
 v1.MapAccountEndpoints();
+v1.MapParentEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

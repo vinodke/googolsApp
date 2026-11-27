@@ -62,6 +62,11 @@ public static class DependencyInjection
         services.AddSingleton<ICurriculumRetriever, AzureSearchRetriever>();
         services.AddSingleton<IContentSafety, BasicContentSafety>();
 
+        // Email (SMTP when configured, otherwise a logging no-op) — also used by Identity for confirm/reset emails.
+        services.Configure<EmailOptions>(config.GetSection(EmailOptions.Section));
+        services.AddSingleton<Application.Abstractions.IEmailSender, SmtpEmailSender>();
+        services.AddSingleton<Microsoft.AspNetCore.Identity.IEmailSender<Identity.AppUser>, IdentityEmailSender>();
+
         services.AddSingleton<IClock, SystemClock>();
         return services;
     }

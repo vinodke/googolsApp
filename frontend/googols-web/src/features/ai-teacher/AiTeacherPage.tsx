@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { useSearchParams } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import { Icon } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
 import type { AskTeacherResponse, ChatTurn, Lang, SourceRef, TeacherMode } from '../../core/api/types'
@@ -57,7 +57,8 @@ export function AiTeacherPage() {
   if (me.data?.consentRequired) return (
     <div className="card empty">
       <span className="icon-tile lg tint-amber"><Icon name="shield" /></span>
-      <p style={{ margin: 0 }}>{t.consentNeeded}</p>
+      <p>{t.consentNeeded}</p>
+      <Link to="/family" className="btn btn-primary"><Icon name="shield" size={18} /> {t.inviteParent}</Link>
     </div>
   )
 

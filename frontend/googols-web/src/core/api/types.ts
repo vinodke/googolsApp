@@ -35,3 +35,13 @@ export interface AdminSubject { id: string; name: string; code: string; mediumLa
 export interface AdminClass { id: string; gradeNumber: number; gradeName: string; subjects: AdminSubject[] }
 export interface AdminCurriculum { id: string; name: string; academicYear: string; version: number; status: PubStatus; classes: AdminClass[] }
 export interface AdminBoard { id: string; name: string; code: string; countryCode: string; isEntranceExam: boolean; curricula: AdminCurriculum[] }
+
+// ---- Parents and consent (Phase 4)
+export interface ParentCode { code: string; expiresAtUtc: string }
+export interface StudentParent { linkId: string; relationship: string; parentEmail: string; status: string; consentGranted: boolean }
+export interface Child {
+  studentId: string; displayName: string; className: string | null; boardCode: string | null; academicYear: string | null
+  level: number; totalXp: number; streakDays: number; lastActiveDate: string | null
+  consentRequired: boolean; consentGranted: boolean; consentVersion: string | null; consentGrantedAtUtc: string | null
+  recentXp: { points: number; reason: string; createdAtUtc: string }[]
+}

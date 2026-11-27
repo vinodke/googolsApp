@@ -105,6 +105,12 @@ public static class StartupTasks
         var db = scope.ServiceProvider.GetRequiredService<GoogolsDbContext>();
         try
         {
+            // Apply pending EF Core migrations on start (app setting Database__MigrateOnStartup=true).
+            // Migrations are additive and idempotent; a failure stops here and is logged, the app still starts.
+            if (scope.ServiceProvider.GetRequiredService<IConfiguration>().GetValue("Database:MigrateOnStartup", false))
+            {
+                await db.Database.MigrateAsync();
+            }
             if (!await db.Database.CanConnectAsync())
             {
                 log.LogWarning("Database not reachable; skipping role and XP-rule seeding. Run `dotnet ef database update` first.");

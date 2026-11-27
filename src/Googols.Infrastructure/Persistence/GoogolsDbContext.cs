@@ -23,6 +23,7 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
     public DbSet<StudentProfile> StudentProfiles => Set<StudentProfile>();
     public DbSet<Enrollment> Enrollments => Set<Enrollment>();
     public DbSet<ParentStudentLink> ParentStudentLinks => Set<ParentStudentLink>();
+    public DbSet<ParentLinkCode> ParentLinkCodes => Set<ParentLinkCode>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -128,6 +129,15 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => new { x.ParentUserId, x.StudentId }).IsUnique();
             e.HasOne(x => x.Student).WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.ParentUserId).OnDelete(DeleteBehavior.Restrict);
+        });
+
+        b.Entity<ParentLinkCode>(e =>
+        {
+            e.ToTable("ParentLinkCodes", "learning");
+            e.Property(x => x.CodeHash).HasMaxLength(64).IsFixedLength();
+            e.HasIndex(x => x.CodeHash).IsUnique();
+            e.HasIndex(x => x.StudentId);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
         });
 
         // Gamification

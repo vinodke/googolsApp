@@ -32,6 +32,23 @@ const en = {
   generalExplanation: 'General explanation: not from your textbook',
   remaining: (n: number) => `${n} questions left today`,
   consentNeeded: 'A parent needs to give permission before you can use the AI teacher.',
+  navFamily: 'Family',
+  familyTitle: 'Family',
+  familyIntro: 'Link a parent so they can follow your progress and give permission for the AI teacher.',
+  parentCodeTitle: 'Invite a parent',
+  parentCodeHelp: 'Your parent uses this code once to link their account to yours.',
+  parentStep1: 'Tap Create code below.',
+  parentStep2: 'Your parent signs in to Googols with their own account and opens Link a child.',
+  parentStep3: 'They type the code, then read and accept the consent notice.',
+  yourCode: 'Your code',
+  codeExpires: (d: string) => `Works once, until ${d}`,
+  createCode: 'Create code',
+  newCode: 'Create a new code',
+  linkedParents: 'Linked parents',
+  noParents: 'No parent is linked yet.',
+  consentGiven: 'Consent given',
+  consentPending: 'Consent pending',
+  inviteParent: 'Invite a parent',
 }
 
 type Strings = typeof en
@@ -57,6 +74,10 @@ const ml: Strings = {
   send: 'അയക്കുക',
   sourcesUsed: 'നിങ്ങളുടെ പാഠങ്ങളിൽ നിന്ന്',
   generalExplanation: 'പൊതുവായ വിശദീകരണം: പാഠപുസ്തകത്തിൽ നിന്നല്ല',
+  navFamily: 'കുടുംബം',
+  familyTitle: 'കുടുംബം',
+  inviteParent: 'രക്ഷിതാവിനെ ക്ഷണിക്കുക',
+  createCode: 'കോഡ് ഉണ്ടാക്കുക',
 }
 
 export const strings: Record<Lang, Strings> = { en, ml }

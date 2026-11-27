@@ -34,7 +34,12 @@ export function DashboardPage() {
         </div>
       </section>
 
-      {me.data.consentRequired && <div className="alert alert-info" role="status">{t.consentNeeded}</div>}
+      {me.data.consentRequired && (
+        <div className="alert alert-info row-between" role="status">
+          <span>{t.consentNeeded}</span>
+          <Link to="/family" className="btn btn-primary btn-sm"><Icon name="shield" size={16} /> {t.inviteParent}</Link>
+        </div>
+      )}
 
       <section className="grid-stats" aria-label="Your stats">
         <Stat icon="trophy" tint="tint-indigo" value={`${t.level} ${me.data.level}`} label={`${next - me.data.totalXp} ${t.xp} → ${t.level} ${me.data.level + 1}`} />
