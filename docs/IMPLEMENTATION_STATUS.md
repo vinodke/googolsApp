@@ -93,6 +93,11 @@ admin metrics/users, SuperAdmin grant refused for Admin, user lock, chapter with
 
 **To switch on:** `Razorpay__KeyId/KeySecret/WebhookSecret` (webhook URL `/api/v1/billing/webhooks/razorpay`), `Email__Smtp__Host/Port/User/Password` + `Email__From`, `ContentSafety__Endpoint/ApiKey`. Roles granted by an admin apply after the user signs in again.
 
+## Google sign-in (27 Nov 2026)
+"Continue with Google" on sign-in and sign-up. Google Cloud project **googols**, OAuth client "Googols web" (Web application), redirect URI `https://googols-app.azurewebsites.net/signin-google`, consent screen **In production** (scopes: openid, email, profile; no Google review needed). Keys live only in app settings `Authentication__Google__ClientId` / `__ClientSecret`.
+A Google account links to an existing Googols account only when Google reports the email as verified; otherwise a new account is created. Locked accounts can't sign in through Google. Public privacy page at `/privacy` (plain-language draft; have it reviewed). When googols.in goes live, add `https://googols.in/signin-google` to the OAuth client's redirect URIs.
+Also: role changes and locks now reach existing sessions within 1 minute (security-stamp check).
+
 ## By module
 | Module | Status | Built | Next |
 |---|---|---|---|
