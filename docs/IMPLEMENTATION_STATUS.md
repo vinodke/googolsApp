@@ -96,6 +96,7 @@ admin metrics/users, SuperAdmin grant refused for Admin, user lock, chapter with
 ## AI teacher, tests & progress, schools (27 Nov 2026) — built, deployed, live-tested
 Three migrations, all additive: `AiTeacherUpgrades` (3 tables, 4 columns), `LearningAndExams` (6 tables), `SchoolsHomeworkReports` (9 tables, 4 columns).
 Tests: **83/83 unit, 2/2 architecture, 28/28 React UI**. Live end-to-end script `tests/live/run.sh`: **105/105 checks passed** on the live site (throwaway QA accounts and a separate QA syllabus; afterwards 0 QA users and 0 QA boards left, firewall rule removed).
+Page-by-page UI check `tests/live/run_ui.sh` (headless Chromium in Cloud Shell, real data, every page as public / student / teacher / school admin / parent / admin, including every tab): **62/62 passed** — no error alerts, no console errors, expected content on each page. It found and we fixed: CSP blocked the inlined font files; the sign-in rate limit also limited the "who am I" check on every page load (a school sharing one IP would be logged out; now 60/min on sign-in only, session check unlimited and retried); submitting a test without an autosave failed; the study plan skipped unread lessons of quizzed chapters; school classes showed an unusable join code.
 
 | Area | What's live |
 |---|---|
