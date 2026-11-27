@@ -12,6 +12,7 @@ export function AdminLayout() {
 
   const links: NavItem[] = [
     { to: '/admin', label: 'Curriculum', icon: 'layers', end: true },
+    { to: '/teacher', label: 'Teacher view', icon: 'grad' },
     ...(me.data ? [{ to: '/', label: 'Student view', icon: 'home', end: true } as NavItem] : []),
   ]
   const stats = account.data?.roles.map(r => <span key={r} className="badge">{r}</span>)

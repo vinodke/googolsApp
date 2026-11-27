@@ -52,3 +52,7 @@ export const CONSENT_VERSION = '2026-11'
 export function useLearningSummary(enabled = true) {
   return useQuery({ queryKey: ['learning', 'summary'], queryFn: () => api.get<LearningSummary>('/learning/summary'), enabled })
 }
+
+export function isTeacher(account: Account | undefined) {
+  return !!account?.roles.some(r => r === 'Teacher' || r === 'SchoolAdmin')
+}

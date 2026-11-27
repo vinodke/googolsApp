@@ -11,6 +11,7 @@ import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
+import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
 import { FamilyPage } from '../features/family/FamilyPage'
 import { LinkChildPage, ParentHomePage, ParentLayout } from '../features/parent/ParentPages'
 import { AdminLayout } from './AdminLayout'
@@ -36,6 +37,14 @@ export const router = createBrowserRouter([
           { index: true, element: <AdminCurriculumPage /> },
           { path: 'chapters/:chapterId/lessons', element: <AdminLessonsPage /> },
           { path: 'chapters/:chapterId/questions', element: <AdminQuestionsPage /> },
+        ],
+      },
+      {
+        path: '/teacher',
+        element: <TeacherLayout />,
+        children: [
+          { index: true, element: <TeacherHomePage /> },
+          { path: 'classrooms/:id', element: <ClassroomPage /> },
         ],
       },
       {

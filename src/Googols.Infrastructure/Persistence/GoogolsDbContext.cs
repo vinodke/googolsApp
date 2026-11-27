@@ -4,6 +4,7 @@ using Googols.Domain.Common;
 using Googols.Domain.Content;
 using Googols.Domain.Curricula;
 using Googols.Domain.Gamification;
+using Googols.Domain.Schools;
 using Googols.Domain.Students;
 using Googols.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -37,6 +38,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<Question> Questions => Set<Question>();
     public DbSet<QuizAttempt> QuizAttempts => Set<QuizAttempt>();
+
+    public DbSet<Classroom> Classrooms => Set<Classroom>();
+    public DbSet<ClassroomMember> ClassroomMembers => Set<ClassroomMember>();
 
     public DbSet<XpTransaction> XpTransactions => Set<XpTransaction>();
     public DbSet<XpRule> XpRules => Set<XpRule>();
@@ -227,6 +231,28 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.HasIndex(x => new { x.StudentId, x.ChapterId, x.SubmittedAtUtc });
             e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
             e.HasOne<Chapter>().WithMany().HasForeignKey(x => x.ChapterId).OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // Teachers (Phase 10)
+        b.Entity<Classroom>(e =>
+        {
+            e.ToTable("Classrooms", "school");
+            e.Property(x => x.Name).HasMaxLength(100);
+            e.Property(x => x.SchoolName).HasMaxLength(200);
+            e.Property(x => x.JoinCode).HasMaxLength(8);
+            e.HasIndex(x => x.JoinCode).IsUnique();
+            e.HasIndex(x => x.TeacherUserId);
+            e.HasOne<AppUser>().WithMany().HasForeignKey(x => x.TeacherUserId).OnDelete(DeleteBehavior.Restrict);
+            e.HasOne<AcademicClass>().WithMany().HasForeignKey(x => x.ClassId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<ClassroomMember>(e =>
+        {
+            e.ToTable("ClassroomMembers", "school");
+            e.HasIndex(x => new { x.ClassroomId, x.StudentId }).IsUnique();
+            e.HasIndex(x => x.StudentId);
+            e.HasOne<Classroom>().WithMany().HasForeignKey(x => x.ClassroomId).OnDelete(DeleteBehavior.Cascade);
+            e.HasOne<StudentProfile>().WithMany().HasForeignKey(x => x.StudentId).OnDelete(DeleteBehavior.Cascade);
         });
 
         // Gamification

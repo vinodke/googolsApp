@@ -1,8 +1,9 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router'
 import { Icon } from '../../app/Icons'
-import { api, errorMessage } from '../../core/api/client'
-import type { ParentCode, StudentParent } from '../../core/api/types'
+import { api, errorMessage, fieldErrors } from '../../core/api/client'
+import type { MyClassroom, ParentCode, StudentParent } from '../../core/api/types'
 import { strings } from '../../core/i18n/strings'
 import { useStudentMe } from '../../core/queries'
 
@@ -67,6 +68,43 @@ export function FamilyPage() {
           </ul>
         </section>
       </div>
+
+      <Classrooms />
     </div>
+  )
+}
+
+function Classrooms() {
+  const qc = useQueryClient()
+  const [code, setCode] = useState('')
+  const rooms = useQuery({ queryKey: ['student', 'classrooms'], queryFn: () => api.get<MyClassroom[]>('/students/me/classrooms') })
+  const join = useMutation({
+    mutationFn: () => api.post<{ id: string; name: string }>('/students/me/classrooms/join', { code }),
+    onSuccess: () => { setCode(''); void qc.invalidateQueries({ queryKey: ['student', 'classrooms'] }) },
+  })
+  const leave = useMutation({ mutationFn: (id: string) => api.del(`/students/me/classrooms/${id}`), onSuccess: () => qc.invalidateQueries({ queryKey: ['student', 'classrooms'] }) })
+  const errs = fieldErrors(join.error)
+  function submit(e: FormEvent) { e.preventDefault(); join.mutate() }
+  return (
+    <section className="card">
+      <div className="row" style={{ marginBottom: 'var(--space-3)' }}>
+        <span className="icon-tile lg tint-teal"><Icon name="grad" /></span>
+        <div><h2 style={{ margin: 0 }}>Classrooms</h2><p className="muted small" style={{ margin: 0 }}>Join your teacher's classroom with the code they give you. Your teacher will see your lessons and quiz scores.</p></div>
+      </div>
+      <ul className="list" style={{ marginBottom: 'var(--space-3)' }}>
+        {rooms.data?.map(r => (
+          <li key={r.id} className="list-item">
+            <span className="grow"><strong>{r.name}</strong><span className="small muted" style={{ display: 'block' }}>{r.teacher}{r.schoolName ? ` · ${r.schoolName}` : ''}</span></span>
+            <button className="btn btn-ghost btn-sm" onClick={() => leave.mutate(r.id)}>Leave</button>
+          </li>
+        ))}
+      </ul>
+      <form className="inline-form" onSubmit={submit}>
+        <input className="input narrow" aria-label="Class code" placeholder="Class code" maxLength={10} value={code} onChange={e => setCode(e.target.value.toUpperCase())} />
+        <button className="btn btn-primary btn-sm" disabled={code.trim().length < 6 || join.isPending}>Join</button>
+        {(errs.code || (join.isError && !errs.code)) && <span className="field-error">{errs.code ?? errorMessage(join.error)}</span>}
+        {join.data && <span className="badge badge-success">Joined {join.data.name}</span>}
+      </form>
+    </section>
   )
 }

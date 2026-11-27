@@ -141,6 +141,7 @@ v1.MapParentEndpoints();
 v1.MapLearningEndpoints();
 v1.MapQuizEndpoints();
 v1.MapLeaderboardEndpoints();
+v1.MapTeacherEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

@@ -76,3 +76,15 @@ public class BadgeTests
     public void Classmates_see_first_name_and_initial(string full, string shown) =>
         Assert.Equal(shown, Googols.Application.Common.Privacy.PublicName(full));
 }
+
+public class CodeTests
+{
+    [Fact]
+    public void Classroom_codes_are_readable_and_normalised()
+    {
+        var c = Googols.Domain.Common.Codes.New(6);
+        Assert.Equal(6, c.Length);
+        Assert.DoesNotContain(c, ch => "01OIL".Contains(ch));
+        Assert.Equal("AB3XYZ", Googols.Domain.Common.Codes.Normalize(" ab3-xyz "));
+    }
+}
