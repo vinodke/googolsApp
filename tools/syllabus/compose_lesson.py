@@ -189,7 +189,7 @@ def poster(L, pics, path, W=2400, H=1600):
         by = top + card_h + 26
         rounded(d, (x0, by, x0 + cw, by + pts_h), 30, (255, 255, 255), acc, 4)
         kf = font(36, "ExtraBold")
-        d.text((x0 + cw // 2, by + 26), "പ്രധാന കാര്യങ്ങൾ", font=kf, fill=acc, anchor="mt")
+        d.text((x0 + cw // 2, by + 26), lab(L, "key"), font=kf, fill=acc, anchor="mt")
         yy = by + 92
         for p in s.get("points", [])[:3]:
             pf, pl = fit(d, p, cw - 90, 2, 33, "SemiBold", body=True, min_size=24)
@@ -202,8 +202,8 @@ def poster(L, pics, path, W=2400, H=1600):
     sy = top + card_h + 26 + pts_h + 34
     rounded(d, (margin, sy, W - margin, H - 40), 40, (255, 255, 255), (150, 180, 235), 4)
     bulb(d, margin + 90, (sy + H - 40) // 2, 38)
-    d.text((margin + 170, (sy + H - 40) // 2), "ഓർത്തുവയ്ക്കാം", font=font(48, "ExtraBold"), fill=NAVY, anchor="lm")
-    lx = margin + 170 + d.textlength("ഓർത്തുവയ്ക്കാം", font=font(48, "ExtraBold")) + 30
+    d.text((margin + 170, (sy + H - 40) // 2), lab(L, "remember"), font=font(48, "ExtraBold"), fill=NAVY, anchor="lm")
+    lx = margin + 170 + d.textlength(lab(L, "remember"), font=font(48, "ExtraBold")) + 30
     d.line((lx, sy + 30, lx, H - 70), fill=(190, 205, 235), width=3)
     mf, ml = fit(d, L["summary"], W - margin - 330 - lx, 1, 44, "Bold", body=True, min_size=34)
     if len(wrap(d, L["summary"], mf, W - margin - 330 - lx)) > 1:
@@ -213,6 +213,18 @@ def poster(L, pics, path, W=2400, H=1600):
         d.text((lx + 36, my + k * mf.size * 1.3), line, font=mf, fill=INK, anchor="lm")
     d.text((W - margin - 40, (sy + H - 40) // 2), "Googols", font=font(54, "ExtraBold"), fill=NAVY, anchor="rm")
     im.save(path, "JPEG", quality=88, optimize=True, progressive=True)
+
+
+LABELS = {
+    "ml": dict(key="പ്രധാന കാര്യങ്ങൾ", remember="ഓർത്തുവയ്ക്കാം", song="ഓർത്തുവയ്ക്കാൻ ഒരു പാട്ട്", do="ഞാൻ ചെയ്യും",
+               talk="പറയാമോ?", glance="ഒറ്റനോട്ടത്തിൽ"),
+    "en": dict(key="Key points", remember="Remember", song="A song to remember", do="I will do", talk="Can you tell?",
+               glance="At a glance"),
+}
+
+
+def lab(L, k):
+    return LABELS.get(L.get("lang", "ml"), LABELS["ml"])[k]
 
 
 def body_markdown(L):
@@ -225,17 +237,17 @@ def body_markdown(L):
         if s.get("points"):
             out.append("\n".join(f"- {p}" for p in s["points"]))
     if L.get("rhyme"):
-        out.append(f"## {L.get('rhyme_title', 'ഓർത്തുവയ്ക്കാൻ ഒരു പാട്ട്')}")
+        out.append(f"## {L.get('rhyme_title') or lab(L, 'song')}")
         out.append("\n".join(L["rhyme"]))
     if L.get("activity"):
-        out.append("## ഞാൻ ചെയ്യും")
+        out.append(f"## {lab(L, 'do')}")
         out.append(L["activity"])
     if L.get("talk"):
-        out.append("## പറയാമോ?")
+        out.append(f"## {lab(L, 'talk')}")
         out.append("\n".join(f"- {t}" for t in L["talk"]))
-    out.append("## ഓർത്തുവയ്ക്കാം")
+    out.append(f"## {lab(L, 'remember')}")
     out.append(f"**{L['summary']}**")
-    out.append("![ഒറ്റനോട്ടത്തിൽ](pic:poster)")
+    out.append(f"![{lab(L, 'glance')}](pic:poster)")
     return "\n\n".join(x for x in out if x)
 
 
