@@ -16,16 +16,24 @@ sas() { az storage blob generate-sas --account-name "$ST" -c deploy -n "$1" --pe
 for f in gen_images.py boot_job.py; do
   az storage blob upload --account-name "$ST" -c deploy -n "jobs/$f" -f "$(dirname "$0")/$f" --overwrite -o none --only-show-errors
 done
-URL=$(sas jobs/gen_images.py); BOOT=$(sas jobs/boot_job.py)
+# Wheel bundle for the container (its connection to PyPI is unreliable).
+W=$(mktemp -d)
+python3 -m pip download -q -d "$W" --only-binary=:all: --python-version 3.12 --implementation cp \
+  --platform manylinux2014_x86_64 --platform manylinux_2_17_x86_64 --platform manylinux_2_28_x86_64 \
+  certifi pymssql azure-storage-blob pillow
+tar czf "$W.tgz" -C "$W" .
+az storage blob upload --account-name "$ST" -c deploy -n jobs/wheels.tgz -f "$W.tgz" --overwrite -o none --only-show-errors
+rm -rf "$W" "$W.tgz"
+URL=$(sas jobs/gen_images.py); BOOT=$(sas jobs/boot_job.py); WHL=$(sas jobs/wheels.tgz)
 read -r -d '' CMD <<'X' || true
 python3 -u -c "exec(__import__('urllib.request').request.urlopen(__import__('os').environ['BOOT_URL']).read())"
 X
 az container delete -g "$RG" -n "$NAME" --yes -o none 2>/dev/null || true
 az container create -g "$RG" -n "$NAME" -l "$LOC" --image mcr.microsoft.com/devcontainers/python:3.12 --os-type Linux --cpu 1 --memory 1.5 --restart-policy Never \
   --command-line "$CMD" --environment-variables "GRADE=$GRADE" "WORKERS=$WORKERS" \
-  --secure-environment-variables "CS=$(pick Googols)" "BLOB_CS=$(pick Blob)" "SCRIPT_URL=$URL" "BOOT_URL=$BOOT" \
+  --secure-environment-variables "CS=$(pick Googols)" "BLOB_CS=$(pick Blob)" "SCRIPT_URL=$URL" "BOOT_URL=$BOOT" "WHEELS_URL=$WHL" \
     "AOAI_ENDPOINT=$(jq -r '.[]|select(.name=="AzureOpenAI__Endpoint").value' <<<"$S")" \
     "AOAI_KEY=$(jq -r '.[]|select(.name=="AzureOpenAI__ApiKey").value' <<<"$S")" \
   -o none
-unset S CSL URL BOOT
+unset S CSL URL BOOT WHL
 echo "Started $NAME. Logs: az container logs -g $RG -n $NAME"
