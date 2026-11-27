@@ -42,3 +42,31 @@ public class BillingTests
         Assert.Null(o.Find("nope"));
     }
 }
+
+public class CurriculumCsvTests
+{
+    [Fact]
+    public void Parses_rows_with_quotes_and_reports_bad_lines()
+    {
+        var csv = "﻿grade,subject_code,subject_name,medium,chapter_no,chapter_title\r\n" +
+                  "8,bio-8,Biology,ml,1,\"Life, cells and \"\"tissues\"\"\"\r\n" +
+                  "8,BIO-8,Biology,ml,2,Photosynthesis\n" +
+                  "13,BIO-8,Biology,ml,3,Bad grade\n" +
+                  "\n" +
+                  "8,BIO-8,Biology,ml,2,Duplicate number\n";
+        var r = Googols.Application.Curriculum.CurriculumCsv.Parse(csv);
+        Assert.Equal(3, r.Rows.Count);
+        Assert.Equal("Life, cells and \"tissues\"", r.Rows[0].ChapterTitle);
+        Assert.Equal("BIO-8", r.Rows[0].SubjectCode);
+        Assert.Contains(r.Errors, e => e.StartsWith("Line 4:") && e.Contains("grade"));
+        Assert.Contains(r.Errors, e => e.Contains("appears twice"));
+    }
+
+    [Fact]
+    public void Missing_header_columns_are_named()
+    {
+        var r = Googols.Application.Curriculum.CurriculumCsv.Parse("grade,subject\n8,Bio");
+        Assert.Empty(r.Rows);
+        Assert.Contains("subject_code", Assert.Single(r.Errors));
+    }
+}

@@ -144,6 +144,7 @@ v1.MapQuizEndpoints();
 v1.MapLeaderboardEndpoints();
 v1.MapTeacherEndpoints();
 v1.MapBillingEndpoints();
+v1.MapAdminPlatformEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

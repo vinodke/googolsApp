@@ -3,6 +3,7 @@ import { useState, type FormEvent, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import { Icon, tintFor } from '../../app/Icons'
 import { api, errorMessage } from '../../core/api/client'
+import type { CsvImportResult } from '../../core/api/types'
 import type { AdminBoard, AdminClass, AdminCurriculum, AdminSubject, PubStatus } from '../../core/api/types'
 import './admin.css'
 
@@ -114,6 +115,7 @@ function CurriculumPanel({ curriculum }: { curriculum: AdminCurriculum }) {
       <div className="stack" style={{ marginTop: 'var(--space-4)' }}>
         {curriculum.classes.map(k => <ClassPanel key={k.id} cls={k} />)}
         <AddClassForm curriculumId={curriculum.id} existing={curriculum.classes.map(k => k.gradeNumber)} />
+        <CsvImport curriculumId={curriculum.id} />
       </div>
     </div>
   )
@@ -136,11 +138,12 @@ function SubjectPanel({ subject }: { subject: AdminSubject }) {
     <details className="nest" open>
       <summary>
         <strong>{subject.name}</strong> <span className="muted">· {subject.code} · {subject.mediumLanguage === 'ml' ? 'Malayalam' : 'English'} medium</span>
+        <EditActions path={`/curriculum/admin/subjects/${subject.id}`} name={subject.name} label="subject" />
       </summary>
       <ol className="chapters">
         {subject.chapters.map(ch => (
           <li key={ch.id} className="row-between">
-            <span><span className="muted">{ch.sequence}.</span> {ch.title} <StatusBadge status={ch.status} /></span>
+            <span><span className="muted">{ch.sequence}.</span> {ch.title} <StatusBadge status={ch.status} /> <EditActions path={`/curriculum/admin/chapters/${ch.id}`} name={ch.title} label="chapter" /></span>
             <span className="row" style={{ gap: 'var(--space-2)' }}>
               <Link className="btn btn-ghost btn-sm" to={`/admin/chapters/${ch.id}/lessons`}>Lessons</Link>
               <Link className="btn btn-ghost btn-sm" to={`/admin/chapters/${ch.id}/questions`}>Questions</Link>
@@ -262,5 +265,59 @@ function AddChapterForm({ subjectId, nextSequence }: { subjectId: string; nextSe
       onSubmit={async () => { await api.post('/curriculum/chapters', { subjectId, title, sequence: nextSequence }); setTitle('') }}>
       <input className="input" placeholder={`Chapter ${nextSequence} title`} value={title} onChange={e => setTitle(e.target.value)} aria-label="Chapter title" />
     </InlineForm>
+  )
+}
+
+/** Rename (prompt) and delete for a catalog item. The server refuses deletes while anything depends on the item. */
+function EditActions({ path, name, label }: { path: string; name: string; label: string }) {
+  const qc = useQueryClient()
+  const done = () => qc.invalidateQueries({ queryKey: TREE_KEY })
+  const rename = useMutation({ mutationFn: (n: string) => api.put(path, { name: n }), onSuccess: done })
+  const remove = useMutation({ mutationFn: () => api.del(path), onSuccess: done })
+  const error = rename.error ?? remove.error
+  return (
+    <span className="row" style={{ display: 'inline-flex', gap: 2 }}>
+      <button type="button" className="icon-action" aria-label={`Rename ${label} ${name}`} onClick={e => {
+        e.preventDefault()
+        const n = window.prompt(`Rename ${label}`, name)
+        if (n && n.trim() && n.trim() !== name) rename.mutate(n.trim())
+      }}>Rename</button>
+      <button type="button" className="icon-action" aria-label={`Delete ${label} ${name}`} onClick={e => {
+        e.preventDefault()
+        if (window.confirm(`Delete ${label} "${name}"? This can't be undone.`)) remove.mutate()
+      }}>Delete</button>
+      {error && <span className="field-error">{errorMessage(error)}</span>}
+    </span>
+  )
+}
+
+/** Paste or load a CSV, check it, then import. */
+function CsvImport({ curriculumId }: { curriculumId: string }) {
+  const qc = useQueryClient()
+  const [open, setOpen] = useState(false)
+  const [text, setText] = useState('')
+  const check = useMutation({ mutationFn: (apply: boolean) => api.postText<CsvImportResult>(`/curriculum/admin/curricula/${curriculumId}/import?apply=${apply}`, text),
+    onSuccess: r => { if (r.applied) { void qc.invalidateQueries({ queryKey: TREE_KEY }) } } })
+  if (!open) return <button type="button" className="btn btn-ghost btn-sm" style={{ justifySelf: 'start' }} onClick={() => setOpen(true)}>Import chapters from CSV</button>
+  const r = check.data
+  return (
+    <div className="nest stack">
+      <strong>Import from CSV</strong>
+      <span className="hint">Columns: grade,subject_code,subject_name,medium,chapter_no,chapter_title (medium is en or ml). Existing items are matched; new ones are added as Draft.</span>
+      <input type="file" accept=".csv,text/csv" aria-label="CSV file" onChange={async e => { const f = e.target.files?.[0]; if (f) setText(await f.text()) }} />
+      <textarea className="input" rows={5} aria-label="CSV text" value={text} onChange={e => setText(e.target.value)} placeholder={'grade,subject_code,subject_name,medium,chapter_no,chapter_title\n8,BIO-8,Biology,ml,1,Photosynthesis'} />
+      {r && (
+        <div className={r.errors.length ? 'alert' : 'alert alert-info'}>
+          {r.applied ? 'Imported: ' : 'Check: '}{r.rows} rows · {r.classesCreated} new classes · {r.subjectsCreated} new subjects · {r.chaptersCreated} new chapters · {r.chaptersUpdated} renamed
+          {r.errors.map(e => <div key={e}>{e}</div>)}
+        </div>
+      )}
+      {check.isError && <div className="alert" role="alert">{errorMessage(check.error)}</div>}
+      <div className="row">
+        <button type="button" className="btn btn-ghost btn-sm" disabled={!text.trim() || check.isPending} onClick={() => check.mutate(false)}>Check</button>
+        <button type="button" className="btn btn-primary btn-sm" disabled={!r || r.applied || r.errors.length > 0 || check.isPending} onClick={() => check.mutate(true)}>Import</button>
+        <button type="button" className="btn btn-ghost btn-sm" onClick={() => { setOpen(false); check.reset(); setText('') }}>Close</button>
+      </div>
+    </div>
   )
 }

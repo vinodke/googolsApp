@@ -9,6 +9,7 @@ import { ChapterPage, LessonPage, SubjectChaptersPage } from '../features/lesson
 import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
 import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
+import { AdminDashboardPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
 import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
@@ -38,6 +39,8 @@ export const router = createBrowserRouter([
           { index: true, element: <AdminCurriculumPage /> },
           { path: 'chapters/:chapterId/lessons', element: <AdminLessonsPage /> },
           { path: 'chapters/:chapterId/questions', element: <AdminQuestionsPage /> },
+          { path: 'dashboard', element: <AdminDashboardPage /> },
+          { path: 'users', element: <AdminUsersPage /> },
         ],
       },
       {

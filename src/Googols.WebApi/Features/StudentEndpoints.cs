@@ -49,7 +49,7 @@ public static class StudentEndpoints
         });
 
         g.MapPost("/me/onboarding", async (StudentOnboardingRequest req, IValidator<StudentOnboardingRequest> v, ICurrentUser me,
-            GoogolsDbContext db, UserManager<AppUser> users, CancellationToken ct) =>
+            GoogolsDbContext db, UserManager<AppUser> users, SignInManager<AppUser> signIn, CancellationToken ct) =>
         {
             var result = await v.ValidateAsync(req, ct);
             if (!result.IsValid)
@@ -89,6 +89,7 @@ public static class StudentEndpoints
             if (user is not null && !await users.IsInRoleAsync(user, Roles.Student))
             {
                 await users.AddToRoleAsync(user, Roles.Student);
+                await signIn.RefreshSignInAsync(user); // the Student role applies without signing in again
             }
             return Results.Created("/api/v1/students/me", new { student.Id });
         });

@@ -72,7 +72,7 @@ public static class ParentEndpoints
         // ---- Parent side. Any signed-in account may link (it becomes a parent by doing so).
         var p = v1.MapGroup("/parents").WithTags("Parents").RequireAuthorization();
 
-        p.MapPost("/link", async (LinkRequest req, ICurrentUser me, IClock clock, GoogolsDbContext db, UserManager<AppUser> users, CancellationToken ct) =>
+        p.MapPost("/link", async (LinkRequest req, ICurrentUser me, IClock clock, GoogolsDbContext db, UserManager<AppUser> users, SignInManager<AppUser> signIn, CancellationToken ct) =>
         {
             var relationship = req.Relationship?.Trim().ToLowerInvariant() ?? "";
             if (!Relationships.Contains(relationship))
@@ -121,6 +121,7 @@ public static class ParentEndpoints
             if (user is not null && !await users.IsInRoleAsync(user, Roles.Parent))
             {
                 await users.AddToRoleAsync(user, Roles.Parent);
+                await signIn.RefreshSignInAsync(user); // reissue the cookie so the new role applies immediately
             }
             return Results.Ok(new { studentId = student.Id, displayName = student.DisplayName });
         }).RequireRateLimiting("auth");

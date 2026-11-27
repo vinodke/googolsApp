@@ -11,6 +11,10 @@ export function AdminLayout() {
   if (!isAdmin(account.data)) return <Navigate to="/" replace />
 
   const links: NavItem[] = [
+    ...(account.data?.roles.some(r => r === 'Admin' || r === 'SuperAdmin') ? [
+      { to: '/admin/dashboard', label: 'Dashboard', icon: 'sparkles' } as NavItem,
+      { to: '/admin/users', label: 'Users', icon: 'shield' } as NavItem,
+    ] : []),
     { to: '/admin', label: 'Curriculum', icon: 'layers', end: true },
     { to: '/teacher', label: 'Teacher view', icon: 'grad' },
     ...(me.data ? [{ to: '/', label: 'Student view', icon: 'home', end: true } as NavItem] : []),

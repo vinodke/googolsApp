@@ -97,3 +97,14 @@ export interface MyClassroom { id: string; name: string; schoolName: string | nu
 export interface PlanInfo { code: string; name: string; amountPaise: number; durationDays: number; aiQuestionsPerDay: number; isFree: boolean }
 export interface SubscriptionInfo { planCode: string; planName: string; aiQuestionsPerDay: number; endsAtUtc: string | null; paymentsEnabled: boolean }
 export interface CheckoutInfo { orderId: string; keyId: string; amountPaise: number; currency: string; planName: string; studentName: string; email: string | null }
+
+// ---- Admin platform (Phase 12)
+export interface DayPoint { day: string; value: number }
+export interface Metrics {
+  users: number; students: number; parents: number; teachers: number; activeStudents7d: number; publishedLessons: number; publishedQuestions: number
+  quizAttempts7d: number; aiMessages7d: number; aiTokens7d: number; activeSubscriptions: number; revenuePaise30d: number
+  aiMessagesDaily: DayPoint[]; lessonsCompletedDaily: DayPoint[]; newStudentsDaily: DayPoint[]
+}
+export interface AdminUser { id: string; email: string | null; createdAtUtc: string; roles: string[]; locked: boolean; hasStudentProfile: boolean }
+export interface UsersPage { total: number; users: AdminUser[] }
+export interface CsvImportResult { applied: boolean; rows: number; classesCreated: number; subjectsCreated: number; chaptersCreated: number; chaptersUpdated: number; errors: string[] }

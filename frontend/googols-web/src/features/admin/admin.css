@@ -23,3 +23,8 @@
 @media (max-width: 900px) { .admin-grid { grid-template-columns: 1fr; } }
 .q-options { margin: var(--space-3) 0; padding-left: 1.4em; display: grid; gap: 4px; }
 .q-options li.right { color: var(--color-success); font-weight: 650; }
+.chart-bar { fill: var(--color-primary); opacity: 0.85; }
+.chart-bar:hover { opacity: 1; }
+.chart-axis { stroke: var(--color-border); }
+.icon-action { background: transparent; border: 0; color: var(--color-text-muted); cursor: pointer; padding: 2px 6px; border-radius: 6px; font: inherit; font-size: var(--text-sm); }
+.icon-action:hover { background: var(--color-surface-2); color: var(--color-text); }

@@ -39,6 +39,14 @@ export const api = {
   post: <T>(path: string, body?: unknown) => request<T>('POST', path, body ?? {}),
   put: <T>(path: string, body?: unknown) => request<T>('PUT', path, body ?? {}),
   del: <T>(path: string) => request<T>('DELETE', path),
+  /** raw text body (e.g. CSV) */
+  postText: async <T>(path: string, text: string, contentType = 'text/csv'): Promise<T> => {
+    const res = await fetch(`/api/v1${path}`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': contentType }, body: text })
+    const raw = await res.text()
+    const data = raw ? JSON.parse(raw) : undefined
+    if (!res.ok) throw new ApiError(res.status, (data ?? {}) as ProblemDetails)
+    return data as T
+  },
   /** multipart upload (browser sets the boundary) */
   upload: async <T>(path: string, form: FormData): Promise<T> => {
     const res = await fetch(`/api/v1${path}`, { method: 'POST', credentials: 'include', body: form })

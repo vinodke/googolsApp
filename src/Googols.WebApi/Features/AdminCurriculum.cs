@@ -145,10 +145,13 @@ public static class AccountEndpoints
 {
     public static void MapAccountEndpoints(this RouteGroupBuilder v1)
     {
-        v1.MapGet("/account/me", (HttpContext http) => Results.Ok(new
+        // Roles come from the database, not the sign-in cookie, so a role granted a moment ago shows up at once.
+        v1.MapGet("/account/me", async (HttpContext http, Microsoft.AspNetCore.Identity.UserManager<Infrastructure.Identity.AppUser> users) =>
         {
-            email = http.User.Identity?.Name,
-            roles = Roles.All.Where(http.User.IsInRole).ToArray(),
-        })).WithTags("Account").RequireAuthorization();
+            var user = await users.GetUserAsync(http.User);
+            return user is null
+                ? Results.Unauthorized()
+                : Results.Ok(new { email = user.Email, roles = (await users.GetRolesAsync(user)).ToArray() });
+        }).WithTags("Account").RequireAuthorization();
     }
 }
