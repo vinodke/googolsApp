@@ -81,9 +81,15 @@ public sealed class LearningActivityService(GoogolsDbContext db, IClock clock, X
     }
 }
 
-public static class LearningEndpoints
+public static partial class LearningEndpoints
 {
     private const string AttachmentContainer = "lesson-files";
+
+    /// <summary>Allowed lesson picture names: pic-0 … pic-99 and poster (nothing that could reach another blob).</summary>
+    [System.Text.RegularExpressions.GeneratedRegex("^(pic-[0-9]{1,2}|poster)$")]
+    private static partial System.Text.RegularExpressions.Regex LessonPictureName();
+
+    public static string LessonPictureBlob(Guid lessonId, string name) => $"lessons/{lessonId:D}/{name}.jpg";
 
     public static void MapLearningEndpoints(this RouteGroupBuilder v1)
     {
@@ -186,6 +192,24 @@ public static class LearningEndpoints
                 return Results.NotFound();
             }
             return Results.File(stream, l.AttachmentContentType ?? "application/octet-stream", l.AttachmentFileName);
+        });
+
+        // Pictures placed inside a lesson's text with "![caption](pic:N)" / "![caption](pic:poster)".
+        // Stored in Blob as lesson-files/lessons/{lessonId}/pic-N.jpg and .../poster.jpg; same access rule as the lesson.
+        g.MapGet("/lessons/{lessonId:guid}/pictures/{name}", async (Guid lessonId, string name, StudentAccess access, IFileStorage files,
+            HttpResponse response, CancellationToken ct) =>
+        {
+            if (!LessonPictureName().IsMatch(name) || await access.GetAsync(ct) is not { } ctx)
+            {
+                return Results.NotFound();
+            }
+            if (!await access.VisibleLessons(ctx.ClassId).AnyAsync(x => x.Id == lessonId, ct)
+                || await files.OpenReadAsync(AttachmentContainer, LessonPictureBlob(lessonId, name), ct) is not { } stream)
+            {
+                return Results.NotFound();
+            }
+            response.Headers.CacheControl = "private, max-age=86400";
+            return Results.File(stream, "image/jpeg");
         });
 
         g.MapPost("/lessons/{lessonId:guid}/complete", async (Guid lessonId, StudentAccess access, GoogolsDbContext db, IClock clock,

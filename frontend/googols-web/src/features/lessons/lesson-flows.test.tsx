@@ -16,6 +16,15 @@ describe('LessonBody', () => {
     expect(container.querySelector('img')).toBeNull()
     expect(screen.getByText('<img src=x onerror=alert(1)>')).toBeInTheDocument()
   })
+
+  it("shows the lesson's own pictures and nothing else", () => {
+    const text = '![പറവകൾ](pic:1)\n\n![Summary](pic:poster)\n\n![x](https://evil.example/a.png)\n\n![y](pic:../../secret)'
+    const { container } = render(<LessonBody text={text} lessonId="l1" />)
+    const imgs = [...container.querySelectorAll('img')].map(i => i.getAttribute('src'))
+    expect(imgs).toEqual(['/api/v1/learning/lessons/l1/pictures/pic-1', '/api/v1/learning/lessons/l1/pictures/poster'])
+    expect(screen.getByText('പറവകൾ').tagName).toBe('FIGCAPTION')
+    expect(screen.getByText('![x](https://evil.example/a.png)')).toBeInTheDocument()
+  })
 })
 
 const me = {

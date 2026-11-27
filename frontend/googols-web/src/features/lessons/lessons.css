@@ -14,3 +14,7 @@
 @media (max-width: 1000px) { .lesson-layout { grid-template-columns: 1fr; } .lesson-side { position: static; } .lesson-card { padding: var(--space-4); } }
 .lesson-figure { margin: 0 0 var(--space-5); }
 .lesson-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg, 14px); border: 1px solid var(--border, #e5e7eb); }
+.lesson-picture { margin: var(--space-3) auto var(--space-4); max-width: 420px; text-align: center; }
+.lesson-picture.wide { max-width: 100%; }
+.lesson-picture img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg, 14px); border: 1px solid var(--color-border, #e5e7eb); }
+.lesson-picture figcaption { font-size: var(--text-sm, .9rem); color: var(--color-text-muted, #6b7280); margin-top: var(--space-1); }

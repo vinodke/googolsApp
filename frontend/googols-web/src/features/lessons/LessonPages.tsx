@@ -170,7 +170,7 @@ export function LessonPage() {
             </a>
           </figure>
         )}
-        <LessonBody text={l.body} />
+        <LessonBody text={l.body} lessonId={l.id} />
         {l.attachmentFileName && !isImage(l.attachmentFileName) && (
           <a className="attachment" href={`/api/v1/learning/lessons/${l.id}/attachment`}>
             <span className="icon-tile tint-rose"><Icon name="book" /></span>
