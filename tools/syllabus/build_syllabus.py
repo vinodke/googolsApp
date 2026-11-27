@@ -12,6 +12,7 @@ titles are updated, and topics are only added to chapters that have none.
 import csv, datetime, glob, json, os, re, sys, uuid
 
 HOME = os.path.expanduser("~/syllabus")
+REPLACE_TOPICS = "--replace-topics" in sys.argv
 YEAR = "2026-27"
 CURRICULUM_NAME = {"ml": "Kerala State Syllabus · Malayalam medium", "en": "Kerala State Syllabus · English medium"}
 
@@ -194,8 +195,15 @@ def apply(data):
                     stats["retitled" if h["Title"] != c["title"] else "published"] += 1
             used.add(chap_id)
             c["id"] = str(chap_id)
-            cur.execute("SELECT COUNT(*) AS n FROM curriculum.Topics WHERE ChapterId = %s", (chap_id,))
-            if cur.fetchone()["n"] == 0:
+            cur.execute("SELECT Title FROM curriculum.Topics WHERE ChapterId = %s ORDER BY Sequence", (chap_id,))
+            existing_topics = [r["Title"] for r in cur.fetchall()]
+            if existing_topics and REPLACE_TOPICS and existing_topics != c["topics"] and c["topics"]:
+                cur.execute("SELECT COUNT(*) AS n FROM curriculum.LearningObjectives o JOIN curriculum.Topics t ON o.TopicId = t.Id WHERE t.ChapterId = %s", (chap_id,))
+                if cur.fetchone()["n"] == 0:
+                    cur.execute("DELETE FROM curriculum.Topics WHERE ChapterId = %s", (chap_id,))
+                    existing_topics = []
+                    stats["topics_replaced"] = stats.get("topics_replaced", 0) + 1
+            if not existing_topics:
                 for i, t in enumerate(c["topics"], 1):
                     cur.execute("INSERT INTO curriculum.Topics (Id, ChapterId, Title, Sequence, CreatedAtUtc) VALUES (%s, %s, %s, %s, %s)",
                                 (str(uuid.uuid4()), chap_id, t, i, now))

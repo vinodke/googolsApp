@@ -105,7 +105,10 @@ def main():
             lang = "Hindi"
         else:
             lang = LANG_NAME[lang]
-        text = chapter_text(books.get(c["book_id"], {}), c.get("start_page"), nxt.get("start_page") if nxt else None) or "(not available: use the chapter title and topics)"
+        book = books.get(c["book_id"], {})
+        # Malayalam text taken from these PDFs is scrambled, so Malayalam chapters are drafted from the title and topics only
+        malayalam = book.get("subject") in ("Malayalam", "Malayalam (BT)") or (s["medium"] == "ml" and s["code"] not in ("ENG", "HIN"))
+        text = ("" if malayalam else chapter_text(book, c.get("start_page"), nxt.get("start_page") if nxt else None)) or "(not available: use the chapter title and topics)"
         res = ask(PROMPT.format(grade=s["grade"], subject=s["name"], medium=LANG_NAME[s["medium"]], no=c["no"], title=c["title"],
                                 topics="; ".join(c["topics"]) or "(see text)", lang=lang, extra=extra, text=text))
         lesson = (res.get("lesson") or "").strip()

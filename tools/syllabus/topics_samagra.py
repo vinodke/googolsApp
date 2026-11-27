@@ -11,6 +11,10 @@ def ml_ratio(s):
     letters = [c for c in s if c.isalpha()]
     return sum(1 for c in letters if 'ഀ' <= c <= 'ൿ') / max(1, len(letters))
 
+def malayalam_book(b):
+    return b["subject"] in ("Malayalam", "Malayalam (BT)") or (b["medium"] == "ml" and b["subject"] not in ("English", "Hindi"))
+
+
 def outline(pages):
     """Short lines per page: headings live there. Keeps the prompt small."""
     out = []
@@ -71,7 +75,11 @@ def ask_vision(images, prompt):
             req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "api-key": os.environ["AOAI_KEY"]})
             with urllib.request.urlopen(req, timeout=240) as r:
                 return json.loads(json.loads(r.read())["choices"][0]["message"]["content"])
+        except json.JSONDecodeError:
+            return {}
         except urllib.error.HTTPError as e:
+            if e.code == 400:
+                return {}  # e.g. a page the content filter rejects: skip that batch of pages
             if e.code in (429, 500, 503):
                 time.sleep(15 * (attempt + 1)); continue
             raise
@@ -110,7 +118,7 @@ def process(path):
     key = os.path.basename(path)[:-5]
     dest = os.path.join(OUT, key + ".json")
     try:
-        if json.load(open(dest)).get("v") == 2:
+        if json.load(open(dest)).get("v") == 3 or (json.load(open(dest)).get("v") == 2 and not malayalam_book(json.load(open(path)))):
             return key, "cached"
     except Exception:
         pass
@@ -124,8 +132,8 @@ def process(path):
     quality = "ok"
     if len(joined.strip()) < 2000:
         quality = "no-text"
-    elif b["medium"] == "ml" and b["subject"] not in ("English", "Hindi") and ml_ratio(joined) < 0.3:
-        quality = "garbled"
+    elif malayalam_book(b):
+        quality = "garbled"  # the PDFs' Malayalam text layer scrambles conjuncts, so read the pages as images instead
     pages = outline(text) if quality == "ok" else vision_outline(b, key)
     pages = pages[:120000]
     prompt = PROMPT.format(grade=b["grade"], subject=b["subject"], medium="Malayalam" if b["medium"] == "ml" else "English", book=b["book"],
@@ -133,7 +141,7 @@ def process(path):
     res, usage = ask(prompt)
     for c in res.get("chapters", []):
         c["topics"] = [t for t in c.get("topics", []) if t][:8]
-    json.dump({"v": 2, "key": key, "quality": quality, "chapters": res.get("chapters", []), "usage": usage}, open(dest + ".tmp", "w"), ensure_ascii=False); os.replace(dest + ".tmp", dest)
+    json.dump({"v": 3, "key": key, "quality": quality, "chapters": res.get("chapters", []), "usage": usage}, open(dest + ".tmp", "w"), ensure_ascii=False); os.replace(dest + ".tmp", dest)
     n = sum(len(c.get("topics", [])) for c in res.get("chapters", []))
     return key, f"{quality} {len(res.get('chapters', []))} chapters {n} topics"
 
