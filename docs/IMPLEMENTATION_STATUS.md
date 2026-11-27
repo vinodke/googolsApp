@@ -1,6 +1,6 @@
 # Implementation Status
 
-**Updated:** 27 Nov 2026 — AI teacher upgrades, tests & progress, and schools/homework/parent reports built, deployed and live-tested.
+**Updated:** 27 Nov 2026 — Kerala SCERT classes 1–10 syllabus (Malayalam and English medium) published live, with AI-drafted lessons and questions as drafts.
 
 **Status words:** *Verified* = built and run here. *Written* = code complete, not yet compiled. *Planned* = phase noted.
 
