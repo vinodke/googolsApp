@@ -63,7 +63,7 @@ describe('AI Teacher', () => {
   const routes = (reply: Handler) => ({
     'GET /students/me': () => ({ status: 200, json: me }),
     'GET /curriculum/classes/k8/subjects': () => ({ status: 200, json: [{ id: 's1', name: 'Biology', code: 'BIO-8', mediumLanguage: 'ml' }] }),
-    'POST /ai/messages': reply,
+    'POST /ai/messages/stream': reply,
   })
 
   it('sends mode as a name (the bug found on the live site) and shows the reply with an honest label', async () => {
@@ -81,7 +81,7 @@ describe('AI Teacher', () => {
     expect(screen.getByText('പൊതുവായ വിശദീകരണം: പാഠപുസ്തകത്തിൽ നിന്നല്ല')).toBeInTheDocument()
     expect(screen.getByText('39 questions left today')).toBeInTheDocument()
 
-    const sent = calls.find(c => c.key === 'POST /ai/messages')!.body as Record<string, unknown>
+    const sent = calls.find(c => c.key === 'POST /ai/messages/stream')!.body as Record<string, unknown>
     expect(sent).toMatchObject({ subjectId: 's1', chapterId: 'ch1', mode: 'PersonalTeacher', language: 'ml', message: 'Photosynthesis എന്താണ്?' })
     expect(typeof sent.mode).toBe('string')
   })
@@ -110,7 +110,7 @@ describe('AI Teacher conversations', () => {
       'GET /students/me': () => ({ status: 200, json: { ...me, preferredLanguage: 'en' } }),
       'GET /curriculum/classes/k8/subjects': () => ({ status: 200, json: [{ id: 's1', name: 'Biology', code: 'BIO-8', mediumLanguage: 'ml' }] }),
       'GET /ai/conversations?subjectId=s1': () => ({ status: 200, json: [] }),
-      'POST /ai/messages': () => (++turn === 1
+      'POST /ai/messages/stream': () => (++turn === 1
         ? { status: 200, json: { reply: 'Plants make food.', sources: [], groundedInApprovedContent: false, remainingToday: 39, conversationId: 'conv1' } }
         : { status: 200, json: { reply: 'Please call Tele-MANAS on 14416.', sources: [], groundedInApprovedContent: false, remainingToday: 39, conversationId: 'conv1', safetyNotice: 'wellbeing' } }),
     })
@@ -124,7 +124,7 @@ describe('AI Teacher conversations', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Send' }))
     const care = await screen.findByText('Please call Tele-MANAS on 14416.')
     expect(care.closest('.bubble')).toHaveClass('wellbeing')
-    const posts = calls.filter(c => c.key === 'POST /ai/messages').map(c => c.body as { conversationId: string | null; history: unknown[] })
+    const posts = calls.filter(c => c.key === 'POST /ai/messages/stream').map(c => c.body as { conversationId: string | null; history: unknown[] })
     expect(posts[0].conversationId).toBeNull()
     expect(posts[1].conversationId).toBe('conv1')
     expect(posts[1].history).toEqual([]) // server owns the history once a chat is saved

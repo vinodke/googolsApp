@@ -28,3 +28,8 @@
 .chart-axis { stroke: var(--color-border); }
 .icon-action { background: transparent; border: 0; color: var(--color-text-muted); cursor: pointer; padding: 2px 6px; border-radius: 6px; font: inherit; font-size: var(--text-sm); }
 .icon-action:hover { background: var(--color-surface-2); color: var(--color-text); }
+.pre-wrap { white-space: pre-wrap; }
+.checks { list-style: none; padding: 0; margin: var(--space-2) 0; display: grid; gap: 4px; font-size: var(--text-sm); }
+.checks li { display: flex; gap: 6px; align-items: flex-start; }
+.checks li.ok { color: var(--color-success); }
+.checks li.bad { color: var(--color-danger); }

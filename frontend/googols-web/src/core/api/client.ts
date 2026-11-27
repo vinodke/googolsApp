@@ -57,6 +57,52 @@ export const api = {
   },
 }
 
+function parseJson(text: string): unknown {
+  try { return text ? JSON.parse(text) : undefined } catch { return undefined }
+}
+
+/**
+ * POSTs and reads a server-sent-events stream ("event: x\ndata: {json}\n\n"), calling onEvent for each event.
+ * If the server answers with plain JSON instead (an older server, or an immediate reply), that JSON arrives as one "done" event.
+ */
+export async function streamEvents(path: string, body: unknown, onEvent: (event: string, data: unknown) => void, signal?: AbortSignal): Promise<void> {
+  const res = await fetch(`/api/v1${path}`, {
+    method: 'POST', credentials: 'include', signal,
+    headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) throw new ApiError(res.status, (parseJson(await res.text()) ?? {}) as ProblemDetails)
+  const type = res.headers.get('content-type') ?? ''
+  if (!type.includes('text/event-stream') || !res.body) {
+    onEvent('done', parseJson(await res.text()))
+    return
+  }
+  const dispatch = (block: string) => {
+    let event = 'message'
+    const data: string[] = []
+    for (const line of block.split('\n')) {
+      if (line.startsWith('event:')) event = line.slice(6).trim()
+      else if (line.startsWith('data:')) data.push(line.slice(5).trimStart())
+    }
+    if (data.length) onEvent(event, parseJson(data.join('\n')))
+  }
+  const reader = res.body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    buffer += decoder.decode(value, { stream: true }).replace(/\r\n/g, '\n')
+    let cut: number
+    while ((cut = buffer.indexOf('\n\n')) >= 0) {
+      dispatch(buffer.slice(0, cut))
+      buffer = buffer.slice(cut + 2)
+    }
+  }
+  buffer += decoder.decode()
+  if (buffer.trim()) dispatch(buffer)
+}
+
 /** First validation message per field, for showing under inputs. */
 export function fieldErrors(err: unknown): Record<string, string> {
   if (!(err instanceof ApiError) || !err.problem.errors) return {}

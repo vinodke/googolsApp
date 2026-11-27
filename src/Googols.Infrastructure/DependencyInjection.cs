@@ -74,6 +74,10 @@ public static class DependencyInjection
         services.AddHttpClient(nameof(LayeredContentSafety), c => c.Timeout = TimeSpan.FromSeconds(8));
         services.AddSingleton<BasicContentSafety>();
         services.AddSingleton<IContentSafety, LayeredContentSafety>();
+        services.Configure<SpeechOptions>(config.GetSection(SpeechOptions.Section));
+        services.AddHttpClient(nameof(AzureSpeechSynthesizer), c => c.Timeout = TimeSpan.FromSeconds(30));
+        services.AddSingleton<ISpeechSynthesizer, AzureSpeechSynthesizer>();
+        services.Configure<AiPricingOptions>(config.GetSection(AiPricingOptions.Section));
 
         // Email (SMTP when configured, otherwise a logging no-op) — also used by Identity for confirm/reset emails.
         services.Configure<EmailOptions>(config.GetSection(EmailOptions.Section));

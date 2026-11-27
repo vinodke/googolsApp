@@ -45,22 +45,23 @@ export function AdminDashboardPage() {
 }
 
 /** 14-day bar chart drawn in SVG; each bar has a native tooltip. */
-function MiniChart({ title, points }: { title: string; points: DayPoint[] }) {
-  const max = Math.max(1, ...points.map(p => p.value))
+export function MiniChart({ title, points, format = (v: number) => `${v}` }: { title: string; points: DayPoint[]; format?: (v: number) => string }) {
+  const max = Math.max(1e-9, ...points.map(p => p.value))
   const total = points.reduce((s, p) => s + p.value, 0)
+  const width = Math.max(280, points.length * 20)
   return (
     <section className="card">
-      <div className="card-title"><h2>{title}</h2><span className="badge">{total} in 14 days</span></div>
-      <svg viewBox="0 0 280 110" width="100%" role="img" aria-label={`${title}: ${total} in the last 14 days`}>
+      <div className="card-title"><h2>{title}</h2><span className="badge">{format(total)} in {points.length} days</span></div>
+      <svg viewBox={`0 0 ${width} 110`} width="100%" role="img" aria-label={`${title}: ${format(total)} in the last ${points.length} days`}>
         {points.map((p, i) => {
           const h = (p.value / max) * 90
           return (
             <g key={p.day}>
-              <rect x={i * 20 + 3} y={100 - h} width={14} height={Math.max(h, 1)} rx={4} className="chart-bar"><title>{new Date(p.day).toLocaleDateString()}: {p.value}</title></rect>
+              <rect x={i * 20 + 3} y={100 - h} width={14} height={Math.max(h, 1)} rx={4} className="chart-bar"><title>{new Date(p.day).toLocaleDateString()}: {format(p.value)}</title></rect>
             </g>
           )
         })}
-        <line x1="0" y1="100.5" x2="280" y2="100.5" className="chart-axis" />
+        <line x1="0" y1="100.5" x2={width} y2="100.5" className="chart-axis" />
       </svg>
       <div className="row-between small muted"><span>{points[0] && new Date(points[0].day).toLocaleDateString()}</span><span>today</span></div>
     </section>

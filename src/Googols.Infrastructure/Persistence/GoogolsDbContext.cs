@@ -37,6 +37,9 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
 
     public DbSet<AiConversation> AiConversations => Set<AiConversation>();
     public DbSet<AiMessage> AiMessages => Set<AiMessage>();
+    public DbSet<AiUsageLog> AiUsageLogs => Set<AiUsageLog>();
+    public DbSet<AiEvalCase> AiEvalCases => Set<AiEvalCase>();
+    public DbSet<AiEvalRun> AiEvalRuns => Set<AiEvalRun>();
 
     public DbSet<Question> Questions => Set<Question>();
     public DbSet<QuizAttempt> QuizAttempts => Set<QuizAttempt>();
@@ -214,8 +217,39 @@ public class GoogolsDbContext(DbContextOptions<GoogolsDbContext> options)
             e.Property(x => x.Mode).HasMaxLength(30);
             e.Property(x => x.SafetyCategory).HasMaxLength(30);
             e.Property(x => x.Model).HasMaxLength(60);
+            e.Property(x => x.ImageBlobName).HasMaxLength(200);
+            e.Property(x => x.FeedbackComment).HasMaxLength(500);
             e.HasIndex(x => new { x.ConversationId, x.CreatedAtUtc });
+            e.HasIndex(x => new { x.FeedbackHelpful, x.FeedbackAtUtc });
             e.HasOne(x => x.Conversation).WithMany(x => x.Messages).HasForeignKey(x => x.ConversationId).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        b.Entity<AiUsageLog>(e =>
+        {
+            e.ToTable("UsageLogs", "ai");
+            e.Property(x => x.Feature).HasMaxLength(30);
+            e.Property(x => x.Model).HasMaxLength(60);
+            e.Property(x => x.CostUsd).HasPrecision(12, 6);
+            e.HasIndex(x => x.CreatedAtUtc);
+            e.HasIndex(x => new { x.Feature, x.CreatedAtUtc });
+        });
+        b.Entity<AiEvalCase>(e =>
+        {
+            e.ToTable("EvalCases", "ai");
+            e.Property(x => x.Question).HasMaxLength(1000);
+            e.Property(x => x.Language).HasMaxLength(8);
+            e.Property(x => x.Mode).HasMaxLength(30);
+            e.Property(x => x.ExpectedKeywords).HasMaxLength(2000);
+            e.Property(x => x.ForbiddenPhrases).HasMaxLength(1000);
+            e.HasOne<Subject>().WithMany().HasForeignKey(x => x.SubjectId).OnDelete(DeleteBehavior.Restrict);
+            e.HasQueryFilter(x => x.ArchivedAtUtc == null);
+        });
+        b.Entity<AiEvalRun>(e =>
+        {
+            e.ToTable("EvalRuns", "ai");
+            e.Property(x => x.PromptVersion).HasMaxLength(40);
+            e.Property(x => x.Model).HasMaxLength(60);
+            e.HasIndex(x => x.CreatedAtUtc);
         });
 
         // Question bank and quizzes (Phase 8)

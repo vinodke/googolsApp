@@ -13,6 +13,7 @@ import { AdminCurriculumPage } from '../features/admin/AdminCurriculumPage'
 import { AdminLessonsPage } from '../features/admin/AdminLessonsPage'
 import { AdminQuestionsPage } from '../features/admin/AdminQuestionsPage'
 import { AdminDashboardPage, AdminMessagesPage, AdminUsersPage } from '../features/admin/AdminPlatformPages'
+import { AdminAiPage } from '../features/admin/AdminAiPage'
 import { QuizPage } from '../features/quiz/QuizPage'
 import { AchievementsPage } from '../features/achievements/AchievementsPage'
 import { ClassroomPage, TeacherHomePage, TeacherLayout } from '../features/teacher/TeacherPages'
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
           { path: 'dashboard', element: <AdminDashboardPage /> },
           { path: 'users', element: <AdminUsersPage /> },
           { path: 'messages', element: <AdminMessagesPage /> },
+          { path: 'ai', element: <AdminAiPage /> },
         ],
       },
       {

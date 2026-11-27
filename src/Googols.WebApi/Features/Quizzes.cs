@@ -94,7 +94,7 @@ public static class QuizEndpoints
 
         // AI drafts from the chapter's lesson text. Always saved as Draft for a person to check and publish.
         g.MapPost("/chapters/{chapterId:guid}/questions/generate", async (Guid chapterId, GenerateQuestionsRequest req, GoogolsDbContext db,
-            IAiModelProvider model, ILogger<GenerateQuestionsRequest> log, CancellationToken ct) =>
+            IAiModelProvider model, AiUsageRecorder usage, ICurrentUser me, ILogger<GenerateQuestionsRequest> log, CancellationToken ct) =>
         {
             var count = Math.Clamp(req.Count, 1, 15);
             var chapter = await db.Chapters.AsNoTracking().Where(c => c.Id == chapterId)
@@ -119,6 +119,7 @@ public static class QuizEndpoints
             {
                 return Results.Problem(statusCode: StatusCodes.Status422UnprocessableEntity, title: "The AI couldn't write questions for this text. Please write them by hand.");
             }
+            await usage.RecordAsync("question-draft", reply, null, me.UserId, ct);
             var drafts = QuestionDraftParser.Parse(reply.Text, chapter.MediumLanguage);
             foreach (var d in drafts)
             {

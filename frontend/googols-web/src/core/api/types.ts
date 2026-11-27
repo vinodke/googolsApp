@@ -28,11 +28,29 @@ export interface ChatTurn { role: 'user' | 'assistant'; text: string }
 export interface SourceRef { contentId: string; title: string; kind: 'OfficialSyllabus' | 'ApprovedMaterial' | 'AiGenerated' }
 export interface AskTeacherResponse {
   reply: string; sources: SourceRef[]; groundedInApprovedContent: boolean; remainingToday: number
-  conversationId?: string | null; safetyNotice?: string | null
+  conversationId?: string | null; safetyNotice?: string | null; messageId?: string | null
 }
 export interface ConversationSummary { id: string; title: string; subjectId: string; chapterId: string | null; language: string; lastMessageAtUtc: string; messageCount: number }
 export interface Conversation { id: string; title: string; subjectId: string; chapterId: string | null; language: string
-  messages: { role: 'user' | 'assistant'; text: string; sources: SourceRef[]; grounded: boolean; createdAtUtc: string }[] }
+  messages: { id: string; role: 'user' | 'assistant'; text: string; sources: SourceRef[]; grounded: boolean; createdAtUtc: string; hasImage: boolean; helpful: boolean | null }[] }
+
+// ---- AI quality (admin)
+export interface AiUsage {
+  days: number; usdToInr: number
+  totals: { calls: number; inputTokens: number; outputTokens: number; speechCharacters: number; costUsd: number; costInr: number }
+  byFeature: { feature: string; calls: number; tokens: number; costUsd: number }[]
+  daily: { day: string; calls: number; costUsd: number }[]
+  helpful: number; notHelpful: number
+  recentNotHelpful: { messageId: string; question: string; answer: string; comment: string | null; at: string; language: string }[]
+}
+export interface EvalCase {
+  id: string; subjectId: string; subjectName: string; chapterId: string | null; chapterTitle: string | null; question: string; language: Lang
+  mode: TeacherMode; expectedKeywords: string | null; forbiddenPhrases: string | null; expectGrounded: boolean
+}
+export interface EvalCheck { name: string; passed: boolean; detail: string | null }
+export interface EvalResult { caseId: string; question: string; language: string; passed: boolean; score: number; answer: string; grounded: boolean; checks: EvalCheck[]; error: string | null }
+export interface EvalRunSummary { id: string; createdAtUtc: string; promptVersion: string; model: string | null; total: number; passed: number; averageScore: number }
+export interface EvalRun { run: EvalRunSummary; results: EvalResult[] }
 
 export type PubStatus = 'Draft' | 'InReview' | 'Approved' | 'Published' | 'Archived'
 export interface Account { email: string; roles: string[] }

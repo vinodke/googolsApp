@@ -50,6 +50,21 @@ const en = {
   consentGiven: 'Consent given',
   consentPending: 'Consent pending',
   inviteParent: 'Invite a parent',
+  speakQuestion: 'Speak your question',
+  stopListening: 'Stop listening',
+  listening: 'Listening…',
+  readAloud: 'Read aloud',
+  stopReading: 'Stop reading',
+  addPhoto: 'Add a photo of a page or problem',
+  removePhoto: 'Remove photo',
+  photoQuestion: 'Photo question',
+  helpful: 'Helpful',
+  notHelpful: 'Not helpful',
+  whatWasWrong: 'What was wrong? (optional)',
+  sendFeedback: 'Send',
+  thanksFeedback: 'Thanks! This helps us improve.',
+  saveAnswer: 'Save',
+  saved: 'Saved',
 }
 
 type Strings = typeof en
@@ -80,6 +95,15 @@ const ml: Strings = {
   familyTitle: 'കുടുംബം',
   inviteParent: 'രക്ഷിതാവിനെ ക്ഷണിക്കുക',
   createCode: 'കോഡ് ഉണ്ടാക്കുക',
+  speakQuestion: 'ചോദ്യം പറയൂ',
+  listening: 'കേൾക്കുന്നു…',
+  readAloud: 'ഉറക്കെ വായിക്കുക',
+  addPhoto: 'പാഠത്തിന്റെയോ ചോദ്യത്തിന്റെയോ ഫോട്ടോ ചേർക്കുക',
+  photoQuestion: 'ഫോട്ടോ ചോദ്യം',
+  helpful: 'സഹായകരം',
+  notHelpful: 'സഹായകരമല്ല',
+  thanksFeedback: 'നന്ദി! ഇത് ഞങ്ങളെ മെച്ചപ്പെടുത്താൻ സഹായിക്കും.',
+  saveAnswer: 'സേവ് ചെയ്യുക',
 }
 
 export const strings: Record<Lang, Strings> = { en, ml }

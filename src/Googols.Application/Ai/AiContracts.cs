@@ -32,18 +32,37 @@ public sealed record RetrievedPassage(Guid ContentId, string Title, string Text,
 
 public sealed record ChatTurn(string Role, string Text);
 
+/// <summary>A photo sent with a question (a textbook page or a written problem). Only PNG and JPEG.</summary>
+public sealed record AiImage(byte[] Data, string MediaType);
+
 public sealed record AiCompletionRequest(
     string SystemPrompt,
     IReadOnlyList<ChatTurn> History,
     string UserMessage,
-    int MaxOutputTokens);
+    int MaxOutputTokens,
+    AiImage? Image = null);
 
 public sealed record AiCompletionResult(string Text, int InputTokens, int OutputTokens, string Model);
+
+/// <summary>One piece of a streamed answer: text as it arrives, then a final item with the full result and token counts.</summary>
+public sealed record AiStreamUpdate(string? Delta, AiCompletionResult? Final);
 
 /// <summary>Model provider port (Azure OpenAI / OpenAI today).</summary>
 public interface IAiModelProvider
 {
     Task<AiCompletionResult> CompleteAsync(AiCompletionRequest request, CancellationToken ct);
+
+    /// <summary>Streams the answer word by word. The last item carries <see cref="AiStreamUpdate.Final"/>.</summary>
+    IAsyncEnumerable<AiStreamUpdate> StreamAsync(AiCompletionRequest request, CancellationToken ct);
+}
+
+/// <summary>Text-to-speech for reading answers aloud (Azure AI Speech when configured).</summary>
+public interface ISpeechSynthesizer
+{
+    bool IsConfigured { get; }
+
+    /// <summary>MP3 audio of <paramref name="text"/> in "ml" or "en".</summary>
+    Task<byte[]> SynthesizeAsync(string text, string language, CancellationToken ct);
 }
 
 /// <summary>

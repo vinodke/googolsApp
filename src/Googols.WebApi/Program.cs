@@ -87,6 +87,7 @@ builder.Services.AddAuthorizationBuilder()
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUser, HttpCurrentUser>();
 builder.Services.AddScoped<AiTeacherService>();
+builder.Services.AddScoped<AiUsageRecorder>();
 builder.Services.AddScoped<XpLedgerService>();
 builder.Services.AddScoped<StudentAccess>();
 builder.Services.AddScoped<LessonIndexer>();
@@ -115,6 +116,9 @@ builder.Services.AddRateLimiter(o =>
     o.AddPolicy("ai", ctx => RateLimitPartition.GetTokenBucketLimiter(
         ctx.User.Identity?.Name ?? ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
         _ => new TokenBucketRateLimiterOptions { TokenLimit = 6, TokensPerPeriod = 6, ReplenishmentPeriod = TimeSpan.FromMinutes(1) }));
+    o.AddPolicy("speech", ctx => RateLimitPartition.GetFixedWindowLimiter(
+        ctx.User.Identity?.Name ?? ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+        _ => new FixedWindowRateLimiterOptions { PermitLimit = 20, Window = TimeSpan.FromMinutes(1) }));
 });
 
 var spaOrigins = config.GetSection("Cors:Origins").Get<string[]>() ?? ["http://localhost:5173"];
@@ -177,6 +181,7 @@ v1.MapBillingEndpoints();
 v1.MapAdminPlatformEndpoints();
 v1.MapExternalLoginEndpoints(googleEnabled);
 v1.MapContactEndpoints();
+v1.MapAiQualityEndpoints();
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

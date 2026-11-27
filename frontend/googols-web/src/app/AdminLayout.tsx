@@ -15,6 +15,7 @@ export function AdminLayout() {
       { to: '/admin/dashboard', label: 'Dashboard', icon: 'sparkles' } as NavItem,
       { to: '/admin/users', label: 'Users', icon: 'shield' } as NavItem,
       { to: '/admin/messages', label: 'Inbox', icon: 'send' } as NavItem,
+      { to: '/admin/ai', label: 'AI quality', icon: 'sparkles' } as NavItem,
     ] : []),
     { to: '/admin', label: 'Curriculum', icon: 'layers', end: true },
     { to: '/teacher', label: 'Teacher view', icon: 'grad' },
