@@ -20,7 +20,7 @@ def latest(pkg):
     letter = pkg[0].lower()
     if letter not in listings:
         listings[letter] = urllib.request.urlopen(REPO + letter + "/", timeout=60).read().decode()
-    names = re.findall(r'href="(' + re.escape(pkg) + r'-\d[^"/]*\.x86_64\.rpm)"', listings[letter])
+    names = re.findall(r'href="(?:\./)?(' + re.escape(pkg) + r'-\d[^"/]*\.x86_64\.rpm)"', listings[letter])
     return sorted(names)[-1] if names else None
 
 def missing(binary):
