@@ -67,6 +67,32 @@ Automated React UI tests (vitest, mocked API): **10/10 pass** — admin screen, 
 - AI Teacher picked English before the student profile had loaded, so Malayalam-medium students got English answers unless they changed it by hand. The language now follows the profile until the student chooses one.
 - Published/Draft/Archived badges on the admin screen all showed the same colour (overridden by the global badge style). Fixed; verified green "Published" on the live site.
 
+## Phases 4–12 (27 Nov 2026) — built, deployed, live-tested
+Compiled in Azure Cloud Shell (.NET SDK 10.0.404): **0 errors, 0 warnings**. Tests: **73/73 unit, 2/2 architecture, 17/17 React UI**.
+Migration `Phases4To12` (13 new tables + `StudentProfiles.ShowOnLeaderboard`, additive only) applied to Azure SQL. Deployed as `app-202611270158.zip`; `/health` 200.
+
+Live end-to-end test against googols-app with throwaway accounts (all deleted afterwards, 0 QA users left): **56 checks passed**, including —
+parent code (single-use, wrong code rejected) → consent (old notice version rejected) → AI unlocked; masked parent email for the student;
+lesson publish + PDF attachment (fake PDF rejected); lesson complete = 130 XP (20 + chapter 100 + streak 10), repeat = 0;
+AI answer **grounded in the published lesson** via SQL BM25, saved chat continued, self-harm → Tele-MANAS 14416 reply, phone number blocked;
+quiz served without answers, graded on server (100% → +45 XP, 2 badges), resubmit rejected; leaderboard first name + initial;
+teacher classroom join + progress, other users blocked; plans listed, checkout 503 until Razorpay keys are set, unsigned webhook 401;
+admin metrics/users, SuperAdmin grant refused for Admin, user lock, chapter with lessons can't be deleted; sign-in rate limit (10/min/IP) confirmed.
+
+| Phase | What's live |
+|---|---|
+| 4 Parents & consent | Student one-time code → parent links → consent notice v2026-11 (give/withdraw) → parent dashboard; SMTP sender for consent receipts and Identity emails |
+| 5 Content | Admin lesson editor (text/markdown, .txt load, preview, PDF/PNG/JPEG attachment ≤20 MB checked by bytes); published text chunked for the AI teacher (SQL BM25; Azure AI Search optional) |
+| 6 Lessons & progress | Chapter/lesson pages, mark complete, chapter bonus, daily streak, progress bars |
+| 7 AI history & safety | Saved conversations; layered safety (contact info, self-harm care reply, Azure AI Content Safety when configured, provider filter) |
+| 8 Quizzes | Question bank per chapter, AI-drafted questions for review, 10-question chapter quizzes graded server-side, XP once per chapter |
+| 9 Rewards | 11 badges, class leaderboard (week/all, opt-out) |
+| 10 Teachers | Classrooms with join codes, per-student progress, weakest chapters |
+| 11 Plans | Free 15 AI/day; Premium ₹199/month or ₹1,499/year with 60 AI/day (**placeholder prices**, app settings `Billing__*`); Razorpay order + signature verify + webhook |
+| 12 Admin | Metrics dashboard (14-day charts), users (roles, lock), curriculum rename/delete, CSV chapter import |
+
+**To switch on:** `Razorpay__KeyId/KeySecret/WebhookSecret` (webhook URL `/api/v1/billing/webhooks/razorpay`), `Email__Smtp__Host/Port/User/Password` + `Email__From`, `ContentSafety__Endpoint/ApiKey`. Roles granted by an admin apply after the user signs in again.
+
 ## By module
 | Module | Status | Built | Next |
 |---|---|---|---|
