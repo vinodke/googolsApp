@@ -77,10 +77,16 @@ export function OnboardingPage() {
         </div>
         {boardId && (
           <div className="field">
-            <label htmlFor="curriculum">Academic year</label>
+            <label htmlFor="curriculum">Medium and year</label>
             <select id="curriculum" className="input" required value={curriculumId}
-              onChange={e => { setCurriculumId(e.target.value); setClassId('') }}>
-              <option value="">{curricula.isLoading ? 'Loading…' : 'Choose a year'}</option>
+              onChange={e => {
+                setCurriculumId(e.target.value); setClassId('')
+                // A medium in the name ("… · Malayalam medium") also sets the teaching language; the student can still change it.
+                const name = curricula.data?.find(c => c.id === e.target.value)?.name.toLowerCase() ?? ''
+                if (name.includes('malayalam medium')) setLanguage('ml')
+                else if (name.includes('english medium')) setLanguage('en')
+              }}>
+              <option value="">{curricula.isLoading ? 'Loading…' : 'Choose your medium'}</option>
               {curricula.data?.map(c => <option key={c.id} value={c.id}>{c.name} ({c.academicYear})</option>)}
             </select>
           </div>

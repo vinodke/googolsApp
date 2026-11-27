@@ -73,8 +73,8 @@ function CreateClassroom({ onDone }: { onDone: () => void }) {
         <select className="input" aria-label="Board" value={boardId} onChange={e => { setBoardId(e.target.value); setCurriculumId(''); setClassId('') }}>
           <option value="">Board…</option>{boards.data?.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
         </select>
-        <select className="input" aria-label="Academic year" value={curriculumId} disabled={!boardId} onChange={e => { setCurriculumId(e.target.value); setClassId('') }}>
-          <option value="">Academic year…</option>{curricula.data?.map(c => <option key={c.id} value={c.id}>{c.name} ({c.academicYear})</option>)}
+        <select className="input" aria-label="Medium and year" value={curriculumId} disabled={!boardId} onChange={e => { setCurriculumId(e.target.value); setClassId('') }}>
+          <option value="">Medium and year…</option>{curricula.data?.map(c => <option key={c.id} value={c.id}>{c.name} ({c.academicYear})</option>)}
         </select>
         <select className="input" aria-label="Class" value={classId} disabled={!curriculumId} onChange={e => setClassId(e.target.value)}>
           <option value="">Class…</option>{classes.data?.map(k => <option key={k.id} value={k.id}>{k.gradeName}</option>)}
