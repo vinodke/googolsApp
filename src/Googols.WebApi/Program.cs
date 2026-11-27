@@ -34,6 +34,34 @@ builder.Services
     .AddRoles<IdentityRole<Guid>>()
     .AddEntityFrameworkStores<GoogolsDbContext>();
 
+// "Continue with Google" (app settings Authentication__Google__ClientId / __ClientSecret). Off when not configured.
+var googleId = config["Authentication:Google:ClientId"];
+var googleSecret = config["Authentication:Google:ClientSecret"];
+var googleEnabled = !string.IsNullOrWhiteSpace(googleId) && !string.IsNullOrWhiteSpace(googleSecret);
+if (googleEnabled)
+{
+    builder.Services.AddAuthentication().AddGoogle(ExternalLoginEndpoints.GoogleScheme, o =>
+    {
+        o.ClientId = googleId!;
+        o.ClientSecret = googleSecret!;
+        o.SignInScheme = IdentityConstants.ExternalScheme;
+        o.ClaimActions.MapJsonKey("email_verified", "verified_email"); // userinfo v2 field
+        o.ClaimActions.MapJsonKey("email_verified", "email_verified");
+        o.CorrelationCookie.SameSite = SameSiteMode.Lax;
+    });
+}
+
+// App Service terminates HTTPS in front of the app; trust its forwarded headers so redirect URLs use https.
+builder.Services.Configure<ForwardedHeadersOptions>(o =>
+{
+    o.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto;
+    o.KnownIPNetworks.Clear();
+    o.KnownProxies.Clear();
+});
+
+// Role changes made by an admin (or a lock) reach existing sessions within a minute.
+builder.Services.Configure<SecurityStampValidatorOptions>(o => o.ValidationInterval = TimeSpan.FromMinutes(1));
+
 // SignalR over WebSockets can't send an Authorization header; accept the bearer token from the query string on /hubs only.
 builder.Services.Configure<BearerTokenOptions>(IdentityConstants.BearerScheme, o => o.Events = new BearerTokenEvents
 {
@@ -106,6 +134,7 @@ else if (!string.IsNullOrWhiteSpace(config["OTEL_EXPORTER_OTLP_ENDPOINT"]))
 
 var app = builder.Build();
 
+app.UseForwardedHeaders();
 app.UseExceptionHandler();
 app.UseStatusCodePages();
 app.UseSecurityHeaders();
@@ -145,6 +174,7 @@ v1.MapLeaderboardEndpoints();
 v1.MapTeacherEndpoints();
 v1.MapBillingEndpoints();
 v1.MapAdminPlatformEndpoints();
+v1.MapExternalLoginEndpoints(googleEnabled);
 
 app.MapHub<LearningHub>("/hubs/learning");
 app.MapHealthChecks("/health");

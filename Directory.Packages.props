@@ -7,6 +7,7 @@
   <ItemGroup Label="ASP.NET Core / EF Core / Identity">
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.15" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.15" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.15" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.15" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.15" />

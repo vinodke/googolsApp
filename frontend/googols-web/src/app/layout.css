@@ -77,3 +77,6 @@
   .topbar-stats, .user-chip .who { display: none; }
   .content { padding: var(--space-4) var(--space-3) 110px; }
 }
+.google-btn { width: 100%; margin-bottom: var(--space-3); }
+.or { display: flex; align-items: center; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); margin: 0 0 var(--space-4); }
+.or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--color-border); }
