@@ -158,3 +158,9 @@ Also: role changes and locks now reach existing sessions within 1 minute (securi
 - **React instead of Angular** for the frontend (user decision); every other component follows blueprint §8.1.
 - Modules as feature folders across layers instead of separate `Modules/*` projects (see SYSTEM_ARCHITECTURE).
 - Question bank joined to assessments many-to-many (see DATABASE_DESIGN).
+
+## Lesson infographics (27 Nov)
+- Background job `tools/syllabus/gen_images.py` makes one teaching picture per published lesson: gpt-4.1-mini plans title, 3–4 numbered panels, example and summary from the real lesson text (in the lesson's language); `gpt-image-2` draws it (1536×1024); saved as JPEG in `lesson-files` and set as the lesson attachment.
+- Runs as Azure Container Instance `googols-images-<class>`: `bash tools/syllabus/start_image_job.sh <class>` from Cloud Shell. Packages come from a wheel bundle in blob `deploy/jobs/wheels.tgz` (the container's PyPI connection drops). Watch: `az container logs -g googols-rg -n googols-images-<class>`; delete the container when done.
+- Class 1 started (97 lessons, both mediums). Skips lessons that already have an attachment, so re-running is safe.
+- Frontend shows image attachments inline on the lesson page (committed, **not yet deployed**).
