@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Googols.Application;
+using Microsoft.AspNetCore.Authentication;
 using Googols.Application.Abstractions;
 using Googols.Domain.Common;
 using Googols.Infrastructure;
