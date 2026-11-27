@@ -84,11 +84,27 @@ def main():
     cur.execute("SELECT DISTINCT ChapterId FROM content.Lessons WHERE ArchivedAtUtc IS NULL")
     done = {str(r["ChapterId"]).lower() for r in cur.fetchall()}
 
+    # Malayalam books get their topics from page images (topics file v3); wait for those before drafting
+    ready = set()
+    for p in os.listdir(f"{HOME}/topics"):
+        try:
+            t = json.load(open(f"{HOME}/topics/{p}"))
+        except Exception:
+            continue
+        if t.get("v") == 3:
+            ready.add(int(t["key"].rsplit("-", 1)[1]))
+
+    def is_malayalam(s, c):
+        b = books.get(c["book_id"], {})
+        return b.get("subject") in ("Malayalam", "Malayalam (BT)") or (s["medium"] == "ml" and s["code"] not in ("ENG", "HIN"))
+
     jobs = []
     for s in data:
         chs = s["chapters"]
         for i, c in enumerate(chs):
             if not c.get("id") or c["id"].lower() in done:
+                continue
+            if is_malayalam(s, c) and c["book_id"] not in ready:
                 continue
             nxt = chs[i + 1] if i + 1 < len(chs) and chs[i + 1]["book_id"] == c["book_id"] else None
             jobs.append((s, c, nxt))
