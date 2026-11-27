@@ -67,9 +67,11 @@ def build_world():
     s1.call("POST", f"/learning/lessons/{lessons[0]}/complete")
     _, quiz = s1.call("POST", f"/learning/chapters/{chapters[1]}/quiz")
     s1.call("POST", f"/learning/quiz-attempts/{quiz['attemptId']}/submit", {"answers": [0, 1, 0, 0, 0][:len(quiz["questions"])]})
-    _, att = s1.call("POST", "/learning/practice-tests", {"subjectId": sub["id"], "chapterIds": [chapters[0]], "questionCount": 5, "minutes": 5, "includeWritten": True})
-    s1.call("POST", f"/learning/exam-attempts/{att['attemptId']}/submit", {"answers": [0, 0, 1, 0, 0],
-        "written": [{"questionId": att["written"][0]["id"], "text": "Photosynthesis uses sunlight to make food."}]})
+    st, att = s1.call("POST", "/learning/practice-tests", {"subjectId": sub["id"], "chapterIds": [chapters[0]], "questionCount": 5, "minutes": 5, "includeWritten": True})
+    check("setup: practice test started", st == 200, (st, str(att)[:300]))
+    st, res = s1.call("POST", f"/learning/exam-attempts/{att['attemptId']}/submit", {"answers": [0, 0, 1, 0, 0][:len(att["questions"])],
+        "written": [{"questionId": w["id"], "text": "Photosynthesis uses sunlight to make food."} for w in att["written"]]})
+    check("setup: practice test submitted", st == 200, (st, str(res)[:300]))
     _, events = s1.sse("/ai/messages/stream", {"subjectId": sub["id"], "chapterId": chapters[0], "message": "What is chlorophyll?", "mode": "PersonalTeacher", "language": "en"})
     done = next((d for e, d in events if e == "done"), None)
     if done:
@@ -114,9 +116,11 @@ def visit(ctx, role, path, expect=None, clicks=()):
         page.screenshot(path=f"{SHOTS}/{role}{path.replace('/', '_') or '_root'}.png", full_page=True)
         text = page.inner_text("body")
         alerts = [a for a in page.locator("[role=alert]").all_inner_texts() if a.strip()]
-        real = [e for e in errors if "favicon" not in e and "speech/status" not in e]
+        # Signed-out pages ask "who am I" and get 401 by design.
+        real = [e for e in errors if "favicon" not in e and not (role == "public" and "auth/manage/info" in e)]
         ok = len(text.strip()) > 80 and not alerts and not real and (expect is None or expect in text)
-        check(f"{role} {path}" + (f" shows '{expect}'" if expect else ""), ok, {"alerts": alerts, "console": real[:3], "url": page.url, "missing": None if expect is None or expect in text else expect})
+        check(f"{role} {path}" + (f" shows '{expect}'" if expect else ""), ok, {"alerts": alerts, "console": real[:3], "url": page.url,
+              "missing": None if expect is None or expect in text else expect, "text": None if ok else " ".join(text.split())[:300]})
     except Exception as ex:
         check(f"{role} {path}", False, repr(ex)[:200])
     finally:
