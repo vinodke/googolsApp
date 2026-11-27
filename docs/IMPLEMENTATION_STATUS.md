@@ -1,6 +1,6 @@
 # Implementation Status
 
-**Updated:** 27 Nov 2026 — Kerala SCERT classes 1–10 syllabus (Malayalam and English medium) published live, with AI-drafted lessons and questions as drafts.
+**Updated:** 27 Nov 2026 — Kerala SCERT classes 1–10 syllabus (Malayalam and English medium) published live, with AI-written lessons and questions published.
 
 **Status words:** *Verified* = built and run here. *Written* = code complete, not yet compiled. *Planned* = phase noted.
 
@@ -121,7 +121,7 @@ Source: the official SCERT textbooks on Samagra (`samagra.kite.kerala.gov.in`), 
 - Board **Kerala State (SCERT)** with two published 2026-27 curricula: **Malayalam medium** (the original curriculum, renamed; version 1) and **English medium** (version 2). Onboarding now asks for "Medium and year" and sets the teaching language from the medium.
 - Classes 1–10 in each medium: 142 subjects, 1,194 chapters (all published), 6,712 topics (11 chapters have none: their books had no readable section headings). Subjects: Malayalam, Malayalam (Basic Text), English, Hindi, Mathematics, Environmental Science (3–4), Basic Science (5–8), Physics / Chemistry / Biology (9–10), Social Science (5–8) / I and II (9–10), ICT. Malayalam-medium subject names show both languages ("Biology · ജീവശാസ്ത്രം"). Chapter titles are copied as printed; multi-volume books continue the numbering.
 - Not included on purpose: optional languages (Arabic, Sanskrit, Urdu, Tamil, Kannada), Art, Physical Education, Work Education.
-- AI drafts: every chapter has one lesson (500–1,100 words, sections per topic, quick recap) and up to 10 MCQs (4 easy, 4 medium, 2 hard): 1,196 lessons and 11,923 questions, all **Draft** — review and publish them in Admin → Content. Malayalam chapters are drafted from the title and topics (not the scrambled PDF text). Malayalam titles/topics were read by AI from page images: expect occasional spelling slips to fix during review.
+- AI drafts: every chapter has one lesson (500–1,100 words, sections per topic, quick recap) and up to 10 MCQs (4 easy, 4 medium, 2 hard): 1,196 lessons and 11,923 questions. **Published for students on 27 Nov at the owner's request, without human review** (`publish_drafts.py`, which also builds the AI teacher's 6,001 retrieval chunks exactly as the admin screen does) — review and correct them in Admin → Content. Malayalam chapters are drafted from the title and topics (not the scrambled PDF text). Malayalam titles/topics were read by AI from page images: expect occasional spelling slips to fix during review.
 - Not yet deployed: the onboarding label change ("Medium and year") is committed but needs the next deploy. Cloud Shell's home is now temporary, so clone the repo again (`gh auth login`) before `deploy.sh`.
 - The earlier sample subject "Biology" (class 8, Malayalam medium, chapter "Photosynthesis" with its drafts) was left as it was; the official class 8 science is "Basic Science".
 - gpt-4.1-mini deployment on `icoon-ai` raised from 100K to 500K tokens/minute (same per-token price) for the drafting run.
