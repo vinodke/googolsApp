@@ -2,6 +2,7 @@ import { Navigate, Outlet, createBrowserRouter } from 'react-router'
 import { useAuth } from '../core/auth/auth'
 import { AiTeacherPage } from '../features/ai-teacher/AiTeacherPage'
 import { LoginPage, RegisterPage } from '../features/auth/AuthPages'
+import { PrivacyPage } from '../features/auth/PrivacyPage'
 import { OnboardingPage } from '../features/onboarding/OnboardingPage'
 import { DashboardPage } from '../features/student/DashboardPage'
 import { SubjectsPage } from '../features/subjects/SubjectsPages'
@@ -28,6 +29,7 @@ function RequireAuth() {
 export const router = createBrowserRouter([
   { path: '/login', element: <LoginPage /> },
   { path: '/register', element: <RegisterPage /> },
+  { path: '/privacy', element: <PrivacyPage /> },
   {
     element: <RequireAuth />,
     children: [

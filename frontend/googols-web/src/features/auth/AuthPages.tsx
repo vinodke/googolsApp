@@ -65,6 +65,7 @@ function AuthForm({ mode }: { mode: 'login' | 'register' }) {
         </button>
         <p className="muted small" style={{ textAlign: 'center', marginTop: 'var(--space-4)' }}>
           {mode === 'login' ? <Link to="/register">{t.createAccount}</Link> : <Link to="/login">{t.signIn}</Link>}
+          {' · '}<Link to="/privacy">Privacy</Link>
         </p>
       </form>
     </AuthShell>
