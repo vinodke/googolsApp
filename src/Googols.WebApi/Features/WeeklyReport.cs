@@ -27,35 +27,35 @@ public sealed class WeeklyReportBuilder(GoogolsDbContext db, IClock clock)
         {
             return null;
         }
-        var (from, to) = ProgressEndpoints.IstRange(weekStart, 7);
+        var (weekFrom, weekTo) = ProgressEndpoints.IstRange(weekStart, 7);
         var (prevFrom, _) = ProgressEndpoints.IstRange(weekStart.AddDays(-7), 7);
 
         var lessons = await (from p in db.LessonProgress join l in db.Lessons.IgnoreQueryFilters() on p.LessonId equals l.Id
-                             where p.StudentId == studentId && p.CompletedAtUtc >= from && p.CompletedAtUtc < to
+                             where p.StudentId == studentId && p.CompletedAtUtc >= weekFrom && p.CompletedAtUtc < weekTo
                              orderby p.CompletedAtUtc select new { l.Title, p.CompletedAtUtc }).ToListAsync(ct);
-        var lessonsLastWeek = await db.LessonProgress.CountAsync(p => p.StudentId == studentId && p.CompletedAtUtc >= prevFrom && p.CompletedAtUtc < from, ct);
-        var quizzes = await db.QuizAttempts.AsNoTracking().Where(a => a.StudentId == studentId && a.SubmittedAtUtc >= from && a.SubmittedAtUtc < to)
+        var lessonsLastWeek = await db.LessonProgress.CountAsync(p => p.StudentId == studentId && p.CompletedAtUtc >= prevFrom && p.CompletedAtUtc < weekFrom, ct);
+        var quizzes = await db.QuizAttempts.AsNoTracking().Where(a => a.StudentId == studentId && a.SubmittedAtUtc >= weekFrom && a.SubmittedAtUtc < weekTo)
             .Select(a => new { At = a.SubmittedAtUtc!.Value, Percent = (double?)a.Percent }).ToListAsync(ct);
-        var tests = await db.ExamAttempts.AsNoTracking().Where(a => a.StudentId == studentId && a.SubmittedAtUtc >= from && a.SubmittedAtUtc < to)
+        var tests = await db.ExamAttempts.AsNoTracking().Where(a => a.StudentId == studentId && a.SubmittedAtUtc >= weekFrom && a.SubmittedAtUtc < weekTo)
             .Select(a => new { At = a.SubmittedAtUtc!.Value, a.Percent }).ToListAsync(ct);
         var scores = quizzes.Concat(tests).Where(x => x.Percent is not null).Select(x => x.Percent!.Value).ToList();
-        var xp = await db.XpTransactions.Where(x => x.StudentId == studentId && x.CreatedAtUtc >= from && x.CreatedAtUtc < to).SumAsync(x => (int?)x.Points, ct) ?? 0;
-        var xpLast = await db.XpTransactions.Where(x => x.StudentId == studentId && x.CreatedAtUtc >= prevFrom && x.CreatedAtUtc < from).SumAsync(x => (int?)x.Points, ct) ?? 0;
-        var ai = await db.AiMessages.CountAsync(m => m.Role == "user" && m.Conversation!.StudentId == studentId && m.CreatedAtUtc >= from && m.CreatedAtUtc < to, ct);
+        var xp = await db.XpTransactions.Where(x => x.StudentId == studentId && x.CreatedAtUtc >= weekFrom && x.CreatedAtUtc < weekTo).SumAsync(x => (int?)x.Points, ct) ?? 0;
+        var xpLast = await db.XpTransactions.Where(x => x.StudentId == studentId && x.CreatedAtUtc >= prevFrom && x.CreatedAtUtc < weekFrom).SumAsync(x => (int?)x.Points, ct) ?? 0;
+        var ai = await db.AiMessages.CountAsync(m => m.Role == "user" && m.Conversation!.StudentId == studentId && m.CreatedAtUtc >= weekFrom && m.CreatedAtUtc < weekTo, ct);
         var days = lessons.Select(l => l.CompletedAtUtc).Concat(quizzes.Select(q => q.At)).Concat(tests.Select(t => t.At))
             .Select(ProgressEndpoints.IstDate).Distinct().Count();
 
         var mastery = await (from m in db.ChapterMastery join c in db.Chapters on m.ChapterId equals c.Id
                              where m.StudentId == studentId
                              select new { m.PracticeScore, m.LastPracticedAtUtc, c.Title, Subject = c.Subject!.Name }).ToListAsync(ct);
-        var practised = mastery.Where(m => m.LastPracticedAtUtc >= from && m.LastPracticedAtUtc < to)
+        var practised = mastery.Where(m => m.LastPracticedAtUtc >= weekFrom && m.LastPracticedAtUtc < weekTo)
             .OrderByDescending(m => m.PracticeScore).Select(m => new ReportChapter(m.Title, m.Subject, Math.Round(m.PracticeScore))).Take(8).ToList();
         var weak = mastery.Where(m => m.PracticeScore < MasteryPolicy.WeakBelow).OrderBy(m => m.PracticeScore)
             .Select(m => new ReportChapter(m.Title, m.Subject, Math.Round(m.PracticeScore))).Take(5).ToList();
 
         // Homework due this week (or set this week without a due date).
         var homework = await (from a in db.Assignments.AsNoTracking() join cm in db.ClassroomMembers on a.ClassroomId equals cm.ClassroomId
-                              where cm.StudentId == studentId && ((a.DueAtUtc >= from && a.DueAtUtc < to) || (a.DueAtUtc == null && a.CreatedAtUtc >= from && a.CreatedAtUtc < to))
+                              where cm.StudentId == studentId && ((a.DueAtUtc >= weekFrom && a.DueAtUtc < weekTo) || (a.DueAtUtc == null && a.CreatedAtUtc >= weekFrom && a.CreatedAtUtc < weekTo))
                               select a).ToListAsync(ct);
         var done = await HomeworkStatus.ForAsync(db, homework, [studentId], ct);
         var doneCount = homework.Count(a => done[a.Id].Count > 0);
