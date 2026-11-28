@@ -1,0 +1,157 @@
+{
+ "key": "en-ENG-02",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 2,
+ "lang": "en",
+ "title": "Who Can Fly?",
+ "subtitle": "Baby Sparrow's kite",
+ "hero_picture": "A little yellow baby sparrow and a red mother sparrow on a branch, a red kite with blue wings and a yellow tail stuck in a tall tree.",
+ "sections": [
+  {
+   "heading": "Kites in the valley",
+   "text": [
+    "Children were flying kites in a valley.",
+    "Red, yellow, green: kites of many colours!",
+    "'Mamma, I too want a kite,' said Baby Sparrow."
+   ],
+   "points": [
+    "Many kites",
+    "Many colours",
+    "I want a kite"
+   ],
+   "caption": "Kites in the valley",
+   "picture": "Children flying colourful kites in a sunny valley, two sparrows watching from a branch."
+  },
+  {
+   "heading": "A red kite",
+   "text": [
+    "Baby Sparrow and Mamma made a kite.",
+    "A red kite with blue wings and a yellow tail.",
+    "The kite rose up in the sky."
+   ],
+   "points": [
+    "Red kite",
+    "Blue wings",
+    "Yellow tail"
+   ],
+   "caption": "A red kite",
+   "picture": "A small yellow sparrow pulling the string of a red kite with blue wings and a yellow tail up in the sky."
+  },
+  {
+   "heading": "SNAP!",
+   "text": [
+    "Suddenly, a wind blew.",
+    "SNAP! The kite line snapped.",
+    "The kite got stuck in the branch of a tree."
+   ],
+   "points": [
+    "Wind blew",
+    "Line snapped",
+    "Kite stuck"
+   ],
+   "caption": "SNAP!",
+   "picture": "A red kite caught in the branches of a big tree, a sad little yellow sparrow on the ground."
+  },
+  {
+   "heading": "Can you fly?",
+   "text": [
+    "The cow said, 'I can only walk.'",
+    "The snake said, 'I can only crawl.' The rabbit said, 'I can only hop.'",
+    "The fish said, 'We can only swim.'"
+   ],
+   "points": [
+    "Cow walks",
+    "Snake crawls, rabbit hops",
+    "Fish swim"
+   ],
+   "caption": "Can you fly?",
+   "picture": "A cow, a rat snake, a rabbit and fish in a pond near a tree with a kite, a sparrow asking them."
+  },
+  {
+   "heading": "Mamma can fly",
+   "text": [
+    "'Mamma, who can get my kite back?'",
+    "'Ha ha, I can,' said Mamma Sparrow. She flew up and got it.",
+    "'One day I too will fly like you!'"
+   ],
+   "points": [
+    "Birds can fly",
+    "Mamma helps",
+    "Baby is happy"
+   ],
+   "caption": "Mamma can fly",
+   "picture": "A red mother sparrow flying with the red kite in her beak, the baby sparrow cheering below."
+  }
+ ],
+ "rhyme": [
+  "The cow can walk, the snake can crawl,",
+  "The rabbit hops over the wall,",
+  "The fish can swim, but who can fly?",
+  "Mamma Sparrow, up so high!"
+ ],
+ "activity": "Act it out: walk like a cow, crawl like a snake, hop like a rabbit and fly like a bird.",
+ "talk": [
+  "What colour was the kite?",
+  "Who could get the kite back?",
+  "What can a fish do?"
+ ],
+ "summary": "Animals move in different ways; Mamma Sparrow could fly and got the kite back.",
+ "questions": [
+  {
+   "prompt": "Who wanted a kite?",
+   "options": [
+    "Baby Sparrow",
+    "The cow",
+    "The fish",
+    "The snake"
+   ],
+   "correct_index": 0,
+   "explanation": "Baby Sparrow said, 'I too want a kite.'"
+  },
+  {
+   "prompt": "Where did the kite get stuck?",
+   "options": [
+    "In a tree",
+    "In the pond",
+    "On a roof",
+    "In a bus"
+   ],
+   "correct_index": 0,
+   "explanation": "It got stuck in the branch of a tree."
+  },
+  {
+   "prompt": "The rabbit can only...",
+   "options": [
+    "Hop",
+    "Fly",
+    "Swim",
+    "Crawl"
+   ],
+   "correct_index": 0,
+   "explanation": "'I can only hop. I can't fly.'"
+  },
+  {
+   "prompt": "The snake can only...",
+   "options": [
+    "Crawl",
+    "Hop",
+    "Fly",
+    "Walk"
+   ],
+   "correct_index": 0,
+   "explanation": "'I can only crawl.'"
+  },
+  {
+   "prompt": "Who got the kite back?",
+   "options": [
+    "Mamma Sparrow",
+    "The cow",
+    "The rabbit",
+    "The fish"
+   ],
+   "correct_index": 0,
+   "explanation": "Mamma Sparrow flew up and took the kite."
+  }
+ ]
+}

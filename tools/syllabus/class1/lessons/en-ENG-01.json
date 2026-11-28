@@ -1,0 +1,158 @@
+{
+ "key": "en-ENG-01",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 1,
+ "lang": "en",
+ "title": "The Team RAIN",
+ "subtitle": "Four friends and a rainbow ring",
+ "hero_picture": "Four Kerala girls holding hands and laughing on a green hill, one with a bicycle, a bright rainbow in the sky.",
+ "sections": [
+  {
+   "heading": "Meet the team",
+   "text": [
+    "Ritu, Ima, Ami and Nilu are friends.",
+    "They walk together. They play together.",
+    "Their team is called RAIN."
+   ],
+   "points": [
+    "R for Ritu",
+    "I for Ima",
+    "A for Ami, N for Nilu"
+   ],
+   "caption": "Meet the team",
+   "picture": "Four happy girls holding hands in a green meadow, one with a bicycle."
+  },
+  {
+   "heading": "We love the rain",
+   "text": [
+    "We are in the rain.",
+    "We love playing in the rain.",
+    "We love dancing in the rain."
+   ],
+   "points": [
+    "Play in the rain",
+    "Dance in the rain",
+    "Splash, splash!"
+   ],
+   "caption": "We love the rain",
+   "picture": "Four girls dancing and splashing happily in the falling rain, one with a small umbrella."
+  },
+  {
+   "heading": "Butterflies and bicycles",
+   "text": [
+    "They chase butterflies. It is fun!",
+    "They have a super bicycle.",
+    "It moves along the roads and over the grass."
+   ],
+   "points": [
+    "Chase butterflies",
+    "Ride the bicycle",
+    "Sometimes it flies!"
+   ],
+   "caption": "Butterflies and bicycles",
+   "picture": "Girls chasing colourful butterflies near flowers while one rides a bicycle on the grass."
+  },
+  {
+   "heading": "Kites and trees",
+   "text": [
+    "Their kites fly high in the sky.",
+    "The Team RAIN likes to climb trees.",
+    "'Look, a mango!' 'I can see the hill!'"
+   ],
+   "points": [
+    "Fly kites",
+    "Climb trees",
+    "Look far away"
+   ],
+   "caption": "Kites and trees",
+   "picture": "Girls sitting on a big mango tree branch, kites flying in the blue sky behind."
+  },
+  {
+   "heading": "The rainbow ring",
+   "text": [
+    "They climb the hill and touch the rainbow.",
+    "It is a colourful ring! They swing on it.",
+    "SNAP! The pieces fall and turn into flowers."
+   ],
+   "points": [
+    "A ring of colours",
+    "Swing and sing",
+    "Pieces become flowers"
+   ],
+   "caption": "The rainbow ring",
+   "picture": "A valley full of colourful flowers under a rainbow, four girls holding hands looking at it."
+  }
+ ],
+ "rhyme": [
+  "Swing, swing, swing!",
+  "Sing, sing, sing!",
+  "We got a ring!",
+  "It is a pretty thing!"
+ ],
+ "activity": "Draw a rainbow. Colour it with seven colours. Write the names of your friends under it.",
+ "talk": [
+  "Who are in the Team RAIN?",
+  "What do they love doing in the rain?",
+  "What happened to the pieces of the rainbow?"
+ ],
+ "summary": "Ritu, Ima, Ami and Nilu are the Team RAIN; they play together and swing on a rainbow ring.",
+ "questions": [
+  {
+   "prompt": "Who is NOT in the Team RAIN?",
+   "options": [
+    "Tinu",
+    "Ritu",
+    "Ima",
+    "Nilu"
+   ],
+   "correct_index": 0,
+   "explanation": "The team is Ritu, Ima, Ami and Nilu."
+  },
+  {
+   "prompt": "What do the friends love doing in the rain?",
+   "options": [
+    "Dancing",
+    "Sleeping",
+    "Crying",
+    "Cooking"
+   ],
+   "correct_index": 0,
+   "explanation": "We love dancing in the rain."
+  },
+  {
+   "prompt": "What fruit did they see on the tree?",
+   "options": [
+    "Mango",
+    "Apple",
+    "Grapes",
+    "Orange"
+   ],
+   "correct_index": 0,
+   "explanation": "'Look Nilu, here is a mango.'"
+  },
+  {
+   "prompt": "What shape did the rainbow become?",
+   "options": [
+    "A ring",
+    "A square",
+    "A star",
+    "A line"
+   ],
+   "correct_index": 0,
+   "explanation": "The rainbow was round like a ring."
+  },
+  {
+   "prompt": "The fallen pieces turned into...",
+   "options": [
+    "Flowers",
+    "Stones",
+    "Birds",
+    "Fish"
+   ],
+   "correct_index": 0,
+   "explanation": "The pieces turned into flowers and filled the valley."
+  }
+ ],
+ "rhyme_title": "Swing song"
+}

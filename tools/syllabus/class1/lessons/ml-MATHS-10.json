@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-10",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 10,
+ "lang": "ml",
+ "title": "പാവ വേണോ...പാവ",
+ "subtitle": "20 വരെ കൂട്ടലും കുറയ്ക്കലും",
+ "hero_picture": "A Kerala seaside road: a father and his son and daughter pushing a wooden cart full of colourful handmade dolls home after selling them, a ship on the sea behind.",
+ "sections": [
+  {
+   "heading": "പാവ ഉണ്ടാക്കാം",
+   "text": [
+    "രണ്ടു ദിവസം കഴിഞ്ഞാൽ പൂരം! സെബിയും ജോജിയും പാവകൾ ഉണ്ടാക്കി.",
+    "ഒന്നാം ദിവസം സെബി 12, ജോജി 6.",
+    "12 + 6 = 10 + 2 + 6 = 18 പാവകൾ."
+   ],
+   "points": [
+    "12 + 6",
+    "= 10 + 2 + 6",
+    "= 18"
+   ],
+   "caption": "ഒന്നിച്ച് പാവ ഉണ്ടാക്കുന്നു",
+   "picture": "A Kerala family sitting together on a mat making colourful dolls by hand: grandfather, mother, father and children, many finished dolls in a heap."
+  },
+  {
+   "heading": "പത്തുണ്ടാക്കി കൂട്ടാം",
+   "text": [
+    "രണ്ടാം ദിവസം സെബി 7, ജോജി 11.",
+    "7 + 11 = 7 + 10 + 1 = 18.",
+    "ആദ്യം പത്ത് കണ്ടെത്തിയാൽ കൂട്ടൽ എളുപ്പം."
+   ],
+   "points": [
+    "പത്ത് കണ്ടെത്താം",
+    "ബാക്കി കൂട്ടാം",
+    "7 + 11 = 18"
+   ],
+   "caption": "പാവപ്പെട്ടികളുടെ അട്ടികൾ",
+   "picture": "Two neat stacks of doll boxes on a table: one stack of 10 boxes and another stack of 8 boxes beside it."
+  },
+  {
+   "heading": "പാവ വിറ്റു",
+   "text": [
+    "സെബി 12 പാവ ഉണ്ടാക്കി. 6 എണ്ണം വിറ്റു.",
+    "12 − 6 = 6 പാവ ബാക്കി.",
+    "കുറച്ച് ബാക്കി കാണാം."
+   ],
+   "points": [
+    "ഉണ്ടാക്കിയത്: 12",
+    "വിറ്റത്: 6",
+    "ബാക്കി: 6"
+   ],
+   "caption": "പാവ വിൽക്കുന്നു",
+   "picture": "Two children selling dolls at a stall; a customer buying two dolls, a few dolls left on the shelf."
+  },
+  {
+   "heading": "വിലകൾ ക്രമത്തിൽ",
+   "text": [
+    "ഓരോ പാവയ്ക്കും ഓരോ വില.",
+    "ഏറ്റവും കൂടിയ വിലയും കുറഞ്ഞ വിലയും കണ്ടെത്താം.",
+    "കുറഞ്ഞതിൽനിന്ന് കൂടിയതിലേക്ക് ക്രമീകരിക്കാം."
+   ],
+   "points": [
+    "കൂടിയ വില",
+    "കുറഞ്ഞ വില",
+    "ക്രമത്തിൽ എഴുതാം"
+   ],
+   "caption": "വിലയുള്ള പാവകൾ",
+   "picture": "Dolls on a shelf each with a blank price tag (no numbers or letters), a girl arranging them from small to big."
+  },
+  {
+   "heading": "നാരങ്ങാവെള്ളം",
+   "text": [
+    "വലിയ ഗ്ലാസ് നാരങ്ങാവെള്ളത്തിന് 10 രൂപ. ചെറിയതിന് 5 രൂപ.",
+    "രണ്ടു ചെറിയ ഗ്ലാസ്: 5 + 5 = 10 രൂപ.",
+    "ഒരു വലിയ ഗ്ലാസിന് രണ്ടു ചെറിയതിന്റെ അതേ വില!"
+   ],
+   "points": [
+    "വലിയ ഗ്ലാസ്: 10 രൂപ",
+    "ചെറിയ ഗ്ലാസ്: 5 രൂപ",
+    "5 + 5 = 10"
+   ],
+   "caption": "നാരങ്ങാവെള്ളത്തിന്റെ വില",
+   "picture": "A girl at a juice stall with one big glass and two small glasses of lime juice on the counter."
+  }
+ ],
+ "rhyme": [
+  "വണ്ടിയിൽ പാവ പന്ത്രണ്ട്",
+  "ആറെണ്ണം വിറ്റുപോയി",
+  "പന്ത്രണ്ടിൽനിന്ന് ആറു പോയാൽ",
+  "ബാക്കി ആറു പാവകൾ!"
+ ],
+ "activity": "15 ബട്ടണുകൾ എടുക്കൂ. കുറച്ചെണ്ണം മാറ്റിവച്ച് ബാക്കി എണ്ണൂ. ഇങ്ങനെ എഴുതൂ: 15 − 4 = 11.",
+ "talk": [
+  "ഒന്നാം ദിവസം സെബിയും ജോജിയും ആകെ എത്ര പാവ ഉണ്ടാക്കി?",
+  "12 പാവയിൽ 6 വിറ്റു. ബാക്കി എത്ര?",
+  "കൂട്ടുമ്പോൾ ആദ്യം പത്ത് കണ്ടെത്തുന്നത് എന്തിന്?"
+ ],
+ "summary": "കൂട്ടുമ്പോൾ ആദ്യം പത്തുണ്ടാക്കാം; ബാക്കി കാണാൻ കുറയ്ക്കാം.",
+ "questions": [
+  {
+   "prompt": "12 + 6 = ?",
+   "options": [
+    "18",
+    "16",
+    "20",
+    "6"
+   ],
+   "correct_index": 0,
+   "explanation": "12 + 6 = 10 + 2 + 6 = 18."
+  },
+  {
+   "prompt": "7 + 11 = ?",
+   "options": [
+    "18",
+    "17",
+    "4",
+    "19"
+   ],
+   "correct_index": 0,
+   "explanation": "7 + 10 + 1 = 18."
+  },
+  {
+   "prompt": "12 പാവ; 6 എണ്ണം വിറ്റു. ബാക്കി എത്ര?",
+   "options": [
+    "6",
+    "18",
+    "12",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "12 − 6 = 6."
+  },
+  {
+   "prompt": "ചെറിയ ഗ്ലാസിന് 5 രൂപ. രണ്ടു ചെറിയ ഗ്ലാസിന്?",
+   "options": [
+    "10 രൂപ",
+    "5 രൂപ",
+    "15 രൂപ",
+    "20 രൂപ"
+   ],
+   "correct_index": 0,
+   "explanation": "5 + 5 = 10."
+  },
+  {
+   "prompt": "18 − 3 = ?",
+   "options": [
+    "15",
+    "21",
+    "16",
+    "13"
+   ],
+   "correct_index": 0,
+   "explanation": "18 ൽനിന്ന് 3 പോയാൽ 15."
+  }
+ ]
+}

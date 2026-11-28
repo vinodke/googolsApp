@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-03",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 3,
+ "lang": "en",
+ "title": "Walk...Walk... and Walk",
+ "subtitle": "Zero, and counting up to 9",
+ "hero_picture": "A rabbit and a spotted deer walking happily on a forest path among smiling flowers and butterflies; a monkey and a squirrel on a tree wearing pink hats.",
+ "sections": [
+  {
+   "heading": "A bag of hats",
+   "text": [
+    "Minnu rabbit and Kittu deer went for a walk.",
+    "They found a bag full of hats.",
+    "Squirrel and monkey took some hats too!"
+   ],
+   "points": [
+    "A walk in the woods",
+    "A bag of hats",
+    "Everyone took hats"
+   ],
+   "caption": "The bag of hats",
+   "picture": "A rabbit and a deer opening a blue bag under a tree and finding many pink hats; a monkey and a squirrel peeping from the branches."
+  },
+  {
+   "heading": "Nothing is zero",
+   "text": [
+    "The tree had 5 mangoes.",
+    "One by one, they fell: 4, 3, 2, 1...",
+    "Nothing left on the tree. Nothing is zero (0)."
+   ],
+   "points": [
+    "5, 4, 3, 2, 1",
+    "Nothing left",
+    "Nothing is 0"
+   ],
+   "caption": "Mangoes going, going, gone",
+   "picture": "A mango tree with 5 mangoes; a squirrel, a crow and the wind each taking one, until the tree has no mangoes left; a boy and a girl looking up."
+  },
+  {
+   "heading": "Hats come back",
+   "text": [
+    "Ramunni Uncle had zero hats. He was sad.",
+    "The animals gave back the hats.",
+    "5 and 1 make 6. 6 and 1 make 7."
+   ],
+   "points": [
+    "0 hats: sad",
+    "5 and 1 make 6",
+    "6 and 1 make 7"
+   ],
+   "caption": "Ramunni Uncle gets his hats",
+   "picture": "A sad old hat seller with a yellow turban sitting under a tree with an empty bag; then animals handing back pink hats to him one by one, and he smiles."
+  },
+  {
+   "heading": "At the pond",
+   "text": [
+    "They reached a pond.",
+    "They counted frogs, fish, cranes and ducks.",
+    "Which one is the most?"
+   ],
+   "points": [
+    "Count and write",
+    "Find the most",
+    "Smallest to largest"
+   ],
+   "caption": "Counting at the pond",
+   "picture": "A pond scene for counting: green frogs on lily pads, small fish, white cranes, dragonflies and ducks, all clearly countable."
+  },
+  {
+   "heading": "Unlock the phone",
+   "text": [
+    "Rabbit found a mobile phone.",
+    "To open it, press 1 to 9 in order.",
+    "There is one more number: 0!"
+   ],
+   "points": [
+    "1 2 3 4 5 6 7 8 9",
+    "Numbers in order",
+    "And 0"
+   ],
+   "caption": "Numbers on the phone",
+   "picture": "A smiling rabbit holding a mobile phone with a number pad showing 1 to 9 and 0, a deer, a monkey, a squirrel and a parrot around it."
+  }
+ ],
+ "rhyme": [
+  "Five mangoes on the tree,",
+  "One, two, three fell free,",
+  "Four, five, all gone, you see,",
+  "Zero left for you and me!"
+ ],
+ "activity": "Put 9 pebbles in a row. Take them away one by one and count down to zero.",
+ "talk": [
+  "What did Minnu and Kittu find?",
+  "What does zero mean?",
+  "Which number comes after 8?"
+ ],
+ "summary": "Zero means nothing; we can count from 0 up to 9 in order.",
+ "questions": [
+  {
+   "prompt": "What did Minnu and Kittu find in the bag?",
+   "options": [
+    "Hats",
+    "Mangoes",
+    "Balls",
+    "Books"
+   ],
+   "correct_index": 0,
+   "explanation": "The bag was full of hats."
+  },
+  {
+   "prompt": "What number means 'nothing'?",
+   "options": [
+    "0",
+    "1",
+    "5",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "Zero (0) means there is nothing."
+  },
+  {
+   "prompt": "5 and 1 make?",
+   "options": [
+    "6",
+    "5",
+    "7",
+    "4"
+   ],
+   "correct_index": 0,
+   "explanation": "5 and 1 make 6."
+  },
+  {
+   "prompt": "Which number comes after 8?",
+   "options": [
+    "9",
+    "7",
+    "6",
+    "10"
+   ],
+   "correct_index": 0,
+   "explanation": "6, 7, 8, then 9."
+  },
+  {
+   "prompt": "The tree had 2 mangoes. One fell. How many are left?",
+   "options": [
+    "1",
+    "2",
+    "0",
+    "3"
+   ],
+   "correct_index": 0,
+   "explanation": "2 take away 1 leaves 1."
+  }
+ ]
+}

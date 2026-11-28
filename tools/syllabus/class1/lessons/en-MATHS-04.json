@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-04",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 4,
+ "lang": "en",
+ "title": "Aami's Birthday",
+ "subtitle": "Numbers from 10 to 20",
+ "hero_picture": "A cheerful classroom birthday party: a smiling girl in a wheelchair (Aami) with a birthday cake, children decorating with balloons and paper festoons, a happy birthday banner without any letters.",
+ "sections": [
+  {
+   "heading": "Ten friends",
+   "text": [
+    "Today is Aami's birthday.",
+    "There were 9 children. With Aami, now there are ten.",
+    "9 and 1 make 10."
+   ],
+   "points": [
+    "9 and 1 make 10",
+    "Ten: 10",
+    "Write 10"
+   ],
+   "caption": "Getting the class ready",
+   "picture": "Children in a classroom tying colourful balloons and hanging paper festoons; 9 children plus one more girl joining, making 10."
+  },
+  {
+   "heading": "Cards in a row",
+   "text": [
+    "Friends brought greeting cards.",
+    "10 and 2 make 12. 10 and 3 make 13.",
+    "Paste the cards in order: 11, 12, 13..."
+   ],
+   "points": [
+    "10 and 1 make 11",
+    "10 and 2 make 12",
+    "10 and 3 make 13"
+   ],
+   "caption": "Birthday cards",
+   "picture": "Children standing in a line holding greeting cards, and a board where butterfly cards are pasted in a row."
+  },
+  {
+   "heading": "Candles and cake",
+   "text": [
+    "10 candles in the packet, 4 outside.",
+    "10 and 4 make 14.",
+    "10 and 5 make 15. Everyone gets a piece of cake!"
+   ],
+   "points": [
+    "10 and 4 make 14",
+    "10 and 5 make 15",
+    "Share the cake"
+   ],
+   "caption": "Candles and cake",
+   "picture": "A birthday cake with candles on a table; children around it; a packet of candles with some candles outside the packet."
+  },
+  {
+   "heading": "Ice cream for all",
+   "text": [
+    "Aami's mother brought ice cream.",
+    "10 cups in the first box, 10 in the second.",
+    "10 and 10 make 20."
+   ],
+   "points": [
+    "10 and 8 make 18",
+    "10 and 9 make 19",
+    "10 and 10 make 20"
+   ],
+   "caption": "Ice cream cups",
+   "picture": "Two boxes of chocolate ice-cream cups, 10 cups in each box, on a table at a party."
+  },
+  {
+   "heading": "One more bird",
+   "text": [
+    "Ten little birdies on a bough.",
+    "One more joined them. Now eleven!",
+    "Count on: 11, 12, 13... up to 20."
+   ],
+   "points": [
+    "Ten birds",
+    "One more: 11",
+    "Count up to 20"
+   ],
+   "caption": "One more birdie",
+   "picture": "Green birds sitting on a tree branch, ten in a row, and one more bird flying in to join them."
+  }
+ ],
+ "rhyme": [
+  "Ten little birdies on a bough,",
+  "One more came, eleven now!",
+  "Twelve, thirteen, fourteen, too,",
+  "Count to twenty, me and you!"
+ ],
+ "activity": "Make bundles of 10 sticks. Add some loose sticks and say the number: 10 and 3 make 13.",
+ "talk": [
+  "How many children were there with Aami?",
+  "What do 10 and 5 make?",
+  "Which number comes after 19?"
+ ],
+ "summary": "10 and 1 make 11 ... 10 and 10 make 20; we can count up to 20.",
+ "questions": [
+  {
+   "prompt": "9 and 1 make?",
+   "options": [
+    "10",
+    "9",
+    "11",
+    "8"
+   ],
+   "correct_index": 0,
+   "explanation": "9 and 1 make ten."
+  },
+  {
+   "prompt": "10 and 3 make?",
+   "options": [
+    "13",
+    "12",
+    "30",
+    "7"
+   ],
+   "correct_index": 0,
+   "explanation": "10 and 3 make thirteen."
+  },
+  {
+   "prompt": "10 and 10 make?",
+   "options": [
+    "20",
+    "10",
+    "11",
+    "100"
+   ],
+   "correct_index": 0,
+   "explanation": "10 cups and 10 cups make 20 cups."
+  },
+  {
+   "prompt": "Which number comes after 15?",
+   "options": [
+    "16",
+    "14",
+    "17",
+    "50"
+   ],
+   "correct_index": 0,
+   "explanation": "15, then 16."
+  },
+  {
+   "prompt": "Ten birds and one more joined. How many now?",
+   "options": [
+    "11",
+    "10",
+    "12",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "10 and 1 make 11."
+  }
+ ]
+}

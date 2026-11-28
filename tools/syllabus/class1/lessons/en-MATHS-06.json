@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-06",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 6,
+ "lang": "en",
+ "title": "Friends in Shelf",
+ "subtitle": "Counting in tens up to 100",
+ "hero_picture": "A bright school library with tall wooden shelves full of colourful books, a smiling teacher with glasses and Kerala school children choosing books.",
+ "sections": [
+  {
+   "heading": "Bundles of ten",
+   "text": [
+    "Malu got many books on her birthday.",
+    "She tied them in bundles of 10.",
+    "10 + 10 = 20 books."
+   ],
+   "points": [
+    "1 bundle = 10",
+    "2 bundles = 20",
+    "Count in tens"
+   ],
+   "caption": "Two bundles of ten books",
+   "picture": "A girl at a table with two neat bundles of 10 books each, tied with string, in a classroom."
+  },
+  {
+   "heading": "Books on the shelf",
+   "text": [
+    "Each row on the shelf has ten books.",
+    "10, 20, 30, 40, 50.",
+    "Five rows make fifty books."
+   ],
+   "points": [
+    "10, 20, 30",
+    "40, 50",
+    "5 rows = 50"
+   ],
+   "caption": "Ten books in each row",
+   "picture": "A bookshelf with 5 rows, each row holding exactly 10 colourful books, a boy and a girl counting them."
+  },
+  {
+   "heading": "Mango baskets",
+   "text": [
+    "Nanu Chettan had 50 mangoes in a basket.",
+    "The children added 10 more each time: 60, 70, 80, 90.",
+    "90 and 10 make 100!"
+   ],
+   "points": [
+    "60, 70, 80, 90",
+    "90 and 10 make 100",
+    "One hundred"
+   ],
+   "caption": "Filling the mango baskets",
+   "picture": "A mango grove: an old farmer with a basket of mangoes and children each putting mangoes into baskets, 10 mangoes in each basket."
+  },
+  {
+   "heading": "Threading beads",
+   "text": [
+    "Malu threaded 20 yellow beads and 3 red beads.",
+    "20 and 3 make twenty-three.",
+    "20 + 5 = 25."
+   ],
+   "points": [
+    "20 and 3 make 23",
+    "20 and 4 make 24",
+    "20 and 5 make 25"
+   ],
+   "caption": "A bead necklace",
+   "picture": "Two girls threading beads at a table: a necklace with 20 yellow beads and a few red beads."
+  },
+  {
+   "heading": "Numbers up to 100",
+   "text": [
+    "Let us play snakes and ladders.",
+    "Write 1 to 100 in order on the board.",
+    "What comes after 59? 60!"
+   ],
+   "points": [
+    "Count in order",
+    "After 59 comes 60",
+    "Up to 100"
+   ],
+   "caption": "Snakes and ladders",
+   "picture": "Children playing a snakes-and-ladders board game on the floor, with a dice; the board squares are plain with no numbers written."
+  }
+ ],
+ "rhyme": [
+  "Ten and ten make twenty,",
+  "Thirty, forty, plenty!",
+  "Fifty, sixty, seventy, more,",
+  "Eighty, ninety, hundred, roar!"
+ ],
+ "activity": "Collect 30 small sticks. Make bundles of ten and count: ten, twenty, thirty.",
+ "talk": [
+  "How many books are in one bundle?",
+  "What do 90 and 10 make?",
+  "Which number comes after 59?"
+ ],
+ "summary": "We can count in tens: 10, 20, 30 ... 100; and 20 and 3 make 23.",
+ "questions": [
+  {
+   "prompt": "10 + 10 = ?",
+   "options": [
+    "20",
+    "10",
+    "11",
+    "30"
+   ],
+   "correct_index": 0,
+   "explanation": "Two bundles of ten make twenty."
+  },
+  {
+   "prompt": "5 rows with 10 books each. How many books?",
+   "options": [
+    "50",
+    "15",
+    "5",
+    "40"
+   ],
+   "correct_index": 0,
+   "explanation": "10, 20, 30, 40, 50."
+  },
+  {
+   "prompt": "90 and 10 make?",
+   "options": [
+    "100",
+    "91",
+    "80",
+    "190"
+   ],
+   "correct_index": 0,
+   "explanation": "90 and 10 make one hundred."
+  },
+  {
+   "prompt": "20 and 3 make?",
+   "options": [
+    "23",
+    "203",
+    "32",
+    "17"
+   ],
+   "correct_index": 0,
+   "explanation": "Twenty and three make twenty-three."
+  },
+  {
+   "prompt": "Which number comes after 59?",
+   "options": [
+    "60",
+    "58",
+    "69",
+    "50"
+   ],
+   "correct_index": 0,
+   "explanation": "59, then 60."
+  }
+ ]
+}

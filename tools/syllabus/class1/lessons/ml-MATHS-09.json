@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-09",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 9,
+ "lang": "ml",
+ "title": "നേരമായി",
+ "subtitle": "രാവും പകലും, ആഴ്ചയും മാസവും",
+ "hero_picture": "A day in a Kerala home from morning to night in one picture: a rooster crowing at sunrise on one side, children at school in the middle, and a moon with an owl at night on the other side.",
+ "sections": [
+  {
+   "heading": "നേരം വെളുത്തു",
+   "text": [
+    "കോഴി കൂവി. നേരം വെളുത്തു.",
+    "അമ്മ എന്നെ ഉണർത്തി. ഞാൻ പല്ലു തേച്ചു.",
+    "അച്ഛൻ ദോശയും ചട്ണിയും തന്നു."
+   ],
+   "points": [
+    "ഉണരാം",
+    "പല്ലു തേക്കാം",
+    "പ്രാതൽ കഴിക്കാം"
+   ],
+   "caption": "ഒരു പുതിയ ദിവസം",
+   "picture": "Early morning: a rooster crowing on a fence as the sun rises, a mother gently waking a girl in bed."
+  },
+  {
+   "heading": "മിയയുടെ ഡയറി",
+   "text": [
+    "മിയ ദിവസവും ചെയ്യുന്നത് എഴുതും.",
+    "രാവിലെ സ്കൂൾ. ഉച്ചയ്ക്ക് ഊണ്. വൈകുന്നേരം കളി.",
+    "രാത്രി 9 മണിക്ക് ഉറങ്ങും."
+   ],
+   "points": [
+    "രാവിലെ, ഉച്ച",
+    "വൈകുന്നേരം, രാത്രി",
+    "9 മണി: ഉറക്കം"
+   ],
+   "caption": "മിയയുടെ ദിവസം",
+   "picture": "A girl's morning: brushing her teeth, then eating dosa with chutney at the table with her father; a clock on the wall."
+  },
+  {
+   "heading": "സ്കൂളിൽ",
+   "text": [
+    "മിയ ഗണിതപ്പുസ്തകത്തിൽ ചിത്രം വരച്ചു.",
+    "വൈകുന്നേരം കൂട്ടുകാരുമൊത്ത് ക്രിക്കറ്റ് കളിച്ചു.",
+    "ഓരോ നേരത്തിനും ഓരോ ജോലി."
+   ],
+   "points": [
+    "പഠനനേരം",
+    "കളിനേരം",
+    "ഉറക്കനേരം"
+   ],
+   "caption": "പഠനവും കളിയും",
+   "picture": "Afternoon at school: children eating lunch together, then playing cricket in the school ground in the evening."
+  },
+  {
+   "heading": "ആഴ്ചയിലെ ദിവസങ്ങൾ",
+   "text": [
+    "ഞായർ, തിങ്കൾ, ചൊവ്വ, ബുധൻ,",
+    "വ്യാഴം, വെള്ളി, ശനി.",
+    "ഏഴു ദിവസം ചേർന്നാൽ ഒരാഴ്ച."
+   ],
+   "points": [
+    "ആഴ്ചയിൽ 7 ദിവസം",
+    "ആദ്യം ഞായർ",
+    "അവസാനം ശനി"
+   ],
+   "caption": "കലണ്ടർ നോക്കാം",
+   "picture": "A big wall calendar page with seven columns of days and a few dates circled in red, a boy pointing at it (no readable words)."
+  },
+  {
+   "heading": "മാസങ്ങളും കാലങ്ങളും",
+   "text": [
+    "ഒരു വർഷത്തിൽ 12 മാസം: ജനുവരി മുതൽ ഡിസംബർ വരെ.",
+    "വേനലിൽ ചൂട്. മഴക്കാലത്ത് മഴ.",
+    "തണുപ്പുകാലത്ത് കുളിര്. വസന്തത്തിൽ പൂക്കൾ."
+   ],
+   "points": [
+    "വർഷത്തിൽ 12 മാസം",
+    "വേനലും മഴയും",
+    "തണുപ്പും വസന്തവും"
+   ],
+   "caption": "കാലങ്ങൾ",
+   "picture": "Four small scenes of seasons in Kerala: a hot dry summer with a hand fan, heavy rain with an umbrella, a misty cold winter morning with a sweater, and spring with flowers."
+  }
+ ],
+ "rhyme": [
+  "ഞായർ, തിങ്കൾ, ചൊവ്വ, ബുധൻ",
+  "വ്യാഴം, വെള്ളി, ശനിയാഴ്ച",
+  "ഏഴു നാളും ചേർന്നാലോ",
+  "ഒരാഴ്ചയായി കൂട്ടരേ!"
+ ],
+ "activity": "ഈ ആഴ്ചയിലെ ഓരോ ദിവസവും നീ ചെയ്ത ഒരു നല്ല കാര്യം എഴുതൂ.",
+ "talk": [
+  "രാവിലെ നീ എന്തെല്ലാം ചെയ്യും?",
+  "ഒരാഴ്ചയിൽ എത്ര ദിവസം?",
+  "നിന്റെ പിറന്നാൾ ഏതു മാസത്തിലാണ്?"
+ ],
+ "summary": "ഒരു ദിവസത്തിൽ രാവിലെ, ഉച്ച, വൈകുന്നേരം, രാത്രി; ആഴ്ചയിൽ 7 ദിവസം, വർഷത്തിൽ 12 മാസം.",
+ "questions": [
+  {
+   "prompt": "ഒരാഴ്ചയിൽ എത്ര ദിവസം?",
+   "options": [
+    "7",
+    "5",
+    "10",
+    "12"
+   ],
+   "correct_index": 0,
+   "explanation": "ഞായർ മുതൽ ശനി വരെ ഏഴു ദിവസം."
+  },
+  {
+   "prompt": "ഒരു വർഷത്തിൽ എത്ര മാസം?",
+   "options": [
+    "12",
+    "7",
+    "10",
+    "30"
+   ],
+   "correct_index": 0,
+   "explanation": "ജനുവരി മുതൽ ഡിസംബർ വരെ പന്ത്രണ്ട് മാസം."
+  },
+  {
+   "prompt": "രാവിലെ കൂവുന്നത് ആര്?",
+   "options": [
+    "കോഴി",
+    "മൂങ്ങ",
+    "പൂച്ച",
+    "മീൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "നേരം വെളുക്കുമ്പോൾ കോഴി കൂവും."
+  },
+  {
+   "prompt": "തിങ്കൾ കഴിഞ്ഞാൽ ഏതു ദിവസം?",
+   "options": [
+    "ചൊവ്വ",
+    "ഞായർ",
+    "വെള്ളി",
+    "ബുധൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "തിങ്കൾ, പിന്നെ ചൊവ്വ."
+  },
+  {
+   "prompt": "കുട ഏറ്റവും വേണ്ടത് ഏതു കാലത്ത്?",
+   "options": [
+    "മഴക്കാലത്ത്",
+    "വേനലിൽ",
+    "തണുപ്പുകാലത്ത്",
+    "വസന്തത്തിൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "മഴക്കാലത്ത് ധാരാളം മഴ പെയ്യും."
+  }
+ ]
+}

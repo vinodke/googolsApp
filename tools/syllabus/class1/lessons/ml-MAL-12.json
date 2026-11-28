@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-12",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 12,
+ "lang": "ml",
+ "title": "തുമ്പിവിമാനങ്ങൾ",
+ "subtitle": "തുമ്പികളും ചെറുജീവികളും",
+ "hero_picture": "Colourful dragonflies with big shiny eyes flying like little aeroplanes over a lotus pond, one red, one yellow with black stripes, one blue; green leaves and flowers around.",
+ "sections": [
+  {
+   "heading": "സൂചിത്തുമ്പി",
+   "text": [
+    "സൂചിത്തുമ്പി പറന്നുവന്നു.",
+    "അതിന്റെ കാലുകളിൽ ഒരു കൊതുക്.",
+    "ഹെലികോപ്റ്റർ പോലെ ഇലയിൽ പറന്നിറങ്ങി."
+   ],
+   "points": [
+    "ചുവന്ന സൂചിത്തുമ്പി",
+    "കൊതുകിനെ പിടിച്ചു",
+    "ഇലയിൽ ഇറങ്ങി"
+   ],
+   "caption": "കൊതുകിനെ പിടിച്ച സൂചിത്തുമ്പി",
+   "picture": "A thin red needle-tail dragonfly with big round eyes landing on a green leaf by a pond like a helicopter, holding a small mosquito in its legs."
+  },
+  {
+   "heading": "കള്ളൻതുമ്പി വന്നു",
+   "text": [
+    "അതാ മറ്റൊരു തുമ്പി! കള്ളൻതുമ്പി.",
+    "കള്ളൻതുമ്പി ചിറക് തട്ടി.",
+    "കൊതുക് തെറിച്ചുപോയി! സൂചിത്തുമ്പിക്ക് ദേഷ്യം വന്നു."
+   ],
+   "points": [
+    "കള്ളൻതുമ്പി വന്നു",
+    "കൊതുക് തെറിച്ചു",
+    "സൂചിത്തുമ്പിക്ക് ദേഷ്യം"
+   ],
+   "caption": "സൂചിത്തുമ്പിയും കള്ളൻതുമ്പിയും",
+   "picture": "A cheeky golden-brown dragonfly zooming past a red dragonfly on a leaf, knocking its wing; a little mosquito flies away; the red dragonfly looks cross."
+  },
+  {
+   "heading": "കടുവത്തുമ്പി പാഞ്ഞു",
+   "text": [
+    "സൂചിത്തുമ്പി കടുവത്തുമ്പിയെ വിളിച്ചു.",
+    "മഞ്ഞയും കറുപ്പുമുള്ള കടുവത്തുമ്പി പാഞ്ഞുവന്നു.",
+    "ഡ്രും ഡ്രും! കള്ളൻതുമ്പിയുടെ പിറകേ പാഞ്ഞു."
+   ],
+   "points": [
+    "കടുവത്തുമ്പിയെ വിളിച്ചു",
+    "മഞ്ഞയും കറുപ്പും",
+    "ഡ്രും ഡ്രും പാച്ചിൽ"
+   ],
+   "caption": "കള്ളനെ പിടിക്കാൻ കടുവത്തുമ്പി",
+   "picture": "A big yellow-and-black striped dragonfly flying fast with speed lines, chasing a golden-brown dragonfly over a pond, a red dragonfly following behind."
+  },
+  {
+   "heading": "തുമ്പി നമ്മുടെ കൂട്ടുകാരൻ",
+   "text": [
+    "കുളത്തിൽ കുഞ്ഞുതുമ്പികൾ ഉണ്ട്.",
+    "അവ കൂത്താടികളെ തിന്നും.",
+    "തുമ്പികൾ കൊതുകിനെ കുറയ്ക്കും."
+   ],
+   "points": [
+    "കുഞ്ഞുതുമ്പികൾ കുളത്തിൽ",
+    "കൂത്താടിയെ തിന്നും",
+    "കൊതുക് കുറയും"
+   ],
+   "caption": "കൊതുകിനെ തിന്നുന്ന തുമ്പികൾ",
+   "picture": "A clear pond with water plants; several small red dragonflies hovering low over the water catching tiny mosquitoes; a happy girl watching from the bank."
+  },
+  {
+   "heading": "ചെറുജീവികൾ",
+   "text": [
+    "മണ്ണിരയ്ക്ക് കാലില്ല.",
+    "ഉറുമ്പിനും തുമ്പിക്കും ആറു കാലുണ്ട്.",
+    "ചിലന്തിക്ക് എട്ടു കാലുണ്ട്. തേരട്ടയ്ക്ക് ഒത്തിരി കാലുകൾ."
+   ],
+   "points": [
+    "കാലില്ല: മണ്ണിര",
+    "ആറു കാൽ: ഉറുമ്പ്",
+    "എട്ടു കാൽ: ചിലന്തി"
+   ],
+   "caption": "കാലുകൾ എണ്ണാം",
+   "picture": "Small creatures in a garden, each clearly separate: an earthworm on the soil, a red ant, a dragonfly on a twig, a spider on its web, and a long millipede with many legs."
+  }
+ ],
+ "rhyme": [
+  "തുമ്പീ തുമ്പീ വാ വാ",
+  "ചിറകു വിരിച്ചു വാ വാ",
+  "കൊതുകിനെ പിടിക്കാൻ വാ",
+  "കുളത്തിൻ കാവലാൾ വാ!"
+ ],
+ "activity": "തോട്ടത്തിൽ ഒരു ചെറുജീവിയെ നോക്കൂ. അതിന് എത്ര കാലുണ്ടെന്ന് എണ്ണി പറയൂ.",
+ "talk": [
+  "സൂചിത്തുമ്പി പിടിച്ചത് എന്തിനെ?",
+  "കൊതുക് തെറിച്ചുപോയത് എങ്ങനെ?",
+  "ചിലന്തിക്ക് എത്ര കാലുണ്ട്?"
+ ],
+ "summary": "തുമ്പികൾ കൊതുകിനെ തിന്നുന്ന കൂട്ടുകാരാണ്; ചെറുജീവികളെ ഉപദ്രവിക്കരുത്.",
+ "questions": [
+  {
+   "prompt": "സൂചിത്തുമ്പി കാലുകളിൽ പിടിച്ചിരുന്നത് എന്ത്?",
+   "options": [
+    "കൊതുക്",
+    "പൂവ്",
+    "ഇല",
+    "കല്ല്"
+   ],
+   "correct_index": 0,
+   "explanation": "സൂചിത്തുമ്പി ഒരു കൊതുകിനെ പിടിച്ചിരുന്നു."
+  },
+  {
+   "prompt": "സൂചിത്തുമ്പി ഇലയിൽ ഇറങ്ങിയത് എന്തിനെപ്പോലെ?",
+   "options": [
+    "ഹെലികോപ്റ്റർ",
+    "കപ്പൽ",
+    "തീവണ്ടി",
+    "സൈക്കിൾ"
+   ],
+   "correct_index": 0,
+   "explanation": "ഹെലികോപ്റ്റർ പോലെ സൂചിത്തുമ്പി പറന്നിറങ്ങി."
+  },
+  {
+   "prompt": "മഞ്ഞയും കറുപ്പും വരയുള്ള തുമ്പി ഏത്?",
+   "options": [
+    "കടുവത്തുമ്പി",
+    "സൂചിത്തുമ്പി",
+    "കള്ളൻതുമ്പി",
+    "പൂത്തുമ്പി"
+   ],
+   "correct_index": 0,
+   "explanation": "കടുവത്തുമ്പിക്ക് മഞ്ഞയും കറുപ്പും വരകളാണ്."
+  },
+  {
+   "prompt": "കുഞ്ഞുതുമ്പികൾ കുളത്തിൽ എന്തിനെ തിന്നും?",
+   "options": [
+    "കൂത്താടിയെ",
+    "മീനിനെ",
+    "പുല്ലിനെ",
+    "കല്ലിനെ"
+   ],
+   "correct_index": 0,
+   "explanation": "കുഞ്ഞുതുമ്പികൾ കൂത്താടികളെ തിന്നും; അങ്ങനെ കൊതുക് കുറയും."
+  },
+  {
+   "prompt": "എട്ടു കാലുള്ള ജീവി ഏത്?",
+   "options": [
+    "ചിലന്തി",
+    "ഉറുമ്പ്",
+    "മണ്ണിര",
+    "കോഴി"
+   ],
+   "correct_index": 0,
+   "explanation": "ചിലന്തിക്ക് എട്ടു കാലുണ്ട്; ഉറുമ്പിന് ആറ്."
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-06",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 6,
+ "lang": "ml",
+ "title": "അലമാരയിലെ കൂട്ടുകാർ",
+ "subtitle": "പത്തുകളായി 100 വരെ എണ്ണാം",
+ "hero_picture": "A bright school library with tall wooden shelves full of colourful books, a smiling teacher with glasses and Kerala school children choosing books.",
+ "sections": [
+  {
+   "heading": "പത്തിന്റെ കെട്ടുകൾ",
+   "text": [
+    "മാലുവിന് പിറന്നാളിന് കുറെ പുസ്തകങ്ങൾ കിട്ടി.",
+    "അവൾ 10 വീതം കെട്ടുകളാക്കി.",
+    "10 + 10 = 20 പുസ്തകങ്ങൾ."
+   ],
+   "points": [
+    "1 കെട്ട് = 10",
+    "2 കെട്ട് = 20",
+    "പത്തുകളായി എണ്ണാം"
+   ],
+   "caption": "പത്തിന്റെ രണ്ടു കെട്ടുകൾ",
+   "picture": "A girl at a table with two neat bundles of 10 books each, tied with string, in a classroom."
+  },
+  {
+   "heading": "അലമാരയിലെ പുസ്തകങ്ങൾ",
+   "text": [
+    "അലമാരയിലെ ഓരോ തട്ടിലും പത്തു പുസ്തകം.",
+    "10, 20, 30, 40, 50.",
+    "അഞ്ചു തട്ടിൽ അമ്പത് പുസ്തകം."
+   ],
+   "points": [
+    "10, 20, 30",
+    "40, 50",
+    "5 തട്ട് = 50"
+   ],
+   "caption": "ഓരോ തട്ടിലും പത്ത്",
+   "picture": "A bookshelf with 5 rows, each row holding exactly 10 colourful books, a boy and a girl counting them."
+  },
+  {
+   "heading": "മാങ്ങക്കുട്ടകൾ",
+   "text": [
+    "നാണുച്ചേട്ടന്റെ കുട്ടയിൽ 50 മാങ്ങ.",
+    "കുട്ടികൾ ഓരോ തവണയും 10 ചേർത്തു: 60, 70, 80, 90.",
+    "90 ഉം 10 ഉം ചേർന്നാൽ 100!"
+   ],
+   "points": [
+    "60, 70, 80, 90",
+    "90 ഉം 10 ഉം = 100",
+    "നൂറ്"
+   ],
+   "caption": "മാങ്ങക്കുട്ട നിറയ്ക്കുന്നു",
+   "picture": "A mango grove: an old farmer with a basket of mangoes and children each putting mangoes into baskets, 10 mangoes in each basket."
+  },
+  {
+   "heading": "മുത്തു കോർക്കാം",
+   "text": [
+    "മാലു 20 മഞ്ഞമുത്തും 3 ചുവന്നമുത്തും കോർത്തു.",
+    "20 ഉം 3 ഉം ചേർന്നാൽ ഇരുപത്തിമൂന്ന്.",
+    "20 + 5 = 25."
+   ],
+   "points": [
+    "20 ഉം 3 ഉം = 23",
+    "20 ഉം 4 ഉം = 24",
+    "20 ഉം 5 ഉം = 25"
+   ],
+   "caption": "മുത്തുമാല",
+   "picture": "Two girls threading beads at a table: a necklace with 20 yellow beads and a few red beads."
+  },
+  {
+   "heading": "100 വരെ സംഖ്യകൾ",
+   "text": [
+    "നമുക്ക് പാമ്പും കോണിയും കളിക്കാം.",
+    "1 മുതൽ 100 വരെ ക്രമത്തിൽ എഴുതാം.",
+    "59 കഴിഞ്ഞാൽ? 60!"
+   ],
+   "points": [
+    "ക്രമത്തിൽ എണ്ണാം",
+    "59 കഴിഞ്ഞാൽ 60",
+    "100 വരെ"
+   ],
+   "caption": "പാമ്പും കോണിയും",
+   "picture": "Children playing a snakes-and-ladders board game on the floor, with a dice; the board squares are plain with no numbers written."
+  }
+ ],
+ "rhyme": [
+  "പത്തും പത്തും ഇരുപത്",
+  "മുപ്പത്, നാൽപ്പത്, അമ്പത്",
+  "അറുപത്, എഴുപത്, എൺപത്",
+  "തൊണ്ണൂറും പിന്നെ നൂറായി!"
+ ],
+ "activity": "30 ചെറിയ കോലുകൾ ശേഖരിക്കൂ. പത്തിന്റെ കെട്ടുകളാക്കി എണ്ണൂ: പത്ത്, ഇരുപത്, മുപ്പത്.",
+ "talk": [
+  "ഒരു കെട്ടിൽ എത്ര പുസ്തകം?",
+  "90 ഉം 10 ഉം ചേർന്നാൽ എത്ര?",
+  "59 കഴിഞ്ഞാൽ അടുത്ത സംഖ്യ ഏത്?"
+ ],
+ "summary": "പത്തുകളായി എണ്ണാം: 10, 20, 30 ... 100; 20 ഉം 3 ഉം ചേർന്നാൽ 23.",
+ "questions": [
+  {
+   "prompt": "10 + 10 = ?",
+   "options": [
+    "20",
+    "10",
+    "11",
+    "30"
+   ],
+   "correct_index": 0,
+   "explanation": "പത്തിന്റെ രണ്ടു കെട്ട് ഇരുപത്."
+  },
+  {
+   "prompt": "5 തട്ടിൽ 10 വീതം പുസ്തകം. ആകെ എത്ര?",
+   "options": [
+    "50",
+    "15",
+    "5",
+    "40"
+   ],
+   "correct_index": 0,
+   "explanation": "10, 20, 30, 40, 50."
+  },
+  {
+   "prompt": "90 ഉം 10 ഉം ചേർന്നാൽ?",
+   "options": [
+    "100",
+    "91",
+    "80",
+    "190"
+   ],
+   "correct_index": 0,
+   "explanation": "90 ഉം 10 ഉം ചേർന്നാൽ നൂറ്."
+  },
+  {
+   "prompt": "20 ഉം 3 ഉം ചേർന്നാൽ?",
+   "options": [
+    "23",
+    "203",
+    "32",
+    "17"
+   ],
+   "correct_index": 0,
+   "explanation": "ഇരുപതും മൂന്നും ചേർന്നാൽ ഇരുപത്തിമൂന്ന്."
+  },
+  {
+   "prompt": "59 കഴിഞ്ഞാൽ അടുത്ത സംഖ്യ?",
+   "options": [
+    "60",
+    "58",
+    "69",
+    "50"
+   ],
+   "correct_index": 0,
+   "explanation": "59, പിന്നെ 60."
+  }
+ ]
+}

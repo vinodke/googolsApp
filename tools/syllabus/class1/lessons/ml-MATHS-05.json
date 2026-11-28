@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-05",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 5,
+ "lang": "ml",
+ "title": "പൂക്കാലം വന്നേ...",
+ "subtitle": "ഓണക്കളികൾ: കൂട്ടലും കുറയ്ക്കലും",
+ "hero_picture": "A happy Onam scene in a Kerala home courtyard: a colourful flower carpet (pookkalam) on the ground, children and a grandmother around it, a swing on a tree, banana leaves ready for a feast.",
+ "sections": [
+  {
+   "heading": "പൂ പറിക്കാം",
+   "text": [
+    "ഓണം വരുന്നു! നീരവും നിയയും മുത്തശ്ശിയും പൂ പറിച്ചു.",
+    "റോസ്, മുല്ല, ജമന്തി, വാടാമല്ലി.",
+    "ഓരോ തരവും എണ്ണാം."
+   ],
+   "points": [
+    "റോസ് എണ്ണാം",
+    "മുല്ല എണ്ണാം",
+    "സംഖ്യ എഴുതാം"
+   ],
+   "caption": "ഓണത്തിന് പൂ പറിക്കുന്നു",
+   "picture": "A grandmother, a boy and a girl picking flowers into baskets in a garden: red roses, white jasmine, yellow chrysanthemums, purple globe amaranth."
+  },
+  {
+   "heading": "പൂക്കൾ കൂട്ടാം",
+   "text": [
+    "നീരവ് 3 റോസ് കൊണ്ടുവന്നു. നിയ 1.",
+    "3 ഉം 1 ഉം ചേർന്നാൽ 4. ഇങ്ങനെ എഴുതാം: 3 + 1 = 4.",
+    "5 + 5 = 10 മുല്ലപ്പൂക്കൾ!"
+   ],
+   "points": [
+    "3 + 1 = 4",
+    "5 + 5 = 10",
+    "‘+’ എന്നാൽ കൂട്ടൽ"
+   ],
+   "caption": "പൂക്കളത്തിനുള്ള പൂക്കൾ",
+   "picture": "Children sorting flowers into separate small heaps on a mat to make a pookkalam: 3 roses and 1 rose, 5 jasmine and 5 jasmine."
+  },
+  {
+   "heading": "സദ്യയ്ക്ക് ഇല",
+   "text": [
+    "നീരവ് 4 ഇല ഇട്ടു. നിയ 3.",
+    "4 + 3 = 7 ഇലകൾ.",
+    "എല്ലാവരും ഓണസദ്യയ്ക്ക് ഇരുന്നു."
+   ],
+   "points": [
+    "4 + 3 = 7",
+    "കൂട്ടി ആകെ കാണാം",
+    "സദ്യ പങ്കിടാം"
+   ],
+   "caption": "സദ്യയ്ക്ക് വാഴയില",
+   "picture": "Children laying out green banana leaves in a row for the Onam feast: a boy with 4 leaves and a girl with 3 leaves."
+  },
+  {
+   "heading": "കിളികൾ പറന്നുപോയി",
+   "text": [
+    "മരത്തിൽ 4 കിളികൾ ഇരുന്നു.",
+    "2 കിളികൾ പറന്നുപോയി.",
+    "4 − 2 = 2 കിളികൾ ബാക്കി."
+   ],
+   "points": [
+    "4 കിളികൾ",
+    "2 പറന്നുപോയി",
+    "4 − 2 = 2"
+   ],
+   "caption": "പറന്നുപോകുന്ന കിളികൾ",
+   "picture": "A tree with 4 small birds on a branch; 2 of them flying away, 2 left on the branch."
+  },
+  {
+   "heading": "കസേരകളി",
+   "text": [
+    "കുട്ടികൾ കസേരകളി കളിച്ചു.",
+    "പാട്ട് നിൽക്കുമ്പോൾ 2 പേർ വീതം പുറത്ത്.",
+    "ഓരോ തവണയും 2 കുറച്ച് ബാക്കി എണ്ണാം."
+   ],
+   "points": [
+    "ഒന്നിച്ച് കളിക്കാം",
+    "2 കുറയ്ക്കാം",
+    "ബാക്കി എണ്ണാം"
+   ],
+   "caption": "ഓണത്തിന് കസേരകളി",
+   "picture": "A happy group of children playing musical chairs at an Onam festival in a club ground, chairs in a circle."
+  }
+ ],
+ "rhyme": [
+  "പൂക്കളം ഒരുക്കാൻ പൂ വേണം",
+  "മൂന്നും ഒന്നും നാലാകും",
+  "നാലിൽനിന്ന് രണ്ടു പോയാൽ",
+  "ബാക്കി രണ്ടെന്നെണ്ണാലോ!"
+ ],
+ "activity": "10 പയർമണികൾ എടുക്കൂ. രണ്ടു കൂട്ടമാക്കി കൂട്ടിനോക്കൂ. പിന്നെ കുറച്ച് എടുത്തുമാറ്റി ബാക്കി എണ്ണൂ.",
+ "talk": [
+  "3 ഉം 1 ഉം ചേർന്നാൽ എത്ര?",
+  "4 കിളികളിൽ 2 പറന്നുപോയി. ബാക്കി എത്ര?",
+  "‘+’ എന്ന ചിഹ്നം എന്തിന്?"
+ ],
+ "summary": "‘+’ എന്നാൽ കൂട്ടൽ, ‘−’ എന്നാൽ കുറയ്ക്കൽ; 3 + 1 = 4, 4 − 2 = 2.",
+ "questions": [
+  {
+   "prompt": "3 + 1 = ?",
+   "options": [
+    "4",
+    "3",
+    "2",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "3 ഉം 1 ഉം ചേർന്നാൽ 4."
+  },
+  {
+   "prompt": "5 + 5 = ?",
+   "options": [
+    "10",
+    "5",
+    "55",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "5 ഉം 5 ഉം ചേർന്നാൽ പത്ത്."
+  },
+  {
+   "prompt": "4 കിളികൾ; 2 പറന്നുപോയി. ബാക്കി എത്ര?",
+   "options": [
+    "2",
+    "4",
+    "6",
+    "0"
+   ],
+   "correct_index": 0,
+   "explanation": "4 − 2 = 2."
+  },
+  {
+   "prompt": "കൂട്ടലിന്റെ ചിഹ്നം ഏത്?",
+   "options": [
+    "+",
+    "−",
+    "=",
+    "×"
+   ],
+   "correct_index": 0,
+   "explanation": "‘+’ എന്നാൽ കൂട്ടൽ."
+  },
+  {
+   "prompt": "നീരവിന് 4 ഇല, നിയയ്ക്ക് 3. ആകെ എത്ര?",
+   "options": [
+    "7",
+    "6",
+    "8",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "4 + 3 = 7."
+  }
+ ]
+}

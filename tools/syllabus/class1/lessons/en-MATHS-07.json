@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-07",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 7,
+ "lang": "en",
+ "title": "More and Less",
+ "subtitle": "Longer, higher, heavier, holds more",
+ "hero_picture": "A Kerala family under a big jackfruit tree heavy with jackfruits: a father holding a long stick, children with a short stick, a mother picking up a jackfruit.",
+ "sections": [
+  {
+   "heading": "Longer and shorter",
+   "text": [
+    "Dad wants to pluck a big jackfruit.",
+    "His stick is longer. My stick is shorter.",
+    "A longer stick reaches higher fruits."
+   ],
+   "points": [
+    "Longer stick",
+    "Shorter stick",
+    "Compare the lengths"
+   ],
+   "caption": "A long stick and a short stick",
+   "picture": "A father and a boy each holding a stick near a jackfruit tree: the father's stick is clearly much longer than the boy's stick."
+  },
+  {
+   "heading": "Higher and lower",
+   "text": [
+    "Friends are flying kites.",
+    "Whose kite is flying highest?",
+    "A longer string lets a kite fly higher."
+   ],
+   "points": [
+    "Highest kite",
+    "Lower kites",
+    "Longer string"
+   ],
+   "caption": "Kites high in the sky",
+   "picture": "Five children on a green hill flying kites; one kite flying much higher than all the others."
+  },
+  {
+   "heading": "Heavy and light",
+   "text": [
+    "I cannot lift this big jackfruit. It is heavy.",
+    "Amma lifts it. I carry a mango.",
+    "The mango is light."
+   ],
+   "points": [
+    "Jackfruit: heavy",
+    "Mango: light",
+    "Which is heavier?"
+   ],
+   "caption": "Heavy jackfruit, light mango",
+   "picture": "A girl unable to lift a big heavy jackfruit while her mother lifts it; the girl carries a small light mango instead."
+  },
+  {
+   "heading": "Up and down",
+   "text": [
+    "A monkey and an elephant sit on a seesaw.",
+    "The elephant's side goes down.",
+    "The heavier one goes down."
+   ],
+   "points": [
+    "Heavy side goes down",
+    "Light side goes up",
+    "Elephant is heavier"
+   ],
+   "caption": "Seesaw in the park",
+   "picture": "A seesaw in a park with a small monkey on one end up in the air and a baby elephant on the other end down on the ground."
+  },
+  {
+   "heading": "Which holds more?",
+   "text": [
+    "Dad made lime juice in a big glass and a small glass.",
+    "The big glass holds more juice.",
+    "A bucket holds more water than a cup."
+   ],
+   "points": [
+    "Big glass: more",
+    "Small glass: less",
+    "Bucket holds more"
+   ],
+   "caption": "Big glass and small glass",
+   "picture": "A father pouring lime juice into a big glass and a small glass on a table; the big glass holds clearly more juice."
+  }
+ ],
+ "rhyme": [
+  "For higher fruits, a longer stick,",
+  "For higher kites, a string that's thick,",
+  "For heavy things, strong arms to lift,",
+  "For lots to drink, a big pot, quick!"
+ ],
+ "activity": "Find two pencils at home. Put them side by side. Which one is longer?",
+ "talk": [
+  "Which is heavier, a jackfruit or a mango?",
+  "Whose kite flew highest?",
+  "Which holds more water, a bucket or a cup?"
+ ],
+ "summary": "We can compare things: longer or shorter, heavier or lighter, more or less.",
+ "questions": [
+  {
+   "prompt": "Which is heavier?",
+   "options": [
+    "Jackfruit",
+    "Mango",
+    "Leaf",
+    "Feather"
+   ],
+   "correct_index": 0,
+   "explanation": "A jackfruit is much heavier than a mango."
+  },
+  {
+   "prompt": "To pick a fruit high up, we need a...",
+   "options": [
+    "Longer stick",
+    "Shorter stick",
+    "Spoon",
+    "Pencil"
+   ],
+   "correct_index": 0,
+   "explanation": "A longer stick reaches higher."
+  },
+  {
+   "prompt": "On a seesaw, which side goes down?",
+   "options": [
+    "The heavier side",
+    "The lighter side",
+    "Both sides",
+    "Neither side"
+   ],
+   "correct_index": 0,
+   "explanation": "The heavier one goes down."
+  },
+  {
+   "prompt": "Which holds more water?",
+   "options": [
+    "Bucket",
+    "Cup",
+    "Spoon",
+    "Glass"
+   ],
+   "correct_index": 0,
+   "explanation": "A bucket holds much more water."
+  },
+  {
+   "prompt": "A big glass and a small glass are full. Which has more juice?",
+   "options": [
+    "Big glass",
+    "Small glass",
+    "Both same",
+    "None"
+   ],
+   "correct_index": 0,
+   "explanation": "The big glass holds more juice."
+  }
+ ]
+}

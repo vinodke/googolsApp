@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-09",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 9,
+ "lang": "en",
+ "title": "Let's Play with Colours",
+ "subtitle": "No same colour side by side",
+ "hero_picture": "Two Kerala girls playing a board game on the floor, a colourful square board with triangles between them, a cat watching.",
+ "sections": [
+  {
+   "heading": "A colourful game",
+   "text": [
+    "Two friends are playing a board game.",
+    "'It's your turn,' says one.",
+    "Taking turns makes games fair."
+   ],
+   "points": [
+    "Take turns",
+    "Play fair",
+    "Have fun"
+   ],
+   "caption": "Playing a board game",
+   "picture": "Two girls playing a game on the floor with a colourful square board divided into coloured triangles."
+  },
+  {
+   "heading": "Circles and lines",
+   "text": [
+    "Look at these circles joined by lines.",
+    "Shall we colour them?",
+    "There is one rule to follow."
+   ],
+   "points": [
+    "Circles",
+    "Lines join them",
+    "One rule"
+   ],
+   "caption": "Circles joined by lines",
+   "picture": "Five plain white circles on paper joined by straight lines like a bow-tie shape, waiting to be coloured."
+  },
+  {
+   "heading": "The colour rule",
+   "text": [
+    "Two circles joined by a line must not have the same colour.",
+    "If one is red, the next must be another colour.",
+    "Think before you colour!"
+   ],
+   "points": [
+    "Joined circles: different colours",
+    "Think first",
+    "Check each line"
+   ],
+   "caption": "Different colours for neighbours",
+   "picture": "Three crayons (red, blue, green) beside a drawing of circles joined by lines, two joined circles coloured red and blue."
+  },
+  {
+   "heading": "Graph colouring game",
+   "text": [
+    "Open the 'Graph Colouring' game.",
+    "Click on a circle to choose its colour.",
+    "Don't give the same colour next to each other."
+   ],
+   "points": [
+    "Click a circle",
+    "Pick a colour",
+    "Follow the rule"
+   ],
+   "caption": "Colouring on the screen",
+   "picture": "A laptop screen showing circles joined by lines over a park scene, the circles coloured so that no two joined circles share a colour."
+  },
+  {
+   "heading": "Colour a map",
+   "text": [
+    "Draw shapes that touch each other.",
+    "Colour them with crayons.",
+    "Touching shapes get different colours."
+   ],
+   "points": [
+    "Draw shapes",
+    "Use crayons",
+    "Neighbours differ"
+   ],
+   "caption": "Colouring touching shapes",
+   "picture": "A girl colouring a map-like drawing of shapes with crayons, each neighbouring shape in a different colour."
+  }
+ ],
+ "rhyme": [
+  "Red and blue and green and gold,",
+  "Follow the rule that we were told,",
+  "Side by side, not the same,",
+  "Colours make a happy game!"
+ ],
+ "activity": "Draw 4 circles in a ring, each joined to the next. Colour them with only 2 colours, following the rule.",
+ "talk": [
+  "What is the rule in this game?",
+  "Why do we take turns?",
+  "If one circle is red, can the joined circle be red?"
+ ],
+ "summary": "When circles are joined by a line, we colour them with different colours.",
+ "questions": [
+  {
+   "prompt": "Two circles joined by a line should be...",
+   "options": [
+    "Different colours",
+    "The same colour",
+    "Not coloured",
+    "Black only"
+   ],
+   "correct_index": 0,
+   "explanation": "Joined circles must have different colours."
+  },
+  {
+   "prompt": "A circle is red. The joined circle can be...",
+   "options": [
+    "Blue",
+    "Red",
+    "Also red",
+    "Same as it"
+   ],
+   "correct_index": 0,
+   "explanation": "It must be a different colour, like blue."
+  },
+  {
+   "prompt": "In a board game, we play by...",
+   "options": [
+    "Taking turns",
+    "Grabbing",
+    "Fighting",
+    "Hiding the board"
+   ],
+   "correct_index": 0,
+   "explanation": "Taking turns is fair."
+  },
+  {
+   "prompt": "What do we click to choose a colour for a circle?",
+   "options": [
+    "The circle",
+    "The sky",
+    "The keyboard",
+    "The speaker"
+   ],
+   "correct_index": 0,
+   "explanation": "Click on a circle to colour it."
+  },
+  {
+   "prompt": "What joins the circles?",
+   "options": [
+    "Lines",
+    "Strings of beads",
+    "Bridges",
+    "Rivers"
+   ],
+   "correct_index": 0,
+   "explanation": "Lines join the circles."
+  }
+ ]
+}

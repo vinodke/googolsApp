@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-08",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 8,
+ "lang": "ml",
+ "title": "ആഹാ! എന്ത് സ്വാദ്!",
+ "subtitle": "ആനയും മൈനയും പങ്കിടലും",
+ "hero_picture": "A friendly blue-grey elephant and a small brown myna bird in a colourful forest, sniffing the air happily near a big jackfruit tree heavy with ripe jackfruits; a giraffe and a monkey nearby.",
+ "sections": [
+  {
+   "heading": "ആഹാ, നല്ല ഗന്ധം!",
+   "text": [
+    "ആന നടന്നുവന്നു. മൈന പറന്നുവന്നു.",
+    "രണ്ടുപേർക്കും വിശന്നു.",
+    "ആഹാ! എന്തു നല്ല ഗന്ധം! അതാ ചക്കപ്പഴം."
+   ],
+   "points": [
+    "ആനയും മൈനയും",
+    "രണ്ടുപേർക്കും വിശപ്പ്",
+    "അതാ ചക്കപ്പഴം"
+   ],
+   "caption": "ചക്കപ്പഴത്തിന്റെ ഗന്ധം",
+   "picture": "An elephant walking and a myna flying side by side in a forest, both sniffing with closed happy eyes towards a jackfruit tree with big ripe jackfruits on its trunk."
+  },
+  {
+   "heading": "എനിക്ക് ഇല്ലേ?",
+   "text": [
+    "ആന ചക്കപ്പഴം പറിച്ച് തിന്നു.",
+    "മൈന ചോദിച്ചു: എനിക്ക് ഇല്ലേ?",
+    "ആന പറഞ്ഞു: നിനക്ക് പിന്നെ തരാം."
+   ],
+   "points": [
+    "ആന ചക്ക തിന്നു",
+    "മൈന ചോദിച്ചു",
+    "ആന പങ്കിട്ടില്ല"
+   ],
+   "caption": "ഒറ്റയ്ക്ക് തിന്ന ആന",
+   "picture": "An elephant holding a big opened jackfruit with its trunk and eating the sweet yellow pieces; a small myna bird on a nearby branch looking hungry and sad."
+  },
+  {
+   "heading": "മൈന എവിടെ?",
+   "text": [
+    "ആന പഴക്കുല ഉയർത്തി കുലുക്കി.",
+    "പഴമെല്ലാം വായിലേക്ക് വീണു. കൂടെ മൈനയും!",
+    "ആനയ്ക്ക് വയറ്റിൽ വേദന."
+   ],
+   "points": [
+    "പഴക്കുല കുലുക്കി",
+    "മൈനയും വായിൽ വീണു",
+    "ആനയ്ക്ക് വയറുവേദന"
+   ],
+   "caption": "പഴത്തോടൊപ്പം മൈനയും",
+   "picture": "An elephant lifting a big bunch of yellow bananas high with its trunk and shaking it; bananas fall into its open mouth, and a small surprised myna bird is tumbling in along with them."
+  },
+  {
+   "heading": "നന്ദി ജിറാഫേ",
+   "text": [
+    "ജിറാഫ് പറഞ്ഞു: ഫൂ ഫൂ എന്ന് ഊതൂ!",
+    "ആന ഏമ്പക്കം വിട്ടു. മൈന പുറത്തുവന്നു.",
+    "ജിറാഫ് പറഞ്ഞു: സ്വഭാവത്തിനും സുഗന്ധം വേണം."
+   ],
+   "points": [
+    "ജിറാഫ് സഹായിച്ചു",
+    "മൈന പുറത്തുവന്നു",
+    "സ്വഭാവത്തിനും സുഗന്ധം"
+   ],
+   "caption": "മൈനയെ രക്ഷിച്ച ജിറാഫ്",
+   "picture": "A tall kind giraffe bending down to an elephant; the elephant blows out a big puff of air and the little myna flies out of its mouth safely; a monkey, a rabbit and a fox watch and clap."
+  },
+  {
+   "heading": "പഴുത്തോ? എങ്ങനെ അറിയാം?",
+   "text": [
+    "പച്ചക്കായ പഴുത്താൽ മഞ്ഞയാകും.",
+    "കണ്ടറിയാം, മണത്തറിയാം.",
+    "തൊട്ടറിയാം, രുചിച്ചറിയാം."
+   ],
+   "points": [
+    "കണ്ടറിയാം",
+    "മണത്തറിയാം",
+    "തൊട്ടും രുചിച്ചും അറിയാം"
+   ],
+   "caption": "പഴുത്ത പഴം തിരിച്ചറിയാം",
+   "picture": "Five banana bunches hanging in a row changing colour from green to yellow; a Kerala girl holding a ripe mango to her nose to smell it, a boy gently pressing a papaya."
+  }
+ ],
+ "rhyme": [
+  "ചക്കപ്പഴം, മാമ്പഴം",
+  "വാഴപ്പഴം, പേരയ്ക്ക",
+  "ഒറ്റയ്ക്കല്ല, പങ്കിട്ട്",
+  "തിന്നാലല്ലോ സ്വാദേറും!"
+ ],
+ "activity": "നിനക്കറിയാവുന്ന അഞ്ചു പഴങ്ങളുടെ പേര് പറയൂ. ഓരോന്നിന്റെയും നിറവും പറയൂ.",
+ "talk": [
+  "ആനയ്ക്ക് വയറുവേദന വന്നത് എന്തുകൊണ്ട്?",
+  "മൈനയെ രക്ഷിച്ചത് ആര്?",
+  "പഴം പഴുത്തോ എന്ന് എങ്ങനെ അറിയാം?"
+ ],
+ "summary": "പഴങ്ങൾ എല്ലാവരുമായി പങ്കിടാം; പങ്കിട്ടാൽ സ്വാദ് കൂടും.",
+ "questions": [
+  {
+   "prompt": "ആനയ്ക്കും മൈനയ്ക്കും എന്തു തോന്നി?",
+   "options": [
+    "വിശപ്പ്",
+    "ഉറക്കം",
+    "തണുപ്പ്",
+    "പേടി"
+   ],
+   "correct_index": 0,
+   "explanation": "രണ്ടുപേർക്കും വിശന്നു; പഴം വേണമായിരുന്നു."
+  },
+  {
+   "prompt": "നല്ല ഗന്ധം വന്നത് ഏത് പഴത്തിൽനിന്ന്?",
+   "options": [
+    "ചക്കപ്പഴം",
+    "നാരങ്ങ",
+    "പാവയ്ക്ക",
+    "തേങ്ങ"
+   ],
+   "correct_index": 0,
+   "explanation": "ആഹാ! എന്തു നല്ല ഗന്ധം! അതാ ചക്കപ്പഴം."
+  },
+  {
+   "prompt": "ആനയുടെ വായിൽ പഴത്തോടൊപ്പം വീണത് ആര്?",
+   "options": [
+    "മൈന",
+    "ജിറാഫ്",
+    "കുരങ്ങൻ",
+    "മുയൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "പഴക്കുല കുലുക്കിയപ്പോൾ മൈനയും വായിൽ വീണു."
+  },
+  {
+   "prompt": "മൈനയെ പുറത്തെത്തിക്കാൻ സഹായിച്ചത് ആര്?",
+   "options": [
+    "ജിറാഫ്",
+    "കടുവ",
+    "പാമ്പ്",
+    "മീൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "ജിറാഫ് പറഞ്ഞതുപോലെ ആന ഊതിയപ്പോൾ മൈന പുറത്തുവന്നു."
+  },
+  {
+   "prompt": "പച്ചക്കായ പഴുത്താൽ ഏതു നിറമാകും?",
+   "options": [
+    "മഞ്ഞ",
+    "നീല",
+    "കറുപ്പ്",
+    "വെള്ള"
+   ],
+   "correct_index": 0,
+   "explanation": "പച്ചക്കായ പഴുത്താൽ മഞ്ഞനിറമാകും."
+  }
+ ]
+}

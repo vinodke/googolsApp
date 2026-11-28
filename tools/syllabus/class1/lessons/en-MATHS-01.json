@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-01",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 1,
+ "lang": "en",
+ "title": "Fun with Shapes",
+ "subtitle": "Circles, triangles and squares all around us",
+ "hero_picture": "A bright Kerala village scene built from simple shapes: a round orange sun, triangle-shaped trees, a house with a square body and a triangle roof, a boat on a river, and happy children pointing at the shapes.",
+ "sections": [
+  {
+   "heading": "Round like a dosa",
+   "text": [
+    "Dad is making dosa. Sizzling dosa!",
+    "A dosa is round. A bangle is round. The sun is round.",
+    "A round shape is called a circle."
+   ],
+   "points": [
+    "Dosa is round",
+    "Bangle is round",
+    "Round shape: circle"
+   ],
+   "caption": "Round dosas",
+   "picture": "A father making round dosas on a pan in a Kerala kitchen, a smiling girl holding a plate of round white dosas."
+  },
+  {
+   "heading": "Three corners",
+   "text": [
+    "A samosa has three corners.",
+    "A Christmas-tree drawing is made of triangles.",
+    "A shape with three sides is a triangle."
+   ],
+   "points": [
+    "Samosa: triangle",
+    "Tree: triangles",
+    "Three sides, three corners"
+   ],
+   "caption": "Samosa and a triangle tree",
+   "picture": "A plate of triangle-shaped samosas next to a tall green tree made of three stacked triangles, a girl and a boy pointing at them."
+  },
+  {
+   "heading": "Square and oblong",
+   "text": [
+    "Look at a house. The wall is a square.",
+    "The door is long. It is an oblong (rectangle).",
+    "A box and a book are oblong too."
+   ],
+   "points": [
+    "Wall: square",
+    "Door: rectangle",
+    "Box: rectangle"
+   ],
+   "caption": "A house made of shapes",
+   "picture": "A small house made of shapes: a square wall, a triangle roof, a rectangle door, and a round sun in the sky."
+  },
+  {
+   "heading": "My robot",
+   "text": [
+    "Join the dots and make a robot.",
+    "Round head, square body, long legs.",
+    "How many circles can you see on it?"
+   ],
+   "points": [
+    "Head: circle",
+    "Body: square",
+    "Legs: rectangles"
+   ],
+   "caption": "A robot made of shapes",
+   "picture": "A friendly toy robot made of shapes: a round head, a square body, rectangle legs, triangle hands and circle buttons; two children laughing."
+  },
+  {
+   "heading": "What comes next?",
+   "text": [
+    "Triangle, circle, triangle, circle...",
+    "What comes next? A triangle!",
+    "This is called a pattern."
+   ],
+   "points": [
+    "Look at the order",
+    "Find what comes next",
+    "Make your own pattern"
+   ],
+   "caption": "Shape pattern",
+   "picture": "A neat row of shapes making a pattern on a table: triangle, circle, triangle, circle, triangle, and an empty space at the end; coloured blocks."
+  }
+ ],
+ "rhyme": [
+  "What is round? A dosa is round!",
+  "What has three corners? A samosa, I found!",
+  "What is long? A box, a door,",
+  "Shapes are everywhere, on the floor!"
+ ],
+ "activity": "Find three round things and three oblong things in your house. Draw them.",
+ "talk": [
+  "Name something round in your kitchen.",
+  "How many corners does a triangle have?",
+  "Which shape is your book?"
+ ],
+ "summary": "Circles, triangles, squares and rectangles are all around us.",
+ "questions": [
+  {
+   "prompt": "What shape is a dosa?",
+   "options": [
+    "Circle",
+    "Triangle",
+    "Square",
+    "Rectangle"
+   ],
+   "correct_index": 0,
+   "explanation": "A dosa is round, like a circle."
+  },
+  {
+   "prompt": "How many corners does a triangle have?",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "A triangle has three sides and three corners."
+  },
+  {
+   "prompt": "Which snack looks like a triangle?",
+   "options": [
+    "Samosa",
+    "Dosa",
+    "Laddu",
+    "Banana"
+   ],
+   "correct_index": 0,
+   "explanation": "A samosa has three corners."
+  },
+  {
+   "prompt": "What shape is a door?",
+   "options": [
+    "Rectangle",
+    "Circle",
+    "Triangle",
+    "Star"
+   ],
+   "correct_index": 0,
+   "explanation": "A door is long, like a rectangle."
+  },
+  {
+   "prompt": "Triangle, circle, triangle, circle, ... What comes next?",
+   "options": [
+    "Triangle",
+    "Circle",
+    "Square",
+    "Star"
+   ],
+   "correct_index": 0,
+   "explanation": "The pattern repeats: after circle comes triangle."
+  }
+ ]
+}

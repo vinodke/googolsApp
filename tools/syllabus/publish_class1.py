@@ -5,7 +5,7 @@ not deleted) and the AI teacher's chunks. The old infographic attachment is unse
 Writes a rollback file before changing anything. One transaction.
 
   bash run_db.sh publish_class1.py ~/w/out             # dry run: prints the mapping, stages ~/w/upload for Blob
-  bash ~/w/upload_pics.sh                              # copies ~/w/upload to Blob lesson-files (lessons/{id}/...)
+  bash tools/syllabus/class1/upload_pics.sh                           # copies ~/w/upload to Blob lesson-files (lessons/{id}/...)
   bash run_db.sh publish_class1.py ~/w/out --apply
 
 ~/w/out/<key>/ holds pic-0..5.jpg, poster.jpg, body.md from compose_lesson.py; ~/w/out/lessons/<key>.json the lessons.

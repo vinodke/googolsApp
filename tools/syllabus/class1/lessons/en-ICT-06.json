@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-06",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 6,
+ "lang": "en",
+ "title": "Left... Right...",
+ "subtitle": "Find your left and right hands",
+ "hero_picture": "Two Kerala children riding on a friendly elephant's back at a crossroads, one pointing left and the other pointing right, a cat watching.",
+ "sections": [
+  {
+   "heading": "Help the elephant",
+   "text": [
+    "Kannan and Meenu are riding an elephant.",
+    "'To the left!' says one. 'To the right!' says the other.",
+    "Which way should the elephant go?"
+   ],
+   "points": [
+    "Left side",
+    "Right side",
+    "Help the elephant"
+   ],
+   "caption": "Which way to go?",
+   "picture": "An elephant with two children on its back at a fork in a jungle path, one child pointing left, one pointing right."
+  },
+  {
+   "heading": "My two hands",
+   "text": [
+    "I have two hands.",
+    "One is my left hand. One is my right hand.",
+    "Most of us write with the right hand."
+   ],
+   "points": [
+    "Left hand",
+    "Right hand",
+    "Know both"
+   ],
+   "caption": "Left hand and right hand",
+   "picture": "A child holding up both hands with palms facing out: a red band on the left wrist and a blue band on the right wrist."
+  },
+  {
+   "heading": "The hand game",
+   "text": [
+    "Open 'Find your left and right hands'.",
+    "A hand is shown on the screen.",
+    "Is it a left hand or a right hand?"
+   ],
+   "points": [
+    "Look at the hand",
+    "Left or right?",
+    "Think first"
+   ],
+   "caption": "A hand on the screen",
+   "picture": "A laptop screen showing a picture of one open hand and two plain buttons below it."
+  },
+  {
+   "heading": "Check with your hands",
+   "text": [
+    "Hold up your own hands.",
+    "Match them with the hand on the screen.",
+    "Then click the right button below."
+   ],
+   "points": [
+    "Compare with your hands",
+    "Click the button",
+    "Learn by doing"
+   ],
+   "caption": "Matching hands",
+   "picture": "A child at a laptop looking at their own hands to decide, comparing with the hand on the screen."
+  },
+  {
+   "heading": "Left, right game",
+   "text": [
+    "Teacher says, 'Turn left!'",
+    "Everyone turns to the left.",
+    "'Turn right!' Now turn to the right."
+   ],
+   "points": [
+    "Listen",
+    "Turn left",
+    "Turn right"
+   ],
+   "caption": "Turning left and right",
+   "picture": "Children in a playground playing a game, all turning to their left together on a teacher's call."
+  }
+ ],
+ "rhyme": [
+  "Left hand up, right hand too,",
+  "Clap them both, one, two,",
+  "Turn to the left, turn to the right,",
+  "Now I know them, day and night!"
+ ],
+ "activity": "Stand in front of a mirror. Raise your right hand. Which hand does the mirror boy or girl raise?",
+ "talk": [
+  "Which hand do you write with?",
+  "Who was riding the elephant?",
+  "What do we click after finding the hand?"
+ ],
+ "summary": "We have a left hand and a right hand; we can find which is which.",
+ "questions": [
+  {
+   "prompt": "How many hands do we have?",
+   "options": [
+    "2",
+    "1",
+    "3",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "We have a left hand and a right hand."
+  },
+  {
+   "prompt": "In the game, what is shown on the screen?",
+   "options": [
+    "A hand",
+    "A car",
+    "A fish",
+    "A tree"
+   ],
+   "correct_index": 0,
+   "explanation": "A hand is shown."
+  },
+  {
+   "prompt": "What do we do after finding the hand?",
+   "options": [
+    "Click the right button",
+    "Close the game",
+    "Shout",
+    "Sleep"
+   ],
+   "correct_index": 0,
+   "explanation": "Click 'Left hand' or 'Right hand'."
+  },
+  {
+   "prompt": "Most children write with the...",
+   "options": [
+    "Right hand",
+    "Left foot",
+    "Nose",
+    "Elbow"
+   ],
+   "correct_index": 0,
+   "explanation": "Most children write with the right hand."
+  },
+  {
+   "prompt": "Who did the children ride?",
+   "options": [
+    "An elephant",
+    "A horse",
+    "A bus",
+    "A boat"
+   ],
+   "correct_index": 0,
+   "explanation": "They rode an elephant."
+  }
+ ]
+}

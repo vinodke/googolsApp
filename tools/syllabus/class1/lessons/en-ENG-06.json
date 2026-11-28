@@ -1,0 +1,157 @@
+{
+ "key": "en-ENG-06",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 6,
+ "lang": "en",
+ "title": "Back to Green",
+ "subtitle": "Ril the little parrot",
+ "hero_picture": "A green mother parrot and three little green parrots on a branch of a big tree in a green forest.",
+ "sections": [
+  {
+   "heading": "Polly waits",
+   "text": [
+    "Polly the parrot is waiting for her chicks.",
+    "'When will my chicks come out?'",
+    "Her friends the elephant and the rabbit come to see."
+   ],
+   "points": [
+    "Polly is a parrot",
+    "She waits",
+    "Friends visit"
+   ],
+   "caption": "Polly waits",
+   "picture": "A green mother parrot sitting on three white eggs in a nest, an elephant and rabbit looking up."
+  },
+  {
+   "heading": "One, two, three",
+   "text": [
+    "The first little parrot comes out.",
+    "The second comes out next. The third comes out too.",
+    "Now there are three parrots."
+   ],
+   "points": [
+    "First, second, third",
+    "Three chicks",
+    "Open their eyes"
+   ],
+   "caption": "One, two, three",
+   "picture": "Three baby parrots hatching from cracked eggshells."
+  },
+  {
+   "heading": "Jil, Dil and Ril",
+   "text": [
+    "'I am Jil.' 'I am Dil.' 'My name is Ril.'",
+    "Jil has a big beak. Dil has long legs. Ril has a red ring.",
+    "Jil, Dil and Ril fly up in the sky."
+   ],
+   "points": [
+    "Jil: big beak",
+    "Dil: long legs",
+    "Ril: red ring"
+   ],
+   "caption": "Jil, Dil and Ril",
+   "picture": "Three young green parrots flying together in a blue sky over trees."
+  },
+  {
+   "heading": "Ril turns red",
+   "text": [
+    "Ril flies away and falls into a tin.",
+    "There is red paint in it. Ouch!",
+    "Ril was green. Now he is red. 'No, Ril is green!'"
+   ],
+   "points": [
+    "Falls in a tin",
+    "Red paint",
+    "Friends don't know him"
+   ],
+   "caption": "Ril turns red",
+   "picture": "A small parrot covered in red paint climbing out of a blue paint tin near a house."
+  },
+  {
+   "heading": "Green again",
+   "text": [
+    "Ril is sad. He walks away.",
+    "It started raining. The rain washed the paint.",
+    "'Hurrah! I am green again.' All are happy."
+   ],
+   "points": [
+    "Ril is sad",
+    "Rain washes paint",
+    "Green again!"
+   ],
+   "caption": "Green again",
+   "picture": "A happy green parrot flying in the rain near his parrot friends on a branch."
+  }
+ ],
+ "rhyme": [
+  "One, two, three,",
+  "Jil, Dil and Ril,",
+  "Fly and fly,",
+  "Up in the sky."
+ ],
+ "activity": "Draw three parrots. Give one a big beak, one long legs and one a red ring.",
+ "talk": [
+  "How many chicks did Polly have?",
+  "Why did Ril become red?",
+  "How did Ril become green again?"
+ ],
+ "summary": "Ril the parrot fell into red paint; the rain washed it away and he was green again.",
+ "questions": [
+  {
+   "prompt": "How many little parrots came out?",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "Jil, Dil and Ril: three parrots."
+  },
+  {
+   "prompt": "Who has a red ring?",
+   "options": [
+    "Ril",
+    "Jil",
+    "Dil",
+    "Polly"
+   ],
+   "correct_index": 0,
+   "explanation": "Ril has a red ring."
+  },
+  {
+   "prompt": "Ril fell into a tin of...",
+   "options": [
+    "Red paint",
+    "Milk",
+    "Water",
+    "Honey"
+   ],
+   "correct_index": 0,
+   "explanation": "There was red paint in the tin."
+  },
+  {
+   "prompt": "What washed the paint away?",
+   "options": [
+    "Rain",
+    "Wind",
+    "Sun",
+    "Sand"
+   ],
+   "correct_index": 0,
+   "explanation": "It started raining and Ril became green."
+  },
+  {
+   "prompt": "Who has long legs?",
+   "options": [
+    "Dil",
+    "Jil",
+    "Ril",
+    "Polly"
+   ],
+   "correct_index": 0,
+   "explanation": "Dil has long legs."
+  }
+ ]
+}

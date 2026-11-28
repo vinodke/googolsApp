@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-02",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 2,
+ "lang": "ml",
+ "title": "തിത്തിരിക്കിളിയും ചങ്ങാതിമാരും",
+ "subtitle": "തിത്തിരി എവിടെ? 1 മുതൽ 5 വരെ എണ്ണാം",
+ "hero_picture": "A Kerala village courtyard: a girl (Ima) and a boy (Amal) gently holding a tiny brown baby bird, a cow with a calf, cats, puppies, hens with chicks and a duck with ducklings around them.",
+ "sections": [
+  {
+   "heading": "ഒരു കുഞ്ഞിക്കിളി",
+   "text": [
+    "ഇമയും അമലും ഒരു കുഞ്ഞിക്കിളിയെ കണ്ടു.",
+    "അവർ അതിന് തിത്തിരി എന്നു പേരിട്ടു.",
+    "കാക്കയിൽനിന്നും പൂച്ചയിൽനിന്നും അതിനെ കാത്തു."
+   ],
+   "points": [
+    "കുഞ്ഞിക്കിളിയെ കണ്ടു",
+    "പേര്: തിത്തിരി",
+    "സുരക്ഷിതമായി കാത്തു"
+   ],
+   "caption": "ഇമയും അമലും തിത്തിരിയും",
+   "picture": "A girl and a boy kneeling on the ground looking at a tiny brown baby bird that fell from a tree; crows on a branch above."
+  },
+  {
+   "heading": "തിത്തിരി എവിടെ?",
+   "text": [
+    "അലമാരയുടെ മുകളിലില്ല. കട്ടിലിന്റെ അടിയിലില്ല.",
+    "സോഫയുടെ മുന്നിലില്ല. പിന്നിലുമില്ല.",
+    "അതാ, പാവവീടിന്റെ ഉള്ളിൽ!"
+   ],
+   "points": [
+    "മുകളിൽ, അടിയിൽ",
+    "മുന്നിൽ, പിന്നിൽ",
+    "ഉള്ളിൽ, പുറത്ത്"
+   ],
+   "caption": "തിത്തിരിയെ തിരയുന്നു",
+   "picture": "Inside a house: a boy searching under a bed, a girl looking behind a sofa, and a tiny bird peeping out from inside a colourful dollhouse."
+  },
+  {
+   "heading": "എന്റെ അമ്മയാണോ?",
+   "text": [
+    "പശുവിന് 1 കുട്ടി. പൂച്ചയ്ക്ക് 2.",
+    "കോഴിക്ക് 4 കുഞ്ഞുങ്ങൾ. നായയ്ക്ക് 5.",
+    "ആരും തിത്തിരിയെപ്പോലെയല്ല."
+   ],
+   "points": [
+    "1, 2, 3",
+    "4, 5",
+    "കുഞ്ഞുങ്ങളെ എണ്ണാം"
+   ],
+   "caption": "കുഞ്ഞുങ്ങളെ എണ്ണാം",
+   "picture": "Animals with their babies in a row, clearly countable: 1 cow with 1 calf, 1 cat with 2 kittens, 1 hen with 4 chicks, 1 dog with 5 puppies."
+  },
+  {
+   "heading": "2 ഉം 3 ഉം ചേർന്നാൽ 5",
+   "text": [
+    "അമ്മത്താറാവിന് 5 കുഞ്ഞുങ്ങൾ.",
+    "2 എണ്ണം മുന്നിൽ. 3 എണ്ണം പിന്നിൽ.",
+    "2 ഉം 3 ഉം ചേർന്നാൽ 5."
+   ],
+   "points": [
+    "മുന്നിൽ 2",
+    "പിന്നിൽ 3",
+    "ആകെ 5"
+   ],
+   "caption": "അമ്മത്താറാവും കുഞ്ഞുങ്ങളും",
+   "picture": "A mother duck walking with 5 little yellow ducklings: 2 ducklings in front of her and 3 ducklings behind her, on green grass with flowers."
+  },
+  {
+   "heading": "ഇതാ നിന്റെ അമ്മ!",
+   "text": [
+    "തോട്ടത്തിൽ ഒരു കിളി കരയുന്നത് കേട്ടു.",
+    "അത് തിത്തിരിയുടെ അമ്മയായിരുന്നു!",
+    "ഇപ്പോൾ തിത്തിരിക്ക് സന്തോഷം."
+   ],
+   "points": [
+    "ശ്രദ്ധിച്ചു കേട്ടു",
+    "അമ്മയെ കണ്ടെത്തി",
+    "എല്ലാവർക്കും സന്തോഷം"
+   ],
+   "caption": "അമ്മയെ കണ്ട തിത്തിരി",
+   "picture": "Children happily reuniting a tiny baby bird with its mother bird on a tree branch in a garden, all smiling."
+  }
+ ],
+ "rhyme": [
+  "ഒന്ന്, രണ്ട്, കുഞ്ഞിക്കിളി",
+  "മൂന്ന്, നാല്, കേൾക്കൂ ചൊല്ലി",
+  "അഞ്ചു കൂട്ടർ തേടി നടന്നു",
+  "അമ്മക്കിളിയെ കണ്ടെത്തി!"
+ ],
+ "activity": "അടുക്കളയിലെ സ്പൂണുകളും വീട്ടിലെ കസേരകളും എണ്ണി എഴുതൂ.",
+ "talk": [
+  "തിത്തിരിയെ എവിടെനിന്ന് കിട്ടി?",
+  "നായയ്ക്ക് എത്ര കുഞ്ഞുങ്ങൾ?",
+  "2 ഉം 3 ഉം ചേർന്നാൽ എത്ര?"
+ ],
+ "summary": "1 മുതൽ 5 വരെ എണ്ണാം; മുകളിൽ, അടിയിൽ, മുന്നിൽ, പിന്നിൽ, ഉള്ളിൽ എന്ന് പറയാം.",
+ "questions": [
+  {
+   "prompt": "കുഞ്ഞിക്കിളിയുടെ പേര് എന്ത്?",
+   "options": [
+    "തിത്തിരി",
+    "മിന്നു",
+    "കിട്ടു",
+    "ആമി"
+   ],
+   "correct_index": 0,
+   "explanation": "ഇമയും അമലും കിളിക്ക് തിത്തിരി എന്നു പേരിട്ടു."
+  },
+  {
+   "prompt": "തിത്തിരിയെ കണ്ടത് എവിടെ?",
+   "options": [
+    "പാവവീടിന്റെ ഉള്ളിൽ",
+    "കട്ടിലിന്റെ അടിയിൽ",
+    "അലമാരയുടെ മുകളിൽ",
+    "സോഫയുടെ പിന്നിൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "തിത്തിരി പാവവീടിന്റെ ഉള്ളിലായിരുന്നു."
+  },
+  {
+   "prompt": "പൂച്ചയ്ക്ക് എത്ര കുഞ്ഞുങ്ങൾ?",
+   "options": [
+    "2",
+    "1",
+    "4",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "പൂച്ച പറഞ്ഞു: എനിക്ക് രണ്ടു കുഞ്ഞുങ്ങൾ."
+  },
+  {
+   "prompt": "മുന്നിൽ 2, പിന്നിൽ 3. ആകെ എത്ര താറാവിൻകുഞ്ഞുങ്ങൾ?",
+   "options": [
+    "5",
+    "4",
+    "6",
+    "3"
+   ],
+   "correct_index": 0,
+   "explanation": "2 ഉം 3 ഉം ചേർന്നാൽ 5."
+  },
+  {
+   "prompt": "4 കഴിഞ്ഞാൽ അടുത്ത സംഖ്യ ഏത്?",
+   "options": [
+    "5",
+    "3",
+    "2",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "1, 2, 3, 4, പിന്നെ 5."
+  }
+ ]
+}

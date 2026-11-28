@@ -1,0 +1,158 @@
+{
+ "key": "en-ENG-05",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 5,
+ "lang": "en",
+ "title": "Honk, Honk..., Toot, Toot",
+ "subtitle": "The bus and the car on the road",
+ "hero_picture": "A big blue bus with a friendly face and a small red car with a friendly face on a winding hill road, a police officer and animals by the road.",
+ "sections": [
+  {
+   "heading": "A bus and a car",
+   "text": [
+    "This is a bus. A blue bus. The bus is big.",
+    "This is a car. A red car. The car is small.",
+    "Honk, honk bus! Toot, toot car!"
+   ],
+   "points": [
+    "Blue bus: big",
+    "Red car: small",
+    "Honk and toot"
+   ],
+   "caption": "A bus and a car",
+   "picture": "A big blue bus and a small red car with cartoon faces on a hill road."
+  },
+  {
+   "heading": "Horn and lights",
+   "text": [
+    "The bus has a horn. It sounds 'Honk, honk.'",
+    "The car has two lights. They are white.",
+    "Both run fast on the road."
+   ],
+   "points": [
+    "Bus has a horn",
+    "Car has two lights",
+    "Both run fast"
+   ],
+   "caption": "Horn and lights",
+   "picture": "A close view of a blue bus with a horn and a red car with two white headlights."
+  },
+  {
+   "heading": "Stop!",
+   "text": [
+    "'Stop!' shouts the police officer.",
+    "The bus does not stop. The car does not stop.",
+    "CRASH! The bus and the car hit each other."
+   ],
+   "points": [
+    "Police said stop",
+    "They did not stop",
+    "Crash!"
+   ],
+   "caption": "Stop!",
+   "picture": "A blue bus and a red car bumping into each other on a road, a police officer raising his hand, animals running away."
+  },
+  {
+   "heading": "It is your mistake",
+   "text": [
+    "The horn fell down. The car's light fell down.",
+    "'It is your mistake.' 'No, it is your mistake.'",
+    "'I am sorry, sir.' 'Sorry, sir.'"
+   ],
+   "points": [
+    "Horn fell",
+    "Light fell",
+    "Say sorry"
+   ],
+   "caption": "It is your mistake",
+   "picture": "A sad blue bus and a sad red car in front of a police officer, a horn and a headlight on the ground."
+  },
+  {
+   "heading": "Do not repeat it",
+   "text": [
+    "A monkey and a cow help. 'Here is your horn. Here is your light.'",
+    "The bus and the car are happy.",
+    "'Do not repeat it.' 'Thank you, sir.'"
+   ],
+   "points": [
+    "Friends help",
+    "Happy again",
+    "Drive safely"
+   ],
+   "caption": "Do not repeat it",
+   "picture": "A monkey giving a horn back to the blue bus and a cow giving a light to the red car, a police officer smiling."
+  }
+ ],
+ "rhyme": [
+  "Green trees, green trees,",
+  "You are so nice,",
+  "I am so happy",
+  "To see you all."
+ ],
+ "activity": "Draw a bus or a car. Name its parts: wheels, lights, horn, windows.",
+ "talk": [
+  "What colour is the bus?",
+  "Why did the bus and the car crash?",
+  "What did the police officer say at the end?"
+ ],
+ "summary": "The bus and the car did not stop and crashed; they said sorry and learned to drive safely.",
+ "questions": [
+  {
+   "prompt": "What colour is the bus?",
+   "options": [
+    "Blue",
+    "Red",
+    "Green",
+    "Yellow"
+   ],
+   "correct_index": 0,
+   "explanation": "A blue bus."
+  },
+  {
+   "prompt": "The car is...",
+   "options": [
+    "Small",
+    "Big",
+    "Blue",
+    "Slow"
+   ],
+   "correct_index": 0,
+   "explanation": "The car is small."
+  },
+  {
+   "prompt": "What sound does the bus make?",
+   "options": [
+    "Honk, honk",
+    "Toot, toot",
+    "Meow",
+    "Bow wow"
+   ],
+   "correct_index": 0,
+   "explanation": "The bus horn sounds 'Honk, honk.'"
+  },
+  {
+   "prompt": "Who said 'Stop!'?",
+   "options": [
+    "The police officer",
+    "The cow",
+    "The monkey",
+    "The hen"
+   ],
+   "correct_index": 0,
+   "explanation": "'Stop!' shouts the police officer."
+  },
+  {
+   "prompt": "What fell from the car?",
+   "options": [
+    "Its light",
+    "Its horn",
+    "Its wheel",
+    "Its door"
+   ],
+   "correct_index": 0,
+   "explanation": "The car's light fell down."
+  }
+ ],
+ "rhyme_title": "Green trees"
+}

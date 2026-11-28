@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-01",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 1,
+ "lang": "en",
+ "title": "Let's Draw Looking the Sky",
+ "subtitle": "Meet the computer, our new friend",
+ "hero_picture": "A Kerala girl sitting on a hilltop at night looking at a starry sky with a crescent moon, a friendly cartoon laptop with a smiling face beside her.",
+ "sections": [
+  {
+   "heading": "Look at the sky",
+   "text": [
+    "At night the sky is full of stars.",
+    "Ammu looks up and sees the moon too.",
+    "She wants to draw the stars."
+   ],
+   "points": [
+    "Stars twinkle",
+    "The moon shines",
+    "Look and observe"
+   ],
+   "caption": "A starry night sky",
+   "picture": "A night sky full of bright twinkling stars and a crescent moon over dark hills."
+  },
+  {
+   "heading": "A new friend",
+   "text": [
+    "A computer has come to join our friends.",
+    "It helps us play, sing and draw.",
+    "It says, 'I will help you!'"
+   ],
+   "points": [
+    "Computer is a friend",
+    "Play and learn",
+    "Draw with it"
+   ],
+   "caption": "Our friend, the computer",
+   "picture": "A friendly cartoon laptop with a smiling face on its screen, waving at a little girl."
+  },
+  {
+   "heading": "Using the mouse",
+   "text": [
+    "We move the mouse with our hand.",
+    "A pointer moves on the screen.",
+    "Press the button once. That is a click!"
+   ],
+   "points": [
+    "Hold the mouse gently",
+    "Move the pointer",
+    "Press once to click"
+   ],
+   "caption": "Clicking the mouse",
+   "picture": "A child's hand holding a computer mouse on a desk, one finger pressing the left button."
+  },
+  {
+   "heading": "Click and draw",
+   "text": [
+    "Open the game 'Click and Draw'.",
+    "Click on each blue circle in order.",
+    "The dots join to make a picture!"
+   ],
+   "points": [
+    "Click on each circle",
+    "Lines join the dots",
+    "A picture appears"
+   ],
+   "caption": "Join the dots on screen",
+   "picture": "A laptop screen showing a dark blue night sky with white dots joined by lines to make a star shape."
+  },
+  {
+   "heading": "Show your picture",
+   "text": [
+    "Ammu made a star on the screen.",
+    "Her friends made a moon and a tree.",
+    "Let us look and compare."
+   ],
+   "points": [
+    "Draw and share",
+    "Compare with friends",
+    "Take turns"
+   ],
+   "caption": "Sharing our drawings",
+   "picture": "A happy girl and boy at a laptop showing their drawing of stars to their teacher."
+  }
+ ],
+ "rhyme": [
+  "Twinkle stars up in the sky,",
+  "Click, click, click, my mouse can fly,",
+  "Dot by dot, a star I drew,",
+  "My computer friend, thank you!"
+ ],
+ "activity": "Look at the sky tonight. Count the stars you see and draw them on paper.",
+ "talk": [
+  "What did Ammu see in the sky?",
+  "What do we hold to click?",
+  "What appears when we join the dots?"
+ ],
+ "summary": "The computer is our new friend; we move the mouse and click to draw.",
+ "questions": [
+  {
+   "prompt": "What do we use to click on the computer?",
+   "options": [
+    "Mouse",
+    "Pencil",
+    "Brush",
+    "Spoon"
+   ],
+   "correct_index": 0,
+   "explanation": "We press the mouse button to click."
+  },
+  {
+   "prompt": "How many times do we press for one click?",
+   "options": [
+    "Once",
+    "Twice",
+    "Five times",
+    "Never"
+   ],
+   "correct_index": 0,
+   "explanation": "A click is one quick press."
+  },
+  {
+   "prompt": "What shines in the night sky?",
+   "options": [
+    "Stars",
+    "Sunflowers",
+    "Clouds of smoke",
+    "Rainbows"
+   ],
+   "correct_index": 0,
+   "explanation": "Stars and the moon shine at night."
+  },
+  {
+   "prompt": "In 'Click and Draw', what do we click on?",
+   "options": [
+    "Blue circles",
+    "Red squares",
+    "Letters",
+    "Trees"
+   ],
+   "correct_index": 0,
+   "explanation": "We click on each blue circle in order."
+  },
+  {
+   "prompt": "What happens when the dots are joined?",
+   "options": [
+    "A picture appears",
+    "The screen turns off",
+    "Music stops",
+    "Nothing"
+   ],
+   "correct_index": 0,
+   "explanation": "The lines make a picture."
+  }
+ ]
+}

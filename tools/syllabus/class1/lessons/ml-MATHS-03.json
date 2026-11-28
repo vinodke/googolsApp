@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-03",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 3,
+ "lang": "ml",
+ "title": "നടന്ന്... നടന്നങ്ങനെ",
+ "subtitle": "പൂജ്യവും 9 വരെയുള്ള എണ്ണലും",
+ "hero_picture": "A rabbit and a spotted deer walking happily on a forest path among smiling flowers and butterflies; a monkey and a squirrel on a tree wearing pink hats.",
+ "sections": [
+  {
+   "heading": "തൊപ്പിസഞ്ചി",
+   "text": [
+    "മിന്നുമുയലും കിട്ടുമാനും നടക്കാനിറങ്ങി.",
+    "അവർ നിറയെ തൊപ്പികളുള്ള ഒരു സഞ്ചി കണ്ടു.",
+    "അണ്ണാനും കുരങ്ങനും തൊപ്പി എടുത്തു!"
+   ],
+   "points": [
+    "കാട്ടിലൂടെ നടത്തം",
+    "തൊപ്പിസഞ്ചി",
+    "എല്ലാവരും തൊപ്പി എടുത്തു"
+   ],
+   "caption": "തൊപ്പിസഞ്ചി",
+   "picture": "A rabbit and a deer opening a blue bag under a tree and finding many pink hats; a monkey and a squirrel peeping from the branches."
+  },
+  {
+   "heading": "ഒന്നുമില്ല, പൂജ്യം",
+   "text": [
+    "മരത്തിൽ 5 മാങ്ങ ഉണ്ടായിരുന്നു.",
+    "ഓരോന്നായി വീണു: 4, 3, 2, 1...",
+    "മരത്തിൽ ഒന്നുമില്ല. ഒന്നുമില്ലെങ്കിൽ പൂജ്യം (0)."
+   ],
+   "points": [
+    "5, 4, 3, 2, 1",
+    "ഒന്നും ബാക്കിയില്ല",
+    "ഒന്നുമില്ല = 0"
+   ],
+   "caption": "മാങ്ങകൾ തീർന്നു",
+   "picture": "A mango tree with 5 mangoes; a squirrel, a crow and the wind each taking one, until the tree has no mangoes left; a boy and a girl looking up."
+  },
+  {
+   "heading": "തൊപ്പികൾ തിരികെ",
+   "text": [
+    "രാമുണ്ണിമാമന് പൂജ്യം തൊപ്പി. മാമന് സങ്കടം.",
+    "മൃഗങ്ങൾ തൊപ്പികൾ തിരികെ കൊടുത്തു.",
+    "5 ഉം 1 ഉം ചേർന്നാൽ 6. 6 ഉം 1 ഉം ചേർന്നാൽ 7."
+   ],
+   "points": [
+    "0 തൊപ്പി: സങ്കടം",
+    "5 ഉം 1 ഉം = 6",
+    "6 ഉം 1 ഉം = 7"
+   ],
+   "caption": "തൊപ്പി തിരികെ കിട്ടിയ മാമൻ",
+   "picture": "A sad old hat seller with a yellow turban sitting under a tree with an empty bag; then animals handing back pink hats to him one by one, and he smiles."
+  },
+  {
+   "heading": "കുളക്കരയിൽ",
+   "text": [
+    "അവർ ഒരു കുളക്കരയിലെത്തി.",
+    "തവള, മീൻ, കൊക്ക്, താറാവ് എന്നിവയെ എണ്ണി.",
+    "ഏതാണ് കൂടുതൽ?"
+   ],
+   "points": [
+    "എണ്ണി എഴുതാം",
+    "കൂടുതൽ ഏത്?",
+    "ചെറുതിൽനിന്ന് വലുതിലേക്ക്"
+   ],
+   "caption": "കുളക്കരയിലെ എണ്ണൽ",
+   "picture": "A pond scene for counting: green frogs on lily pads, small fish, white cranes, dragonflies and ducks, all clearly countable."
+  },
+  {
+   "heading": "ഫോൺ തുറക്കാം",
+   "text": [
+    "മുയലിന് ഒരു ഫോൺ കിട്ടി.",
+    "തുറക്കാൻ 1 മുതൽ 9 വരെ ക്രമത്തിൽ അമർത്തണം.",
+    "ഒരു സംഖ്യ കൂടിയുണ്ട്: 0!"
+   ],
+   "points": [
+    "1 2 3 4 5 6 7 8 9",
+    "ക്രമത്തിൽ സംഖ്യകൾ",
+    "പിന്നെ 0"
+   ],
+   "caption": "ഫോണിലെ സംഖ്യകൾ",
+   "picture": "A smiling rabbit holding a mobile phone with a number pad showing 1 to 9 and 0, a deer, a monkey, a squirrel and a parrot around it."
+  }
+ ],
+ "rhyme": [
+  "മരത്തിൽ മാങ്ങ അഞ്ചെണ്ണം",
+  "ഒന്ന്, രണ്ട്, മൂന്ന് വീണു",
+  "നാലും അഞ്ചും വീണുപോയി",
+  "ബാക്കി പൂജ്യം, ഒന്നുമില്ല!"
+ ],
+ "activity": "9 കല്ലുകൾ നിരത്തിവയ്ക്കൂ. ഓരോന്നായി എടുത്ത് പൂജ്യം വരെ എണ്ണൂ.",
+ "talk": [
+  "മിന്നുവിനും കിട്ടുവിനും എന്തു കിട്ടി?",
+  "പൂജ്യം എന്നാൽ എന്ത്?",
+  "8 കഴിഞ്ഞാൽ അടുത്ത സംഖ്യ ഏത്?"
+ ],
+ "summary": "ഒന്നുമില്ലെങ്കിൽ പൂജ്യം; 0 മുതൽ 9 വരെ ക്രമത്തിൽ എണ്ണാം.",
+ "questions": [
+  {
+   "prompt": "സഞ്ചിയിൽ എന്തായിരുന്നു?",
+   "options": [
+    "തൊപ്പികൾ",
+    "മാങ്ങകൾ",
+    "പന്തുകൾ",
+    "പുസ്തകങ്ങൾ"
+   ],
+   "correct_index": 0,
+   "explanation": "സഞ്ചി നിറയെ തൊപ്പികളായിരുന്നു."
+  },
+  {
+   "prompt": "‘ഒന്നുമില്ല’ എന്നതിന്റെ സംഖ്യ ഏത്?",
+   "options": [
+    "0",
+    "1",
+    "5",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "ഒന്നുമില്ലെങ്കിൽ പൂജ്യം (0)."
+  },
+  {
+   "prompt": "5 ഉം 1 ഉം ചേർന്നാൽ?",
+   "options": [
+    "6",
+    "5",
+    "7",
+    "4"
+   ],
+   "correct_index": 0,
+   "explanation": "5 ഉം 1 ഉം ചേർന്നാൽ 6."
+  },
+  {
+   "prompt": "8 കഴിഞ്ഞാൽ അടുത്ത സംഖ്യ?",
+   "options": [
+    "9",
+    "7",
+    "6",
+    "10"
+   ],
+   "correct_index": 0,
+   "explanation": "6, 7, 8, പിന്നെ 9."
+  },
+  {
+   "prompt": "മരത്തിൽ 2 മാങ്ങ. ഒന്ന് വീണു. ബാക്കി എത്ര?",
+   "options": [
+    "1",
+    "2",
+    "0",
+    "3"
+   ],
+   "correct_index": 0,
+   "explanation": "2 ൽനിന്ന് 1 പോയാൽ 1 ബാക്കി."
+  }
+ ]
+}

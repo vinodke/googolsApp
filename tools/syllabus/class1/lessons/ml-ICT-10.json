@@ -1,0 +1,157 @@
+{
+ "key": "ml-ICT-10",
+ "grade": 1,
+ "subject": "വിവരവിനിമയ സാങ്കേതികവിദ്യ",
+ "chapter_no": 10,
+ "lang": "ml",
+ "title": "വാക്കുമഴ",
+ "subtitle": "താഴെ വീഴുംമുമ്പ് വാക്ക് ടൈപ്പ് ചെയ്യാം",
+ "hero_picture": "A girl sitting cross-legged on the floor playing a game of tossing and catching small pebbles, a cat and a cartoon laptop watching.",
+ "sections": [
+  {
+   "heading": "കല്ല് പിടിക്കാം",
+   "text": [
+    "അമ്മു കൊത്തങ്കല്ല് കളിക്കുന്നു.",
+    "കല്ല് മേലോട്ട് എറിഞ്ഞ് പിടിക്കുന്നു.",
+    "താഴെ വീഴുംമുമ്പ് പിടിക്കണം!"
+   ],
+   "points": [
+    "മേലോട്ട് എറിയാം",
+    "വേഗം പിടിക്കാം",
+    "വീഴാൻ വിടരുത്"
+   ],
+   "caption": "കൊത്തങ്കല്ല് കളി",
+   "picture": "A girl tossing small pebbles up and catching them with one hand, pebbles in the air."
+  },
+  {
+   "heading": "കീബോർഡ്",
+   "text": [
+    "കീബോർഡിൽ ഒത്തിരി കീകൾ.",
+    "ഓരോ കീയിലും ഓരോ അക്ഷരമോ സംഖ്യയോ.",
+    "കീ അമർത്തിയാൽ സ്ക്രീനിൽ അക്ഷരം വരും."
+   ],
+   "points": [
+    "ഒത്തിരി കീകൾ",
+    "അക്ഷരങ്ങളും സംഖ്യകളും",
+    "അമർത്തി ടൈപ്പ് ചെയ്യാം"
+   ],
+   "caption": "കീബോർഡിൽ വിരലുകൾ",
+   "picture": "A child's hands on a laptop keyboard, fingers pressing the keys, close-up."
+  },
+  {
+   "heading": "വീഴുന്ന വാക്കുകൾ",
+   "text": [
+    "'ഫാളിങ് വേഡ്സ്' കളി തുറക്കാം.",
+    "മഴപോലെ വാക്കുകൾ വീഴുന്നു: bat, cup.",
+    "നിലത്തെത്തുംമുമ്പ് ഓരോ വാക്കും ടൈപ്പ് ചെയ്യൂ."
+   ],
+   "points": [
+    "വാക്കുകൾ വീഴുന്നു",
+    "വാക്ക് വായിക്കാം",
+    "വേഗം ടൈപ്പ് ചെയ്യാം"
+   ],
+   "caption": "മഴപോലെ വാക്കുകൾ",
+   "picture": "A laptop screen with a desert sky scene and two short lowercase words in big blue letters floating down: bat and cup."
+  },
+  {
+   "heading": "വായിച്ച് ടൈപ്പ് ചെയ്യാം",
+   "text": [
+    "'cup' എന്ന വാക്ക് നോക്കൂ.",
+    "കീബോർഡിൽ c, പിന്നെ u, പിന്നെ p കണ്ടെത്തൂ.",
+    "ഓരോന്നായി അമർത്തൂ. വാക്ക് മായും!"
+   ],
+   "points": [
+    "ഓരോ അക്ഷരവും കണ്ടെത്താം",
+    "ക്രമത്തിൽ അമർത്താം",
+    "വാക്ക് മായും"
+   ],
+   "caption": "വാക്ക് ടൈപ്പ് ചെയ്യുന്നു",
+   "picture": "A boy reading the word cup on a laptop screen and typing it, with a picture of a cup beside the laptop."
+  },
+  {
+   "heading": "വാക്കുകളും വസ്തുക്കളും",
+   "text": [
+    "bat കളിക്കാൻ. cup കുടിക്കാൻ.",
+    "hat തലയിൽ. pen എഴുതാൻ.",
+    "ചെറിയ വാക്കുകൾ പല വസ്തുക്കളുടെയും പേരാണ്."
+   ],
+   "points": [
+    "bat, cup",
+    "hat, pen",
+    "വാക്കുകൾ പേരുകൾ"
+   ],
+   "caption": "വാക്കുകളും വസ്തുക്കളും",
+   "picture": "Picture cards on a table: a bat, a cup, a hat and a pen, each with a matching object beside it (no letters)."
+  }
+ ],
+ "rhyme": [
+  "ചറപറ ചറപറ വാക്കുമഴ",
+  "bat ഉം cup ഉം താഴേക്ക്",
+  "കീകൾ തട്ടാം c-u-p",
+  "വാക്കുകൾ പിടിച്ചു നമ്മളും!"
+ ],
+ "activity": "bat, cup, hat, pen എന്നീ വാക്കുകൾ എഴുതി ഓരോന്നിനും അരികിൽ ചിത്രം വരയ്ക്കൂ.",
+ "talk": [
+  "അമ്മു എന്തു കളിയാണ് കളിച്ചത്?",
+  "വാക്ക് എങ്ങനെ ടൈപ്പ് ചെയ്യാം?",
+  "'c' യിൽ തുടങ്ങുന്ന ഒരു വസ്തുവിന്റെ പേരു പറയൂ."
+ ],
+ "summary": "വീഴുന്ന വാക്ക് വായിച്ച് അതിലെ അക്ഷരങ്ങൾ കീബോർഡിൽ ടൈപ്പ് ചെയ്താൽ വാക്കിനെ പിടിക്കാം.",
+ "questions": [
+  {
+   "prompt": "അക്ഷരങ്ങൾ ടൈപ്പ് ചെയ്യാൻ?",
+   "options": [
+    "കീബോർഡ്",
+    "മൗസ് പാഡ്",
+    "സ്പീക്കർ",
+    "ബാഗ്"
+   ],
+   "correct_index": 0,
+   "explanation": "കീബോർഡിലെ കീകൾ അമർത്തിയാണ് ടൈപ്പ് ചെയ്യുന്നത്."
+  },
+  {
+   "prompt": "'ഫാളിങ് വേഡ്സി'ൽ എന്തു ചെയ്യണം?",
+   "options": [
+    "വാക്കുകൾ ടൈപ്പ് ചെയ്യണം",
+    "വാക്കുകൾ വരയ്ക്കണം",
+    "വാക്കുകൾ പാടണം",
+    "വാക്കുകൾ ഒളിപ്പിക്കണം"
+   ],
+   "correct_index": 0,
+   "explanation": "വീഴുംമുമ്പ് ഓരോ വാക്കും ടൈപ്പ് ചെയ്യണം."
+  },
+  {
+   "prompt": "'cup' ലെ അക്ഷരങ്ങൾ?",
+   "options": [
+    "c, u, p",
+    "c, a, t",
+    "b, a, t",
+    "p, e, n"
+   ],
+   "correct_index": 0,
+   "explanation": "c-u-p ചേർന്നാൽ cup."
+  },
+  {
+   "prompt": "കുടിക്കാൻ ഉപയോഗിക്കുന്നത്?",
+   "options": [
+    "cup",
+    "bat",
+    "hat",
+    "pen"
+   ],
+   "correct_index": 0,
+   "explanation": "cup ൽ നിന്നാണ് കുടിക്കുന്നത്."
+  },
+  {
+   "prompt": "അമ്മു എറിഞ്ഞു പിടിച്ചത്?",
+   "options": [
+    "കല്ലുകൾ",
+    "പ്ലേറ്റുകൾ",
+    "ചെരിപ്പുകൾ",
+    "പുസ്തകങ്ങൾ"
+   ],
+   "correct_index": 0,
+   "explanation": "അവൾ കൊത്തങ്കല്ല് കളിച്ചു."
+  }
+ ]
+}

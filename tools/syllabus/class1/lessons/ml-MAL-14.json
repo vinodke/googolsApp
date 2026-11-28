@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-14",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 14,
+ "lang": "ml",
+ "title": "ഒത്തുപിടിച്ചാൽ",
+ "subtitle": "കാടിനെ രക്ഷിച്ച കൂട്ടുകാർ",
+ "hero_picture": "A green forest after rain, fresh and full of life: a small yellow bird singing at its nest on a branch, elephants, a giraffe, a deer, monkeys and a rabbit together by a sparkling stream.",
+ "sections": [
+  {
+   "heading": "കാടിന് തീ പിടിച്ചു",
+   "text": [
+    "കാടിന് തീ പിടിച്ചു.",
+    "മൃഗങ്ങൾ പേടിച്ച് ഓടി.",
+    "സുന്ദരിക്കിളി കരഞ്ഞു: അയ്യോ, എന്റെ കൂട്ടിൽ മൂന്നു മുട്ടകളുണ്ട്!"
+   ],
+   "points": [
+    "കാട്ടുതീ",
+    "മൃഗങ്ങൾ ഓടി",
+    "സുന്ദരിക്കിളിയുടെ മുട്ടകൾ"
+   ],
+   "caption": "തീ പിടിച്ച കാട്",
+   "picture": "A forest with orange flames and smoke in the distance (not frightening, storybook style); an elephant, a deer, a tiger, a rabbit and a monkey running away; a small yellow bird above its nest with three eggs, looking worried."
+  },
+  {
+   "heading": "കുഞ്ഞിക്കൊക്കിൽ വെള്ളം",
+   "text": [
+    "സുന്ദരിക്കിളി അരുവിയിലേക്ക് പറന്നു.",
+    "കുഞ്ഞിക്കൊക്കിൽ വെള്ളം കൊണ്ടുവന്ന് തീയിൽ ഒഴിച്ചു.",
+    "വീണ്ടും വീണ്ടും അങ്ങനെ ചെയ്തു."
+   ],
+   "points": [
+    "അരുവിയിലേക്ക് പറന്നു",
+    "കൊക്കിൽ വെള്ളം",
+    "വീണ്ടും വീണ്ടും"
+   ],
+   "caption": "വെള്ളവുമായി പറക്കുന്ന സുന്ദരിക്കിളി",
+   "picture": "A small brave yellow bird flying from a waterfall towards the forest carrying a drop of water in its little beak; mountains and the waterfall behind."
+  },
+  {
+   "heading": "കാട് എന്റെ അമ്മ",
+   "text": [
+    "മൂങ്ങ ചോദിച്ചു: ഇങ്ങനെ തീ കെടുമോ?",
+    "സുന്ദരിക്കിളി പറഞ്ഞു: കാട് എനിക്ക് അമ്മയാണ്. എന്നാലാവത് ഞാൻ ചെയ്യുന്നു.",
+    "മൂങ്ങയും അവളോടൊപ്പം ചേർന്നു."
+   ],
+   "points": [
+    "മൂങ്ങ ചോദിച്ചു",
+    "കാട് അമ്മയാണ്",
+    "മൂങ്ങയും ചേർന്നു"
+   ],
+   "caption": "സുന്ദരിക്കിളിയും മൂങ്ങയും",
+   "picture": "A round brown owl on a branch listening to a small yellow bird that is speaking with determination; then both flying together towards a pond carrying water."
+  },
+  {
+   "heading": "ഒത്തുപിടിച്ചാൽ",
+   "text": [
+    "വവ്വാൽ ഈ വാർത്ത കാട്ടിലെങ്ങും പരത്തി.",
+    "ആനകൾ തുമ്പിക്കൈയിൽ വെള്ളം ചീറ്റി. കുരങ്ങുകൾ ഇലക്കുമ്പിളിൽ വെള്ളം ഒഴിച്ചു.",
+    "തീ അണഞ്ഞു! എല്ലാവർക്കും ആശ്വാസമായി."
+   ],
+   "points": [
+    "എല്ലാവരും ചേർന്നു",
+    "ആനകൾ വെള്ളം ചീറ്റി",
+    "തീ അണഞ്ഞു"
+   ],
+   "caption": "ഒത്തുചേർന്ന് തീ കെടുത്തുന്നവർ",
+   "picture": "Elephants spraying water from their trunks onto the last small flames, monkeys pouring water from cups made of leaves, a giraffe, a rabbit and a bat helping; the fire is going out."
+  },
+  {
+   "heading": "കാട് വീണ്ടും തളിർത്തു",
+   "text": [
+    "പിന്നെ മഴ പെയ്തു.",
+    "കരിഞ്ഞ ചില്ലകൾ തളിർത്തു. കാടാകെ പൂത്തു.",
+    "മരമില്ലെങ്കിൽ കാടില്ല; കാടില്ലെങ്കിൽ മഴയില്ല."
+   ],
+   "points": [
+    "മഴ പെയ്തു",
+    "കാട് തളിർത്തു",
+    "മരം വേണം, കാട് വേണം"
+   ],
+   "caption": "വീണ്ടും പച്ചയായ കാട്",
+   "picture": "A lush green forest after rain with new green leaves and flowers, a stream with fresh water, a deer drinking, and the small yellow bird feeding its three chicks in the nest."
+  }
+ ],
+ "rhyme": [
+  "മരമുണ്ടെങ്കിൽ കാടുണ്ട്",
+  "കാടുണ്ടെങ്കിൽ മഴയുണ്ട്",
+  "ഒത്തുപിടിച്ചാൽ എന്തിനും",
+  "വഴിയുണ്ടല്ലോ കൂട്ടരേ!"
+ ],
+ "activity": "കൂട്ടുകാരോടൊപ്പം ഈ കഥ നാടകമായി കളിക്കൂ. ആന, കിളി, മൂങ്ങ എന്നിവരുടെ മുഖംമൂടി ഉണ്ടാക്കാം.",
+ "talk": [
+  "സുന്ദരിക്കിളി പേടിച്ചത് എന്തിന്?",
+  "സുന്ദരിക്കിളി എങ്ങനെയാണ് തീ കെടുത്താൻ നോക്കിയത്?",
+  "തീ അണഞ്ഞത് എങ്ങനെ?"
+ ],
+ "summary": "ഒത്തുപിടിച്ചാൽ ഏതു വിഷമവും മാറ്റാം; കാടിനെ നമ്മൾ കാക്കണം.",
+ "questions": [
+  {
+   "prompt": "സുന്ദരിക്കിളിയുടെ കൂട്ടിൽ എത്ര മുട്ടകളുണ്ടായിരുന്നു?",
+   "options": [
+    "മൂന്ന്",
+    "ഒന്ന്",
+    "പത്ത്",
+    "ഒന്നുമില്ല"
+   ],
+   "correct_index": 0,
+   "explanation": "കൂട്ടിൽ മൂന്നു മുട്ടകളുണ്ടായിരുന്നു."
+  },
+  {
+   "prompt": "സുന്ദരിക്കിളി വെള്ളം കൊണ്ടുവന്നത് എങ്ങനെ?",
+   "options": [
+    "കുഞ്ഞിക്കൊക്കിൽ",
+    "ബക്കറ്റിൽ",
+    "കുടത്തിൽ",
+    "പൈപ്പിലൂടെ"
+   ],
+   "correct_index": 0,
+   "explanation": "അവൾ കുഞ്ഞിക്കൊക്കിൽ വെള്ളം കൊണ്ടുവന്ന് തീയിൽ ഒഴിച്ചു."
+  },
+  {
+   "prompt": "‘കാട് എനിക്ക് അമ്മയാണ്’ എന്നു പറഞ്ഞത് ആര്?",
+   "options": [
+    "സുന്ദരിക്കിളി",
+    "മൂങ്ങ",
+    "ആന",
+    "വവ്വാൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "സുന്ദരിക്കിളിയാണ് അങ്ങനെ പറഞ്ഞത്."
+  },
+  {
+   "prompt": "തുമ്പിക്കൈയിൽ വെള്ളം ചീറ്റിയത് ആര്?",
+   "options": [
+    "ആനകൾ",
+    "മുയലുകൾ",
+    "കിളികൾ",
+    "മീനുകൾ"
+   ],
+   "correct_index": 0,
+   "explanation": "ആനകൾ തുമ്പിക്കൈയിൽ വെള്ളം കൊണ്ടുവന്ന് ചീറ്റി."
+  },
+  {
+   "prompt": "ഈ കഥ നമ്മെ പഠിപ്പിക്കുന്നത് എന്ത്?",
+   "options": [
+    "ഒത്തുപിടിച്ചാൽ വിജയിക്കാം",
+    "ഒറ്റയ്ക്ക് ഓടിപ്പോകണം",
+    "കാട് വേണ്ട",
+    "ആരെയും സഹായിക്കരുത്"
+   ],
+   "correct_index": 0,
+   "explanation": "എല്ലാവരും ഒത്തുചേർന്നപ്പോൾ തീ അണഞ്ഞു."
+  }
+ ]
+}

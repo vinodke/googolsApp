@@ -1,0 +1,157 @@
+{
+ "key": "en-ENG-04",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 4,
+ "lang": "en",
+ "title": "New Blue Shoes",
+ "subtitle": "Tinu and Grandpa go shopping",
+ "hero_picture": "A little girl in a green dress and her bald grandfather in a shoe shop full of blue shoes, a small cat beside them.",
+ "sections": [
+  {
+   "heading": "Too small",
+   "text": [
+    "Tinu's old shoes are too small.",
+    "'Grandpa, I want new blue shoes.'",
+    "'Don't worry, I will get you new blue shoes.'"
+   ],
+   "points": [
+    "Old shoes are small",
+    "Tinu wants blue",
+    "Grandpa will help"
+   ],
+   "caption": "Too small",
+   "picture": "A little girl holding small old blue shoes, talking to her smiling grandfather, a cat nearby."
+  },
+  {
+   "heading": "To the shoe shop",
+   "text": [
+    "Grandpa and Tinu went to the shoe shop.",
+    "'See these.' 'All these are yellow.'",
+    "'I want blue shoes. Let us go to the next shop.'"
+   ],
+   "points": [
+    "Yellow shoes",
+    "No blue",
+    "Next shop"
+   ],
+   "caption": "To the shoe shop",
+   "picture": "A grandfather and girl in a shoe shop where all the shoes on the shelves are yellow."
+  },
+  {
+   "heading": "Pink, black and red",
+   "text": [
+    "'Look, they are superb.'",
+    "'But they are all pink and black.'",
+    "In the next shop, there were red shoes only."
+   ],
+   "points": [
+    "Pink and black",
+    "Red only",
+    "Still no blue"
+   ],
+   "caption": "Pink, black and red",
+   "picture": "A shoe shop with shelves of pink, black and red shoes, the girl shaking her head."
+  },
+  {
+   "heading": "The last shop",
+   "text": [
+    "'Will there be blue shoes, Grandpa?' 'Sure, dear.'",
+    "The last shop was full of blue shoes.",
+    "'Hi, blue shoes!'"
+   ],
+   "points": [
+    "Last shop",
+    "Full of blue",
+    "Hi, blue shoes!"
+   ],
+   "caption": "The last shop",
+   "picture": "A happy girl in a shoe shop where every shoe on the shelves is blue."
+  },
+  {
+   "heading": "Which one?",
+   "text": [
+    "'They are all blue. Which one should I take?'",
+    "Tinu looks at each pair.",
+    "Grandpa smiles. Tinu is happy."
+   ],
+   "points": [
+    "Many blue shoes",
+    "Choose one pair",
+    "Happy Tinu"
+   ],
+   "caption": "Which one?",
+   "picture": "A little girl sitting and thinking in front of many pairs of blue shoes."
+  }
+ ],
+ "rhyme": [
+  "Yellow shoes, pink shoes,",
+  "Red shoes, black,",
+  "I want blue shoes,",
+  "I won't go back!"
+ ],
+ "activity": "Draw a pair of shoes and colour them in your favourite colour.",
+ "talk": [
+  "Why did Tinu need new shoes?",
+  "What colour shoes were in the first shop?",
+  "Which colour did Tinu want?"
+ ],
+ "summary": "Tinu wanted blue shoes; she and Grandpa looked in many shops and found them in the last shop.",
+ "questions": [
+  {
+   "prompt": "Which colour shoes did Tinu want?",
+   "options": [
+    "Blue",
+    "Red",
+    "Yellow",
+    "Pink"
+   ],
+   "correct_index": 0,
+   "explanation": "'I want new blue shoes.'"
+  },
+  {
+   "prompt": "Who went shopping with Tinu?",
+   "options": [
+    "Grandpa",
+    "Mother",
+    "Teacher",
+    "Robo"
+   ],
+   "correct_index": 0,
+   "explanation": "Grandpa and Tinu went to the shoe shop."
+  },
+  {
+   "prompt": "What was wrong with her old shoes?",
+   "options": [
+    "Too small",
+    "Too big",
+    "Too new",
+    "Too red"
+   ],
+   "correct_index": 0,
+   "explanation": "They were too small."
+  },
+  {
+   "prompt": "The first shop had shoes of which colour?",
+   "options": [
+    "Yellow",
+    "Blue",
+    "Green",
+    "White"
+   ],
+   "correct_index": 0,
+   "explanation": "'All these are yellow.'"
+  },
+  {
+   "prompt": "Where did they find blue shoes?",
+   "options": [
+    "In the last shop",
+    "In the first shop",
+    "At home",
+    "In the park"
+   ],
+   "correct_index": 0,
+   "explanation": "The last shop was full of blue shoes."
+  }
+ ]
+}

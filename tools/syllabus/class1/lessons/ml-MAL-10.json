@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-10",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 10,
+ "lang": "ml",
+ "title": "പച്ചക്കറിത്തോണി",
+ "subtitle": "പച്ചക്കറികളും കൃഷിയും",
+ "hero_picture": "Smiling cartoon vegetables - a pumpkin, an ash gourd, a yam, a long snake gourd and red tomatoes - sitting together in a small wooden boat on a river, rowing happily, green riverbank behind.",
+ "sections": [
+  {
+   "heading": "മത്തങ്ങയുടെ യാത്ര",
+   "text": [
+    "മത്തങ്ങ നാടു കാണാനിറങ്ങി.",
+    "കുമ്പളങ്ങയും കൂടെ വന്നു.",
+    "രണ്ടുപേരും കൈകോർത്ത് നടന്നു."
+   ],
+   "points": [
+    "മത്തങ്ങ ഇറങ്ങി",
+    "കുമ്പളങ്ങ കൂടെ വന്നു",
+    "കൈകോർത്ത് നടന്നു"
+   ],
+   "caption": "നാടുകാണാനിറങ്ങിയ മത്തങ്ങയും കുമ്പളങ്ങയും",
+   "picture": "A round orange pumpkin and a long pale-green ash gourd with cute faces walking hand-in-hand along a village path, very happy."
+  },
+  {
+   "heading": "ഉരുണ്ടുരുണ്ട് പുഴയിൽ",
+   "text": [
+    "അതാ, കുത്തനെ ഒരു ഇറക്കം! കാലുതെറ്റി.",
+    "ചേനയും പടവലവും തക്കാളിയും താഴെ വീണു.",
+    "ഉരുണ്ടുരുണ്ട് എല്ലാവരും പുഴയിൽ!"
+   ],
+   "points": [
+    "കുത്തനെ ഇറക്കം",
+    "കാലുതെറ്റി വീണു",
+    "എല്ലാവരും പുഴയിൽ"
+   ],
+   "caption": "പുഴയിലേക്ക് ഉരുണ്ട പച്ചക്കറികൾ",
+   "picture": "Cartoon vegetables - a pumpkin, an ash gourd, a brown yam, a long snake gourd and red tomatoes - tumbling and rolling down a steep grassy slope into a river with a big funny splash."
+  },
+  {
+   "heading": "പച്ചക്കറിത്തോണി",
+   "text": [
+    "ഒരു വലിയ മത്തങ്ങത്തോണി!",
+    "കുട്ടികൾ അതിൽ പാട്ടുപാടി വരുന്നു.",
+    "വെണ്ട, ചീര, വെള്ളരിക്ക, പടവലം, മുരിങ്ങക്കായ."
+   ],
+   "points": [
+    "മത്തങ്ങത്തോണി",
+    "പാട്ടുപാടി കുട്ടികൾ",
+    "പല പച്ചക്കറികൾ"
+   ],
+   "caption": "മത്തങ്ങത്തോണിയിലെ കുട്ടികൾ",
+   "picture": "Five happy Kerala children rowing a boat made from a giant hollow yellow pumpkin down a river; the riverbanks are full of okra, spinach, cucumbers, snake gourds and drumsticks."
+  },
+  {
+   "heading": "ഇലയും കായയും",
+   "text": [
+    "ചീരയുടെ ഇല കഴിക്കും.",
+    "മുരിങ്ങയുടെ കായ കഴിക്കും.",
+    "വാഴക്കൂമ്പും വാഴപ്പിണ്ടിയും കഴിക്കും."
+   ],
+   "points": [
+    "ഇല: ചീര",
+    "കായ: മുരിങ്ങക്കായ",
+    "മറ്റു ഭാഗങ്ങൾ: വാഴക്കൂമ്പ്"
+   ],
+   "caption": "നാം കഴിക്കുന്ന ഭാഗങ്ങൾ",
+   "picture": "Three neat groups on a table: a bunch of red spinach leaves, a few long green drumsticks, and a purple banana flower next to a white banana stem piece."
+  },
+  {
+   "heading": "നന്ദിതയുടെ കൃഷി",
+   "text": [
+    "നന്ദിത അമ്മയോടൊപ്പം കൃഷി ചെയ്തു.",
+    "മുളകും വെണ്ടയും നട്ടു.",
+    "ദിവസവും വെള്ളം ഒഴിച്ചു. പുഴു തിന്ന ഇലകൾ പറിച്ചുകളഞ്ഞു."
+   ],
+   "points": [
+    "മുളകും വെണ്ടയും നട്ടു",
+    "ദിവസവും വെള്ളം",
+    "പുഴുവിനെ നോക്കണം"
+   ],
+   "caption": "വീട്ടിലെ പച്ചക്കറിത്തോട്ടം",
+   "picture": "A Kerala girl watering green chilli plants and okra plants with a small watering can in a home vegetable garden, her mother beside her pulling out a leaf with holes."
+  }
+ ],
+ "rhyme": [
+  "മത്തനും ചേനയും കുമ്പളവും",
+  "വെണ്ടയും ചീരയും പാവലും",
+  "പച്ചക്കറി കഴിച്ചാലോ",
+  "കരുത്തോടെ വളരാലോ!"
+ ],
+ "activity": "ഒരു ചട്ടിയിലോ കുപ്പിയിലോ ഒരു വിത്ത് നടൂ. ദിവസവും വെള്ളം ഒഴിച്ച് അത് വളരുന്നത് നോക്കൂ.",
+ "talk": [
+  "പച്ചക്കറികൾ പുഴയിൽ വീണത് എങ്ങനെ?",
+  "ഇല കഴിക്കുന്ന ഒരു പച്ചക്കറി പറയൂ.",
+  "നിന്റെ വീട്ടിൽ ഏതെല്ലാം ചെടികളുണ്ട്?"
+ ],
+ "summary": "പച്ചക്കറികൾ പല തരം; നമുക്കും വീട്ടിൽ കൃഷി ചെയ്യാം.",
+ "questions": [
+  {
+   "prompt": "നാടു കാണാനിറങ്ങിയത് ആര്?",
+   "options": [
+    "മത്തങ്ങ",
+    "തക്കാളി",
+    "കാരറ്റ്",
+    "ഉള്ളി"
+   ],
+   "correct_index": 0,
+   "explanation": "മത്തങ്ങ നാടു കാണാനിറങ്ങി; കുമ്പളങ്ങ കൂടെ വന്നു."
+  },
+  {
+   "prompt": "പച്ചക്കറികൾ വീണത് എവിടെ?",
+   "options": [
+    "പുഴയിൽ",
+    "കിണറ്റിൽ",
+    "പെട്ടിയിൽ",
+    "മരത്തിൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "ഉരുണ്ടുരുണ്ട് എല്ലാവരും പുഴയിൽ വീണു."
+  },
+  {
+   "prompt": "ചീരയുടെ ഏതു ഭാഗമാണ് നാം കഴിക്കുന്നത്?",
+   "options": [
+    "ഇല",
+    "വേര്",
+    "കായ",
+    "പൂവ്"
+   ],
+   "correct_index": 0,
+   "explanation": "ചീരയുടെ ഇലയാണ് നാം കഴിക്കുന്നത്."
+  },
+  {
+   "prompt": "മുരിങ്ങയുടെ ഏതു ഭാഗമാണ് മുരിങ്ങക്കായ?",
+   "options": [
+    "കായ",
+    "ഇല",
+    "തടി",
+    "വേര്"
+   ],
+   "correct_index": 0,
+   "explanation": "മുരിങ്ങക്കായ മുരിങ്ങയുടെ കായയാണ്."
+  },
+  {
+   "prompt": "ചെടി വളരാൻ ദിവസവും എന്തു കൊടുക്കണം?",
+   "options": [
+    "വെള്ളം",
+    "മിഠായി",
+    "പാൽ",
+    "കടലാസ്"
+   ],
+   "correct_index": 0,
+   "explanation": "നന്ദിത ദിവസവും ചെടികൾക്ക് വെള്ളം ഒഴിച്ചു."
+  }
+ ]
+}

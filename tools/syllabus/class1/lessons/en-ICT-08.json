@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-08",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 8,
+ "lang": "en",
+ "title": "Let's Find Out",
+ "subtitle": "Spot the differences",
+ "hero_picture": "A kitten and a girl looking at a framed photo on the wall showing two kittens that look almost the same.",
+ "sections": [
+  {
+   "heading": "Which one is me?",
+   "text": [
+    "Kuttan the cat sees a photo of two kittens.",
+    "'Which one is me in the photo?' he wonders.",
+    "They look the same. Look closely!"
+   ],
+   "points": [
+    "Look closely",
+    "Same or different?",
+    "Find small changes"
+   ],
+   "caption": "Which kitten is me?",
+   "picture": "A framed photo of two almost identical kittens side by side, a real kitten looking at it curiously."
+  },
+  {
+   "heading": "Two pictures",
+   "text": [
+    "Here are two pictures of a tree.",
+    "They look the same, but not fully.",
+    "In one picture, a bird is missing!"
+   ],
+   "points": [
+    "Look at both",
+    "Compare part by part",
+    "Find what is missing"
+   ],
+   "caption": "Two tree pictures",
+   "picture": "Two nearly identical pictures side by side of a curly tree with birds on its branches; in the right picture one bird is missing."
+  },
+  {
+   "heading": "Look part by part",
+   "text": [
+    "Look at the top, then the middle, then the bottom.",
+    "Check the birds, the flowers, the grass.",
+    "Each change is a difference."
+   ],
+   "points": [
+    "Top, middle, bottom",
+    "Check each thing",
+    "Count the differences"
+   ],
+   "caption": "Pointing at a difference",
+   "picture": "A child's finger pointing at a small difference between two pictures of a garden, one picture has an extra flower."
+  },
+  {
+   "heading": "Photo hunter game",
+   "text": [
+    "Open the 'Photo hunter' game.",
+    "Two pictures are shown side by side.",
+    "Click wherever there is a difference."
+   ],
+   "points": [
+    "Two pictures",
+    "Click on differences",
+    "Find them all"
+   ],
+   "caption": "Photo hunter on screen",
+   "picture": "A laptop screen showing two nearly identical tree pictures side by side, with a small circle drawn around one difference."
+  },
+  {
+   "heading": "Find out around you",
+   "text": [
+    "Look at your friend's drawing and yours.",
+    "What is the same? What is different?",
+    "Observing well is a good habit."
+   ],
+   "points": [
+    "Same things",
+    "Different things",
+    "Observe well"
+   ],
+   "caption": "Comparing drawings",
+   "picture": "Two children comparing two drawings of a house on paper, one with a chimney and one without."
+  }
+ ],
+ "rhyme": [
+  "Two pictures, side by side,",
+  "A little bird has gone to hide,",
+  "Look up, look down, look all around,",
+  "Click, click, a difference found!"
+ ],
+ "activity": "Draw two faces. Make one small change in the second face. Ask a friend to find it.",
+ "talk": [
+  "Why was the cat confused?",
+  "What was missing in the second tree picture?",
+  "How do we look for differences?"
+ ],
+ "summary": "We can look carefully, part by part, to find differences between two pictures.",
+ "questions": [
+  {
+   "prompt": "In 'Photo hunter', where do we click?",
+   "options": [
+    "On the differences",
+    "On the sky only",
+    "Outside the screen",
+    "Nowhere"
+   ],
+   "correct_index": 0,
+   "explanation": "Click wherever the pictures are different."
+  },
+  {
+   "prompt": "What was missing in one tree picture?",
+   "options": [
+    "A bird",
+    "The tree",
+    "The sun",
+    "The grass"
+   ],
+   "correct_index": 0,
+   "explanation": "One bird was missing."
+  },
+  {
+   "prompt": "How should we look for differences?",
+   "options": [
+    "Part by part",
+    "With eyes closed",
+    "Very fast",
+    "Only once"
+   ],
+   "correct_index": 0,
+   "explanation": "Check each part carefully."
+  },
+  {
+   "prompt": "Two things that look the same and have no change are...",
+   "options": [
+    "Same",
+    "Different",
+    "Missing",
+    "Broken"
+   ],
+   "correct_index": 0,
+   "explanation": "With no change, they are the same."
+  },
+  {
+   "prompt": "Who looked at the photo of two kittens?",
+   "options": [
+    "The cat",
+    "The dog",
+    "The cow",
+    "The hen"
+   ],
+   "correct_index": 0,
+   "explanation": "Kuttan the cat looked at it."
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-08",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 8,
+ "lang": "ml",
+ "title": "നാണയക്കിലുക്കം",
+ "subtitle": "നാണയങ്ങളും നോട്ടുകളും",
+ "hero_picture": "A colourful Kerala village festival ground with a giant wheel, bunting flags, an ice-cream booth and happy families; two children holding coins.",
+ "sections": [
+  {
+   "heading": "നാണയപ്രദർശനം",
+   "text": [
+    "അനുവും ജിത്തുവും ഉത്സവപ്പറമ്പിലെത്തി.",
+    "അവർ പല നാണയങ്ങൾ കണ്ടു: 1, 2, 5, 10, 20 രൂപ.",
+    "നോട്ടുകൾ കടലാസുപണമാണ്: 10, 20, 50, 100 രൂപ."
+   ],
+   "points": [
+    "നാണയം: 1, 2, 5, 10, 20",
+    "നോട്ട്: 10, 20, 50, 100",
+    "രൂപ നമ്മുടെ പണം"
+   ],
+   "caption": "നാണയപ്രദർശനം",
+   "picture": "Children looking at a table displaying Indian coins of 1, 2, 5, 10 and 20 rupees in neat rows (no readable text)."
+  },
+  {
+   "heading": "ഐസ്‌ക്രീം വാങ്ങാം",
+   "text": [
+    "ഒരു ഐസ്‌ക്രീമിന് 15 രൂപ.",
+    "അനു മൂന്ന് 5 രൂപ നോട്ടുകൾ കൊടുത്തു.",
+    "5 + 5 + 5 = 15 രൂപ."
+   ],
+   "points": [
+    "വില: 15 രൂപ",
+    "5 + 5 + 5 = 15",
+    "10 + 5 = 15"
+   ],
+   "caption": "ഐസ്‌ക്രീം കടയിൽ",
+   "picture": "A girl and a boy at a colourful ice-cream booth, the girl handing over some paper notes to the seller."
+  },
+  {
+   "heading": "യന്ത്ര ഊഞ്ഞാലിൽ",
+   "text": [
+    "ഒരു ടിക്കറ്റിന് 20 രൂപ.",
+    "ജിത്തു നാണയങ്ങൾ കൊടുത്തു: 10 + 5 + 5.",
+    "അത് 20 രൂപ!"
+   ],
+   "points": [
+    "ടിക്കറ്റ്: 20 രൂപ",
+    "10 + 5 + 5 = 20",
+    "നാണയം എണ്ണാം"
+   ],
+   "caption": "ടിക്കറ്റ് വാങ്ങുന്നു",
+   "picture": "Children at a small ticket counter near a giant wheel, one boy counting coins in his hand."
+  },
+  {
+   "heading": "കടയിൽ",
+   "text": [
+    "ക്രയോൺ പെട്ടിക്ക് 5 രൂപ. ജലച്ചായത്തിന് 10 രൂപ.",
+    "രണ്ടിനും കൂടി: 5 + 10 = 15 രൂപ.",
+    "വിലകൾ കൂട്ടി ആകെ കാണാം."
+   ],
+   "points": [
+    "ക്രയോൺ: 5 രൂപ",
+    "ജലച്ചായം: 10 രൂപ",
+    "ആകെ: 15 രൂപ"
+   ],
+   "caption": "നിറങ്ങൾ വാങ്ങുന്നു",
+   "picture": "A small stationery shop with crayons, watercolours and erasers on the shelves, a boy buying a box of crayons."
+  },
+  {
+   "heading": "എന്റെ കുടുക്ക",
+   "text": [
+    "ക്ലാസിലെ കുടുക്ക തുറന്നു.",
+    "നാണയങ്ങൾ 10 രൂപയുടെ കൂട്ടങ്ങളാക്കി.",
+    "കൂട്ടങ്ങൾ എണ്ണി ആകെ പണം കാണാം!"
+   ],
+   "points": [
+    "നാണയം തരംതിരിക്കാം",
+    "10 രൂപയുടെ കൂട്ടം",
+    "പണം എണ്ണാം"
+   ],
+   "caption": "കുടുക്കയിലെ പണം എണ്ണുന്നു",
+   "picture": "A clay piggy bank broken open on a table with coins spilling out; children sorting the coins into small heaps."
+  }
+ ],
+ "rhyme": [
+  "കിലുകിലു കിലുങ്ങും നാണയം",
+  "ഒന്നും രണ്ടും അഞ്ചും പത്തും",
+  "പത്തും അഞ്ചും പതിനഞ്ച്",
+  "ഐസ്‌ക്രീം വാങ്ങാം കൂട്ടരേ!"
+ ],
+ "activity": "കൂട്ടുകാരനൊപ്പം കടകളി കളിക്കൂ. 1, 2, 5, 10 രൂപയുടെ കടലാസ് നാണയങ്ങൾ ഉണ്ടാക്കി വാങ്ങുകയും വിൽക്കുകയും ചെയ്യൂ.",
+ "talk": [
+  "നീ കണ്ടിട്ടുള്ള നാണയങ്ങൾ ഏതെല്ലാം?",
+  "15 രൂപ എങ്ങനെ ഉണ്ടാക്കാം?",
+  "10 രൂപയ്ക്ക് എന്തു വാങ്ങാം?"
+ ],
+ "summary": "നാണയങ്ങളും നോട്ടുകളും കൊടുത്ത് സാധനങ്ങൾ വാങ്ങാം; വിലകൾ കൂട്ടി ആകെ കാണാം.",
+ "questions": [
+  {
+   "prompt": "ഐസ്‌ക്രീമിന് 15 രൂപ. 15 ആകുന്നത് ഏത്?",
+   "options": [
+    "10 + 5",
+    "10 + 10",
+    "5 + 5",
+    "2 + 2"
+   ],
+   "correct_index": 0,
+   "explanation": "10 ഉം 5 ഉം ചേർന്നാൽ 15."
+  },
+  {
+   "prompt": "5 + 5 + 5 = ?",
+   "options": [
+    "15",
+    "10",
+    "20",
+    "55"
+   ],
+   "correct_index": 0,
+   "explanation": "മൂന്ന് 5 രൂപ നോട്ടുകൾ 15 രൂപ."
+  },
+  {
+   "prompt": "ക്രയോണിന് 5 രൂപ, ജലച്ചായത്തിന് 10 രൂപ. ആകെ?",
+   "options": [
+    "15 രൂപ",
+    "10 രൂപ",
+    "5 രൂപ",
+    "20 രൂപ"
+   ],
+   "correct_index": 0,
+   "explanation": "5 + 10 = 15."
+  },
+  {
+   "prompt": "കടലാസുപണം ഏത്?",
+   "options": [
+    "നോട്ട്",
+    "നാണയം",
+    "ബട്ടൺ",
+    "വള"
+   ],
+   "correct_index": 0,
+   "explanation": "നോട്ട് കടലാസുകൊണ്ടുള്ളതാണ്; നാണയം ലോഹംകൊണ്ടും."
+  },
+  {
+   "prompt": "ടിക്കറ്റിന് 20 രൂപ. ജിത്തു 10 + 10 കൊടുത്തു. മതിയോ?",
+   "options": [
+    "മതി",
+    "പോരാ",
+    "5 കൂടി വേണം",
+    "10 കൂടി വേണം"
+   ],
+   "correct_index": 0,
+   "explanation": "10 + 10 = 20, കൃത്യം വില."
+  }
+ ]
+}

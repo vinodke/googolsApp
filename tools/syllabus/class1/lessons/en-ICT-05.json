@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-05",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 5,
+ "lang": "en",
+ "title": "Let's Count and Colour",
+ "subtitle": "Count and colour the circles",
+ "hero_picture": "A boy, a girl and a cat watching a cartoon animal race on a TV screen, the girl counting on her fingers.",
+ "sections": [
+  {
+   "heading": "The animal race",
+   "text": [
+    "Ammu is watching a race on TV.",
+    "How many animals are in the race?",
+    "One, two, three, four!"
+   ],
+   "points": [
+    "Count one by one",
+    "Point and count",
+    "4 animals"
+   ],
+   "caption": "Animals racing on TV",
+   "picture": "A TV screen showing four cute cartoon animals running a race: a squirrel, a rabbit, a fox and a deer."
+  },
+  {
+   "heading": "Coloured circles",
+   "text": [
+    "Look at the circles.",
+    "How many are coloured?",
+    "Three are red. One is white."
+   ],
+   "points": [
+    "Count the red ones",
+    "3 red",
+    "1 white"
+   ],
+   "caption": "Counting coloured circles",
+   "picture": "A row of four circles on a whiteboard, three coloured red and one left white."
+  },
+  {
+   "heading": "Look at the number",
+   "text": [
+    "Open 'Count and colour the circles'.",
+    "A number is shown at the top: 4.",
+    "There are empty circles below."
+   ],
+   "points": [
+    "See the number",
+    "Empty circles",
+    "Get ready"
+   ],
+   "caption": "A number and empty circles",
+   "picture": "A laptop screen showing a big number 4 and a row of five empty circles below it."
+  },
+  {
+   "heading": "Click and check",
+   "text": [
+    "Click on 4 circles to colour them.",
+    "Click 'OK' to check.",
+    "If it is correct, you go to the next number!"
+   ],
+   "points": [
+    "Colour as many as the number",
+    "Click OK",
+    "Next number"
+   ],
+   "caption": "Colouring and checking",
+   "picture": "The same laptop screen with four circles coloured orange and one empty, a green tick button."
+  },
+  {
+   "heading": "Count things around",
+   "text": [
+    "Count the pebbles, buttons or leaves.",
+    "Make groups of 2, 3 or 4.",
+    "Counting is fun everywhere!"
+   ],
+   "points": [
+    "Count pebbles",
+    "Make groups",
+    "Practise daily"
+   ],
+   "caption": "Counting pebbles",
+   "picture": "Children counting pebbles on the floor and putting them in small groups."
+  }
+ ],
+ "rhyme": [
+  "One, two, three, four,",
+  "Colour circles, then some more,",
+  "Click on OK, check and see,",
+  "Counting is so fun for me!"
+ ],
+ "activity": "Draw 5 circles in your notebook. Colour as many as your age.",
+ "talk": [
+  "How many animals were in the race?",
+  "What do we click to check the answer?",
+  "How many fingers on one hand?"
+ ],
+ "summary": "We count and colour the same number of circles as the number shown.",
+ "questions": [
+  {
+   "prompt": "The number shown is 4. How many circles do we colour?",
+   "options": [
+    "4",
+    "2",
+    "5",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "Colour as many circles as the number."
+  },
+  {
+   "prompt": "What do we click to check our answer?",
+   "options": [
+    "OK",
+    "Eraser",
+    "Back",
+    "Music"
+   ],
+   "correct_index": 0,
+   "explanation": "The OK button checks the answer."
+  },
+  {
+   "prompt": "3 red and 1 white circle. How many red?",
+   "options": [
+    "3",
+    "1",
+    "4",
+    "2"
+   ],
+   "correct_index": 0,
+   "explanation": "Three circles are red."
+  },
+  {
+   "prompt": "How many animals: squirrel, rabbit, fox, deer?",
+   "options": [
+    "4",
+    "3",
+    "5",
+    "2"
+   ],
+   "correct_index": 0,
+   "explanation": "One, two, three, four."
+  },
+  {
+   "prompt": "Which number comes after 3?",
+   "options": [
+    "4",
+    "2",
+    "5",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "1, 2, 3, then 4."
+  }
+ ]
+}

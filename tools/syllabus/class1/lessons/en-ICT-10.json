@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-10",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 10,
+ "lang": "en",
+ "title": "Rain of Words",
+ "subtitle": "Type the words before they fall",
+ "hero_picture": "A girl sitting cross-legged on the floor playing a game of tossing and catching small pebbles, a cat and a cartoon laptop watching.",
+ "sections": [
+  {
+   "heading": "Catch the stones",
+   "text": [
+    "Ammu plays with small stones.",
+    "She throws them up and catches them.",
+    "Catch them before they fall down!"
+   ],
+   "points": [
+    "Throw up",
+    "Catch quickly",
+    "Don't let them fall"
+   ],
+   "caption": "Playing with stones",
+   "picture": "A girl tossing small pebbles up and catching them with one hand, pebbles in the air."
+  },
+  {
+   "heading": "The keyboard",
+   "text": [
+    "The keyboard has many keys.",
+    "Each key has a letter or a number.",
+    "Press a key and the letter appears on the screen."
+   ],
+   "points": [
+    "Many keys",
+    "Letters and numbers",
+    "Press to type"
+   ],
+   "caption": "Fingers on the keyboard",
+   "picture": "A child's hands on a laptop keyboard, fingers pressing the keys, close-up."
+  },
+  {
+   "heading": "Falling words",
+   "text": [
+    "Open the 'Falling Words' game.",
+    "Words fall down like rain: bat, cup.",
+    "Type each word before it reaches the ground."
+   ],
+   "points": [
+    "Words fall down",
+    "Read the word",
+    "Type it fast"
+   ],
+   "caption": "Words falling like rain",
+   "picture": "A laptop screen with a desert sky scene and two short lowercase words in big blue letters floating down: bat and cup."
+  },
+  {
+   "heading": "Read and type",
+   "text": [
+    "Look at the word 'cup'.",
+    "Find c, then u, then p on the keyboard.",
+    "Press them one by one. The word disappears!"
+   ],
+   "points": [
+    "Find each letter",
+    "Press in order",
+    "Word disappears"
+   ],
+   "caption": "Typing a word",
+   "picture": "A boy reading the word cup on a laptop screen and typing it, with a picture of a cup beside the laptop."
+  },
+  {
+   "heading": "Words and things",
+   "text": [
+    "A bat to play. A cup to drink.",
+    "A hat for the head. A pen to write.",
+    "Small words name many things."
+   ],
+   "points": [
+    "bat, cup",
+    "hat, pen",
+    "Words name things"
+   ],
+   "caption": "Words and objects",
+   "picture": "Picture cards on a table: a bat, a cup, a hat and a pen, each with a matching object beside it (no letters)."
+  }
+ ],
+ "rhyme": [
+  "Pitter-patter, words come down,",
+  "Bat and cup fall to the ground,",
+  "Tap the keys, c-u-p,",
+  "Words are caught by you and me!"
+ ],
+ "activity": "Write the words bat, cup, hat and pen. Draw a picture next to each.",
+ "talk": [
+  "What game was Ammu playing?",
+  "How do we type a word?",
+  "Name a thing that starts with 'c'."
+ ],
+ "summary": "We read the falling word and type its letters on the keyboard to catch it.",
+ "questions": [
+  {
+   "prompt": "What do we use to type letters?",
+   "options": [
+    "Keyboard",
+    "Mouse pad",
+    "Speaker",
+    "Bag"
+   ],
+   "correct_index": 0,
+   "explanation": "We press keys on the keyboard."
+  },
+  {
+   "prompt": "In 'Falling Words', what do we do?",
+   "options": [
+    "Type the words",
+    "Draw the words",
+    "Sing the words",
+    "Hide the words"
+   ],
+   "correct_index": 0,
+   "explanation": "We type each word before it falls."
+  },
+  {
+   "prompt": "Which letters make 'cup'?",
+   "options": [
+    "c, u, p",
+    "c, a, t",
+    "b, a, t",
+    "p, e, n"
+   ],
+   "correct_index": 0,
+   "explanation": "c-u-p spells cup."
+  },
+  {
+   "prompt": "Which do we drink from?",
+   "options": [
+    "Cup",
+    "Bat",
+    "Hat",
+    "Pen"
+   ],
+   "correct_index": 0,
+   "explanation": "We drink from a cup."
+  },
+  {
+   "prompt": "What did Ammu throw and catch?",
+   "options": [
+    "Stones",
+    "Plates",
+    "Shoes",
+    "Books"
+   ],
+   "correct_index": 0,
+   "explanation": "She played with small stones."
+  }
+ ]
+}

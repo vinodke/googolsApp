@@ -1,0 +1,158 @@
+{
+ "key": "en-ENG-07",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 7,
+ "lang": "en",
+ "title": "Meow",
+ "subtitle": "Who said 'Meow'?",
+ "hero_picture": "A puppy sleeping on a mat near a sofa in a living room while a striped cat peeps from behind a curtain.",
+ "sections": [
+  {
+   "heading": "Who said 'Meow'?",
+   "text": [
+    "The puppy was sleeping on a mat near the sofa.",
+    "'Meow!' He heard a sound.",
+    "He raised his head and looked around. Nobody was there."
+   ],
+   "points": [
+    "Sleeping puppy",
+    "A sound: Meow",
+    "Look around"
+   ],
+   "caption": "Who said 'Meow'?",
+   "picture": "A puppy lifting its head from a mat in a living room, listening."
+  },
+  {
+   "heading": "Searching",
+   "text": [
+    "'Who is there?' He looked under the bed.",
+    "He searched under the table.",
+    "He climbed onto the window and saw a rooster in the yard."
+   ],
+   "points": [
+    "Under the bed",
+    "Under the table",
+    "At the window"
+   ],
+   "caption": "Searching",
+   "picture": "A puppy looking under a bed while a cat hides on top of a cupboard."
+  },
+  {
+   "heading": "Rooster, dog and bee",
+   "text": [
+    "'Can you say Meow?' 'I only say Cock-a-doodle-doo.'",
+    "The dog in the kennel said, 'Bow, wow!' and got angry.",
+    "A honeybee said 'Zzz' and stung the puppy's nose. Ayyo!"
+   ],
+   "points": [
+    "Rooster crows",
+    "Dog barks",
+    "Bee buzzes"
+   ],
+   "caption": "Rooster, dog and bee",
+   "picture": "A puppy asking a big colourful rooster in a yard, a dog kennel behind."
+  },
+  {
+   "heading": "Into the pond",
+   "text": [
+    "The puppy jumped into a pond.",
+    "The frog said, 'Croak, croak! Frogs can only croak.'",
+    "The puppy went home, wet and sad."
+   ],
+   "points": [
+    "Jumped in the pond",
+    "Frog croaks",
+    "Wet and sad"
+   ],
+   "caption": "Into the pond",
+   "picture": "A wet puppy in a pond and a green frog leaping into the water."
+  },
+  {
+   "heading": "The cat!",
+   "text": [
+    "'Meow!' He saw a fat cat on the table.",
+    "'Bow wow!' The cat hissed, scratched his ear and ran away.",
+    "Now he knew who said 'Meow.'"
+   ],
+   "points": [
+    "Fat cat on the table",
+    "Cat says Meow",
+    "Puppy learns"
+   ],
+   "caption": "The cat!",
+   "picture": "A striped cat arching its back and hissing at a surprised puppy in a room."
+  }
+ ],
+ "rhyme": [
+  "Cock-a-doodle-doo, says the rooster,",
+  "Bow, wow, says the dog,",
+  "Zzz, says the bee, croak says the frog,",
+  "Meow, meow, says the cat!"
+ ],
+ "activity": "Make the sounds: a cat, a dog, a rooster, a frog and a bee. Let your friend guess the animal.",
+ "talk": [
+  "Where was the puppy sleeping?",
+  "What does a rooster say?",
+  "Who said 'Meow'?"
+ ],
+ "summary": "Each animal makes its own sound; the puppy finally found that the cat said 'Meow'.",
+ "questions": [
+  {
+   "prompt": "Who said 'Meow'?",
+   "options": [
+    "The cat",
+    "The rooster",
+    "The frog",
+    "The bee"
+   ],
+   "correct_index": 0,
+   "explanation": "Cats say 'Meow'."
+  },
+  {
+   "prompt": "What does a rooster say?",
+   "options": [
+    "Cock-a-doodle-doo",
+    "Meow",
+    "Croak",
+    "Bow wow"
+   ],
+   "correct_index": 0,
+   "explanation": "The rooster sang 'Cock-a-doodle-doo'."
+  },
+  {
+   "prompt": "Who stung the puppy's nose?",
+   "options": [
+    "A honeybee",
+    "A frog",
+    "A cat",
+    "A dog"
+   ],
+   "correct_index": 0,
+   "explanation": "The honeybee stung the puppy."
+  },
+  {
+   "prompt": "What does a frog say?",
+   "options": [
+    "Croak, croak",
+    "Meow",
+    "Zzz",
+    "Honk"
+   ],
+   "correct_index": 0,
+   "explanation": "'Frogs can only croak.'"
+  },
+  {
+   "prompt": "Where was the puppy sleeping?",
+   "options": [
+    "On a mat",
+    "On a tree",
+    "In the pond",
+    "On a bus"
+   ],
+   "correct_index": 0,
+   "explanation": "He was sleeping on a mat near the sofa."
+  }
+ ],
+ "rhyme_title": "Animal sounds"
+}

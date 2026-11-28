@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-02",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 2,
+ "lang": "en",
+ "title": "A House in the Square",
+ "subtitle": "Drawing with coloured squares",
+ "hero_picture": "A girl with a laptop sitting in a green meadow, a laptop screen beside her showing a grid of small squares with a red house made of coloured squares.",
+ "sections": [
+  {
+   "heading": "Squares everywhere",
+   "text": [
+    "Look at a graph book. It has many small squares.",
+    "We can colour some squares to make a shape.",
+    "Squares joined together make pictures."
+   ],
+   "points": [
+    "Many small squares",
+    "Colour the squares",
+    "Make a shape"
+   ],
+   "caption": "Colouring squares on paper",
+   "picture": "A sheet of graph paper with many small squares and a child's hand colouring some squares with a red crayon."
+  },
+  {
+   "heading": "Choose a colour",
+   "text": [
+    "Open 'A simple drawing activity'.",
+    "Click on a colour on the left side.",
+    "Then click on a square. It gets that colour!"
+   ],
+   "points": [
+    "Click a colour",
+    "Click a square",
+    "The square is coloured"
+   ],
+   "caption": "Colours and squares on screen",
+   "picture": "A laptop screen showing a grid of small squares over a green field and a row of colour buttons on the left side."
+  },
+  {
+   "heading": "Draw a house",
+   "text": [
+    "Colour squares in a line for the walls.",
+    "Make a triangle on top for the roof.",
+    "Leave a gap for the door!"
+   ],
+   "points": [
+    "Walls",
+    "Roof",
+    "Door"
+   ],
+   "caption": "A house of squares",
+   "picture": "A simple house shape made of red squares on a grid: a triangle roof and a square body with a door."
+  },
+  {
+   "heading": "If it goes wrong",
+   "text": [
+    "Did you colour a wrong square?",
+    "Click the eraser button.",
+    "Then click the square to clean it."
+   ],
+   "points": [
+    "Eraser fixes mistakes",
+    "Try again",
+    "No worry"
+   ],
+   "caption": "Fixing a mistake",
+   "picture": "A child clicking a small eraser button on a laptop to remove a wrong coloured square on a grid."
+  },
+  {
+   "heading": "Draw more",
+   "text": [
+    "Super! Now draw another picture.",
+    "Try a tree, a boat or a flower.",
+    "Show it to your friends."
+   ],
+   "points": [
+    "Tree",
+    "Boat",
+    "Flower"
+   ],
+   "caption": "More square pictures",
+   "picture": "A laptop screen grid showing a tree and a boat made of coloured squares, a happy cat watching."
+  }
+ ],
+ "rhyme": [
+  "One square, two squares, red and blue,",
+  "Click a colour, click it too,",
+  "Walls and roof and a little door,",
+  "A square house, I'll draw some more!"
+ ],
+ "activity": "Take a graph book. Colour squares to make a house, a tree and a sun.",
+ "talk": [
+  "How did we draw the house?",
+  "What do we click to fix a mistake?",
+  "What else can you draw with squares?"
+ ],
+ "summary": "We can click a colour and then click squares to draw pictures like a house.",
+ "questions": [
+  {
+   "prompt": "What do we click first to colour a square?",
+   "options": [
+    "A colour",
+    "The eraser",
+    "The screen edge",
+    "The keyboard"
+   ],
+   "correct_index": 0,
+   "explanation": "First choose a colour, then click the square."
+  },
+  {
+   "prompt": "Which shape makes the roof of the house?",
+   "options": [
+    "Triangle",
+    "Circle",
+    "Star",
+    "Line"
+   ],
+   "correct_index": 0,
+   "explanation": "The roof is shaped like a triangle."
+  },
+  {
+   "prompt": "What do we use to fix a wrong square?",
+   "options": [
+    "Eraser button",
+    "Colour button",
+    "Pencil",
+    "Ruler"
+   ],
+   "correct_index": 0,
+   "explanation": "The eraser cleans a wrong square."
+  },
+  {
+   "prompt": "A graph book has many small...",
+   "options": [
+    "Squares",
+    "Circles",
+    "Stars",
+    "Hearts"
+   ],
+   "correct_index": 0,
+   "explanation": "A graph book is full of small squares."
+  },
+  {
+   "prompt": "Which can we also draw with squares?",
+   "options": [
+    "A tree",
+    "A song",
+    "A smell",
+    "A sound"
+   ],
+   "correct_index": 0,
+   "explanation": "We can draw a tree, a boat and more."
+  }
+ ]
+}

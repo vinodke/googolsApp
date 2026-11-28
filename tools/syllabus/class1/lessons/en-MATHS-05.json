@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-05",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 5,
+ "lang": "en",
+ "title": "It is Spring!",
+ "subtitle": "Onam fun: adding and taking away",
+ "hero_picture": "A happy Onam scene in a Kerala home courtyard: a colourful flower carpet (pookkalam) on the ground, children and a grandmother around it, a swing on a tree, banana leaves ready for a feast.",
+ "sections": [
+  {
+   "heading": "Picking flowers",
+   "text": [
+    "Onam is coming! Neerav, Niya and Grandma picked flowers.",
+    "Roses, jasmine, chrysanthemum and more.",
+    "Let's count each kind."
+   ],
+   "points": [
+    "Count the roses",
+    "Count the jasmine",
+    "Write the numbers"
+   ],
+   "caption": "Picking flowers for Onam",
+   "picture": "A grandmother, a boy and a girl picking flowers into baskets in a garden: red roses, white jasmine, yellow chrysanthemums, purple globe amaranth."
+  },
+  {
+   "heading": "Adding flowers",
+   "text": [
+    "Neerav brought 3 roses. Niya brought 1.",
+    "3 and 1 make 4. We write 3 + 1 = 4.",
+    "5 + 5 = 10 jasmine flowers!"
+   ],
+   "points": [
+    "3 + 1 = 4",
+    "5 + 5 = 10",
+    "'+' means add"
+   ],
+   "caption": "Flowers for the pookkalam",
+   "picture": "Children sorting flowers into separate small heaps on a mat to make a pookkalam: 3 roses and 1 rose, 5 jasmine and 5 jasmine."
+  },
+  {
+   "heading": "Leaves for the feast",
+   "text": [
+    "Neerav laid out 4 leaves. Niya laid out 3.",
+    "4 + 3 = 7 leaves.",
+    "Everyone sits for the Onam feast."
+   ],
+   "points": [
+    "4 + 3 = 7",
+    "Add to find the total",
+    "Share the feast"
+   ],
+   "caption": "Banana leaves for the feast",
+   "picture": "Children laying out green banana leaves in a row for the Onam feast: a boy with 4 leaves and a girl with 3 leaves."
+  },
+  {
+   "heading": "Birds fly away",
+   "text": [
+    "4 birds sat on the tree.",
+    "2 birds flew away.",
+    "4 − 2 = 2 birds are left."
+   ],
+   "points": [
+    "4 birds",
+    "2 flew away",
+    "4 − 2 = 2"
+   ],
+   "caption": "Birds flying away",
+   "picture": "A tree with 4 small birds on a branch; 2 of them flying away, 2 left on the branch."
+  },
+  {
+   "heading": "Musical chairs",
+   "text": [
+    "Children played musical chairs.",
+    "Each time the music stopped, 2 were out.",
+    "Take away 2 each time and count who is left."
+   ],
+   "points": [
+    "Play together",
+    "Take away 2",
+    "Count who is left"
+   ],
+   "caption": "Musical chairs at Onam",
+   "picture": "A happy group of children playing musical chairs at an Onam festival in a club ground, chairs in a circle."
+  }
+ ],
+ "rhyme": [
+  "Cows go moo, one and one make two,",
+  "Ducks go quack, two and two make four,",
+  "Birds fly away, count once more,",
+  "Add and take away, what fun in store!"
+ ],
+ "activity": "Take 10 beans. Make two heaps and add them. Then take some away and count what is left.",
+ "talk": [
+  "What do 3 and 1 make?",
+  "4 birds; 2 flew away. How many are left?",
+  "What does the '+' sign mean?"
+ ],
+ "summary": "'+' means add and '−' means take away; 3 + 1 = 4 and 4 − 2 = 2.",
+ "questions": [
+  {
+   "prompt": "3 + 1 = ?",
+   "options": [
+    "4",
+    "3",
+    "2",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "3 and 1 make 4."
+  },
+  {
+   "prompt": "5 + 5 = ?",
+   "options": [
+    "10",
+    "5",
+    "55",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "5 and 5 make ten."
+  },
+  {
+   "prompt": "4 birds; 2 flew away. How many are left?",
+   "options": [
+    "2",
+    "4",
+    "6",
+    "0"
+   ],
+   "correct_index": 0,
+   "explanation": "4 − 2 = 2."
+  },
+  {
+   "prompt": "Which sign means 'add'?",
+   "options": [
+    "+",
+    "−",
+    "=",
+    "×"
+   ],
+   "correct_index": 0,
+   "explanation": "The '+' sign means add."
+  },
+  {
+   "prompt": "Neerav has 4 leaves and Niya has 3. How many in all?",
+   "options": [
+    "7",
+    "6",
+    "8",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "4 + 3 = 7."
+  }
+ ]
+}

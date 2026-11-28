@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-02",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 2,
+ "lang": "en",
+ "title": "Thithiri and Friends",
+ "subtitle": "Where is Thithiri? Counting 1 to 5",
+ "hero_picture": "A Kerala village courtyard: a girl (Ima) and a boy (Amal) gently holding a tiny brown baby bird, a cow with a calf, cats, puppies, hens with chicks and a duck with ducklings around them.",
+ "sections": [
+  {
+   "heading": "A little bird",
+   "text": [
+    "Ima and Amal found a little bird.",
+    "They named her Thithiri.",
+    "They kept her safe from crows and cats."
+   ],
+   "points": [
+    "They found a bird",
+    "Her name: Thithiri",
+    "Keep her safe"
+   ],
+   "caption": "Ima, Amal and Thithiri",
+   "picture": "A girl and a boy kneeling on the ground looking at a tiny brown baby bird that fell from a tree; crows on a branch above."
+  },
+  {
+   "heading": "Where is Thithiri?",
+   "text": [
+    "Not on the almirah. Not under the bed.",
+    "Not in front of the sofa. Not behind it.",
+    "Here she is, inside the dollhouse!"
+   ],
+   "points": [
+    "on, under",
+    "in front, behind",
+    "inside, outside"
+   ],
+   "caption": "Looking for Thithiri",
+   "picture": "Inside a house: a boy searching under a bed, a girl looking behind a sofa, and a tiny bird peeping out from inside a colourful dollhouse."
+  },
+  {
+   "heading": "Are you my mom?",
+   "text": [
+    "The cow has 1 kid. The cat has 2.",
+    "The hen has 4 chicks. The dog has 5 puppies.",
+    "None of them looks like Thithiri."
+   ],
+   "points": [
+    "1, 2, 3",
+    "4, 5",
+    "Count the babies"
+   ],
+   "caption": "Counting the babies",
+   "picture": "Animals with their babies in a row, clearly countable: 1 cow with 1 calf, 1 cat with 2 kittens, 1 hen with 4 chicks, 1 dog with 5 puppies."
+  },
+  {
+   "heading": "2 and 3 make 5",
+   "text": [
+    "The mother duck has 5 ducklings.",
+    "2 walk in front. 3 walk behind.",
+    "2 and 3 make 5."
+   ],
+   "points": [
+    "2 in front",
+    "3 behind",
+    "2 and 3 make 5"
+   ],
+   "caption": "Mother duck and ducklings",
+   "picture": "A mother duck walking with 5 little yellow ducklings: 2 ducklings in front of her and 3 ducklings behind her, on green grass with flowers."
+  },
+  {
+   "heading": "Here's your mom!",
+   "text": [
+    "They heard a bird crying in the garden.",
+    "It was Thithiri's mother!",
+    "Now Thithiri is happy with her mom."
+   ],
+   "points": [
+    "Listen carefully",
+    "Mother found",
+    "Everyone is happy"
+   ],
+   "caption": "Thithiri finds her mother",
+   "picture": "Children happily reuniting a tiny baby bird with its mother bird on a tree branch in a garden, all smiling."
+  }
+ ],
+ "rhyme": [
+  "One, two, little bird,",
+  "Three, four, have you heard?",
+  "Five friends searched all day,",
+  "Found your mom, hip hooray!"
+ ],
+ "activity": "Count the spoons in your kitchen and the chairs in your house. Write the numbers.",
+ "talk": [
+  "Where did they find Thithiri?",
+  "How many puppies did the dog have?",
+  "What do 2 and 3 make?"
+ ],
+ "summary": "We can count from 1 to 5 and tell where things are: on, under, in front, behind, inside.",
+ "questions": [
+  {
+   "prompt": "What was the little bird's name?",
+   "options": [
+    "Thithiri",
+    "Minnu",
+    "Kittu",
+    "Aami"
+   ],
+   "correct_index": 0,
+   "explanation": "Ima and Amal named the bird Thithiri."
+  },
+  {
+   "prompt": "Where was Thithiri found?",
+   "options": [
+    "Inside the dollhouse",
+    "Under the bed",
+    "On the almirah",
+    "Behind the sofa"
+   ],
+   "correct_index": 0,
+   "explanation": "She was inside the dollhouse."
+  },
+  {
+   "prompt": "How many kittens did the cat have?",
+   "options": [
+    "2",
+    "1",
+    "4",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "The cat said, 'I have two kids.'"
+  },
+  {
+   "prompt": "2 ducklings in front and 3 behind. How many in all?",
+   "options": [
+    "5",
+    "4",
+    "6",
+    "3"
+   ],
+   "correct_index": 0,
+   "explanation": "2 and 3 make 5."
+  },
+  {
+   "prompt": "Which number comes after 4?",
+   "options": [
+    "5",
+    "3",
+    "2",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "1, 2, 3, 4, then 5."
+  }
+ ]
+}

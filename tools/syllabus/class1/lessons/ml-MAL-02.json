@@ -1,0 +1,154 @@
+{
+ "key": "ml-MAL-02",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 2,
+ "lang": "ml",
+ "title": "പൂവ് ചിരിച്ചു",
+ "subtitle": "മഴ മാറി, പൂവ് ചിരിച്ചു",
+ "hero_picture": "After the rain in a Kerala garden pond: the sun peeks out from clouds, a red hibiscus plant with a smiling flower stands in the water, a small colourful sunbird flies towards it, and a white duck swims nearby.",
+ "sections": [
+  {
+   "heading": "മഴ മാറി",
+   "text": [
+    "മഴ പെയ്തു.",
+    "പിന്നെ മഴ മാറി. വെയിൽ വന്നു.",
+    "ചെടികൾ സന്തോഷത്തോടെ തലയാട്ടി."
+   ],
+   "points": [
+    "മഴ പെയ്തു",
+    "മഴ മാറി",
+    "വെയിൽ വന്നു"
+   ],
+   "caption": "മഴ മാറി, വെയിൽ വന്നു",
+   "picture": "The last raindrops falling while the sun comes out from behind grey clouds, a small rainbow, green plants with shiny water drops on their leaves."
+  },
+  {
+   "heading": "പൂവ് ചിരിച്ചു",
+   "text": [
+    "ചെടിയിൽ ഒരു ചുവന്ന പൂവ് വിരിഞ്ഞു.",
+    "പൂവ് ചിരിച്ചുനിന്നു."
+   ],
+   "points": [
+    "ചുവന്ന പൂവ്",
+    "പൂവ് വിരിഞ്ഞു",
+    "പൂവ് ചിരിച്ചുനിന്നു"
+   ],
+   "caption": "ചിരിക്കുന്ന ചുവന്ന പൂവ്",
+   "picture": "A tall green plant with one big red hibiscus flower that has a happy smiling face, water drops on the leaves."
+  },
+  {
+   "heading": "കുരുവി പാറിവന്നു",
+   "text": [
+    "പൂവ് വിളിച്ചു: കുരുവീ കുരുവീ വാ!",
+    "കുരുവി പാറിവന്നു.",
+    "പൂവിലെ തേൻ കുടിച്ചു."
+   ],
+   "points": [
+    "പൂവ് കുരുവിയെ വിളിച്ചു",
+    "കുരുവി പാറിവന്നു",
+    "കുരുവി തേൻ കുടിച്ചു"
+   ],
+   "caption": "പൂവിലെ തേൻ കുടിക്കുന്ന കുരുവി",
+   "picture": "A tiny bright green-and-purple sunbird hovering next to a red hibiscus flower, its long thin beak inside the flower drinking nectar."
+  },
+  {
+   "heading": "അതാ, കുരുവി!",
+   "text": [
+    "കുളത്തിൽ ഒരു താറാവ് നീന്തുന്നു.",
+    "താറാവ് പറഞ്ഞു: അതാ, ഒരു കുരുവി!"
+   ],
+   "points": [
+    "കുളത്തിൽ താറാവ്",
+    "താറാവ് കുരുവിയെ കണ്ടു",
+    "അതാ, ഒരു കുരുവി!"
+   ],
+   "caption": "കുരുവിയെ കണ്ട താറാവ്",
+   "picture": "A white duck swimming in a pond, splashing water, pointing with one wing at a small sunbird near a red flower on the bank."
+  },
+  {
+   "heading": "നിറം തരൂ",
+   "text": [
+    "പാഠപുസ്തകത്തിൽ പൂക്കളുടെ ചിത്രമുണ്ട്.",
+    "പൂക്കൾക്കും പൂമ്പാറ്റകൾക്കും ഇഷ്ടമുള്ള നിറം കൊടുക്കൂ."
+   ],
+   "points": [
+    "പൂക്കൾ വരയ്ക്കാം",
+    "പൂമ്പാറ്റകൾ വരയ്ക്കാം",
+    "ഇഷ്ടമുള്ള നിറം നൽകാം"
+   ],
+   "caption": "പൂക്കൾക്ക് നിറം കൊടുക്കാം",
+   "picture": "A happy 6-year-old Kerala girl colouring a drawing of flowers and butterflies with crayons; half of the drawing is coloured, half is still black outline."
+  }
+ ],
+ "rhyme": [
+  "മഴ മാറി, വെയിൽ വന്നു",
+  "പൂവ് ചിരിച്ചു, കുരുവി വന്നു",
+  "തേൻ കുടിച്ചു പാറിപ്പോയി",
+  "താറാവ് നോക്കി ചിരിച്ചല്ലോ!"
+ ],
+ "activity": "വാക്ക് ചേർത്ത് പറയൂ: ‘പൂവ് ........ നിന്നു.’ (ചിരിച്ചു)",
+ "talk": [
+  "മഴ മാറിയപ്പോൾ എന്തുണ്ടായി?",
+  "പൂവിന്റെ അടുത്ത് ആര് വന്നു?",
+  "താറാവ് എന്തു പറഞ്ഞു?"
+ ],
+ "summary": "മഴ മാറിയപ്പോൾ പൂവ് ചിരിച്ചു; കുരുവി പാറിവന്നു.",
+ "questions": [
+  {
+   "prompt": "മഴ മാറിയപ്പോൾ എന്തു വന്നു?",
+   "options": [
+    "വെയിൽ",
+    "ഇരുട്ട്",
+    "മഞ്ഞ്",
+    "തിര"
+   ],
+   "correct_index": 0,
+   "explanation": "മഴ മാറിയപ്പോൾ വെയിൽ വന്നു."
+  },
+  {
+   "prompt": "ചിരിച്ചുനിന്നത് ആര്?",
+   "options": [
+    "പൂവ്",
+    "താറാവ്",
+    "മരം",
+    "മേഘം"
+   ],
+   "correct_index": 0,
+   "explanation": "ചെടിയിലെ ചുവന്ന പൂവ് ചിരിച്ചുനിന്നു."
+  },
+  {
+   "prompt": "പൂവ് ആരെയാണ് വിളിച്ചത്?",
+   "options": [
+    "കുരുവിയെ",
+    "പൂച്ചയെ",
+    "മീനിനെ",
+    "ആനയെ"
+   ],
+   "correct_index": 0,
+   "explanation": "പൂവ് വിളിച്ചു: കുരുവീ കുരുവീ വാ!"
+  },
+  {
+   "prompt": "കുരുവി പൂവിൽനിന്ന് എന്തു കുടിച്ചു?",
+   "options": [
+    "തേൻ",
+    "പാൽ",
+    "ചായ",
+    "മോര്"
+   ],
+   "correct_index": 0,
+   "explanation": "കുരുവി പൂവിലെ തേൻ കുടിച്ചു."
+  },
+  {
+   "prompt": "കുളത്തിൽ നീന്തുന്നത് ആര്?",
+   "options": [
+    "താറാവ്",
+    "പൂച്ച",
+    "കോഴി",
+    "അണ്ണാൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "താറാവ് കുളത്തിൽ നീന്തുന്നു."
+  }
+ ]
+}

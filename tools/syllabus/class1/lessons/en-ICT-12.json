@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-12",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 12,
+ "lang": "en",
+ "title": "How Many in Total?",
+ "subtitle": "Adding with the magician's hat",
+ "hero_picture": "A Kerala girl holding a basket of 4 mangoes and a cat sitting beside another small basket of 4 mangoes, a second girl wondering how many in total.",
+ "sections": [
+  {
+   "heading": "Two baskets",
+   "text": [
+    "'There are 4 mangoes in this basket,' says Meenu.",
+    "'In this too!' says the cat.",
+    "How many mangoes are there in total?"
+   ],
+   "points": [
+    "4 in one basket",
+    "4 in the other",
+    "Find the total"
+   ],
+   "caption": "Two baskets of mangoes",
+   "picture": "A girl holding a basket with 4 ripe mangoes, smiling."
+  },
+  {
+   "heading": "Count them all",
+   "text": [
+    "Put all the mangoes together.",
+    "Count: 1, 2, 3 ... 8.",
+    "4 and 4 make 8."
+   ],
+   "points": [
+    "Put together",
+    "Count all",
+    "4 + 4 = 8"
+   ],
+   "caption": "Eight mangoes in all",
+   "picture": "Two baskets side by side, each with 4 ripe mangoes, and a girl counting them with her finger."
+  },
+  {
+   "heading": "Count the stars",
+   "text": [
+    "Look at the stars in two rows.",
+    "Count the yellow stars in each row.",
+    "Then add them to find the total."
+   ],
+   "points": [
+    "Count each row",
+    "Add the rows",
+    "Find the total"
+   ],
+   "caption": "Rows of stars",
+   "picture": "Eight ripe mangoes in two neat rows of four on a table."
+  },
+  {
+   "heading": "The magician's hat",
+   "text": [
+    "Open 'The magician hat +' game.",
+    "Click on the hat: the stars go in!",
+    "Count the stars together and click the answer."
+   ],
+   "points": [
+    "Click the hat",
+    "Stars go in",
+    "Add and answer"
+   ],
+   "caption": "The magic hat",
+   "picture": "A green chalkboard with two rows of gold stars and a purple magician's hat beside it (no numbers)."
+  },
+  {
+   "heading": "Add things around",
+   "text": [
+    "3 shells and 2 shells. Push them together.",
+    "Count: 5 shells!",
+    "Adding means putting together."
+   ],
+   "points": [
+    "3 + 2 = 5",
+    "Put together",
+    "Count all"
+   ],
+   "caption": "Adding shells",
+   "picture": "Children adding groups of shells on the floor: a heap of 3 shells and a heap of 2 shells being pushed together."
+  }
+ ],
+ "rhyme": [
+  "Four in a basket, four in the hat,",
+  "Put them together, count all that,",
+  "Five, six, seven, eight,",
+  "Adding together, isn't it great!"
+ ],
+ "activity": "Take 2 handfuls of seeds. Count each handful, then put them together and count the total.",
+ "talk": [
+  "How many mangoes in each basket?",
+  "What does 'in total' mean?",
+  "What happens when you click the magician's hat?"
+ ],
+ "summary": "To find how many in total, we put the groups together and count, or add.",
+ "questions": [
+  {
+   "prompt": "4 mangoes and 4 mangoes. How many in total?",
+   "options": [
+    "8",
+    "4",
+    "6",
+    "44"
+   ],
+   "correct_index": 0,
+   "explanation": "4 + 4 = 8."
+  },
+  {
+   "prompt": "3 shells and 2 shells. Total?",
+   "options": [
+    "5",
+    "1",
+    "6",
+    "32"
+   ],
+   "correct_index": 0,
+   "explanation": "3 + 2 = 5."
+  },
+  {
+   "prompt": "'In total' means...",
+   "options": [
+    "All together",
+    "Only one",
+    "Taken away",
+    "Nothing"
+   ],
+   "correct_index": 0,
+   "explanation": "Total is the count of all together."
+  },
+  {
+   "prompt": "In the game, what do we click to put the stars in?",
+   "options": [
+    "The hat",
+    "The board",
+    "The sky",
+    "The speaker"
+   ],
+   "correct_index": 0,
+   "explanation": "Click the magician's hat."
+  },
+  {
+   "prompt": "5 + 1 = ?",
+   "options": [
+    "6",
+    "4",
+    "5",
+    "51"
+   ],
+   "correct_index": 0,
+   "explanation": "5 and 1 make 6."
+  }
+ ]
+}

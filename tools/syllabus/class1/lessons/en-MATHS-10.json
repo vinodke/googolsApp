@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-10",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 10,
+ "lang": "en",
+ "title": "Dolls!... Dolls!",
+ "subtitle": "Adding and taking away up to 20",
+ "hero_picture": "A Kerala seaside road: a father and his son and daughter pushing a wooden cart full of colourful handmade dolls home after selling them, a ship on the sea behind.",
+ "sections": [
+  {
+   "heading": "Making dolls",
+   "text": [
+    "Pooram is in two days! Sebi and Joji make dolls.",
+    "First day: Sebi made 12, Joji made 6.",
+    "12 + 6 = 10 + 2 + 6 = 18 dolls."
+   ],
+   "points": [
+    "12 + 6",
+    "= 10 + 2 + 6",
+    "= 18"
+   ],
+   "caption": "Making dolls together",
+   "picture": "A Kerala family sitting together on a mat making colourful dolls by hand: grandfather, mother, father and children, many finished dolls in a heap."
+  },
+  {
+   "heading": "Make a ten",
+   "text": [
+    "Second day: Sebi made 7, Joji made 11.",
+    "7 + 11 = 7 + 10 + 1 = 18.",
+    "Making a ten first makes adding easy."
+   ],
+   "points": [
+    "Find the ten",
+    "Add the rest",
+    "7 + 11 = 18"
+   ],
+   "caption": "Doll boxes in stacks",
+   "picture": "Two neat stacks of doll boxes on a table: one stack of 10 boxes and another stack of 8 boxes beside it."
+  },
+  {
+   "heading": "Dolls sold",
+   "text": [
+    "Sebi made 12 dolls. 6 were sold.",
+    "12 − 6 = 6 dolls left.",
+    "Take away to find how many are left."
+   ],
+   "points": [
+    "Made: 12",
+    "Sold: 6",
+    "Left: 6"
+   ],
+   "caption": "Selling the dolls",
+   "picture": "Two children selling dolls at a stall; a customer buying two dolls, a few dolls left on the shelf."
+  },
+  {
+   "heading": "Prices in order",
+   "text": [
+    "Each doll has a price.",
+    "Find the highest price and the lowest price.",
+    "Arrange them from lowest to highest."
+   ],
+   "points": [
+    "Highest price",
+    "Lowest price",
+    "Put in order"
+   ],
+   "caption": "Dolls with prices",
+   "picture": "Dolls on a shelf each with a blank price tag (no numbers or letters), a girl arranging them from small to big."
+  },
+  {
+   "heading": "Lime juice",
+   "text": [
+    "A big glass of lime juice is 10 rupees. A small glass is 5 rupees.",
+    "Two small glasses: 5 + 5 = 10 rupees.",
+    "One big glass costs the same as two small glasses!"
+   ],
+   "points": [
+    "Big glass: 10 rupees",
+    "Small glass: 5 rupees",
+    "5 + 5 = 10"
+   ],
+   "caption": "Lime juice prices",
+   "picture": "A girl at a juice stall with one big glass and two small glasses of lime juice on the counter."
+  }
+ ],
+ "rhyme": [
+  "Twelve little dolls on a cart,",
+  "Six were sold, right from the start,",
+  "Twelve take six, how many stay?",
+  "Six little dolls to sell today!"
+ ],
+ "activity": "Take 15 buttons. Give away some and count how many are left. Write it like 15 − 4 = 11.",
+ "talk": [
+  "How many dolls did Sebi and Joji make on the first day?",
+  "12 dolls, 6 sold. How many left?",
+  "Which is easier to add first, the ten or the ones?"
+ ],
+ "summary": "To add, make a ten first; to find what is left, take away.",
+ "questions": [
+  {
+   "prompt": "12 + 6 = ?",
+   "options": [
+    "18",
+    "16",
+    "20",
+    "6"
+   ],
+   "correct_index": 0,
+   "explanation": "12 + 6 = 10 + 2 + 6 = 18."
+  },
+  {
+   "prompt": "7 + 11 = ?",
+   "options": [
+    "18",
+    "17",
+    "4",
+    "19"
+   ],
+   "correct_index": 0,
+   "explanation": "7 + 10 + 1 = 18."
+  },
+  {
+   "prompt": "12 dolls; 6 were sold. How many are left?",
+   "options": [
+    "6",
+    "18",
+    "12",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "12 − 6 = 6."
+  },
+  {
+   "prompt": "A small glass of juice is 5 rupees. Two small glasses cost?",
+   "options": [
+    "10 rupees",
+    "5 rupees",
+    "15 rupees",
+    "20 rupees"
+   ],
+   "correct_index": 0,
+   "explanation": "5 + 5 = 10."
+  },
+  {
+   "prompt": "18 − 3 = ?",
+   "options": [
+    "15",
+    "21",
+    "16",
+    "13"
+   ],
+   "correct_index": 0,
+   "explanation": "18 take away 3 leaves 15."
+  }
+ ]
+}

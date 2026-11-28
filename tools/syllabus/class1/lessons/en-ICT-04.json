@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-04",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 4,
+ "lang": "en",
+ "title": "So Many Colours!",
+ "subtitle": "Hear the name and find the colour",
+ "hero_picture": "A girl standing on a grassy island in the blue sky with her arms raised, a big bright rainbow above her and white clouds around.",
+ "sections": [
+  {
+   "heading": "The rainbow",
+   "text": [
+    "Wow, so many colours!",
+    "Rain has stopped and a rainbow is in the sky.",
+    "Red, orange, yellow, green, blue and more."
+   ],
+   "points": [
+    "Rainbow after rain",
+    "Many colours",
+    "Look up and enjoy"
+   ],
+   "caption": "A rainbow in the sky",
+   "picture": "A big bright rainbow with seven colours over green hills after the rain."
+  },
+  {
+   "heading": "Colour pots",
+   "text": [
+    "Here are pots of paint.",
+    "Each pot has a different colour.",
+    "Can you tell the colour in each pot?"
+   ],
+   "points": [
+    "Red, orange, yellow",
+    "Green, blue, purple",
+    "Name each colour"
+   ],
+   "caption": "Pots of paint",
+   "picture": "Six small open paint pots in a row: red, orange, yellow, green, blue and purple paint."
+  },
+  {
+   "heading": "Listen to the computer",
+   "text": [
+    "Open the 'Colour' game.",
+    "The computer says the name of a colour.",
+    "Listen carefully, then look at the pot."
+   ],
+   "points": [
+    "Listen carefully",
+    "Hear the colour name",
+    "Look at the pot"
+   ],
+   "caption": "Listening to the colour name",
+   "picture": "A girl wearing headphones at a laptop showing a single green paint pot, listening carefully."
+  },
+  {
+   "heading": "Choose the right colour",
+   "text": [
+    "The pot has orange paint.",
+    "Click on the word 'Orange' in the list.",
+    "Click the arrow to go to the next pot."
+   ],
+   "points": [
+    "Look at the paint",
+    "Click the right name",
+    "Arrow to go forward"
+   ],
+   "caption": "Picking the right colour",
+   "picture": "A laptop screen showing a pot of orange paint on the left and a column of plain coloured buttons on the right."
+  },
+  {
+   "heading": "Colours around us",
+   "text": [
+    "An apple is red. A banana is yellow.",
+    "Leaves are green. The sky is blue.",
+    "What colour is your bag?"
+   ],
+   "points": [
+    "Red apple",
+    "Yellow banana",
+    "Green leaf, blue sky"
+   ],
+   "caption": "Colours all around",
+   "picture": "Children pointing at fruits and flowers of different colours on a table: red apple, yellow banana, green leaf, blue flower."
+  }
+ ],
+ "rhyme": [
+  "Red and orange, yellow too,",
+  "Green like grass and sky so blue,",
+  "Purple flowers, pink and white,",
+  "So many colours, shining bright!"
+ ],
+ "activity": "Find one thing at home for each colour: red, yellow, green and blue.",
+ "talk": [
+  "What did the girl see in the sky?",
+  "What colour is a leaf?",
+  "Which is your favourite colour?"
+ ],
+ "summary": "There are many colours around us; we can hear a colour's name and find it.",
+ "questions": [
+  {
+   "prompt": "What appears in the sky after rain?",
+   "options": [
+    "Rainbow",
+    "Snowman",
+    "Moon",
+    "Kite"
+   ],
+   "correct_index": 0,
+   "explanation": "A rainbow often appears after rain."
+  },
+  {
+   "prompt": "What colour is a banana?",
+   "options": [
+    "Yellow",
+    "Blue",
+    "Black",
+    "Purple"
+   ],
+   "correct_index": 0,
+   "explanation": "A ripe banana is yellow."
+  },
+  {
+   "prompt": "What colour is the sky on a sunny day?",
+   "options": [
+    "Blue",
+    "Red",
+    "Brown",
+    "Green"
+   ],
+   "correct_index": 0,
+   "explanation": "The sky looks blue."
+  },
+  {
+   "prompt": "In the game, what do we do first?",
+   "options": [
+    "Listen to the colour name",
+    "Close the laptop",
+    "Run outside",
+    "Sing"
+   ],
+   "correct_index": 0,
+   "explanation": "We listen to the name of the colour."
+  },
+  {
+   "prompt": "What colour is a leaf?",
+   "options": [
+    "Green",
+    "Pink",
+    "Orange",
+    "White"
+   ],
+   "correct_index": 0,
+   "explanation": "Leaves are green."
+  }
+ ]
+}

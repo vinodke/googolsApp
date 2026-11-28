@@ -1,0 +1,157 @@
+{
+ "key": "ml-MATHS-01",
+ "grade": 1,
+ "subject": "ഗണിതം",
+ "chapter_no": 1,
+ "lang": "ml",
+ "title": "വരമേളം",
+ "subtitle": "വൃത്തവും ത്രികോണവും ചതുരവും നമുക്ക് ചുറ്റും",
+ "hero_picture": "A bright Kerala village scene built from simple shapes: a round orange sun, triangle-shaped trees, a house with a square body and a triangle roof, a boat on a river, and happy children pointing at the shapes.",
+ "sections": [
+  {
+   "heading": "ദോശപോലെ വട്ടം",
+   "text": [
+    "അച്ഛൻ ദോശ ചുടുന്നു. ശ്ശ് ശ്ശ് ദോശ!",
+    "ദോശ വട്ടത്തിലാണ്. വളയും സൂര്യനും വട്ടമാണ്.",
+    "വട്ടത്തിലുള്ള രൂപമാണ് വൃത്തം."
+   ],
+   "points": [
+    "ദോശ വട്ടം",
+    "വള വട്ടം",
+    "വട്ടരൂപം: വൃത്തം"
+   ],
+   "caption": "വട്ടത്തിലുള്ള ദോശകൾ",
+   "picture": "A father making round dosas on a pan in a Kerala kitchen, a smiling girl holding a plate of round white dosas."
+  },
+  {
+   "heading": "മൂന്നു മൂലകൾ",
+   "text": [
+    "സമൂസയ്ക്ക് മൂന്നു മൂലകളുണ്ട്.",
+    "ത്രികോണങ്ങൾ ചേർത്ത് മരം വരയ്ക്കാം.",
+    "മൂന്നു വശമുള്ള രൂപമാണ് ത്രികോണം."
+   ],
+   "points": [
+    "സമൂസ: ത്രികോണം",
+    "മരം: ത്രികോണങ്ങൾ",
+    "മൂന്നു വശം, മൂന്നു മൂല"
+   ],
+   "caption": "സമൂസയും ത്രികോണമരവും",
+   "picture": "A plate of triangle-shaped samosas next to a tall green tree made of three stacked triangles, a girl and a boy pointing at them."
+  },
+  {
+   "heading": "സമചതുരവും ചതുരവും",
+   "text": [
+    "ഒരു വീട് നോക്കൂ. ചുമര് സമചതുരം.",
+    "വാതിൽ നീളമുള്ളതാണ്. അത് ചതുരം.",
+    "പെട്ടിയും പുസ്തകവും ചതുരമാണ്."
+   ],
+   "points": [
+    "ചുമര്: സമചതുരം",
+    "വാതിൽ: ചതുരം",
+    "പെട്ടി: ചതുരം"
+   ],
+   "caption": "രൂപങ്ങൾകൊണ്ടൊരു വീട്",
+   "picture": "A small house made of shapes: a square wall, a triangle roof, a rectangle door, and a round sun in the sky."
+  },
+  {
+   "heading": "എന്റെ റോബോട്ട്",
+   "text": [
+    "കുത്തുകൾ യോജിപ്പിച്ച് റോബോട്ട് ഉണ്ടാക്കാം.",
+    "വട്ടത്തലയും സമചതുര ശരീരവും നീണ്ട കാലുകളും.",
+    "അതിൽ എത്ര വൃത്തങ്ങളുണ്ട്?"
+   ],
+   "points": [
+    "തല: വൃത്തം",
+    "ശരീരം: സമചതുരം",
+    "കാലുകൾ: ചതുരം"
+   ],
+   "caption": "രൂപങ്ങൾകൊണ്ടൊരു റോബോട്ട്",
+   "picture": "A friendly toy robot made of shapes: a round head, a square body, rectangle legs, triangle hands and circle buttons; two children laughing."
+  },
+  {
+   "heading": "അടുത്തത് ഏത്?",
+   "text": [
+    "ത്രികോണം, വൃത്തം, ത്രികോണം, വൃത്തം...",
+    "അടുത്തത് ഏത്? ത്രികോണം!",
+    "ഇങ്ങനെ ആവർത്തിക്കുന്നതാണ് പാറ്റേൺ."
+   ],
+   "points": [
+    "ക്രമം നോക്കാം",
+    "അടുത്തത് കണ്ടെത്താം",
+    "സ്വന്തം പാറ്റേൺ ഉണ്ടാക്കാം"
+   ],
+   "caption": "രൂപങ്ങളുടെ പാറ്റേൺ",
+   "picture": "A neat row of shapes making a pattern on a table: triangle, circle, triangle, circle, triangle, and an empty space at the end; coloured blocks."
+  }
+ ],
+ "rhyme": [
+  "വട്ടമേതാ? ദോശ വട്ടം!",
+  "മൂന്നു മൂല? സമൂസ തന്നെ!",
+  "നീളമേതാ? വാതിൽ നീളം,",
+  "ചുറ്റും നോക്കൂ രൂപമേളം!"
+ ],
+ "activity": "വീട്ടിലെ വട്ടത്തിലുള്ള മൂന്നു സാധനങ്ങളും ചതുരത്തിലുള്ള മൂന്നു സാധനങ്ങളും കണ്ടെത്തി വരയ്ക്കൂ.",
+ "talk": [
+  "അടുക്കളയിലെ വട്ടത്തിലുള്ള ഒരു സാധനം പറയൂ.",
+  "ത്രികോണത്തിന് എത്ര മൂലകൾ?",
+  "നിന്റെ പുസ്തകം ഏതു രൂപമാണ്?"
+ ],
+ "summary": "വൃത്തവും ത്രികോണവും സമചതുരവും ചതുരവും നമുക്ക് ചുറ്റുമുണ്ട്.",
+ "questions": [
+  {
+   "prompt": "ദോശയുടെ രൂപം ഏത്?",
+   "options": [
+    "വൃത്തം",
+    "ത്രികോണം",
+    "സമചതുരം",
+    "ചതുരം"
+   ],
+   "correct_index": 0,
+   "explanation": "ദോശ വട്ടത്തിലാണ്; അത് വൃത്തം."
+  },
+  {
+   "prompt": "ത്രികോണത്തിന് എത്ര മൂലകളുണ്ട്?",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "ത്രികോണത്തിന് മൂന്നു വശവും മൂന്നു മൂലയും."
+  },
+  {
+   "prompt": "ത്രികോണം പോലെയുള്ള പലഹാരം ഏത്?",
+   "options": [
+    "സമൂസ",
+    "ദോശ",
+    "ലഡു",
+    "പഴം"
+   ],
+   "correct_index": 0,
+   "explanation": "സമൂസയ്ക്ക് മൂന്നു മൂലകളുണ്ട്."
+  },
+  {
+   "prompt": "വാതിലിന്റെ രൂപം ഏത്?",
+   "options": [
+    "ചതുരം",
+    "വൃത്തം",
+    "ത്രികോണം",
+    "നക്ഷത്രം"
+   ],
+   "correct_index": 0,
+   "explanation": "വാതിൽ നീളമുള്ള ചതുരമാണ്."
+  },
+  {
+   "prompt": "ത്രികോണം, വൃത്തം, ത്രികോണം, വൃത്തം, ... അടുത്തത് ഏത്?",
+   "options": [
+    "ത്രികോണം",
+    "വൃത്തം",
+    "സമചതുരം",
+    "നക്ഷത്രം"
+   ],
+   "correct_index": 0,
+   "explanation": "പാറ്റേണിൽ വൃത്തത്തിനു ശേഷം ത്രികോണം വരും."
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "key": "en-ENG-03",
+ "grade": 1,
+ "subject": "English",
+ "chapter_no": 3,
+ "lang": "en",
+ "title": "Robo the Robot",
+ "subtitle": "A friend who always helps",
+ "hero_picture": "A girl with a purple cap and a friendly silver robot with a small screen on its chest playing in a flower garden in front of a house.",
+ "sections": [
+  {
+   "heading": "Zia and Robo",
+   "text": [
+    "Zia and Robo were playing in the garden.",
+    "'Zia, where are you?' Mother called.",
+    "'I am with Robo, Amma.'"
+   ],
+   "points": [
+    "Zia is a girl",
+    "Robo is a robot",
+    "They are friends"
+   ],
+   "caption": "Zia and Robo",
+   "picture": "A girl in a purple cap and a friendly silver robot playing among flowers in a garden."
+  },
+  {
+   "heading": "Find the key",
+   "text": [
+    "Mother could not find the key of the shelf.",
+    "Beep... beep... a light flashed on Robo's screen.",
+    "'The key is in the dust bin!' 'Wow, Robo, you are so good!'"
+   ],
+   "points": [
+    "Lost key",
+    "Robo's screen flashes",
+    "Key in the dust bin"
+   ],
+   "caption": "Find the key",
+   "picture": "A silver robot with a glowing chest screen pointing at a dust bin, a mother and girl looking surprised."
+  },
+  {
+   "heading": "The robot umbrella",
+   "text": [
+    "Zia and Robo went for a walk. It started raining.",
+    "Booom... Robo became a big umbrella.",
+    "'Robo, you are wonderful!'"
+   ],
+   "points": [
+    "It rained",
+    "Robo became an umbrella",
+    "Zia stayed dry"
+   ],
+   "caption": "The robot umbrella",
+   "picture": "A girl standing in the rain under a big colourful umbrella shaped from a robot."
+  },
+  {
+   "heading": "The lost cap",
+   "text": [
+    "A crow took away Zia's cap. A strong wind blew it far.",
+    "Whirr... Robo's hands grew long.",
+    "Zoop! Robo grew big and flew Zia over the trees."
+   ],
+   "points": [
+    "Crow took the cap",
+    "Long robot hands",
+    "Flying to the park"
+   ],
+   "caption": "The lost cap",
+   "picture": "A silver robot flying over trees and houses with a girl on its back."
+  },
+  {
+   "heading": "A new friend",
+   "text": [
+    "In the park, a boy with a walker had the cap.",
+    "Robo turned into a wheelchair for him.",
+    "'Take Robo with you. He will always help you,' said Zia."
+   ],
+   "points": [
+    "Help others",
+    "Robo became a wheelchair",
+    "Share with a friend"
+   ],
+   "caption": "A new friend",
+   "picture": "A smiling boy in a blue wheelchair in a park, a girl in a purple cap waving goodbye happily."
+  }
+ ],
+ "rhyme": [
+  "I have a robot,",
+  "Big and smart,",
+  "Here it walks around",
+  "With a happy song."
+ ],
+ "activity": "Draw your own robot. What special thing can your robot do?",
+ "talk": [
+  "Where was the key?",
+  "How did Robo help in the rain?",
+  "Why did Zia give Robo to the boy?"
+ ],
+ "summary": "Robo the robot helps everyone; Zia shares her friend with a boy who needs help.",
+ "questions": [
+  {
+   "prompt": "Who is Robo?",
+   "options": [
+    "A robot",
+    "A dog",
+    "A bird",
+    "A boy"
+   ],
+   "correct_index": 0,
+   "explanation": "Robo is Zia's robot friend."
+  },
+  {
+   "prompt": "Where was the key?",
+   "options": [
+    "In the dust bin",
+    "In the shelf",
+    "In Zia's bag",
+    "Under the bed"
+   ],
+   "correct_index": 0,
+   "explanation": "Robo's screen showed the key in the dust bin."
+  },
+  {
+   "prompt": "What did Robo become in the rain?",
+   "options": [
+    "An umbrella",
+    "A boat",
+    "A bus",
+    "A tree"
+   ],
+   "correct_index": 0,
+   "explanation": "Booom... Robo became a big umbrella."
+  },
+  {
+   "prompt": "Who took Zia's cap first?",
+   "options": [
+    "A crow",
+    "A cat",
+    "A monkey",
+    "A boy"
+   ],
+   "correct_index": 0,
+   "explanation": "A crow took away Zia's cap."
+  },
+  {
+   "prompt": "What did Robo become for the boy?",
+   "options": [
+    "A wheelchair",
+    "A kite",
+    "A bicycle",
+    "A bed"
+   ],
+   "correct_index": 0,
+   "explanation": "Robo turned into a wheelchair."
+  }
+ ],
+ "rhyme_title": "My Robot"
+}

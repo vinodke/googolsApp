@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-07",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 7,
+ "lang": "en",
+ "title": "Let's Categorise",
+ "subtitle": "Sort things into groups",
+ "hero_picture": "A Kerala kitchen: a mother and daughter sorting a mixed heap of fruits and vegetables on a table into two baskets.",
+ "sections": [
+  {
+   "heading": "All mixed up",
+   "text": [
+    "Fruits and vegetables are all mixed up.",
+    "Amma says, 'Shall we categorise?'",
+    "Let us put them in groups."
+   ],
+   "points": [
+    "Mixed things",
+    "Sort them",
+    "Make groups"
+   ],
+   "caption": "A mixed heap",
+   "picture": "A table with a mixed-up heap of fruits and vegetables: apples, bananas, mangoes, tomatoes, carrots, beans and cabbage."
+  },
+  {
+   "heading": "Two baskets",
+   "text": [
+    "'Give the fruits to me,' says one basket.",
+    "'Vegetables to me,' says the other.",
+    "Mango goes to fruits. Carrot goes to vegetables."
+   ],
+   "points": [
+    "Fruits basket",
+    "Vegetables basket",
+    "Each in its place"
+   ],
+   "caption": "Fruits here, vegetables there",
+   "picture": "Two cartoon baskets with happy faces and arms: one basket full of fruits, the other full of vegetables."
+  },
+  {
+   "heading": "Click, hold and move",
+   "text": [
+    "How do we move a picture on the screen?",
+    "Click on it and hold the button.",
+    "Move the mouse, then let go. This is drag and drop!"
+   ],
+   "points": [
+    "Click and hold",
+    "Move the mouse",
+    "Let go"
+   ],
+   "caption": "Dragging with the mouse",
+   "picture": "A girl at a laptop dragging a picture across the screen with the mouse, a dotted path showing the movement."
+  },
+  {
+   "heading": "Sort on the computer",
+   "text": [
+    "Open the 'Categorisation' game.",
+    "Move letters to one side and numbers to another.",
+    "Click OK to check."
+   ],
+   "points": [
+    "Letters together",
+    "Numbers together",
+    "Click OK"
+   ],
+   "caption": "Sorting on the screen",
+   "picture": "A laptop screen divided into three plain boxes: one with letters as blocks, one with number blocks, one with small animal pictures."
+  },
+  {
+   "heading": "Sort at home",
+   "text": [
+    "Put balls in one box, blocks in another.",
+    "Spoons with spoons, plates with plates.",
+    "Sorting keeps things neat."
+   ],
+   "points": [
+    "Balls together",
+    "Blocks together",
+    "Neat and tidy"
+   ],
+   "caption": "Sorting toys",
+   "picture": "Children sorting their toys into boxes: balls in one box, blocks in another, dolls in a third."
+  }
+ ],
+ "rhyme": [
+  "Mango, banana, into the bin,",
+  "Carrots, beans, the veggies go in,",
+  "Click and hold, then drag and drop,",
+  "Sorting is fun, I cannot stop!"
+ ],
+ "activity": "Sort the things in your pencil box into groups: pencils, crayons, erasers.",
+ "talk": [
+  "Where does the mango go?",
+  "How do we move a picture on the screen?",
+  "How do you sort your toys?"
+ ],
+ "summary": "We can sort things into groups; on the computer we drag and drop them.",
+ "questions": [
+  {
+   "prompt": "A carrot goes into which basket?",
+   "options": [
+    "Vegetables",
+    "Fruits",
+    "Toys",
+    "Books"
+   ],
+   "correct_index": 0,
+   "explanation": "A carrot is a vegetable."
+  },
+  {
+   "prompt": "A mango goes into which basket?",
+   "options": [
+    "Fruits",
+    "Vegetables",
+    "Shoes",
+    "Clothes"
+   ],
+   "correct_index": 0,
+   "explanation": "A mango is a fruit."
+  },
+  {
+   "prompt": "To move a picture on screen, we...",
+   "options": [
+    "Click, hold and move",
+    "Only look",
+    "Shout at it",
+    "Switch off"
+   ],
+   "correct_index": 0,
+   "explanation": "Drag and drop: click, hold, move, let go."
+  },
+  {
+   "prompt": "Which is a number?",
+   "options": [
+    "8",
+    "M",
+    "A",
+    "S"
+   ],
+   "correct_index": 0,
+   "explanation": "8 is a number; the others are letters."
+  },
+  {
+   "prompt": "Putting similar things together is called...",
+   "options": [
+    "Sorting",
+    "Sleeping",
+    "Singing",
+    "Running"
+   ],
+   "correct_index": 0,
+   "explanation": "Sorting puts similar things in one group."
+  }
+ ]
+}

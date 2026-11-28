@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-11",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 11,
+ "lang": "en",
+ "title": "Count and Arrange",
+ "subtitle": "Counting, comparing and arranging",
+ "hero_picture": "A Kerala primary school with a red-tiled roof, yellow school buses, children walking in with their parents, green trees around.",
+ "sections": [
+  {
+   "heading": "Count the things",
+   "text": [
+    "Anvith and friends put things in rows.",
+    "5 pencils, 3 erasers, 4 rulers, 1 sharpener.",
+    "Pencils are the most. The sharpener is the least."
+   ],
+   "points": [
+    "Count each kind",
+    "Most: pencils",
+    "Least: sharpener"
+   ],
+   "caption": "Counting school things",
+   "picture": "A table with school things laid out in rows to count: 5 pencils, 3 erasers, 4 rulers and 1 sharpener."
+  },
+  {
+   "heading": "Vehicles at school",
+   "text": [
+    "There was a meeting at Anvith's school.",
+    "They counted cars, autos, bicycles and scooters.",
+    "Which vehicle is more? Which is less?"
+   ],
+   "points": [
+    "Count the vehicles",
+    "Find the most",
+    "Find the least"
+   ],
+   "caption": "Vehicles outside school",
+   "picture": "Vehicles parked outside a school: some cars, auto-rickshaws, bicycles, scooters and one bus, clearly countable."
+  },
+  {
+   "heading": "Toys on the shelf",
+   "text": [
+    "They counted the toys in the pre-primary class.",
+    "Cars, balls, bats, teddy bears and flowers.",
+    "Are there more bats than balls?"
+   ],
+   "points": [
+    "Count the toys",
+    "More or less?",
+    "Same number?"
+   ],
+   "caption": "Toys on the shelf",
+   "picture": "A pre-primary classroom shelf with toys to count: toy cars, balls, bats, teddy bears and flowers."
+  },
+  {
+   "heading": "Arrange in order",
+   "text": [
+    "Put the toys in rows.",
+    "Start with the most, end with the least.",
+    "Now we can see at once which is more!"
+   ],
+   "points": [
+    "Most first",
+    "Least last",
+    "Easy to compare"
+   ],
+   "caption": "Toys in order",
+   "picture": "Children arranging their toys in neat rows from the most to the least on a classroom floor."
+  },
+  {
+   "heading": "Line up in order",
+   "text": [
+    "Children stood in a line.",
+    "Shortest first, tallest last.",
+    "We can arrange people and things in order."
+   ],
+   "points": [
+    "Shortest first",
+    "Tallest last",
+    "Order helps us"
+   ],
+   "caption": "A line from short to tall",
+   "picture": "A smiling teacher and children standing in a line in order of height, shortest to tallest, in a school yard."
+  }
+ ],
+ "rhyme": [
+  "Count the pencils, one, two, three,",
+  "Count the erasers, look and see,",
+  "Which has more and which has less?",
+  "Put them in order, no more guess!"
+ ],
+ "activity": "Count the spoons, plates and cups in your kitchen. Which is the most? Which is the least?",
+ "talk": [
+  "What was the most on Anvith's table?",
+  "How can we compare quickly?",
+  "Are there more chairs or more tables in your class?"
+ ],
+ "summary": "We count, compare and arrange things to see which is more and which is less.",
+ "questions": [
+  {
+   "prompt": "5 pencils and 3 erasers. Which is more?",
+   "options": [
+    "Pencils",
+    "Erasers",
+    "Both same",
+    "None"
+   ],
+   "correct_index": 0,
+   "explanation": "5 is more than 3."
+  },
+  {
+   "prompt": "4 rulers and 1 sharpener. How many more rulers?",
+   "options": [
+    "3",
+    "5",
+    "4",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "4 − 1 = 3."
+  },
+  {
+   "prompt": "Which number is the least: 7, 2, 9, 5?",
+   "options": [
+    "2",
+    "5",
+    "7",
+    "9"
+   ],
+   "correct_index": 0,
+   "explanation": "2 is the smallest number here."
+  },
+  {
+   "prompt": "Arrange from least to most: 6, 1, 4",
+   "options": [
+    "1, 4, 6",
+    "6, 4, 1",
+    "4, 1, 6",
+    "1, 6, 4"
+   ],
+   "correct_index": 0,
+   "explanation": "1 is least, then 4, then 6."
+  },
+  {
+   "prompt": "3 teddy bears and 3 cars. What can we say?",
+   "options": [
+    "Same number",
+    "More bears",
+    "More cars",
+    "No bears"
+   ],
+   "correct_index": 0,
+   "explanation": "3 and 3 are the same."
+  }
+ ]
+}

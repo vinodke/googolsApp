@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-15",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 15,
+ "lang": "en",
+ "title": "Whose Shadow?",
+ "subtitle": "Match the picture to its shadow",
+ "hero_picture": "A playful orange cat holding a crayon beside a row of animals (lion, rooster, goat, dog) and their black shadows, a girl pointing at toy trains.",
+ "sections": [
+  {
+   "heading": "Animals and shadows",
+   "text": [
+    "Look at the lion, the rooster, the goat and the dog.",
+    "Each one has a dark shadow.",
+    "Which shadow belongs to whom?"
+   ],
+   "points": [
+    "Look at the shape",
+    "Find its shadow",
+    "Match them"
+   ],
+   "caption": "Animals and their shadows",
+   "picture": "A lion, a rooster, a goat and a dog standing in a row with their black shadows beside them on a sunny day."
+  },
+  {
+   "heading": "My shadow",
+   "text": [
+    "Stand in the sun and look down.",
+    "There is your shadow!",
+    "It has your shape, but it is dark."
+   ],
+   "points": [
+    "Sun makes shadows",
+    "Same shape",
+    "Dark colour"
+   ],
+   "caption": "My own shadow",
+   "picture": "A girl standing in the sun with her own dark shadow stretched on the ground beside her."
+  },
+  {
+   "heading": "Match the shape",
+   "text": [
+    "'I will do this,' says the cat.",
+    "The rooster shadow has a comb and a tail.",
+    "Match the rooster to its shadow."
+   ],
+   "points": [
+    "See the outline",
+    "Find special parts",
+    "Draw a line to match"
+   ],
+   "caption": "Matching a shadow",
+   "picture": "A black shadow shape of a rooster next to a colourful rooster, a child drawing a line to match them."
+  },
+  {
+   "heading": "Baby puzzle game",
+   "text": [
+    "Open the 'Baby puzzle' game.",
+    "A shadow of a toy train is shown.",
+    "Drag each piece and place it on its shadow."
+   ],
+   "points": [
+    "See the shadow",
+    "Drag the piece",
+    "Place it right"
+   ],
+   "caption": "Placing pieces on shadows",
+   "picture": "A laptop screen with a grey shadow of a toy train and colourful toy train pieces above it waiting to be placed."
+  },
+  {
+   "heading": "Shadow play",
+   "text": [
+    "Shine a torch on the wall.",
+    "Make a bird or a dog with your hands.",
+    "Can friends guess your shadow?"
+   ],
+   "points": [
+    "Torch on the wall",
+    "Hand shapes",
+    "Guess the shadow"
+   ],
+   "caption": "Hand shadows",
+   "picture": "Children making hand-shadow animals on a wall with a torch: a bird and a dog shape."
+  }
+ ],
+ "rhyme": [
+  "Lion, rooster, goat and pup,",
+  "Shadows follow, look them up,",
+  "Same in shape but dark as night,",
+  "Match them all, you got it right!"
+ ],
+ "activity": "Stand in the sun in the morning and at noon. Is your shadow long or short each time?",
+ "talk": [
+  "What makes a shadow?",
+  "How did the cat find the rooster's shadow?",
+  "What shadow can you make with your hands?"
+ ],
+ "summary": "A shadow has the same shape as the thing; we match each thing to its shadow.",
+ "questions": [
+  {
+   "prompt": "What makes our shadow outside?",
+   "options": [
+    "The sun",
+    "The rain",
+    "The wind",
+    "The grass"
+   ],
+   "correct_index": 0,
+   "explanation": "Sunlight makes shadows."
+  },
+  {
+   "prompt": "A shadow has the same ____ as the thing.",
+   "options": [
+    "Shape",
+    "Colour",
+    "Smell",
+    "Sound"
+   ],
+   "correct_index": 0,
+   "explanation": "A shadow keeps the shape."
+  },
+  {
+   "prompt": "What colour is a shadow?",
+   "options": [
+    "Dark",
+    "Rainbow",
+    "Bright red",
+    "Shiny gold"
+   ],
+   "correct_index": 0,
+   "explanation": "Shadows are dark."
+  },
+  {
+   "prompt": "In 'Baby puzzle', where do we place each piece?",
+   "options": [
+    "On its shadow",
+    "Anywhere",
+    "Outside the screen",
+    "In the bin"
+   ],
+   "correct_index": 0,
+   "explanation": "Each piece goes on its own shadow."
+  },
+  {
+   "prompt": "Which animal's shadow has a comb and a tail feather?",
+   "options": [
+    "Rooster",
+    "Goat",
+    "Fish",
+    "Snake"
+   ],
+   "correct_index": 0,
+   "explanation": "A rooster has a comb and tail feathers."
+  }
+ ]
+}

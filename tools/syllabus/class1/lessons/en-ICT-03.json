@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-03",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 3,
+ "lang": "en",
+ "title": "Click, Click",
+ "subtitle": "Learning to double-click",
+ "hero_picture": "A kitten peeping out from behind a wooden cupboard door in a green room, a curious girl looking around for it.",
+ "sections": [
+  {
+   "heading": "Who is hiding?",
+   "text": [
+    "Kuttan the cat is hiding behind the cupboard.",
+    "Minnu says, 'Saw you!'",
+    "It is fun to find what is hidden."
+   ],
+   "points": [
+    "Peep and find",
+    "Look carefully",
+    "Hide and seek"
+   ],
+   "caption": "Kitten behind the cupboard",
+   "picture": "A kitten hiding behind a half-open wooden cupboard door, only its face peeping out."
+  },
+  {
+   "heading": "Double click",
+   "text": [
+    "A click is one press.",
+    "A double click is two quick presses: click-click!",
+    "Press fast, without moving the mouse."
+   ],
+   "points": [
+    "Two quick presses",
+    "Do not move the mouse",
+    "Click-click!"
+   ],
+   "caption": "Double-clicking the mouse",
+   "picture": "A girl's finger tapping a computer mouse button two times quickly, with two small motion marks."
+  },
+  {
+   "heading": "Blocks on the screen",
+   "text": [
+    "Open the game 'Double tap or Double click'.",
+    "Blocks cover a hidden picture.",
+    "Double-click each block to make it go away."
+   ],
+   "points": [
+    "Blocks hide a picture",
+    "Double-click each block",
+    "Blocks disappear"
+   ],
+   "caption": "Blocks hiding a picture",
+   "picture": "A laptop screen showing a wall of plain cream-coloured blocks with part of a bird's wing visible behind them."
+  },
+  {
+   "heading": "The picture appears",
+   "text": [
+    "One by one, the blocks vanish.",
+    "Look, a big eagle is flying!",
+    "Guess the picture before all the blocks go."
+   ],
+   "points": [
+    "Guess early",
+    "Clear all blocks",
+    "See the full picture"
+   ],
+   "caption": "The eagle appears",
+   "picture": "The same laptop screen with most blocks gone, showing a big eagle flying with spread wings."
+  },
+  {
+   "heading": "Take turns",
+   "text": [
+    "Each friend plays one picture.",
+    "Count how many double clicks you need.",
+    "Cheer for your friends!"
+   ],
+   "points": [
+    "Take turns",
+    "Count clicks",
+    "Cheer friends"
+   ],
+   "caption": "Playing together",
+   "picture": "Children taking turns at a laptop, one clicking while the others watch excitedly."
+  }
+ ],
+ "rhyme": [
+  "Click, click, quick, quick,",
+  "Two fast taps, that's the trick,",
+  "Blocks go away, one, two, three,",
+  "A flying eagle I can see!"
+ ],
+ "activity": "Play hide and seek with a toy. Hide it under a cloth and let a friend guess what it is.",
+ "talk": [
+  "Who was hiding behind the cupboard?",
+  "How is a double click different from a click?",
+  "What did you see behind the blocks?"
+ ],
+ "summary": "A double click is two quick presses of the mouse button.",
+ "questions": [
+  {
+   "prompt": "A double click means pressing the button...",
+   "options": [
+    "Two times quickly",
+    "One time",
+    "Ten times",
+    "Slowly"
+   ],
+   "correct_index": 0,
+   "explanation": "Two quick presses make a double click."
+  },
+  {
+   "prompt": "What should the mouse do during a double click?",
+   "options": [
+    "Stay still",
+    "Move fast",
+    "Jump",
+    "Turn over"
+   ],
+   "correct_index": 0,
+   "explanation": "Keep the mouse still while double-clicking."
+  },
+  {
+   "prompt": "What happens to a block when we double-click it?",
+   "options": [
+    "It goes away",
+    "It grows",
+    "It sings",
+    "It turns red"
+   ],
+   "correct_index": 0,
+   "explanation": "The block disappears."
+  },
+  {
+   "prompt": "Who was hiding behind the cupboard?",
+   "options": [
+    "A cat",
+    "A cow",
+    "A fish",
+    "A bus"
+   ],
+   "correct_index": 0,
+   "explanation": "The cat was hiding."
+  },
+  {
+   "prompt": "What was hidden behind the blocks?",
+   "options": [
+    "An eagle",
+    "A car",
+    "A cake",
+    "A shoe"
+   ],
+   "correct_index": 0,
+   "explanation": "A flying eagle was behind the blocks."
+  }
+ ]
+}

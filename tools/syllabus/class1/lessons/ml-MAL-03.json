@@ -1,0 +1,156 @@
+{
+ "key": "ml-MAL-03",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 3,
+ "lang": "ml",
+ "title": "മാനത്ത് പട്ടം",
+ "subtitle": "പട്ടം കണ്ട കാഴ്ചകൾ, നാടൻ കളികൾ",
+ "hero_picture": "A bright yellow kite with a long colourful tail flying high in a blue sky above a green Kerala village with a river; two children on the ground holding the kite string and laughing.",
+ "sections": [
+  {
+   "heading": "മാനത്ത് പട്ടം",
+   "text": [
+    "കാറ്റിൽ പട്ടം ഉയരെ പറന്നു.",
+    "പട്ടം താഴേക്ക് നോക്കി.",
+    "വീട് കണ്ടു, കാട് കണ്ടു, വണ്ടി കണ്ടു."
+   ],
+   "points": [
+    "പട്ടം ഉയരെ പറന്നു",
+    "വീടും കാടും കണ്ടു",
+    "വണ്ടിയും കണ്ടു"
+   ],
+   "caption": "പട്ടം കണ്ട കാഴ്ചകൾ",
+   "picture": "View from high in the sky: a kite flying above a small village; below are a house with a red roof, a green forest, and a little car on a winding road."
+  },
+  {
+   "heading": "എന്തെല്ലാമുണ്ട്?",
+   "text": [
+    "മരമുണ്ട്, കിളിയുണ്ട്, കൂടുമുണ്ട്.",
+    "കുളമുണ്ട്, പുഴയുണ്ട്, മീനുമുണ്ട്.",
+    "നിനക്കു ചുറ്റും എന്തെല്ലാമുണ്ട്?"
+   ],
+   "points": [
+    "മരം, കിളി, കൂട്",
+    "കുളം, പുഴ, മീൻ",
+    "ചുറ്റും നോക്കാം"
+   ],
+   "caption": "മരവും കിളിയും പുഴയും മീനും",
+   "picture": "A big tree with a bird sitting next to its nest on a branch, beside a pond and a flowing river with small fish jumping."
+  },
+  {
+   "heading": "ആടിവരൂ പാടിവരൂ",
+   "text": [
+    "കൂട്ടുകാർ ഒത്തുചേർന്നു.",
+    "ഊഞ്ഞാലാടി, ഓടിക്കളിച്ചു, ഒളിച്ചുകളിച്ചു.",
+    "ആടിവരൂ, പാടിവരൂ, കൂടെവരൂ കൂട്ടരേ!"
+   ],
+   "points": [
+    "ഊഞ്ഞാലാട്ടം",
+    "ഓട്ടം",
+    "ഒളിച്ചുകളി"
+   ],
+   "caption": "കൂട്ടുകാരുമൊത്ത് കളി",
+   "picture": "Happy children playing outdoors under trees: one girl on a rope swing, two children running, one child hiding behind a tree trunk playing hide-and-seek."
+  },
+  {
+   "heading": "കളിയരങ്ങ്",
+   "text": [
+    "നമ്മുടെ നാട്ടിൽ പല കളികളുണ്ട്.",
+    "പുലിക്കളി, വള്ളംകളി, ചെണ്ടമേളം.",
+    "കളിയുടെ പേര് പറയാമോ?"
+   ],
+   "points": [
+    "പുലിക്കളി",
+    "വള്ളംകളി",
+    "ചെണ്ടമേളം"
+   ],
+   "caption": "നാട്ടിലെ കളികൾ",
+   "picture": "A Kerala festival scene: children painted as tigers dancing (Pulikali), two boys playing chenda drums, and a long snake boat with rowers on the river behind."
+  },
+  {
+   "heading": "ഓലക്കളിപ്പാട്ടം",
+   "text": [
+    "തെങ്ങോലകൊണ്ട് കളിപ്പാട്ടം ഉണ്ടാക്കാം.",
+    "ഓലപ്പന്ത്, ഓലക്കിളി, ഓലപ്പീപ്പി, ഓലക്കണ്ണട."
+   ],
+   "points": [
+    "ഓലപ്പന്ത്",
+    "ഓലക്കിളി",
+    "ഓലപ്പീപ്പി"
+   ],
+   "caption": "തെങ്ങോലകൊണ്ടുള്ള കളിപ്പാട്ടങ്ങൾ",
+   "picture": "Toys made from green coconut leaves laid out on a mat: a woven leaf ball, a leaf bird, a leaf whistle, leaf spectacles and a tiny leaf basket."
+  }
+ ],
+ "rhyme": [
+  "പാറിപ്പാറി പട്ടം പോയ്",
+  "മാനം മുട്ടെ പട്ടം പോയ്",
+  "വീടും കാടും കണ്ടേ പോയ്",
+  "കൂട്ടരുമൊത്തു കളിക്കാൻ വാ!"
+ ],
+ "activity": "കടലാസുകൊണ്ട് ഒരു കുഞ്ഞുപട്ടം ഉണ്ടാക്കൂ. മുതിർന്നവരുടെ സഹായം തേടാം.",
+ "talk": [
+  "പട്ടം എന്തെല്ലാം കണ്ടു?",
+  "നിനക്ക് ഇഷ്ടമുള്ള കളി ഏത്?",
+  "തെങ്ങോലകൊണ്ട് എന്തെല്ലാം ഉണ്ടാക്കാം?"
+ ],
+ "summary": "പട്ടം മാനത്തു പറന്നു; നാടൻ കളികളും ഓലക്കളിപ്പാട്ടങ്ങളും രസമാണ്.",
+ "questions": [
+  {
+   "prompt": "പട്ടം പറന്നത് എവിടെ?",
+   "options": [
+    "മാനത്ത്",
+    "വെള്ളത്തിൽ",
+    "മണ്ണിനടിയിൽ",
+    "വീട്ടിനുള്ളിൽ"
+   ],
+   "correct_index": 0,
+   "explanation": "കാറ്റിൽ പട്ടം മാനത്ത് ഉയരെ പറന്നു."
+  },
+  {
+   "prompt": "പട്ടം പറക്കാൻ എന്തു വേണം?",
+   "options": [
+    "കാറ്റ്",
+    "തീ",
+    "മണൽ",
+    "ഐസ്"
+   ],
+   "correct_index": 0,
+   "explanation": "കാറ്റുണ്ടെങ്കിലേ പട്ടം ഉയരെ പറക്കൂ."
+  },
+  {
+   "prompt": "പുഴയിൽ എന്തുണ്ട്?",
+   "options": [
+    "മീൻ",
+    "പട്ടം",
+    "വണ്ടി",
+    "വീട്"
+   ],
+   "correct_index": 0,
+   "explanation": "കുളമുണ്ട്, പുഴയുണ്ട്, മീനുമുണ്ട്."
+  },
+  {
+   "prompt": "പുലിയുടെ വേഷം കെട്ടി കളിക്കുന്ന കളി ഏത്?",
+   "options": [
+    "പുലിക്കളി",
+    "വള്ളംകളി",
+    "ഒളിച്ചുകളി",
+    "ഊഞ്ഞാലാട്ടം"
+   ],
+   "correct_index": 0,
+   "explanation": "പുലിക്കളിയിൽ പുലിയുടെ വേഷം കെട്ടി ആടും."
+  },
+  {
+   "prompt": "ഓലപ്പീപ്പി ഉണ്ടാക്കുന്നത് എന്തുകൊണ്ട്?",
+   "options": [
+    "തെങ്ങോല",
+    "കല്ല്",
+    "ഇരുമ്പ്",
+    "പ്ലാസ്റ്റിക്"
+   ],
+   "correct_index": 0,
+   "explanation": "തെങ്ങോലകൊണ്ട് പീപ്പിയും പന്തും കിളിയും ഉണ്ടാക്കാം."
+  }
+ ]
+}

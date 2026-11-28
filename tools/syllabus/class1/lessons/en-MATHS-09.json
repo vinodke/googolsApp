@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-09",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 9,
+ "lang": "en",
+ "title": "It is Time",
+ "subtitle": "Day and night, days of the week, months",
+ "hero_picture": "A day in a Kerala home from morning to night in one picture: a rooster crowing at sunrise on one side, children at school in the middle, and a moon with an owl at night on the other side.",
+ "sections": [
+  {
+   "heading": "Morning",
+   "text": [
+    "The rooster crows. It is morning.",
+    "Mom woke me up. I brushed my teeth.",
+    "Dad gave me dosa and chutney."
+   ],
+   "points": [
+    "Wake up",
+    "Brush teeth",
+    "Breakfast"
+   ],
+   "caption": "A new day begins",
+   "picture": "Early morning: a rooster crowing on a fence as the sun rises, a mother gently waking a girl in bed."
+  },
+  {
+   "heading": "Mia's diary",
+   "text": [
+    "Mia writes what she does each day.",
+    "Morning: school. Noon: lunch. Evening: play.",
+    "At night, at 9 o'clock, she goes to sleep."
+   ],
+   "points": [
+    "Morning, noon",
+    "Evening, night",
+    "9 o'clock: sleep"
+   ],
+   "caption": "Mia's day",
+   "picture": "A girl's morning: brushing her teeth, then eating dosa with chutney at the table with her father; a clock on the wall."
+  },
+  {
+   "heading": "At school",
+   "text": [
+    "Mia drew pictures in her maths notebook.",
+    "In the evening she played cricket with friends.",
+    "Every part of the day has its work."
+   ],
+   "points": [
+    "Study time",
+    "Play time",
+    "Sleep time"
+   ],
+   "caption": "School and play",
+   "picture": "Afternoon at school: children eating lunch together, then playing cricket in the school ground in the evening."
+  },
+  {
+   "heading": "Days of the week",
+   "text": [
+    "Sunday, Monday, Tuesday, Wednesday,",
+    "Thursday, Friday, Saturday.",
+    "Seven days make a week."
+   ],
+   "points": [
+    "7 days in a week",
+    "Sunday first",
+    "Saturday last"
+   ],
+   "caption": "Reading the calendar",
+   "picture": "A big wall calendar page with seven columns of days and a few dates circled in red, a boy pointing at it (no readable words)."
+  },
+  {
+   "heading": "Months and seasons",
+   "text": [
+    "A year has 12 months: January to December.",
+    "Summer is hot. Rain comes in the rainy season.",
+    "Winter is cool. Spring brings flowers."
+   ],
+   "points": [
+    "12 months in a year",
+    "Summer and rain",
+    "Winter and spring"
+   ],
+   "caption": "Seasons of the year",
+   "picture": "Four small scenes of seasons in Kerala: a hot dry summer with a hand fan, heavy rain with an umbrella, a misty cold winter morning with a sweater, and spring with flowers."
+  }
+ ],
+ "rhyme": [
+  "Sunday, Monday, off we go,",
+  "Tuesday, Wednesday, sun and snow,",
+  "Thursday, Friday, work and play,",
+  "Saturday, then another Sunday!"
+ ],
+ "activity": "Write one nice thing you did on each day of this week.",
+ "talk": [
+  "What do you do in the morning?",
+  "How many days are there in a week?",
+  "Which month is your birthday in?"
+ ],
+ "summary": "A day has morning, noon, evening and night; a week has 7 days and a year has 12 months.",
+ "questions": [
+  {
+   "prompt": "How many days are there in a week?",
+   "options": [
+    "7",
+    "5",
+    "10",
+    "12"
+   ],
+   "correct_index": 0,
+   "explanation": "Sunday to Saturday: seven days."
+  },
+  {
+   "prompt": "How many months are there in a year?",
+   "options": [
+    "12",
+    "7",
+    "10",
+    "30"
+   ],
+   "correct_index": 0,
+   "explanation": "January to December: twelve months."
+  },
+  {
+   "prompt": "Who crows in the morning?",
+   "options": [
+    "Rooster",
+    "Owl",
+    "Cat",
+    "Fish"
+   ],
+   "correct_index": 0,
+   "explanation": "The rooster crows at sunrise."
+  },
+  {
+   "prompt": "Which day comes after Monday?",
+   "options": [
+    "Tuesday",
+    "Sunday",
+    "Friday",
+    "Wednesday"
+   ],
+   "correct_index": 0,
+   "explanation": "Monday, then Tuesday."
+  },
+  {
+   "prompt": "In which season do we need an umbrella most?",
+   "options": [
+    "Rainy season",
+    "Summer",
+    "Winter",
+    "Spring"
+   ],
+   "correct_index": 0,
+   "explanation": "It rains a lot in the rainy season."
+  }
+ ]
+}

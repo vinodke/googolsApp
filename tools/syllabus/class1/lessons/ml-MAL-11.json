@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-11",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 11,
+ "lang": "ml",
+ "title": "പോം പോം വണ്ടി",
+ "subtitle": "വണ്ടികളും യാത്രകളും",
+ "hero_picture": "A funny old black car with big friendly eyes driving along a forest road, full of happy animals inside - an elephant, a bear, a monkey, rabbits and a deer waving from the windows.",
+ "sections": [
+  {
+   "heading": "കാട്ടിലൊരു വണ്ടി",
+   "text": [
+    "കാട്ടിൽ ഒരു വലിയ കറുത്ത വണ്ടി.",
+    "വണ്ടിക്ക് ടയറില്ല! അത് ഓടുന്നില്ല.",
+    "മൃഗങ്ങൾ വണ്ടി കാണാൻ വന്നു."
+   ],
+   "points": [
+    "കറുത്ത വണ്ടി",
+    "ടയറില്ല",
+    "മൃഗങ്ങൾ വന്നു"
+   ],
+   "caption": "കാട്ടിലെ ടയറില്ലാത്ത വണ്ടി",
+   "picture": "An old black car with sleepy eyes and no tyres sitting on the grass in a green forest; a rabbit, a monkey and a big purple bear walk up to it curiously."
+  },
+  {
+   "heading": "ഐലസ! തള്ളാം",
+   "text": [
+    "ആനയും കരടിയും കുരങ്ങനും വണ്ടി തള്ളി.",
+    "ഉറുമ്പ് പറഞ്ഞു: കയർ കെട്ടി വലിച്ചോ!",
+    "കാക്ക ചിരിച്ചു: ടയറില്ലാതെ വണ്ടി തള്ളുന്നേ!"
+   ],
+   "points": [
+    "ഒത്തുപിടിച്ച് തള്ളി",
+    "കയർ കെട്ടി വലിച്ചു",
+    "കാക്ക ചിരിച്ചു"
+   ],
+   "caption": "ഒത്തുപിടിച്ച് വണ്ടി തള്ളുന്നവർ",
+   "picture": "An elephant, a bear and two monkeys pushing and pulling the black car with a rope across a meadow; a crow on a branch laughing; a tiny ant giving advice."
+  },
+  {
+   "heading": "പോം പോം വണ്ടി ഓടി",
+   "text": [
+    "കരടി ടയർ ഉരുട്ടിക്കൊണ്ടുവന്നു.",
+    "ടയർ ഇട്ടു. വണ്ടി ഉരുണ്ടു, മുരണ്ടു.",
+    "പോം പോം! എല്ലാവരും വണ്ടിയിൽ കയറി."
+   ],
+   "points": [
+    "ടയർ കിട്ടി",
+    "വണ്ടി ഓടി",
+    "എല്ലാവരും കയറി"
+   ],
+   "caption": "മൃഗങ്ങളുമായി ഓടുന്ന വണ്ടി",
+   "picture": "The black car now with four new tyres driving happily on a forest road, honking, an elephant, a bear, a monkey, rabbits and a deer smiling and waving from inside."
+  },
+  {
+   "heading": "വണ്ടികളുടെ ശബ്ദം",
+   "text": [
+    "കാളവണ്ടി: കട കട കട.",
+    "സൈക്കിൾ: കിണി കിണി കിണി.",
+    "തീവണ്ടി: ഛുക് ഛുക്. ബസ്: പോം പോം."
+   ],
+   "points": [
+    "കാളവണ്ടി — കട കട",
+    "സൈക്കിൾ — കിണി കിണി",
+    "തീവണ്ടി — ഛുക് ഛുക്"
+   ],
+   "caption": "പല വണ്ടികൾ, പല ശബ്ദങ്ങൾ",
+   "picture": "A Kerala countryside road with different vehicles: a bullock cart, a girl riding a bicycle, a boy on a motorbike, and a long blue train passing on a railway track behind."
+  },
+  {
+   "heading": "കരയിലും വെള്ളത്തിലും ആകാശത്തും",
+   "text": [
+    "കരയിലൂടെ: ബസ്, കാർ, സൈക്കിൾ.",
+    "വെള്ളത്തിലൂടെ: വള്ളം, ബോട്ട്, കപ്പൽ.",
+    "ആകാശത്തിലൂടെ: വിമാനം, ഹെലികോപ്റ്റർ."
+   ],
+   "points": [
+    "കരയിൽ: ബസ്, കാർ",
+    "വെള്ളത്തിൽ: വള്ളം, കപ്പൽ",
+    "ആകാശത്ത്: വിമാനം"
+   ],
+   "caption": "കരയിലും വെള്ളത്തിലും ആകാശത്തും",
+   "picture": "One scene in three layers: an aeroplane and a helicopter in the sky, a ship and a small country boat on the water, and a bus, a car and a bicycle on the road by the shore."
+  }
+ ],
+ "rhyme": [
+  "കട കട കാളവണ്ടി",
+  "കിണി കിണി സൈക്കിൾ",
+  "ഛുക് ഛുക് തീവണ്ടി",
+  "പോം പോം ബസ്സു വന്നേ!"
+ ],
+ "activity": "ഒഴിഞ്ഞ ഒരു പെട്ടിയും നാലു കുപ്പിയടപ്പുകളും കൊണ്ട് ഒരു കളിവണ്ടി ഉണ്ടാക്കൂ. നൂൽ കെട്ടി വലിച്ചുനോക്കൂ.",
+ "talk": [
+  "വണ്ടി ഓടാതിരുന്നത് എന്തുകൊണ്ട്?",
+  "സൈക്കിളിന്റെ ശബ്ദം എങ്ങനെ?",
+  "ആകാശത്തിലൂടെ പോകുന്ന വാഹനം ഏത്?"
+ ],
+ "summary": "ഒത്തുപിടിച്ചാൽ വണ്ടി ഓടും; കരയിലും വെള്ളത്തിലും ആകാശത്തും വാഹനങ്ങളുണ്ട്.",
+ "questions": [
+  {
+   "prompt": "കാട്ടിലെ വണ്ടി ഓടാതിരുന്നത് എന്തുകൊണ്ട്?",
+   "options": [
+    "ടയറില്ലായിരുന്നു",
+    "മഴയായിരുന്നു",
+    "രാത്രിയായിരുന്നു",
+    "വണ്ടി ഉറങ്ങി"
+   ],
+   "correct_index": 0,
+   "explanation": "വണ്ടിക്ക് ടയറില്ലായിരുന്നു; ടയർ ഇട്ടപ്പോൾ ഓടി."
+  },
+  {
+   "prompt": "ടയർ ഉരുട്ടിക്കൊണ്ടുവന്നത് ആര്?",
+   "options": [
+    "കരടി",
+    "കാക്ക",
+    "ഉറുമ്പ്",
+    "മീൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "കരടി ടയർ ഉരുട്ടിക്കൊണ്ടുവന്നു."
+  },
+  {
+   "prompt": "‘കിണി കിണി’ എന്ന ശബ്ദം ഏതു വണ്ടിയുടേത്?",
+   "options": [
+    "സൈക്കിൾ",
+    "തീവണ്ടി",
+    "കാളവണ്ടി",
+    "വിമാനം"
+   ],
+   "correct_index": 0,
+   "explanation": "സൈക്കിളിന്റെ മണി കിണി കിണി എന്ന് അടിക്കും."
+  },
+  {
+   "prompt": "വെള്ളത്തിലൂടെ പോകുന്ന വാഹനം ഏത്?",
+   "options": [
+    "വള്ളം",
+    "ബസ്",
+    "സൈക്കിൾ",
+    "വിമാനം"
+   ],
+   "correct_index": 0,
+   "explanation": "വള്ളവും ബോട്ടും കപ്പലും വെള്ളത്തിലൂടെ പോകും."
+  },
+  {
+   "prompt": "ആകാശത്തിലൂടെ പോകുന്ന വാഹനം ഏത്?",
+   "options": [
+    "വിമാനം",
+    "കാർ",
+    "കാളവണ്ടി",
+    "തോണി"
+   ],
+   "correct_index": 0,
+   "explanation": "വിമാനവും ഹെലികോപ്റ്ററും ആകാശത്തിലൂടെ പോകും."
+  }
+ ]
+}

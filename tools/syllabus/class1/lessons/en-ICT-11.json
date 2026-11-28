@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-11",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 11,
+ "lang": "en",
+ "title": "How Many Dots?",
+ "subtitle": "Count the dots on the dice",
+ "hero_picture": "A boy and a girl playing snakes and ladders on the floor with a big red dice, red dice tumbling in the air around them.",
+ "sections": [
+  {
+   "heading": "Snakes and ladders",
+   "text": [
+    "Ravi and Linu play snakes and ladders.",
+    "'If it is 6, the snake will swallow!' says Linu.",
+    "They roll the dice and count."
+   ],
+   "points": [
+    "Roll the dice",
+    "Count the dots",
+    "Move ahead"
+   ],
+   "caption": "Playing snakes and ladders",
+   "picture": "A boy and a girl playing a snakes-and-ladders board on the floor, the girl rolling a dice."
+  },
+  {
+   "heading": "Dots on a dice",
+   "text": [
+    "A dice has six sides.",
+    "Each side has dots: 1, 2, 3, 4, 5 or 6.",
+    "The dots tell us the number."
+   ],
+   "points": [
+    "Six sides",
+    "1 to 6 dots",
+    "Dots = number"
+   ],
+   "caption": "The six faces of a dice",
+   "picture": "Six red dice in a row showing 1, 2, 3, 4, 5 and 6 white dots."
+  },
+  {
+   "heading": "Count quickly",
+   "text": [
+    "Count the dots on the dice.",
+    "Can you tell without counting one by one?",
+    "Practice makes you quick!"
+   ],
+   "points": [
+    "Count each dot",
+    "See the pattern",
+    "Be quick"
+   ],
+   "caption": "Counting dots",
+   "picture": "A child pointing at each dot on a big red dice, counting the dots."
+  },
+  {
+   "heading": "Numbers with dice",
+   "text": [
+    "Open the 'Numbers with dice' game.",
+    "Dice fall down from the sky.",
+    "Count the dots and type the number before they reach down."
+   ],
+   "points": [
+    "Dice fall down",
+    "Count the dots",
+    "Type the number"
+   ],
+   "caption": "Falling dice game",
+   "picture": "A laptop screen with a blue sky and red dice falling down towards three fluffy sheep on green grass."
+  },
+  {
+   "heading": "Show with fingers",
+   "text": [
+    "Roll a dice with friends.",
+    "Show the number with your fingers.",
+    "Who is the fastest?"
+   ],
+   "points": [
+    "Roll",
+    "Show fingers",
+    "Be fast"
+   ],
+   "caption": "Showing fingers",
+   "picture": "Children playing a counting game, one rolling a dice and others holding up fingers to match the dots."
+  }
+ ],
+ "rhyme": [
+  "Roll the dice and count the dots,",
+  "One, two, three, I count a lot,",
+  "Four, five, six, type it in,",
+  "Quick, quick, quick, and I win!"
+ ],
+ "activity": "Make a dice from a small paper box. Draw dots from 1 to 6 on its sides and play.",
+ "talk": [
+  "How many sides does a dice have?",
+  "What is the biggest number on a dice?",
+  "How did you count the dots quickly?"
+ ],
+ "summary": "A dice has 1 to 6 dots; we count the dots and type the number.",
+ "questions": [
+  {
+   "prompt": "How many sides does a dice have?",
+   "options": [
+    "6",
+    "4",
+    "5",
+    "10"
+   ],
+   "correct_index": 0,
+   "explanation": "A dice has six sides."
+  },
+  {
+   "prompt": "What is the most dots on one side?",
+   "options": [
+    "6",
+    "5",
+    "10",
+    "3"
+   ],
+   "correct_index": 0,
+   "explanation": "The biggest is six dots."
+  },
+  {
+   "prompt": "In the game, what do we type?",
+   "options": [
+    "The number of dots",
+    "Our name",
+    "A colour",
+    "A song"
+   ],
+   "correct_index": 0,
+   "explanation": "We type how many dots there are."
+  },
+  {
+   "prompt": "A dice shows 3 dots. Which number?",
+   "options": [
+    "3",
+    "2",
+    "4",
+    "6"
+   ],
+   "correct_index": 0,
+   "explanation": "Three dots mean 3."
+  },
+  {
+   "prompt": "What game were Ravi and Linu playing?",
+   "options": [
+    "Snakes and ladders",
+    "Football",
+    "Cricket",
+    "Hide and seek"
+   ],
+   "correct_index": 0,
+   "explanation": "They played snakes and ladders."
+  }
+ ]
+}

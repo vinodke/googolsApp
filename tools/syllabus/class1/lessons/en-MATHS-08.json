@@ -1,0 +1,157 @@
+{
+ "key": "en-MATHS-08",
+ "grade": 1,
+ "subject": "Mathematics",
+ "chapter_no": 8,
+ "lang": "en",
+ "title": "Jingling Coins",
+ "subtitle": "Coins, notes and shopping",
+ "hero_picture": "A colourful Kerala village festival ground with a giant wheel, bunting flags, an ice-cream booth and happy families; two children holding coins.",
+ "sections": [
+  {
+   "heading": "Coin exhibition",
+   "text": [
+    "Anu and Jithu went to the village fest.",
+    "They saw many coins: 1, 2, 5, 10 and 20 rupees.",
+    "Notes are paper money: 10, 20, 50, 100 rupees."
+   ],
+   "points": [
+    "Coins: 1, 2, 5, 10, 20",
+    "Notes: 10, 20, 50, 100",
+    "Rupee is our money"
+   ],
+   "caption": "Coins at the exhibition",
+   "picture": "Children looking at a table displaying Indian coins of 1, 2, 5, 10 and 20 rupees in neat rows (no readable text)."
+  },
+  {
+   "heading": "Ice cream time",
+   "text": [
+    "One ice cream costs 15 rupees.",
+    "Anu gave three 5-rupee notes.",
+    "5 + 5 + 5 = 15 rupees."
+   ],
+   "points": [
+    "Price: 15 rupees",
+    "5 + 5 + 5 = 15",
+    "10 + 5 = 15 too"
+   ],
+   "caption": "At the ice-cream booth",
+   "picture": "A girl and a boy at a colourful ice-cream booth, the girl handing over some paper notes to the seller."
+  },
+  {
+   "heading": "Ride the giant wheel",
+   "text": [
+    "A ticket costs 20 rupees.",
+    "Jithu paid with coins: 10 + 5 + 5.",
+    "That makes 20 rupees!"
+   ],
+   "points": [
+    "Ticket: 20 rupees",
+    "10 + 5 + 5 = 20",
+    "Count the coins"
+   ],
+   "caption": "Buying a ticket",
+   "picture": "Children at a small ticket counter near a giant wheel, one boy counting coins in his hand."
+  },
+  {
+   "heading": "At the shop",
+   "text": [
+    "A crayon box is 5 rupees. Watercolour is 10 rupees.",
+    "Both together: 5 + 10 = 15 rupees.",
+    "Add the prices to find the total."
+   ],
+   "points": [
+    "Crayon: 5 rupees",
+    "Watercolour: 10 rupees",
+    "Total: 15 rupees"
+   ],
+   "caption": "Shopping for colours",
+   "picture": "A small stationery shop with crayons, watercolours and erasers on the shelves, a boy buying a box of crayons."
+  },
+  {
+   "heading": "My piggy bank",
+   "text": [
+    "The class opened its piggy bank.",
+    "They sorted the coins into sets of 10 rupees.",
+    "Count the sets to find how much money!"
+   ],
+   "points": [
+    "Sort the coins",
+    "Make sets of 10",
+    "Count the money"
+   ],
+   "caption": "Counting the piggy bank",
+   "picture": "A clay piggy bank broken open on a table with coins spilling out; children sorting the coins into small heaps."
+  }
+ ],
+ "rhyme": [
+  "Jingle, jingle, coins in my hand,",
+  "One, two, five, isn't it grand?",
+  "Ten and five make fifteen,",
+  "Buy an ice cream, cold and clean!"
+ ],
+ "activity": "Play shop with a friend. Use paper coins of 1, 2, 5 and 10 rupees to buy and sell.",
+ "talk": [
+  "Name the coins you have seen.",
+  "How can you make 15 rupees?",
+  "What can you buy with 10 rupees?"
+ ],
+ "summary": "We use coins and notes to buy things; we add their values to pay the price.",
+ "questions": [
+  {
+   "prompt": "An ice cream costs 15 rupees. Which makes 15?",
+   "options": [
+    "10 + 5",
+    "10 + 10",
+    "5 + 5",
+    "2 + 2"
+   ],
+   "correct_index": 0,
+   "explanation": "10 and 5 make 15."
+  },
+  {
+   "prompt": "5 + 5 + 5 = ?",
+   "options": [
+    "15",
+    "10",
+    "20",
+    "55"
+   ],
+   "correct_index": 0,
+   "explanation": "Three 5-rupee notes make 15 rupees."
+  },
+  {
+   "prompt": "A crayon box is 5 rupees and watercolour is 10 rupees. Total?",
+   "options": [
+    "15 rupees",
+    "10 rupees",
+    "5 rupees",
+    "20 rupees"
+   ],
+   "correct_index": 0,
+   "explanation": "5 + 10 = 15."
+  },
+  {
+   "prompt": "Which is paper money?",
+   "options": [
+    "Note",
+    "Coin",
+    "Button",
+    "Bangle"
+   ],
+   "correct_index": 0,
+   "explanation": "Notes are paper money; coins are metal."
+  },
+  {
+   "prompt": "A ticket is 20 rupees. Jithu gives 10 + 10. Is it enough?",
+   "options": [
+    "Yes",
+    "No",
+    "Needs 5 more",
+    "Needs 10 more"
+   ],
+   "correct_index": 0,
+   "explanation": "10 + 10 = 20, exactly the price."
+  }
+ ]
+}

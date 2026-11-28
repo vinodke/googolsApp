@@ -1,0 +1,157 @@
+{
+ "key": "en-ICT-13",
+ "grade": 1,
+ "subject": "ICT",
+ "chapter_no": 13,
+ "lang": "en",
+ "title": "How Many are Left?",
+ "subtitle": "Taking away with the magician's hat",
+ "hero_picture": "Two blue mother birds looking sadly into a nest with only 2 eggs while a cat sits nearby, other birds flying above.",
+ "sections": [
+  {
+   "heading": "The bird's nest",
+   "text": [
+    "'Oh! There were 4 eggs!' cries the mother bird.",
+    "Now there are only 2 eggs in the nest.",
+    "How many eggs are lost?"
+   ],
+   "points": [
+    "Were: 4",
+    "Now: 2",
+    "Lost: 2"
+   ],
+   "caption": "The mother bird's nest",
+   "picture": "Two worried blue birds looking into a nest that has only 2 small eggs."
+  },
+  {
+   "heading": "Take away",
+   "text": [
+    "4 eggs, 2 are gone.",
+    "4 − 2 = 2.",
+    "Taking away makes the number smaller."
+   ],
+   "points": [
+    "Start with 4",
+    "Take away 2",
+    "2 are left"
+   ],
+   "caption": "Before and after",
+   "picture": "A nest with 4 eggs on one side and the same nest with 2 eggs on the other side, an arrow between them (no text)."
+  },
+  {
+   "heading": "Fruits on a plate",
+   "text": [
+    "There are 6 oranges on a plate.",
+    "Appu takes 2.",
+    "6 − 2 = 4 oranges are left."
+   ],
+   "points": [
+    "Start with 6",
+    "Take 2",
+    "4 left"
+   ],
+   "caption": "Taking oranges away",
+   "picture": "Six oranges on a plate and a child's hand taking 2 away, 4 left on the plate."
+  },
+  {
+   "heading": "The magician's hat −",
+   "text": [
+    "Open 'The magician hat −' game.",
+    "Click the hat: some stars go in and out.",
+    "Count the stars left under the hat and answer."
+   ],
+   "points": [
+    "Click the hat",
+    "Stars go out",
+    "Count what is left"
+   ],
+   "caption": "Magic hat takes stars",
+   "picture": "A green chalkboard with gold stars, a purple magician's hat taking some stars away (no numbers)."
+  },
+  {
+   "heading": "Share and count",
+   "text": [
+    "Hari has 5 biscuits.",
+    "He gives 3 to his friends.",
+    "5 − 3 = 2 biscuits are left for him."
+   ],
+   "points": [
+    "Share with friends",
+    "5 − 3 = 2",
+    "Count what is left"
+   ],
+   "caption": "Sharing biscuits",
+   "picture": "Children sharing biscuits: a boy gives 3 of his 5 biscuits to his friends and has 2 left."
+  }
+ ],
+ "rhyme": [
+  "Four little eggs in a cosy nest,",
+  "Two rolled away, where's the rest?",
+  "Four take two, how many stay?",
+  "Two little eggs, hip hooray!"
+ ],
+ "activity": "Put 7 spoons on the table. Take away 3. Count how many are left and write 7 − 3 = 4.",
+ "talk": [
+  "How many eggs were there at first?",
+  "What does 'left' mean?",
+  "How many biscuits did Hari keep?"
+ ],
+ "summary": "To find how many are left, we take away and count what remains.",
+ "questions": [
+  {
+   "prompt": "4 eggs; 2 are lost. How many are left?",
+   "options": [
+    "2",
+    "6",
+    "4",
+    "1"
+   ],
+   "correct_index": 0,
+   "explanation": "4 − 2 = 2."
+  },
+  {
+   "prompt": "6 oranges; 2 are taken. How many are left?",
+   "options": [
+    "4",
+    "8",
+    "6",
+    "2"
+   ],
+   "correct_index": 0,
+   "explanation": "6 − 2 = 4."
+  },
+  {
+   "prompt": "5 biscuits; 3 are given. How many are left?",
+   "options": [
+    "2",
+    "8",
+    "3",
+    "5"
+   ],
+   "correct_index": 0,
+   "explanation": "5 − 3 = 2."
+  },
+  {
+   "prompt": "When we take away, the number becomes...",
+   "options": [
+    "Smaller",
+    "Bigger",
+    "The same",
+    "Ten"
+   ],
+   "correct_index": 0,
+   "explanation": "Taking away makes it smaller."
+  },
+  {
+   "prompt": "In the game we count the stars...",
+   "options": [
+    "Left under the hat",
+    "In the sky",
+    "On our shirt",
+    "In a book"
+   ],
+   "correct_index": 0,
+   "explanation": "Count the stars left under the hat."
+  }
+ ]
+}

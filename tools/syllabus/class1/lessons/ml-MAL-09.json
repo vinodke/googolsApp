@@ -1,0 +1,157 @@
+{
+ "key": "ml-MAL-09",
+ "grade": 1,
+ "subject": "മലയാളം",
+ "chapter_no": 9,
+ "lang": "ml",
+ "title": "വീട് കെട്ടണം ടിയാ ടിയാ",
+ "subtitle": "വീടും വീട്ടുകാരും",
+ "hero_picture": "A cosy Kerala home with a tiled roof and a small garden, a happy family in front of it: father, mother, grandmother, a boy and a girl, waving.",
+ "sections": [
+  {
+   "heading": "വീട് കെട്ടാം",
+   "text": [
+    "വീട് കെട്ടാൻ എന്തെല്ലാം വേണം?",
+    "പുല്ല് വെട്ടണം, തൂണ് നാട്ടണം.",
+    "മണ്ണ് കുഴയ്ക്കണം, ചുമര് കെട്ടണം."
+   ],
+   "points": [
+    "പുല്ല് വെട്ടണം",
+    "തൂണ് നാട്ടണം",
+    "ചുമര് കെട്ടണം"
+   ],
+   "caption": "ഒത്തുചേർന്ന് വീട് കെട്ടുന്നവർ",
+   "picture": "Villagers working together to build a small mud hut: one plants a wooden post, one mixes mud with water, one carries a bundle of dry grass for the thatched roof."
+  },
+  {
+   "heading": "കേക്ക് കൊണ്ടൊരു വീട്",
+   "text": [
+    "പൂങ്കിളി ഒരു ഭംഗിയുള്ള വീട് കണ്ടു.",
+    "അത് കേക്കുകൊണ്ടുള്ള വീടായിരുന്നു!",
+    "വീട് പറഞ്ഞു: ഇന്ന് എന്റെ പിറന്നാളാ."
+   ],
+   "points": [
+    "ഭംഗിയുള്ള വീട്",
+    "കേക്കുകൊണ്ടുള്ള വീട്",
+    "വീടിന്റെ പിറന്നാൾ"
+   ],
+   "caption": "കേക്കുവീടും പൂങ്കിളിയും",
+   "picture": "A cute little house made entirely of cake: cream walls, a roof of orange cake tiles, candy windows and a cherry on the chimney, on a green lawn; a colourful bird flying above it, looking amazed."
+  },
+  {
+   "heading": "എല്ലാവരും വന്നു",
+   "text": [
+    "ഉറുമ്പുകൾ വന്ന് കേക്കുസോഫ നൊട്ടിനുണഞ്ഞു.",
+    "മൈന അടുക്കള കൊത്തി രുചിച്ചു.",
+    "മയിൽ മിഠായിത്തലയണ തിന്നു."
+   ],
+   "points": [
+    "ഉറുമ്പുകൾ വന്നു",
+    "മൈന കൊത്തി",
+    "മയിൽ മിഠായി തിന്നു"
+   ],
+   "caption": "കേക്കുവീട്ടിലെ അതിഥികൾ",
+   "picture": "Inside the cake house: a row of red ants licking a sofa made of chocolate cake, a myna pecking a cake kitchen shelf, and a peacock happily eating a pillow made of sweets."
+  },
+  {
+   "heading": "കേക്കുവീട് ചിതറി",
+   "text": [
+    "മുന്നിലൂടെ നായ വന്നു. പിന്നിലൂടെ പൂച്ച വന്നു.",
+    "ഉറുമ്പുകൾ അവരെ കടിച്ചു. ആയ് ച്ഛീ! തുമ്മൽ!",
+    "കേക്കുവീട് ചിതറിത്തെറിച്ചു."
+   ],
+   "points": [
+    "നായയും പൂച്ചയും വന്നു",
+    "ഉറുമ്പുകൾ കടിച്ചു",
+    "കേക്കുവീട് ചിതറി"
+   ],
+   "caption": "തുമ്മിയ നായയും പൂച്ചയും",
+   "picture": "A brown puppy and an orange cat sneezing loudly, a few small ants on their noses; between them the cake house is breaking into pieces with cake crumbs flying everywhere; funny, not scary."
+  },
+  {
+   "heading": "എന്റെ വീട്ടിലുള്ളവർ",
+   "text": [
+    "അച്ഛൻ, അമ്മ, ചേട്ടൻ, അനിയത്തി, മുത്തശ്ശി.",
+    "വീട്ടുജോലികൾ എല്ലാവരും ചേർന്ന് ചെയ്യാം.",
+    "പാത്രം കഴുകാം, നിലം തുടയ്ക്കാം."
+   ],
+   "points": [
+    "വീട്ടിലുള്ളവർ",
+    "ഒന്നിച്ച് ജോലി",
+    "ഞാനും സഹായിക്കും"
+   ],
+   "caption": "ഒന്നിച്ച് ജോലി ചെയ്യുന്ന കുടുംബം",
+   "picture": "A Kerala family sharing kitchen work: the father cooking at the stove, the mother washing plates at the sink, a boy sweeping with a broom, a little girl mopping the floor, and the grandmother smiling."
+  }
+ ],
+ "rhyme": [
+  "എന്റെ വീട് കൊച്ചുവീട്",
+  "അച്ഛനുമമ്മയുമുള്ള വീട്",
+  "ഒത്തുചേർന്നു പണിയെടുത്താൽ",
+  "എന്നും ചിരിക്കും നല്ല വീട്!"
+ ],
+ "activity": "നിന്റെ വീട്ടിലുള്ളവരുടെ ചിത്രം വരയ്ക്കൂ. ഓരോരുത്തരുടെയും പേര് എഴുതൂ.",
+ "talk": [
+  "കേക്കുവീട് ചിതറിയത് എങ്ങനെ?",
+  "വീട്ടിൽ നീ ഏതു ജോലി ചെയ്യും?",
+  "നിന്റെ വീട്ടിൽ ആരെല്ലാമുണ്ട്?"
+ ],
+ "summary": "വീട് എല്ലാവരുടേതുമാണ്; വീട്ടുജോലികൾ ഒന്നിച്ച് ചെയ്യാം.",
+ "questions": [
+  {
+   "prompt": "വീടിന്റെ ചുമര് കെട്ടാൻ എന്തു കുഴയ്ക്കണം?",
+   "options": [
+    "മണ്ണ്",
+    "പാൽ",
+    "മഷി",
+    "തേൻ"
+   ],
+   "correct_index": 0,
+   "explanation": "മണ്ണ് കുഴച്ച് ചുമര് കെട്ടാം."
+  },
+  {
+   "prompt": "പൂങ്കിളി കണ്ട വീട് എന്തുകൊണ്ടുള്ളതായിരുന്നു?",
+   "options": [
+    "കേക്ക്",
+    "കല്ല്",
+    "ഇരുമ്പ്",
+    "മഞ്ഞ്"
+   ],
+   "correct_index": 0,
+   "explanation": "അത് കേക്കുകൊണ്ടുള്ള വീടായിരുന്നു."
+  },
+  {
+   "prompt": "കേക്കുസോഫ നൊട്ടിനുണഞ്ഞത് ആര്?",
+   "options": [
+    "ഉറുമ്പുകൾ",
+    "ആന",
+    "മീൻ",
+    "പശു"
+   ],
+   "correct_index": 0,
+   "explanation": "ഉറുമ്പുകൾ വന്ന് സോഫ നൊട്ടിനുണഞ്ഞു."
+  },
+  {
+   "prompt": "നായയും പൂച്ചയും തുമ്മിയത് എന്തുകൊണ്ട്?",
+   "options": [
+    "ഉറുമ്പുകൾ കടിച്ചു",
+    "മഴ നനഞ്ഞു",
+    "പാട്ടു കേട്ടു",
+    "ഉറങ്ങിപ്പോയി"
+   ],
+   "correct_index": 0,
+   "explanation": "ഉറുമ്പുകൾ കടിച്ചപ്പോൾ അവർ തുമ്മി; കേക്കുവീട് ചിതറി."
+  },
+  {
+   "prompt": "വീട്ടുജോലികൾ ആരെല്ലാം ചെയ്യണം?",
+   "options": [
+    "എല്ലാവരും ചേർന്ന്",
+    "അമ്മ മാത്രം",
+    "ആരും വേണ്ട",
+    "അതിഥികൾ മാത്രം"
+   ],
+   "correct_index": 0,
+   "explanation": "വീട്ടിലുള്ളവർ എല്ലാവരും ചേർന്ന് ജോലി ചെയ്യാം."
+  }
+ ]
+}
