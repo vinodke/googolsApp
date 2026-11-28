@@ -20,7 +20,13 @@ export function AuthShell({ children }: { children: ReactNode }) {
         </div>
         <span style={{ opacity: 0.75, fontSize: 'var(--text-sm)', position: 'relative', zIndex: 1 }}>googols.in</span>
       </aside>
-      <div className="auth-form-wrap fade-in">{children}</div>
+      <div className="auth-form-wrap fade-in">
+        <a href="/" className="auth-mobile-brand" aria-label="Googols home">
+          <span className="brand-mark" aria-hidden>G</span>
+          <span><span className="brand-name">Googols</span><span className="brand-sub">Learn Smarter. Grow Further.</span></span>
+        </a>
+        {children}
+      </div>
     </div>
   )
 }

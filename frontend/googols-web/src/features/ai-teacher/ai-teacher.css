@@ -20,9 +20,25 @@
 .typing span:nth-child(2) { animation-delay: .15s; }
 .typing span:nth-child(3) { animation-delay: .3s; }
 @keyframes blink { 50% { opacity: .3; } }
+.teacher-id { flex: 1; min-width: 220px; }
 @media (max-width: 760px) {
-  .teacher { height: calc(100vh - 190px); min-height: 420px; padding: var(--space-3); }
-  .teacher-bar select { flex: 1; }
+  /* Full-height chat screen between the app header and the tab bar, like a messaging app. */
+  .teacher {
+    height: calc(100dvh - 60px - 64px - env(safe-area-inset-top) - env(safe-area-inset-bottom) - var(--space-4) * 2);
+    min-height: 380px; padding: var(--space-3); gap: var(--space-2);
+  }
+  .teacher-bar { gap: var(--space-2); padding-bottom: var(--space-2); }
+  .teacher-id { min-width: 0; flex: 1 1 100%; }
+  .teacher-bar select { flex: 1 1 120px; min-width: 0; }
+  .teacher-bar .segmented button { padding: 0 var(--space-3); }
+  .teacher-avatar { width: 38px; height: 38px; border-radius: 12px; }
+  .chat .empty { padding: var(--space-4) var(--space-2); }
+  .bubble { max-width: 92%; }
+  .composer { gap: 4px; padding: 6px; border-radius: 26px; }
+  .composer .icon-btn { width: 38px; height: 38px; border: 0; background: var(--color-surface-2); }
+  .composer textarea.input { min-width: 0; padding: 8px 6px; min-height: 40px; }
+  .send-btn { width: 44px; padding: 0; border-radius: 50%; flex: none; }
+  .send-label { display: none; }
 }
 .history { display: grid; gap: var(--space-2); max-height: 220px; overflow-y: auto; padding: var(--space-2); border-radius: var(--radius-md); background: var(--color-surface-2); border: 1px solid var(--color-border); }
 .history-item { display: grid; gap: 2px; text-align: left; padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); border: 1px solid transparent; background: var(--color-surface); color: inherit; font: inherit; cursor: pointer; }

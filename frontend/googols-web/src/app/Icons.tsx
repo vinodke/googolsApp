@@ -27,6 +27,7 @@ const paths: Record<string, ReactNode> = {
   stop: <rect x="6" y="6" width="12" height="12" rx="2" />,
   thumbUp: <><path d="M7 11v9H4v-9z" /><path d="M7 11l4-8a2.5 2.5 0 0 1 2.5 2.5V9h5.2a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.5 20H7" /></>,
   thumbDown: <><path d="M7 13V4H4v9z" /><path d="M7 13l4 8a2.5 2.5 0 0 0 2.5-2.5V15h5.2a2 2 0 0 0 2-2.3l-1.2-7A2 2 0 0 0 17.5 4H7" /></>,
+  grid: <><rect x="3.5" y="3.5" width="7" height="7" rx="2" /><rect x="13.5" y="3.5" width="7" height="7" rx="2" /><rect x="3.5" y="13.5" width="7" height="7" rx="2" /><rect x="13.5" y="13.5" width="7" height="7" rx="2" /></>,
   x: <path d="M6 6l12 12M18 6 6 18" />,
   bookmark: <path d="M6 3h12v18l-6-4.5L6 21z" />,
   clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,

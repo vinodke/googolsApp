@@ -182,7 +182,7 @@ export function AiTeacherPage() {
   return (
     <div className="teacher card">
       <div className="teacher-bar">
-        <div className="row" style={{ flex: 1, minWidth: 220 }}>
+        <div className="row teacher-id">
           <span className="teacher-avatar" aria-hidden><Icon name="sparkles" size={22} /></span>
           <div style={{ lineHeight: 1.2 }}>
             <strong>{t.navAiTeacher}</strong>
@@ -270,7 +270,7 @@ export function AiTeacherPage() {
         <textarea id="q" className="input" rows={2} maxLength={4000} placeholder={dictation.listening ? t.listening : t.typeQuestion} value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); void send(input) } }} />
-        <button className="btn btn-primary" disabled={!canSend}><Icon name="send" size={18} /> {t.send}</button>
+        <button className="btn btn-primary send-btn" disabled={!canSend} aria-label={t.send}><Icon name="send" size={18} /> <span className="send-label">{t.send}</span></button>
       </form>
     </div>
   )
