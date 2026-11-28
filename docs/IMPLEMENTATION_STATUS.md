@@ -164,3 +164,13 @@ Also: role changes and locks now reach existing sessions within 1 minute (securi
 - Runs as Azure Container Instance `googols-images-<class>`: `bash tools/syllabus/start_image_job.sh <class>` from Cloud Shell. Packages come from a wheel bundle in blob `deploy/jobs/wheels.tgz` (the container's PyPI connection drops). Watch: `az container logs -g googols-rg -n googols-images-<class>`; delete the container when done.
 - Class 1 started (97 lessons, both mediums). Skips lessons that already have an attachment, so re-running is safe.
 - Frontend shows image attachments inline on the lesson page (committed, **not yet deployed**).
+
+## Class 1 picture lessons (28 Nov 2026) - published
+
+All Class 1 KL-SCERT lessons (Malayalam 16, English 7, Maths 11, ICT 15; both mediums = 98 lessons) now have hand-written text, 6 pictures and a summary poster each. Sources: `tools/syllabus/class1/` (lessons JSON, picture prompts, `compose_all.sh`, `upload_pics.sh`); publish with `tools/syllabus/publish_class1.py` (dry run first).
+
+- Deployed with the lesson picture endpoint `GET /api/v1/learning/lessons/{id}/pictures/{pic-N|poster}`; tests passed, `/health` 200.
+- Blob `lesson-files/lessons/{lessonId}/`: 686 pictures. DB: 98 lessons updated, 490 new questions (old ones archived), 980 AI-teacher chunks.
+- Rollback file: `class1_publish_rollback_20261128025027.json` (copy kept on the owner's PC as rollback.json).
+- Cloud Shell has no fribidi, so Malayalam posters need `LD_LIBRARY_PATH=~/lib` with libfribidi from Ubuntu's archive (see the class1 README notes in this section).
+- Chapter titles in the DB still carry suffixes such as "(Read and Rejoice)"; lesson titles are the book titles.
